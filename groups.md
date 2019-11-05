@@ -14,7 +14,7 @@
 | Savita | Owen    | Elisandra |
 | Aransa |
 
-## Todo today
+## To start off
 * Assemble into your groups.
 * Pick a team name.
 * Discuss the project.
