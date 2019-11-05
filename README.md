@@ -28,12 +28,12 @@ Each group member should have an account on [Trello](https://trello.com/) and th
 
 The expectation is that everyone in a group is chiefly occupied with writing code.  In addition to that, the following roles are important for someone to have explicit ownership of:
 
-|Role|Responsibilities|
-|:-------------:|:------------:|
-| Technical Lead | In charge of maintaining the health of master branch and ensure that master is always safe to pull from.  Makes final decisions on project architecture in conversation with other team members |
-| Project Manager | Is responsible for the health of the Trello or board.  Organizes daily standups |
-| UI/UX | Is responsible for the design and flow of the app |
-| PR Review Process | Is responsible for ensuring that PRs into master are reviewed, and that all team members are reviewing each other's PRs |
+|       Role        |                                                                                        Responsibilities                                                                                         |
+| :---------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|  Technical Lead   | In charge of maintaining the health of master branch and ensure that master is always safe to pull from.  Makes final decisions on project architecture in conversation with other team members |
+|  Project Manager  |                                                         Is responsible for the health of the Trello or board.  Organizes daily standups                                                         |
+|       UI/UX       |                                                                        Is responsible for the design and flow of the app                                                                        |
+| PR Review Process |                                     Is responsible for ensuring that PRs into master are reviewed, and that all team members are reviewing each other's PRs                                     |
 
 
 ## Back-End
@@ -45,31 +45,33 @@ Create a full RESTful API using the social media database structure described be
   - GET `/users/:id` - Get single user.
   - POST `/users` - Add single user.
   - DELETE `/users/:id` - Delete user with the corresponding `id`.
+
 - **Posts**
   - GET `/posts` - Get all posts.
   - GET `/posts/:id` - Get single post.
   - POST `/posts` - Add single post.
   - PATCH `/posts/:id` - Edit single post.
   - DELETE `/posts/:id` - Delete single post.
+
 - **Likes**
-  - GET `/likes` - Get all likes.
-  - GET `/likes/posts/:id` - Get all likes for a single post.
-  - POST `/likes/posts/:id` - Add single like.
-  - DELETE `/likes/:id` - Delete single like.
+  - GET `/likes/posts/:post_id` - Get all likes for a single post.
+  - POST `/likes/posts/:post_id` - Add single like.
+  - DELETE `/likes/:post_id/:liker_id` - Delete single like.
+
 - **Comments**
-  - GET `/comments` - Get all comments.
-  - GET `/comments/posts/:id` - Get all comments for a single post.
-  - POST `/comments/posts/:id` - Add single comment.
-  - PATCH `/comments/:id` - Edit single comment.
-  - DELETE `/comments/:id` - Delete single comment.
+  - GET `/comments/posts/:post_id` - Get all comments for a single post.
+  - POST `/comments/posts/:post_id/:commenter_id` - Add single comment.
+  - PATCH `/comments/:post_id/:commenter_id` - Edit single comment.
+  - DELETE `/comments/:post_id/:commenter_id` - Delete single comment.
+
 - **Albums**
-  - GET `/albums` - Get all albums.
-  - POST `/albums` - Add new album.
+  - GET `/albums/:owner_id` - Get all albums that belong to a user.
+  - POST `/albums/:owner_id` - Create new empty album for user.
+
 - **Pictures**
-  - GET `/pictures` - Get all pictures.
-  - GET `/pictures/albums/:id` - Get all pictures for a single album.
-  - POST `/pictures/albums/:id` - Add single picture.
-  - DELETE `/pictures/:id` - Delete single picture.
+  - GET `/pictures/albums/:album_id` - Get all pictures for a single album.
+  - POST `/pictures/albums/:album_id` - Add single picture to album.
+  - DELETE `/pictures/:pic_id` - Delete single picture.
 
 The responses from your Express app should have three keys: `status`, `message`, and `body`. For example, when I send a GET request for a single user, I should get back something that looks like this:
 
@@ -96,9 +98,9 @@ Have a table of contents page that contains hyperlinks to all of the other pages
 
 ### Posts Feed
 
-- Display all posts from all users in chronographical order
+- Display all posts from all users in chronological order
 - Include the number of likes in each post as well as the user
-- Display all commonets from each post
+- Display all comments from each post
 - Create a new post
 - Create a new comment for a given post
 
