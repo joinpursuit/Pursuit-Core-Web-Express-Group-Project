@@ -16,13 +16,15 @@
 
 ## To start off
 * Assemble into your groups.
-* Pick a team name.
-* Discuss the project.
-* Agree on roles for every team member.
+* Pick an App name.
 * Get acquainted with [trello](https://trello.com).
-* Start working on Wireframes. 
+* Discuss the project. 
+* Agree on roles for every team member. (add this as ticket on trello)
+* Review sample group norms and establish your own. (add this as a ticket on trello)
+* Start working on Wireframes. (break down an add as tickets on trello)
   * https://wireframe.cc/
   * https://www.draw.io/
   * Drawing with pen and paper. Upload photo of drawing to trello.
 * Break down the project into 7-10 **major tasks**. Add them as tickets/cards to trello board.
 * Break down **major tasks** into sub(smaller) tasks. Add them as tickets/cards to trello board.
+* **NO CODE WILL BE WRITTEN TODAY**
