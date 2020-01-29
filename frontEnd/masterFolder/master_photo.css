@@ -1,0 +1,11 @@
+body{
+    background-color: lightblue;
+}
+.owner_info_box{
+    border: solid;
+    margin-top: 5%;
+    margin-left: 2%;
+    margin-right: 85%;
+    height: 250px;
+    width: 15%;
+}
