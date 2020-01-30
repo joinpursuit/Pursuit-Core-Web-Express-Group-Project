@@ -2,6 +2,7 @@ DROP DATABASE IF EXISTS cipher_db;
 CREATE DATABASE cipher_db;
 
 \c cipher_db;
+
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS posts;
 DROP TABLE IF EXISTS likes;
@@ -22,9 +23,15 @@ CREATE TABLE users(
 
 CREATE TABLE posts(
     id SERIAL PRIMARY KEY,
-    posters_id INT REFERENCES users(id),
+    poster_id INT REFERENCES users(id),
     body text,
     time_stamp date
+);
+CREATE TABLE comments(
+    id SERIAL PRIMARY KEY,
+    commenters_id INT REFERENCES users(id),
+    comment_post_id INT REFERENCES posts(id),
+    body text
 );
 
 CREATE TABLE likes(
@@ -35,18 +42,11 @@ CREATE TABLE likes(
 );
 
 
-CREATE TABLE comments(
-    id SERIAL PRIMARY KEY,
-    commenters_id INT REFERENCES users(id),
-    comment_post_id INT REFERENCES posts(id),
-    body text
-);
-
 
 CREATE TABLE albums(
     id SERIAL PRIMARY KEY,
     albums_id INT REFERENCES users(id),
-    name text, 
+    album_name text, 
     thumbnail text, 
     time_stamp date
 );
@@ -60,5 +60,6 @@ CREATE TABLE photos(
     time_stamp date
 );
 
--- INSERT INTO users (id, name, email, date_of_birth, gender, profile_pic, join_date)
--- VALUES(1, "Rafid", "rafidhos9@gmail.com", "July 11 1995", "Male", "Profile Pic added", "07/11/2015");
+INSERT INTO users(id, full_name, email, date_of_birth, gender, profile_pic, join_date)
+VALUES(1, 'Rafid Hossain', 'rafidhos9@gmail.com', 'July 11 1995', 'male', 'new profile pic', '12/10/2012'),
+(2, 'Henry Nunez', 'henrynunez@pursuit.org', 'October 11 1991','male', 'no profile pic', '12/12/2010')
