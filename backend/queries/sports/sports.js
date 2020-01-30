@@ -37,7 +37,6 @@ const getSportEvents = async (req, res) => {
 const getEventById = async (req, res) => {
     let {eventId} = req.params;
     let response = await fetchData(`https://therundown-therundown-v1.p.rapidapi.com/events/${eventId}`)
-    console.log(response);
     res.json({
         status: "success",
         message: "Retrieved the event",
