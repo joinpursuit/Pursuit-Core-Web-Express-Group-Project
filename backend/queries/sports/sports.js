@@ -34,4 +34,14 @@ const getSportEvents = async (req, res) => {
     })
 } // End of getSportEvents() function
 
-module.exports = {getAllSports, getSportEvents};
+const getEventById = async (req, res) => {
+    let {eventId} = req.params;
+    let response = await fetchData(`https://therundown-therundown-v1.p.rapidapi.com/events/${eventId}`)
+    res.json({
+        status: "success",
+        message: "Retrieved the event",
+        data: response
+    })
+} // End of getEventsById() function
+
+module.exports = {getAllSports, getSportEvents, getEventById};
