@@ -1,5 +1,5 @@
 // Get all users
-
+const db = require ("../db/index")
 
 const getAllUsers = async(res, req, next) =>{
     try{
