@@ -1,4 +1,4 @@
-const db = require("../db/index.js")
+const db = require("../../db/index.js")
 
 const getAllUsers = async(req, res, next) => {
     try {
