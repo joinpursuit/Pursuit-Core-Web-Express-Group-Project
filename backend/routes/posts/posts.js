@@ -66,3 +66,5 @@ app.delete("/:id", (req, res) => {
         next(err);
     };
 });
+
+//escape from commit is :wq!
