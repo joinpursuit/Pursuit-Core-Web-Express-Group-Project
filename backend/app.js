@@ -19,4 +19,4 @@ app.use("/posts", postsRouter);
 app.use("/sports", sportsRouter);
 app.use("/users", usersRouter);
 
-app.listen(ports, () => console.log("Listening on port ", port));
+app.listen(port, () => console.log("Listening on port ", port));
