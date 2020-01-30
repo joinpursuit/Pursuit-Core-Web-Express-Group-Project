@@ -29,7 +29,7 @@ const addLike = (req, res, next) =>{
 
 const deleteOneLike = (req, res, next) =>{
     try{
-        let deleteLikes = await db.one("DELETE * FROM Likes WHERE id = $1", req.params.id)
+        let deleteLikes = await db.one("DELETE * FROM Likes WHERE id = $1", req.params.id);
         res.status(200).json({
             status:"message",
             message: "Like deleted",
