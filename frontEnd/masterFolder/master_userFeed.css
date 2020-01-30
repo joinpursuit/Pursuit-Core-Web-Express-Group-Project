@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    color: white;
+    background-color: orange;
+}
+
+#mainDiv{
+    height: 100vh;
+    width: 100%;
+    display: grid;
+    /* grid-column: 100px 3fr 100px; */
+    grid-template-columns: 1fr 100px 2fr;
+}
+
+/* #headerDiv {
+    display: grid;
+    
+} */
+
+#userProfileDiv {
+    background-color: white;
+    display: grid;
+    /* grid-column: 2 / -1; */
+    /* display: grid; */
+    float: right; 
+    width: 25%;
+    /* padding-left: 20px; */
+    /* justify-content: center; */
+    height: 100vh;
+}
+
+#feedDiv {
+    background-color: purple;
+    display: grid;
+    grid-column: 1 / 2;
+    /* padding-right: ; */
+    /* float: right; */
+    width: 75%;
+    /* height: 100vh; */
+
+}
