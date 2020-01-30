@@ -1,36 +1,40 @@
-app.get("/", (req, res) => {
+const users = require("express").Router();
+const db = require('../../db/index.js');
+
+
+users.get("/", (req, res) => {
     try {
-        let users = db.any("SELECT * FROM users");
+        let usersDB = db.any("SELECT * FROM users");
         res.json({
             status: "success",
             message: "got all users",
             body: {
-                users
+                usersDB
             }
         });
     } catch(error) {
-        next(err);
+        console.log(error);
     };
 });
 
-app.get("/:id", (req, res) => {
+users.get("/:id", (req, res) => {
     try {
-        let users = db.one ("SELECT * FROM users WHERE id = $1 ", [req.params.id]);
+        let usersDB = db.one ("SELECT * FROM users WHERE id = $1 ", [req.params.id]);
         res.json({
             status: "success",
             message: "got specific user information",
             body: {
-                users
+                usersDB
             }
         });
     } catch(error) {
-        next(err);
+        console.log(error);
     };
 });
 
-app.post("/", (req, res) => {
+users.post("/", (req, res) => {
     try {
-        let users = await db.one("INSERT INTO users (first_name, last_name, age, profile_image, about_statement) VALUES (${first_name}, ${last_name), ${age}, ${profile_image}, ${about_statement}) RETURNING *", req.body);
+        let usersDB = db.one("INSERT INTO users (first_name, last_name, age, profile_image, about_statement) VALUES (${first_name}, ${last_name), ${age}, ${profile_image}, ${about_statement}) RETURNING *", req.body);
         res.json({
             status: "success",
             message: "created new user",
@@ -40,13 +44,13 @@ app.post("/", (req, res) => {
             }
         });
     } catch(error) {
-        next(err);
+        console.log(error);
     };
 })
 
-app.delete("/:id", (req, res) => {
+users.delete("/:id", (req, res) => {
     try {
-        await db.none("DELETE FROM users WHERE id = $1", [req.params.id]);
+        db.none("DELETE FROM users WHERE id = $1", [req.params.id]);
         res.json({
             status: "success",
             message: "deleted a single user",
@@ -57,6 +61,8 @@ app.delete("/:id", (req, res) => {
             }
         });
     } catch(error) {
-        next(err);
+        console.log(error);
     };
 });
+
+module.exports = users
