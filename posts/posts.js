@@ -1,5 +1,6 @@
 const posts = require("express").Router();
 
+
 posts.get("/", getPosts);
 
 posts.get("/:id", getPost);
