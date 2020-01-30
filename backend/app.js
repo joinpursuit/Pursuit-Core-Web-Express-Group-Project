@@ -12,6 +12,7 @@ const usersRouter = require("./routes/users/users");
 app.use(cors());
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json());
+
 app.use("/bets", betsRouter);
 app.use("/posts", postsRouter);
 app.use("/users", usersRouter);
