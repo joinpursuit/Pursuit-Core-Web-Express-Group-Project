@@ -9,7 +9,7 @@ const fetchData = async (url) => {
 
     try {
         let res =  await axios.get(url, config);
-        return res.data.sports
+        return res.data
     } catch(err) {
         console.log(err);
     }
@@ -20,8 +20,18 @@ const getAllSports = async (req, res) => {
     res.json({
         status: "success", 
         message: "Retrieved all sports",
-        data: response
+        data: response.sports
     })
 } // End of getAllSports() function
 
-module.exports = {getAllSports};
+const getSportEvents = async (req, res) => {
+    let {sportId} = req.params;
+    let response = await fetchData(`https://therundown-therundown-v1.p.rapidapi.com/sports/${sportId}/events`);
+    res.json({
+        status: "success",
+        message: "Retrieved all events for your sport",
+        data: response.events
+    })
+} // End of getSportEvents() function
+
+module.exports = {getAllSports, getSportEvents};
