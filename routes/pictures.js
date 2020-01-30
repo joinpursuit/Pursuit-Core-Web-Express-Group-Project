@@ -1,0 +1,1 @@
+const pictures = require("express").Router()
