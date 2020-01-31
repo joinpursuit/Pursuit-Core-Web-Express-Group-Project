@@ -1,9 +1,8 @@
-// const comments = require("express").Router();
-// const { getUsers, getUser, createUser, deleteUser } = require("../PGpromise/queries/users")
+const comments = require("express").Router();
+const { getCommentsPost, addComment, updateComment, deleteComment } = require("/Users/jovanni/Desktop/Projects/groupExpressProject/Pursuit-Core-Web-Express-Group-Project/backend/queries/comments/commentsquiery.js");
 
-// comments.get("/comments/posts/:post_id", );
-// comments.post("/comments/posts/:post_id/:commenter_id", );
-// comments.patch("/comments/:post_id/:commenter_id", );
-// comments.delete("/comments/:post_id/:commenter_id", )
-
-// module.exports = comments
+comments.get("/posts/:post_id", getCommentsPost);
+comments.post("/posts/:post_id/:user_id", addComment);
+comments.patch("/:post_id/:user_id", updateComment);
+comments.delete("/:post_id/:user_id", deleteComment);
+module.exports = comments
