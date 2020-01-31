@@ -63,3 +63,4 @@ CREATE TABLE photos(
 INSERT INTO users(id, full_name, email, date_of_birth, gender, profile_pic, join_date)
 VALUES(1, 'Rafid Hossain', 'rafidhos9@gmail.com', 'July 11 1995', 'male', 'new profile pic', '12/10/2012'),
 (2, 'Henry Nunez', 'henrynunez@pursuit.org', 'October 11 1991','male', 'no profile pic', '12/12/2010')
+
