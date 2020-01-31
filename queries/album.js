@@ -1,4 +1,4 @@
-const db = require ("../db/index")
+const db = require ("../db/index.js")
 
 // Get all albums that belong to a user.
 const getAlbum = (req, res, next) =>{

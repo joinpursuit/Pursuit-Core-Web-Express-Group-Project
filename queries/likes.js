@@ -1,4 +1,4 @@
-const db = require ("../db/index")
+const db = require ("../db/index.js")
 
 const getAllLikes = (req, res, next)=>{
     try{
