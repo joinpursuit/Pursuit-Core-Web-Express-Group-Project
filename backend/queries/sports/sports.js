@@ -3,7 +3,7 @@ const axios = require("axios");
 const fetchData = async (url) => {
     let config = {
         headers: {
-            "x-rapidapi-key": "141c23a7d4msh5ef06f55c75a949p136086jsnd07e585c2813",
+            "x-rapidapi-key": "141c23a7d4msh5ef06f55c75a949p136086jsnd07e585c2813"
         }
     }
 
