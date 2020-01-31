@@ -29,7 +29,7 @@ const getSingleUserById = async (req, res, next) => {
   }
 };
 
-const insertSingleUsers = async (req, res, next) => {
+const insertSingleUser = async (req, res, next) => {
   try {
     let { username, password, bio, propicURL } = req.body;
     let user = await db.one(
@@ -93,7 +93,7 @@ const searchUserByName = async (req, res, next) => {
 module.exports = {
   getAllUsers,
   getSingleUserById,
-  insertSingleUsers,
+  insertSingleUser,
   deleteUsersById,
   searchUserByName
 };
