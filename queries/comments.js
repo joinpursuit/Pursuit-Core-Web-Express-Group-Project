@@ -19,7 +19,7 @@ const getAllComments = async (req, res, next) => {
 
 const getSingleComment = async (req, res, next) => {
     try {
-        let singleComment = await db.one("")
+        let singleComment = await db.one("SELECT ");
         res.status(200).json({
             status: "status",
             message: "got the single comment",
@@ -32,7 +32,7 @@ const getSingleComment = async (req, res, next) => {
 
 const editSingleComment = async (req, res, next) => {
     try {
-        let editComment = await db.one();
+        let editComment = await db.one("U");
         res.status(200).json({
             status: "status",
             message: "the single comment is now edited",

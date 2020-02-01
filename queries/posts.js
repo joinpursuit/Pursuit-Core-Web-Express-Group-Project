@@ -56,11 +56,16 @@ const deletePost = async (req, res, next) =>{
 
 const editPost = async (req, res, next)=>{
     try{
-        let edit = await db.one(`UPDATE posts SET body = , time_stamp =  `)
+        let edit = await db.one(`UPDATE posts SET body = '${req.body.body}' WHERE id=${req.params.id} RETURNING *`);
+        res.status(200).json({
+            status: "status",
+            message: "Your status is now updates",
+            body: edit
+        })
     }catch(err){
         next(err)
     }
 }
 
 
-module.exports = {getAllPost, getUserPosts, registerPosts, deletePost}
+module.exports = {getAllPost, getUserPosts, registerPosts, deletePost, editPost}
