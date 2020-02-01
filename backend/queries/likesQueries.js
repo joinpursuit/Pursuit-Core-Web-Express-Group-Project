@@ -11,18 +11,27 @@ const getLikesForSingle = async(req, res, next) => {
               }
         })
     } catch(error) {
-        console.log("error")
+        res.json({
+            error:error
+        })
     }
 }
 
-const addSingleLike = (req, res, next) => {
+const addSingleLike = async(req, res, next) => {
     try{
         res.status(200).json({
             status: "Success",
-            message: "add a like to post_id by liker_id"
+            message: "add a like to post_id by liker_id",
+            body:{
+                liker_id: req.params.liker_id,
+                post_id:req.params.post_id,
+                result: await db.one('INSERT INTO likes (liker_id, post_id) VALUES($1, $2) RETURNING *',[req.params.liker_id, req.params.post_id])
+            }
         })
     } catch(error) {
-        console.log("error")
+        res.json({
+            error:error
+        })
     }
 }
 
@@ -33,7 +42,9 @@ const deleteSingleLike = (req, res, next) => {
             message: "delete a like by liker_id"
         })
     } catch(error) {
-        console.log("error")
+        res.json({
+            error:error
+        })
     }
 }
 

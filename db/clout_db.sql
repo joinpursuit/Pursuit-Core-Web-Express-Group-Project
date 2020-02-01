@@ -54,7 +54,8 @@ CREATE TABLE pictures(
 CREATE TABLE likes(
     id SERIAL PRIMARY KEY,
     liker_id INT REFERENCES users(id) ON DELETE CASCADE,
-    post_id INT REFERENCES posts(id) ON DELETE CASCADE
+    post_id INT REFERENCES posts(id) ON DELETE CASCADE,
+    CONSTRAINT UC_like UNIQUE (liker_id,post_id)
 );
 
 
@@ -106,7 +107,7 @@ VALUES
     (4, 'https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fcdn-image.travelandleisure.com%2Fsites%2Fdefault%2Ffiles%2Fstyles%2F1600x1000%2Fpublic%2F1507053534%2F00-lead-plane-flying-clouds-LASTMINUTEHACKS1017.jpg%3Fitok%3DYHo_gGPL&q=85', 5),
     (5, 'https://seoimgak.mmtcdn.com/blog/sites/default/files/images/Lake-Louise.jpg', 1);
 
-
+-- SELECT * FROM posts JOIN LIKES ON posts.id = likes.post_id WHERE posts.id = 4
 INSERT INTO likes
     (liker_id, post_id)
 VALUES
