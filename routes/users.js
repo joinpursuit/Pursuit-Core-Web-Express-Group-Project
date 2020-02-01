@@ -45,3 +45,5 @@ users.delete("/users/:id",(res,req)=>{
         body:"test"
     })
 })
+
+module.export = users
