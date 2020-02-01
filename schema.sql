@@ -4,6 +4,13 @@ CREATE DATABASE Trippin_db;
 
 \c Trippin_db;
 
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS post;
+DROP TABLE IF EXISTS comments;
+DROP TABLE IF EXISTS likes;
+DROP TABLE IF EXISTS albums;
+DROP TABLE IF EXISTS pictures;
+
 CREATE TABLE users
 (
     user_id SERIAL PRIMARY KEY,
@@ -55,11 +62,11 @@ CREATE TABLE pictures
 INSERT INTO users
     (username,password,firstname,lastname,birthday,profile_pic)
 VALUES
-(Agent_Smith,EatSteak1,John, Smith,01/01/1990,'../../avatars/3.eps)',
-(HAL,Daisy1,Stanley,Kubrik,06/26/1928,'../../avatars/4.eps)',
-(Flower_Girl,Fauna12,Blossom, Utopium, 11/18/1998,'../../avatars/5.eps)',
-(Sports_fiend,Stadium12,Vince, Campbell,08/30/1940,'../../avatars/6.eps)',
-(Griph,Karma12,Geoff,Ramsey,04/01/03,'../../avatars/7.eps)';
+('Agent_Smith','EatSteak1','John', 'Smith',01/01/1990,'../../avatars/3.eps)',
+('HAL','Daisy1','Stanley','Kubrik',06/26/1928,'../../avatars/4.eps)',
+('Flower_Girl','Fauna12','Blossom', 'Utopium', 11/18/1998,'../../avatars/5.eps)',
+('Sports_fiend','Stadium12','Vince', 'Campbell',08/30/1940,'../../avatars/6.eps)',
+('Griph','Karma12','Geoff','Ramsey',04/01/03,'../../avatars/7.eps)';
 
 -- -- INSERT INTO post
 -- (poster_id,image,caption)
