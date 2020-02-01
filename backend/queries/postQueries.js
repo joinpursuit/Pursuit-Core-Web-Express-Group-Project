@@ -33,7 +33,6 @@ const insertSinglePost = async (req, res, next) => {
   try {
     let { poster_id, imgURL, description } = req.body;
     let single_post = await db.one(
-      "INSERT INTO posts (poster_id, imgURL, description) VALUES ($1, $2, $3)",
       "INSERT INTO posts (poster_id, imgURL, description) VALUES ($1, $2, $3) RETURNING *",
       [poster_id, imgURL, description]
     );
