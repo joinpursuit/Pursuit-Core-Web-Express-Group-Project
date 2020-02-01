@@ -7,6 +7,6 @@ const {
 
 pictures.get("/albums/:album_id", getAllPicturesByAlbum); // queries all the posts
 pictures.post("/albums/:album_id", addSinglePicture); // uplaods a single picture
-pictures.delete("/:pic_id", deleteSinglePicture); // deletes a single picture
+pictures.delete("/:id", deleteSinglePicture); // deletes a single picture
 
 module.exports = pictures;
