@@ -3,9 +3,8 @@ const cors = require("cors");
 //const axios = require("axios")
 const bodyParser = require("body-parser");
 const port = 3000;
-const postsRouter = require("../routes/posts/posts")
-
 const app = express();
+const postsRouter = require("../routes/posts/posts.js")
 
 app.use(cors());
 app.use(bodyParser.urlencoded({extended: false}));
