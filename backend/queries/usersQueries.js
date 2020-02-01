@@ -79,13 +79,12 @@ const searchUserByName = async (req, res, next) => {
           user
         }
       });
-    } else {
-      res.json({
-        status: "Error",
-        message: "No results found"
-      });
     }
   } catch (error) {
+    res.json({
+      status: "Error",
+      message: "No results found"
+    });
     next(error);
   }
 };
