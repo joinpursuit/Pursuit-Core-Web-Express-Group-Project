@@ -21,11 +21,12 @@
     <div id="rightSide">
         <div class="userInput">
             <form id ="signUp">
-                <input id="userName" type="text" placeholder="User Name">
-                <input id="email" type="email" placeholder="Email">
-                <input id="password" type="text" placeholder="Password">
-                <input id="phoneNumber" type="text" placeholder="Phone Number">
-                <input id="submitSignUp" type="button" value="signUp">
+                <input id="userNameSU" type="text" placeholder="User Name" required> 
+                <input id="emailSU" type="email" placeholder="Email" required>
+                <input id="passwordSU" type="text" placeholder="Password" required>
+                <input id="phoneNumberSU" type="text" placeholder="Phone Number" required>
+                <input id="submitSU" type="submit" value="Sign Up">
+                <p id="errorSU"></p>
             </form>
         </div>
         <br>
@@ -33,9 +34,9 @@
         <br>
         <div class="userInput">
             <form id ="logIn">
-                <input id="email" type="email" placeholder="Email">
-                <input id="password" type="password" placeholder="Password">
-                <input id="signIn" type="button" value="signIn">
+                <input id="emailLI" type="email" placeholder="Email" required>
+                <input id="passwordLI" type="password" placeholder="Password" required>
+                <input id="signInLI" type="submit" value="Sign In">
             </form>
         </div>
     </div>
