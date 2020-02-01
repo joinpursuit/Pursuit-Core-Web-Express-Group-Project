@@ -1,6 +1,5 @@
 const users = require('express').Router()
 
-//get /users - get all users
 
 users.get("/users",(res,req)=>{
     res.status(200).json({
