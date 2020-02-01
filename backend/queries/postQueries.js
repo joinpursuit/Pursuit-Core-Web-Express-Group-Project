@@ -33,12 +33,47 @@ const insertSinglePost = async (req, res, next) => {
   try {
     let { poster_id, imgURL, description } = req.body;
     let single_post = await db.one(
-      "INSERT INTO posts (poster_id, imgURL, description) VALUES ($1, $2, $3)",
+      "INSERT INTO posts (poster_id, imgURL, description) VALUES ($1, $2, $3) RETURNING *",
       [poster_id, imgURL, description]
     );
     res.status(200).json({
       status: "Success",
       message: "Created a single post",
+      body: { single_post }
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+const updateSinglePost = async (req, res, next) => {
+  try {
+    let { poster_id, imgURL, description } = req.body;
+    let { id } = req.params;
+    let single_post = await db.one(
+      "UPDATE posts SET poster_id = $1, imgURL = $2, description = $3 WHERE id = $4 RETURNING *",
+      [poster_id, imgURL, description, id]
+    );
+    res.status(200).json({
+      status: "Success",
+      message: "Updated a single post",
+      body: { single_post }
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+const deletePost = async (req, res, next) => {
+  try {
+    let { id } = req.params;
+    let single_post = await db.one(
+      "DELETE FROM posts WHERE id = $1 RETURNING *",
+      id
+    );
+    res.status(200).json({
+      status: "Success",
+      message: "Deleted post with id: " + id,
       body: {
         single_post
       }
@@ -48,4 +83,10 @@ const insertSinglePost = async (req, res, next) => {
   }
 };
 
-module.exports = { getAllPosts, getSinglePost, insertSinglePost };
+module.exports = {
+  getAllPosts,
+  getSinglePost,
+  insertSinglePost,
+  updateSinglePost,
+  deletePost
+};
