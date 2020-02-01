@@ -14,7 +14,7 @@ CREATE TABLE users
 (
     id SERIAL PRIMARY KEY,
     full_name TEXT NOT NULL UNIQUE,
-    birth_date INTEGER,
+    birth_date VARCHAR,
     city TEXT,
     state TEXT,
     email VARCHAR, 
