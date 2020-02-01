@@ -1,70 +1,77 @@
-// app.get("/", (req, res) => {
-//     try {
-//         let posts = db.any("SELECT * FROM posts");
-//         res.json({
-//             status: "success",
-//             message: "got all posts",
-//             body: {posts}
-//         });
-//     } catch(error) {
-//         next(err);
-//     };
-// });
+const posts = require("express").Router();
+const db = require('../../db/index.js');
 
-// app.get("/:id", (req, res) => {
-//     try {
-//         let posts = db.one ("SELECT * FROM posts WHERE id = $1 ", [req.params.id]);
-//         res.json({
-//             status: "success",
-//             message: "got specific post",
-//             body: {posts}
-//         });
-//     } catch(error) {
-//         next(err);
-//     };
-// });
 
-// app.post("/", (req, res) => {
-//     try {
-//         let posts = await db.one("INSERT INTO posts (poster_id, body) VALUES (${poster_id}, ${body}) RETURNING *", req.body);
-//         res.json({
-//             status: "success",
-//             message: "created new post",
-//             body: req.body
-//         });
-//     } catch(error) {
-//         next(err);
-//     };
-// });
+posts.get("/", async (req, res) => {
+    try {
+        let postsDB = await db.any("SELECT * FROM posts");
+        res.json({
+            status: "success",
+            message: "got all posts",
+            body: postsDB
+        });
+    } catch(error) {
+        console.log(error);
+    };
+});
 
-// app.patch("/:id", (req, res) => {
-//     try {
-//         let posts = await db.one("UPDATE posts SET body = ${req.body.body} WHERE id = ${req.params.id} RETURNING *", req.body);
-//         res.json({
-//             status: "success",
-//             message: "edited a post",
-//             body: req.body
-//         });
-//     } catch(error) {
-//         next(err);
-//     };
-// });
+posts.get("/:id", async (req, res) => {
+    try {
+        let postsDB =  await db.one("SELECT * FROM posts WHERE id = $1 ", [req.params.id]);
+        res.json({
+            status: "success",
+            message: "got specific post information",
+            body: postsDB
+        });
+    } catch(error) {
+        console.log(error);
+    };
+});
 
-// app.delete("/:id", (req, res) => {
-//     try {
-//         await db.none("DELETE FROM posts WHERE id = $1", [req.params.id]);
-//         res.json({
-//             status: "success",
-//             message: "deleted a single post",
-//             body: {
-//                 id: req.params.id,
-//                 username: req.body.poster_id,
-//                 body: req.body
-//             }
-//         });
-//     } catch(error) {
-//         next(err);
-//     };
-// });
+posts.post("/", async (req, res) => {
+    console.log(req.body)
+    try {
+        let postsDB = await db.any("INSERT INTO posts (author_id, body) VALUES ($1, $2) RETURNING *", [req.body.author_id, req.body.body]);
+        res.json({
+            status: "success",
+            message: "created new post",
+            body: {
+                author_id: req.body.author_id,
+                body: req.body.body
+            }
+        });
+    } catch(error) {
+        console.log(error);
+    };
+})
 
-// //escape from commit is :wq!
+posts.patch("/:id", async (req, res) => {
+
+    try {
+        let postsDB =  await db.none("UPDATE posts SET body = $1 WHERE id = $2", [req.body["body"], req.params.id]);
+        res.json({
+            status: "success",
+            message: "updated specific post information",
+            body: req.body["body"]
+        });
+    } catch(error) {
+        console.log(error);
+    };
+});
+
+posts.delete("/:id", (req, res) => {
+    try {
+        db.none("DELETE FROM posts WHERE id = " + req.params.id, [req.params.id]);
+        res.json({
+            status: "success",
+            message: "deleted a single post",
+            body: {
+                deleted_id: req.params.id
+            }
+        });
+    } catch(error) {
+        console.log(error);
+    };
+});
+
+module.exports = posts;
