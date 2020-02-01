@@ -2,7 +2,7 @@ const likes = require('express').Router();
 const { getAllLikes, addSingleLike, deleteSingleLike} = require('');
 // these are my queries 
 
-const likesRouter = require('../likes/likes.js');
+const likesRouter = require('../likes/likes.js')
 likes.use('/:id/likes', likesRouter);
 
 // api endpoints
