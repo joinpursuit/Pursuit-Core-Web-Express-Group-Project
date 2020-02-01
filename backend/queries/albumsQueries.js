@@ -1,4 +1,5 @@
-const db = require("../db/index.js")
+const db = require("../../db/index.js")
+
 
 const getAllAlbumsThatBelongToUser = async (req, res, next) => {
     try{
@@ -20,7 +21,7 @@ const createNewEmptyAlbumForUser = async (res,req,next) => {
             status: "Success",
             messge: "Create New Empty Album For User",
             body: {
-                newAlbum: await db.any("INSERT INTO albums VALUE owner_id, album_title, album_title, album_coverURL")
+                newAlbum: await db.any(`INSERT INTO albums VALUES ($1, $2, $3, $4)`, (req.body))
             }
         })
     } catch(error) {
