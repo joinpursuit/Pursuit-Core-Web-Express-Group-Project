@@ -1,9 +1,4 @@
 const dataBase = require("../../database/index.js");
-//getposts,
-//   getpost,
-//   newpost,
-//   editPost,
-//   deletePost
 
 const getposts = async (req, res, next) => {
   try {
