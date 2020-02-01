@@ -2,7 +2,8 @@ const db = require("./../../../db/db");
 
 const getUserLogin = async (req, res, next) => {
     try {
-    let login = db.one("SELECT email, password FROM users WHERE id=$1", req.params);
+    let {email, password} = req.params
+    let login = db.one("SELECT email, password FROM users WHERE id=$1, id=$2", [password, email]);
     res.status(200).json({
         login,
         status: "Success",

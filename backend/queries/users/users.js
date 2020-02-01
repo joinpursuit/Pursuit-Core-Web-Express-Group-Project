@@ -15,9 +15,9 @@ const getUsers = async (req, res, next) => {
 }
 
 const getUser = async (req, res, next) => {
+    let {userID} = req.params
     try {
-        let user = await db.one("SELECT * FROM users WHERE user_id = $1", req.body
-        );
+        let user = await db.one("SELECT * FROM users WHERE user_id = $1", userID);
         res.status(200).json({
             user,
             status: "success",
@@ -29,8 +29,9 @@ const getUser = async (req, res, next) => {
 }
 
 const createUser = async (req, res, next) => {
+    let {userInfo} = req.body
     try {
-        let user = await db.none("INSERT INTO users (full_name, birth_date, city, state, email, password) VALUES (${full_name}, ${birth_date}, ${city}, ${state}, ${email}, ${password}) RETURNING *", req.body);
+        let user = await db.none("INSERT INTO users (full_name, birth_date, city, state, email, password) VALUES (${full_name}, ${birth_date}, ${city}, ${state}, ${email}, ${password}) RETURNING *", userInfo);
         res.status(200).json({
             user,
             status: "Success",
@@ -43,8 +44,8 @@ const createUser = async (req, res, next) => {
 
 const deleteUser = async (req, res, next) => {
     try {
-        let user = await db.none("DELETE FROM users WHERE user_id =$1", req.params.id
-        );
+        let {userId} = req.params
+        let user = await db.none("DELETE FROM users WHERE user_id =$1", userId);
         res.status(200).json({
             user,
             status: "Success",
