@@ -7,8 +7,8 @@ DROP TABLE IF EXISTS comments;
 DROP TABLE IF EXISTS likes;
 DROP TABLE IF EXISTS post;
 DROP TABLE IF EXISTS followings; 
-DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS pictures;
+DROP TABLE IF EXISTS users;
 
 CREATE TABLE users
 (
@@ -60,5 +60,6 @@ CREATE TABLE bets (
     game_id VARCHAR,
     team_id VARCHAR, 
     bet_id INT REFERENCES users(id),
-    bet_amount INTEGER
+    bet_amount INTEGER,
+    taker_id INT REFERENCES users(id)
 );
