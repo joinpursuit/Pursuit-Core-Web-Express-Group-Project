@@ -2,14 +2,14 @@ DROP DATABASE IF EXISTS trippin_db;
 
 CREATE DATABASE trippin_db;
 
-\c trippin_db;
+\c trippin_db
 
 DROP TABLE IF EXISTS users;
-DROP TABLE IF EXISTS posts;
-DROP TABLE IF EXISTS comments;
-DROP TABLE IF EXISTS likes;
-DROP TABLE IF EXISTS albums;
-DROP TABLE IF EXISTS pictures;
+-- DROP TABLE IF EXISTS posts;
+-- DROP TABLE IF EXISTS comments;
+-- DROP TABLE IF EXISTS likes;
+-- DROP TABLE IF EXISTS albums;
+-- DROP TABLE IF EXISTS pictures;
 
 CREATE TABLE users
 (
