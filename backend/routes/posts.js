@@ -2,7 +2,6 @@ const posts = require("express").Router();
 const {
   getAllPosts,
   getSinglePost,
-  insertSinglePost
   insertSinglePost,
   updateSinglePost,
   deletePost
