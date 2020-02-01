@@ -16,9 +16,10 @@ CREATE TABLE users
     full_name TEXT NOT NULL UNIQUE,
     birth_date VARCHAR,
     city TEXT,
-    us_state TEXT,
+    state TEXT,
     email VARCHAR, 
-    pass VARCHAR
+    password VARCHAR,
+    bet_history VARCHAR
 );
 
 
