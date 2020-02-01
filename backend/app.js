@@ -5,7 +5,10 @@ const usersRouter = require("./routes/users/usersroutes.js");
 const likesRouter = require("./routes/likes/likesroutes");
 const commentsRouter = require("./routes/comments/commentsroutes");
 const albumsRouter = require("./routes/albums/albums");
+const postsRouter = require("./routes/posts/posts");
+
 const port = 3000;
+
 
 const app = express();
 app.use(cors());
@@ -16,6 +19,7 @@ app.use("/likes", likesRouter);
 app.use("/comments", commentsRouter);
 app.use("/users", usersRouter);
 app.use("/albums", albumsRouter);
+app.use("/posts", postsRouter);
 
 app.listen(port, () => {
   console.log(`SERVER IS RUNNING ON PORT ${port}`);
