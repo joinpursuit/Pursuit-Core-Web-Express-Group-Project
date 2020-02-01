@@ -1,10 +1,14 @@
 const db = require("../../db/index.js")
 
-const getLikesForSingle = (req, res, next) => {
+const getLikesForSingle = async(req, res, next) => {
     try {
         res.status(200).json({
             status: "Success",
-            message: "get All likes from post_id"
+            message: "get All likes from post_id",
+            body: {
+                searchPostID:req.params.post_id,
+                result: await db.any('SELECT * FROM posts JOIN LIKES ON posts.id = likes.post_id WHERE posts.id = $1',req.params.post_id)
+              }
         })
     } catch(error) {
         console.log("error")
