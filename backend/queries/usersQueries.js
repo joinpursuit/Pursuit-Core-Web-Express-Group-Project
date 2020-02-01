@@ -66,7 +66,7 @@ const deleteUsersById = async (req, res, next) => {
 
 const searchUserByName = async (req, res, next) => {
   try {
-    let { username } = req.body;
+    let { username } = req.params;
     let user = await db.one(
       "SELECT * FROM users WHERE username = $1",
       username
@@ -80,10 +80,10 @@ const searchUserByName = async (req, res, next) => {
         }
       });
     } else {
-      res.json({
-        status: "Error",
-        message: "No results found"
-      });
+    res.json({
+      status: "Error",
+      message: "No results found"
+    });
     }
   } catch (error) {
     next(error);
