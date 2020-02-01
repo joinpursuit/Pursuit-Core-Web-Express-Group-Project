@@ -1,8 +1,8 @@
-DROP DATABASE IF EXISTS Trippin_db;
+DROP DATABASE IF EXISTS trippin_db;
 
-CREATE DATABASE Trippin_db;
+CREATE DATABASE trippin_db;
 
-\c Trippin_db;
+\c trippin_db;
 
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS posts;
@@ -11,16 +11,16 @@ DROP TABLE IF EXISTS likes;
 DROP TABLE IF EXISTS albums;
 DROP TABLE IF EXISTS pictures;
 
--- CREATE TABLE users
--- (
---     id SERIAL PRIMARY KEY,
---     username TEXT,
---     password TEXT,
---     firstname TEXT,
---     lastname TEXT,
---     BIRTHDAY INT,
---     PROFILE_PIC TEXT
--- );
+CREATE TABLE users
+(
+    id SERIAL PRIMARY KEY,
+    username TEXT,
+    -- password TEXT,
+    firstname TEXT,
+    lastname TEXT
+    -- BIRTHDAY INT,
+    -- PROFILE_PIC TEXT
+);
 
 -- CREATE TABLE posts
 -- (
@@ -59,9 +59,10 @@ DROP TABLE IF EXISTS pictures;
 --     photo_url TEXT
 -- );
 
--- INSERT INTO users
---     (username,password,firstname,lastname,birthday,profile_pic)
--- VALUES
+INSERT INTO users
+    (username,firstname,lastname)
+VALUES
+    ('Neo','Chosen','One');
 -- ('Agent_Smith','EatSteak1','John', 'Smith',01/01/1990,'../../avatars/3.eps'),
 -- ('HAL','Daisy1','Stanley','Kubrik',06/26/1928,'../../avatars/4.eps'),
 -- ('Flower_Girl','Fauna12','Blossom', 'Utopium', 11/18/1998,'../../avatars/5.eps'),
