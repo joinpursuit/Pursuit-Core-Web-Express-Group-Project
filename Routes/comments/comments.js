@@ -17,4 +17,5 @@ comments.patch("/posts/:post_id/:id", editComment);
 // delete a single comment
 comments.delete("/posts/:post_id/:id", deleteComment);
 
+module.exports = comments;
 
