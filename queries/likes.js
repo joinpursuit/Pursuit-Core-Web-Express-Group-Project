@@ -1,4 +1,4 @@
-const db = require ("../db/index")
+const db = require ("../db/index.js")
 
 const getAllLikes = (req, res, next)=>{
     try{
@@ -29,7 +29,7 @@ const addLike = (req, res, next) =>{
 
 const deleteOneLike = (req, res, next) =>{
     try{
-        let deleteLikes = await db.one("DELETE * FROM Likes WHERE id = $1", req.params.id)
+        let deleteLikes = await db.one("DELETE * FROM Likes WHERE id = $1", req.params.id);
         res.status(200).json({
             status:"message",
             message: "Like deleted",

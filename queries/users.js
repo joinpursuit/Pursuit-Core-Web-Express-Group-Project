@@ -1,5 +1,5 @@
 // Get all users
-
+const db = require ("../db/index.js")
 
 const getAllUsers = async(res, req, next) =>{
     try{
@@ -52,7 +52,7 @@ const addSingleUser = async(res, req, next)=>{
 
 const deleteSingleUser = async(res, req, next)=>{
     try{
-        let deleteUser = await db.none("DELETE * FROM USERS WHERE id = $1", req.params.id)
+        let deleteUser = await db.none("DELETE * FROM USERS WHERE id = $1", req.params.id);
         res.status(200).json({
             status:"Success",
             message:"User deleted",
