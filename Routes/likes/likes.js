@@ -8,7 +8,6 @@ likes.use('/:id/likes', likesRouter);
 // api endpoints
 
 // get all likes for a single post
-
 likes.get("/posts/:post_id", getAllLikes);
 
 // add a single like
