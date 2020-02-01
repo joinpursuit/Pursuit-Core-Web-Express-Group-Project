@@ -49,7 +49,8 @@ CREATE TABLE pictures (
 
 CREATE TABLE followings (
     id SERIAL PRIMARY KEY,
-    follower_id INT REFERENCES users(id)
+    follower_id INT REFERENCES users(id),
+    followed_id INT REFERENCES users(id)
 );
 
 CREATE TABLE bets (
