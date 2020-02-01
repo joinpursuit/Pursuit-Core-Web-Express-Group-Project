@@ -1,3 +1,4 @@
+
 const db = require("../db/index.js")
 
 // Get all albums that belong to a user.
@@ -15,7 +16,6 @@ const getAlbum = (req, res, next) => {
     }
 }
 // create new album for a single user. 
-
 const createAlbum = (req, res, next) => {
     try {
         let newAlbum = await db.none("INSERT INTO albums (albums_id, album_name, thumbnail, time_stamp) VALUES (${albums_id}, ${album_name}, ${thumbnail}, ${time_stamp})", req.body)
@@ -28,4 +28,3 @@ const createAlbum = (req, res, next) => {
     } catch (err) {
         next(err)
     }
-}
