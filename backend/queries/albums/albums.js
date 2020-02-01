@@ -2,7 +2,7 @@ const dataBase = require("../../database/index.js");
 
 const getAlbums = async (req, res, next) => {
   try {
-    let albums = await dataBase.any("SELECT * FROM albums WHERE id = $1", [
+    let albums = await dataBase.one("SELECT * FROM albums WHERE id = $1", [
       req.params.user_id
     ]);
     res.status(200).json({
