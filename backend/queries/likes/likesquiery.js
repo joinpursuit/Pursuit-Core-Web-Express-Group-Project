@@ -1,4 +1,4 @@
-const db = require("/Users/jovanni/Desktop/Projects/groupExpressProject/Pursuit-Core-Web-Express-Group-Project/backend/database/index.js");
+const db = require("../../database/index");
 
 const getLikesPost = async (req, res, next) => {
     try{

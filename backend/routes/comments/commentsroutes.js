@@ -1,5 +1,5 @@
 const comments = require("express").Router();
-const { getCommentsPost, addComment, updateComment, deleteComment } = require("/Users/jovanni/Desktop/Projects/groupExpressProject/Pursuit-Core-Web-Express-Group-Project/backend/queries/comments/commentsquiery.js");
+const { getCommentsPost, addComment, updateComment, deleteComment } = require("../../queries/comments/commentsquiery");
 
 comments.get("/posts/:post_id", getCommentsPost);
 comments.post("/posts/:post_id/:user_id", addComment);

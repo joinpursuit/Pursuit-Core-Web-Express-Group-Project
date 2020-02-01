@@ -1,5 +1,5 @@
 const likes = require("express").Router();
-const { getLikesPost, likePost, deleteLike } = require("/Users/jovanni/Desktop/Projects/groupExpressProject/Pursuit-Core-Web-Express-Group-Project/backend/queries/likes/likesquiery.js");
+const { getLikesPost, likePost, deleteLike } = require("../../queries/likes/likesquiery");
 
 likes.get("/posts/:post_id", getLikesPost);
 likes.post("/posts/:post_id", likePost);
