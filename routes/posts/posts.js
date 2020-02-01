@@ -1,21 +1,22 @@
 const posts = require("express").Router();
-const {getPosts, getPost, createPost, updatePost, deletePost} = require("../../queries/posts")
 
-const postsCommentsRouter = require("./comments/comments")
+const { getPosts } = require("../../queries/posts")
 
-const postsLikesRouter = require("./likes/likes")
+// const postsCommentsRouter = require("./comments/comments")
 
-post.use("/:id", postsCommentsRouter);
-post.use("/:id", postsLikesRouter);
+// const postsLikesRouter = require("./likes/likes")
+
+// posts.use("/:id", postsCommentsRouter);
+// posts.use("/:id", postsLikesRouter);
 
 posts.get("/", getPosts);
 
-posts.get("/:id", getPost);
+// posts.get("/:id", getPost);
 
-posts.post("/", createPost);
+// posts.post("/", createPost);
 
-posts.patch("/:id", updatePost)
+// posts.patch("/:id", updatePost)
 
-posts.delete("/", deletePost)
+// posts.delete("/", deletePost)
 
 module.exports = posts;

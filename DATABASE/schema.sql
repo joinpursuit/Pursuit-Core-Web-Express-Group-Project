@@ -2,10 +2,9 @@ DROP DATABASE IF EXISTS Trippin_db;
 CREATE DATABASE Trippin_db;
 \c Trippin_db;
 
-CREATE TABLE users;
-(
+CREATE TABLE users(
     user_id SERIAL PRIMARY KEY,
-    username TEXT,
+    username TEXT NOT NULL UNIQUE,
     password TEXT,
     firstname TEXT,
     lastname TEXT,
@@ -13,45 +12,39 @@ CREATE TABLE users;
     PROFILE_PIC URL
 );
 
-CREATE TABLE post;
-(
+CREATE TABLE post(
     post_id SERIAL PRIMARY KEY,
     poster_id INT,
     image url,
     caption TEXT
 );
 
-CREATE TABLE comments;
-(
+CREATE TABLE comments(
     comment_id SERIAL PRIMARY KEY,
     commenter_id INT,
     post_id INT,
     body TEXT
 );
 
-CREATE TABLE likes;
-(
+CREATE TABLE likes(
     like_id SERIAL PRIMARY KEY,
     liker_id INT,
     post_id INT
 );
 
-CREATE TABLE albums;
-(
+CREATE TABLE albums(
     album_id SERIAL PRIMARY KEY,
     creator_id INT,
     album_title TEXT
 );
 
-CREATE TABLE pictures;
-(
+CREATE TABLE pictures(
     picture_id SERIAL PRIMARY KEY,
     album_id INT,
     photo_url text
 );
 
-INSERT INTO users
-    (username,password,firstname,lastname,birthday,profile_pic)
+INSERT INTO users(username,password,firstname,lastname,birthday,profile_pic)
 VALUES
 (),
 (),
@@ -59,8 +52,7 @@ VALUES
 (),
 ();
 
-INSERT INTO post
-(poster_id,image,cation)
+INSERT INTO post(poster_id,image,cation)
 VALUES
 (),
 (),
@@ -68,8 +60,7 @@ VALUES
 (),
 ();
 
-INSERT INTO comments
-(commentor_id,post_id,text)
+INSERT INTO comments(commentor_id,post_id,text)
 VALUES
 (),
 (),
@@ -77,8 +68,7 @@ VALUES
 (),
 ();
 
-INSERT INTO likes
-(liker-id,post_id)
+INSERT INTO likes(liker_id,post_id)
 VALUES
 (1,1),
 (1,3),
@@ -86,8 +76,7 @@ VALUES
 (4,2),
 (5,1);
 
-INSERT INTO albums
-(creator_id, album_title)
+INSERT INTO albums(creator_id, album_title)
 VALUES
 (1,'Movies'),
 (2, 'Memories'),
@@ -95,8 +84,7 @@ VALUES
 (4, 'Friends'),
 ();
 
-INSERT INTO pictures
-(album_id, photo_url)
+INSERT INTO pictures(album_id, photo_url)
 VALUES
 (1,),
 (2,),
