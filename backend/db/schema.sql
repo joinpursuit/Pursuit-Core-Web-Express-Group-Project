@@ -23,7 +23,7 @@ CREATE TABLE users (
 
 CREATE TABLE posts (
     id SERIAL PRIMARY KEY,
-    author_id INT REFERENCES users (id),
+    author_id INT REFERENCES users (id) ON DELETE CASCADE,
     body TEXT,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
@@ -31,45 +31,45 @@ CREATE TABLE posts (
 CREATE TABLE albums (
     id SERIAL PRIMARY KEY,
     album_name TEXT,
-    album_owner INT REFERENCES users(id),
+    album_owner INT REFERENCES users(id) ON DELETE CASCADE,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE pictures (
     id SERIAL PRIMARY KEY,
     picture TEXT,
-    album INT REFERENCES albums(id),
-    poster_id INT REFERENCES users(id),
+    album INT REFERENCES albums(id) ON DELETE CASCADE,
+    poster_id INT REFERENCES users(id) ON DELETE CASCADE,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
 
 CREATE TABLE img_likes (
     id SERIAL PRIMARY KEY,
-    img_id INT REFERENCES pictures (id),
-    liker_id INT REFERENCES users (id),
+    img_id INT REFERENCES pictures (id) ON DELETE CASCADE,
+    liker_id INT REFERENCES users (id) ON DELETE CASCADE,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE posts_likes (
     id SERIAL PRIMARY KEY,
-    post_id INT REFERENCES posts(id),
-    liker_id INT REFERENCES users(id),
+    post_id INT REFERENCES posts(id) ON DELETE CASCADE,
+    liker_id INT REFERENCES users(id) ON DELETE CASCADE,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE comments (
     id SERIAL PRIMARY KEY,
-    author_id INT REFERENCES users(id),
+    author_id INT REFERENCES users(id) ON DELETE CASCADE,
     body TEXT,
-    post_id INT REFERENCES posts(id),
+    post_id INT REFERENCES posts(id) ON DELETE CASCADE,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE profile_pictures (
     id SERIAL PRIMARY KEY,
-    user_img INT REFERENCES pictures(id),
-    user_profile INT REFERENCES users(id)
+    user_img INT REFERENCES pictures(id) ON DELETE CASCADE,
+    user_profile INT REFERENCES users(id) ON DELETE CASCADE
 );
 
 INSERT INTO users (first_name, last_name,age,about_statement)
