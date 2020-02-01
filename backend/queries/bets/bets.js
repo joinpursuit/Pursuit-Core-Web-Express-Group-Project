@@ -44,10 +44,10 @@ const getBetsNoTaker = async (req,res,next) => {
 
 const postBets = async (req,res,next) => {
     try{
-        let {postBets} = req.params;
-        let postBets = await db.one("INSERT INTO bets (game_id, team_id, bet_id, bet_amount, taker_id) VALUES (${game_id}, ${team_id}, ${bet_id}, ${bet_amount}, ${taker_id} RETURNING *", postBets);
+        let betToPost = req.body;
+        let bet = await db.one("INSERT INTO bets (game_id, team_id, bet_id, bet_amount, taker_id) VALUES (${game_id}, ${team_id}, ${bet_id}, ${bet_amount}, ${taker_id} RETURNING *", betToPost);
         res.status(200).json({
-            postBets,
+            bet,
             status: "sucess",
             message: "POST BET"
         })
@@ -58,10 +58,10 @@ const postBets = async (req,res,next) => {
 
 const patchBets = async (req,res,next) => {
     try{
-        let {patchBets} = req.params;
-        let patchBets = await db.one("UPDATE bets SET taker_id=$1", patchBets);
+        let {takerId} = req.body;
+        let updateBet = await db.one("UPDATE bets SET taker_id=$1",takerId);
         res.status(200).json({
-            patchBets,
+            updateBet,
             status:"Sucess",
             message: "BET UPDATED"
         })
@@ -72,10 +72,10 @@ const patchBets = async (req,res,next) => {
 
 const deleteBet = async (req,res,next) => {
     try{
-        let {deleteBet} = req.params;
-        let deleteBet = await db.one("DELETE bets WHERE bet_id", deleteBet);
+        let {deleteBetPosted} = req.params;
+        let eraseBet = await db.one("DELETE bets WHERE bet_id", deleteBetPosted);
         res.status(200).json({
-            deleteBet,
+            eraseBet,
             status: "Sucess",
             message: "BET DELETED"
         })
@@ -85,4 +85,4 @@ const deleteBet = async (req,res,next) => {
     }
 }
 
-modules.exports = {getBets, getBetsById, postBets, getBetsNoTaker, patchBets, deleteBet}
+module.exports = {getBets, getBetsById, postBets, getBetsNoTaker, patchBets, deleteBet}
