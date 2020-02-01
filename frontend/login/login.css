@@ -1,0 +1,76 @@
+body{
+  background: rgba(73, 198, 229, 1);
+
+}
+ #food_div{ 
+   background-color: white;
+   display: flex;
+  /* display: inline-block; */
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  position: absolute; 
+  left: 57px;  
+  border-radius: 50%;
+  font-size: 30px;
+  color: navy;
+  align-items: center;
+  justify-content: center;
+  top: 10px;
+  left: 335px 
+ }
+
+
+
+ /* .design{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    left: 57px; 
+} */
+
+/* #food{
+  top: 10px;
+  left: 335px 
+}  */
+
+/* #people{
+  position: absolute;
+  top: 10px;
+  left: 335px;
+}
+#view{
+  position: absolute;
+  top: 10px;
+  left: 335px;
+}
+
+#architecture{
+  position: absolute;
+    left: 616px;
+}
+
+#shopping{
+  position: absolute;
+  top: 10px;
+  left: 335px;
+}
+
+#memories{
+  position: absolute;
+  top: 10px;
+  left: 335px;
+}
+
+#connection{
+  position: absolute;
+  top: 10px;
+  left: 335px;
+}
+
+#culture{
+  position: absolute;
+  top: 10px;
+  left: 335px;
+} */
