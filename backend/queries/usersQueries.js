@@ -71,7 +71,7 @@ const searchUserByName = async (req, res, next) => {
       "SELECT * FROM users WHERE username = $1",
       username
     );
-    if (user.length > 0) {
+    if (user) {
       res.status(200).json({
         status: "Success",
         message: "Searched for user by username: " + username,
@@ -79,17 +79,12 @@ const searchUserByName = async (req, res, next) => {
           user
         }
       });
-    } else {
-      res.json({
-        status: "Error",
-        message: "No results found"
-      });
-      res.json({
-        status: "Error",
-        message: "No results found"
-      });
     }
   } catch (error) {
+    res.json({
+      status: "Error",
+      message: "No results found"
+    });
     next(error);
   }
 };
