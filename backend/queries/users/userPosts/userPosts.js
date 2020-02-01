@@ -14,4 +14,4 @@ const getUserPost = async (req, res, next) => {
 
 }
 
-module.exports = { getUserPosts } 
+module.exports = { getUserPost } 
