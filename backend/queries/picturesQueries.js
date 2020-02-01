@@ -44,7 +44,7 @@ const deleteSinglePicture = async (req, res, next) => {
         status: "Success",
         message: "You deleted a single photo!",
         body: {
-          
+          user
         }
       });
     } catch (error) {
