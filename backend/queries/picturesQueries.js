@@ -35,19 +35,20 @@ const addSinglePicture = async (req, res, next) => {
 };
 
 const deleteSinglePicture = async (req, res, next) => {
-  try {
-    let { id } = req.params;
-    let user = await db.one("DELETE FROM pictures WHERE id=$1", id);
-    res.status(200).json({
-      status: "Success",
-      message: "You deleted a single photo!",
-      body: {
-        user
-      }
-    });
-  } catch (error) {
-    next(error);
-  }
-};
+    try {
+      let { id } = req.params;
+      let user = await db.one("DELETE FROM pictures WHERE id=$1", id);
+      res.status(200).json({
+        status: "Success",
+        message: "You deleted a single photo!",
+        body: {
+          user
+        }
+      });
+    } catch (error) {
+      next(error);
+    }
+  };
+
 
 module.exports = { getAllPictures, addSinglePicture, deleteSinglePicture };
