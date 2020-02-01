@@ -39,7 +39,12 @@ const deleteSingleLike = (req, res, next) => {
     try{
         res.status(200).json({
             status: "Success",
-            message: "delete a like by liker_id"
+            message: "delete a like by liker_id",
+            body:{
+                liker_id: req.params.liker_id,
+                post_id:req.params.post_id,
+                result: await db.one('DELETE FROM likes WHERE (liker_ID =$1 AND post_id=$2) RETURNING *',[req.params.liker_id, req.params.post_id])
+            }
         })
     } catch(error) {
         res.json({
