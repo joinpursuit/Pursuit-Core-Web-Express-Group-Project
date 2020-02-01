@@ -1,4 +1,4 @@
-const likes = require('express').Router()
+const likes = require("express").Router()
 // get likes (/likes/posts/post_id)
 
 likes.get("/likes/posts/post_id", (res,req)=>{
@@ -27,7 +27,7 @@ likes.delete("/likes/posts/post_id",(req,res)=>{
         body:"test"
     })
 })
-
+s
 
 
 
