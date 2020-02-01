@@ -1,35 +1,49 @@
-const db = require("../db/index.js")
+const db = require("../../db/index.js")
 
-const getAllCommentsOnSinglePost = (res,req,next) => {
-    try{
-
-    } catch(error) {
-        console.log("error")
-    }
-}
-
-const addSingleComment = (res,req,next) => {
+const getAllCommentsByPost = async(req, res, next) => {
     try {
-
+        res.status(200).json({
+            status: "Succcess",
+            message: "get All Comment by post_id"
+        })
     } catch(error) {
         console.log("error")
     }
 }
 
-const editSingleComment = (res,req,next) => {
+const addCommentByPost = async(req, res, next) => {
     try {
+        res.status(200).json({
+            status: "Success",
+            message: "add a Comment by post_id from author_id"
 
+        })
     } catch(error) {
         console.log("error")
     }
 }
 
-const deleteSingleComment = (res,req,next) => {
+const editCommentByPost = async(req, res, next) => {
     try {
-
+        res.status(200).json({
+            status: "Success",
+            message: "edit a Comment by post_id from author_id"
+        })
     } catch(error) {
         console.log("error")
     }
 }
 
-module.exports = {getAllCommentsOnSinglePost, addSingleComment, editSingleComment, deleteSingleComment}
+const deleteComment = async(req, res, next) => {
+    try {
+        res.status(200).json({
+            status: "Success",
+            message: "delete a Comment by post_id from author_id"
+        })
+    } catch(error) {
+        console.log("error")
+    }
+}
+
+
+module.exports = {getAllCommentsByPost, addCommentByPost, editCommentByPost, deleteComment};

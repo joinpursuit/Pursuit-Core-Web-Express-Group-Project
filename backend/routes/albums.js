@@ -1,3 +1,7 @@
 const albums = require("express").Router()
+const {getAllAlbumsThatBelongToUser, createNewEmptyAlbumForUser} = require("../queries/albumsQueries.js")
 
-module.exports = albums
+albums.get("/:owner_id", getAllAlbumsThatBelongToUser)
+albums.post("/:owner_id", createNewEmptyAlbumForUser)
+
+module.exports = albums;
