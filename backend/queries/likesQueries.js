@@ -57,7 +57,7 @@ const addSingleLike = async(req, res, next) => {
     }
 }
 
-const deleteSingleLike = (req, res, next) => {
+const deleteSingleLike = async(req, res, next) => {
     try{
         res.status(200).json({
             status: "Success",
@@ -77,6 +77,7 @@ const deleteSingleLike = (req, res, next) => {
         })
     }
 }
+
 
 
 module.exports = {getLikesForSingle, addSingleLike, deleteSingleLike}
