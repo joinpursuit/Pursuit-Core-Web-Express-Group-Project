@@ -20,7 +20,7 @@ const getAllUsers = async(res, req, next) =>{
 
 const getSingleUsers = async(res, req, next) =>{
     try{
-        let user = await db.one("SELECT * FROM USERS WHERE ID = $1", req.params.id)
+        let user = await db.one("SELECT * FROM users WHERE id = $1", req.params.id)
         res.status(200).json({
             status:"success",
             message: "Got Single User",
@@ -36,7 +36,7 @@ const getSingleUsers = async(res, req, next) =>{
 
 const addSingleUser = async(res, req, next)=>{
     try{
-        let newUser = await db.one("INSERT INTO USERS(full_name, email, date_of_birth, gender, profile_pic, join_date) VALUES (${full_name}, ${email}, ${date_of_birth}, ${gender}, ${profile_pic}, ${join_date})", req.body)
+        let newUser = await db.one("INSERT INTO users(full_name, email, date_of_birth, gender, profile_pic, join_date) VALUES (${full_name}, ${email}, ${date_of_birth}, ${gender}, ${profile_pic}, ${join_date})", req.body)
         res.status(200).json({
             status:"success",
             message: "Added User",
