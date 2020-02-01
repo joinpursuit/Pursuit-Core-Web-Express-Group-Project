@@ -46,12 +46,12 @@ CREATE TABLE likes
       post_id INT REFERENCES posts(id) ON DELETE CASCADE
 );
 
-CREATE TABLE comments
-(
-      id SERIAL PRIMARY KEY,
-      body VARCHAR,
-      user_id INT REFERENCES users(id) ON DELETE CASCADE,
-      post_id INT REFERENCES posts(id) ON DELETE CASCADE
+
+CREATE TABLE comments(
+       id SERIAL PRIMARY KEY,
+       body text,
+       user_id INT REFERENCES users(id) ON DELETE CASCADE,
+       post_id INT REFERENCES posts(id) ON DELETE CASCADE
 );
 
 
