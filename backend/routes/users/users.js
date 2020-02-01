@@ -45,16 +45,14 @@ users.post("/", (req, res) => {
     };
 })
 
-users.delete("/:id", async (req, res) => {
+users.delete("/:id", (req, res) => {
     try {
         db.none("DELETE FROM users WHERE id = " + req.params.id, [req.params.id]);
         res.json({
             status: "success",
             message: "deleted a single user",
             body: {
-                id: req.params.id,
-                name: req.body.id,
-                age: req.body.age
+                deleted_id: req.params.id
             }
         });
     } catch(error) {
