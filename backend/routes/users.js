@@ -9,7 +9,7 @@ const {
 
 users.get("/", getAllUsers); // Get all users
 users.get("/:id", getSingleUserById); // Get single user
-users.get("/username/:username", searchUserByName);
+users.get("/search/:username", searchUserByName);
 users.post("/", insertSingleUser); // Add single user
 users.delete("/:id", deleteUsersById); // Delete users with the corresponding id
 
