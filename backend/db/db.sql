@@ -3,12 +3,12 @@ CREATE DATABASE hotbox_db;
 
 \c hotbox_db;
 
-DROP TABLE IF EXISTS users;
-DROP TABLE IF EXISTS post;
-DROP TABLE IF EXISTS likes;
 DROP TABLE IF EXISTS comments;
-DROP TABLE IF EXISTS pictures;
+DROP TABLE IF EXISTS likes;
+DROP TABLE IF EXISTS post;
 DROP TABLE IF EXISTS followings; 
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS pictures;
 
 CREATE TABLE users
 (
@@ -44,16 +44,20 @@ CREATE TABLE comments (
 
 CREATE TABLE pictures (
     id SERIAL PRIMARY KEY,
+    owners_id INT REFERENCES users(id),
     picture VARCHAR 
 );
 
 CREATE TABLE followings (
     id SERIAL PRIMARY KEY,
-    follower_id INT REFERENCES users(id)
+    follower_id INT REFERENCES users(id),
+    followed_id INT REFERENCES users(id)
 );
 
 CREATE TABLE bets (
-    id SERIAL PRIMARY KEY, 
+    id SERIAL PRIMARY KEY,
+    game_id VARCHAR,
+    team_id VARCHAR, 
     bet_id INT REFERENCES users(id),
     bet_amount INTEGER
 );
