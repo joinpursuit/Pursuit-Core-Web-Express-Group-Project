@@ -32,7 +32,7 @@ const getSingleComment = async (req, res, next) => {
 
 const editSingleComment = async (req, res, next) => {
     try {
-        let editComment = await db.one("SELECT * FROM comments WHERE id = $1", req.params.id);
+        let editComment = await db.one(`UPDATE comments SET body ='${req.params.id}' WHERE id = ${req.params.id} RETURNING *`);
         res.status(200).json({
             status: "status",
             message: "the single comment is now edited",
