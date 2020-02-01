@@ -15,7 +15,7 @@ const getUserFollowings = async (req, res, next) => {
 
 const createUserFollowing = async (req, res, next) => {
     try {
-    let following = await db.none("INSERT INTO followings VALUES (followers_id, followed_id)", req.params.id);
+    let following = await db.none("INSERT INTO followings VALUES (${followers_id}, ${followed_id}", req.params.id);
     res.status(200).json({
         following,
         status: "Success",
