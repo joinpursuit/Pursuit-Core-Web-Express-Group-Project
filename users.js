@@ -1,4 +1,5 @@
-const users = require("express").Router;
+const users = require("express").Router();
+const { getUsers, getUser, createUser, deleteUser } = require("");
 
 
 
