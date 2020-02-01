@@ -1,13 +1,28 @@
 const db = require("../../db/index.js")
 
 
+const getAllAlbums = async (req, res, next) => {
+    try {
+      res.status(200).json({
+        status: "Success",
+        message: "Got all Albums",
+        body: {
+          albums: await db.any("SELECT * FROM albums")
+        }
+      });
+    } catch (error) {
+      next(error);
+    }
+  };
+
 const getAllAlbumsThatBelongToUser = async (req, res, next) => {
     try{
         res.status(200).json({
             status: "Success",
             message: "Got All Albums That Belong To User",
             body: {
-                albums: await db.any("SELECT * FROM albums WHERE user = $1", req.body)
+                searchOwner:req.params.owner_id,
+                albums: await db.any(`SELECT * FROM albums WHERE owner_id = $1`, req.params.owner_id)
             }
         })
     } catch(error) {
@@ -15,13 +30,16 @@ const getAllAlbumsThatBelongToUser = async (req, res, next) => {
     }
 }
 
-const createNewEmptyAlbumForUser = async (res,req,next) => {
+const createNewEmptyAlbumForUser = async (req,res,next) => {
     try {
-        req.status(200).json({
+        let {owner_id} = req.params;
+        let {album_title, album_date, album_coverURL} = req.body;
+        let newAlbum = await db.one("INSERT INTO albums (owner_id, album_title, album_date, album_coverURL) VALUES ($1, $2, $3, $4) RETURNING *", [owner_id, album_title, album_date, album_coverURL])
+        res.status(200).json({
             status: "Success",
-            messge: "Create New Empty Album For User",
+            message: "Create New Empty Album For User",
             body: {
-                newAlbum: await db.any(`INSERT INTO albums VALUES ($1, $2, $3, $4)`, (req.body))
+                newAlbum
             }
         })
     } catch(error) {
@@ -29,4 +47,4 @@ const createNewEmptyAlbumForUser = async (res,req,next) => {
     }
 }
 
-module.exports = {getAllAlbumsThatBelongToUser, createNewEmptyAlbumForUser}
+module.exports = {getAllAlbums, getAllAlbumsThatBelongToUser, createNewEmptyAlbumForUser}
