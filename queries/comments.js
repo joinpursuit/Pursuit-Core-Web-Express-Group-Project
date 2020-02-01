@@ -1,4 +1,4 @@
-const bd = require("../db/index.js");
+const db = require("../db/index.js");
 // GET /comments/posts/:post_id - Get all comments for a single post.
 // POST /comments/posts/:post_id/:commenter_id - Add single comment.
 // PATCH /comments/:post_id/:commenter_id - Edit single comment.
@@ -19,7 +19,7 @@ const getAllComments = async (req, res, next) => {
 
 const getSingleComment = async (req, res, next) => {
     try {
-        let singleComment = await db.one("SELECT ");
+        let singleComment = await db.one("SELECT * FROM comments WHERE id = $1", req.params.id);
         res.status(200).json({
             status: "status",
             message: "got the single comment",
@@ -32,7 +32,7 @@ const getSingleComment = async (req, res, next) => {
 
 const editSingleComment = async (req, res, next) => {
     try {
-        let editComment = await db.one("U");
+        let editComment = await db.one("SELECT * FROM comments WHERE id = $1", req.params.id);
         res.status(200).json({
             status: "status",
             message: "the single comment is now edited",
