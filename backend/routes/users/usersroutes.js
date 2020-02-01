@@ -1,19 +1,17 @@
 const users = require("express").Router();
+const {
+  getAllUsers,
+  getUserByid,
+  addUser,
+  deleteUser
+} = require("../../queries/users/usersquieries.js");
 
-users.get("/", (req, res) => {
-  res.json("get all users");
-});
+users.get("/", getAllUsers);
 
-users.get("/:id", (req, res) => {
-  res.json("get single user");
-});
+users.get("/:id", getUserByid);
 
-users.post("/", (req, res) => {
-  res.json("add a single user");
-});
+users.post("/", addUser);
 
-users.delete("/:id", (req, res) => {
-  res.json("deletes users with corresponding id");
-});
+users.delete("/:id", deleteUser);
 
 module.exports = users;
