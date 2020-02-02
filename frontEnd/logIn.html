@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://unpkg.com/axios/dist/axios.min.js" async></script>
-    <script src="login/login.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="login/login.js" async></script>
     <link rel="stylesheet" href="./masterFolder/master_logIn.css" />
     <title>Log In</title>
   </head>
@@ -16,14 +16,14 @@
       <div id="logInDiv">
         <form id="logInForm">
           Enter Username or Email:<br />
-          <input type="text" /><br />
+          <input id="username" type="text" /><br />
           Enter Password:<br />
-          <input type="text" />
+          <input id="password" type="password" />
+          <div id="logInBtnDiv">
+            <button type="submit" id="logInBtn">Log In</button>
+          </div>
+          <p id="message"></p>
         </form>
-
-        <div id="logInBtnDiv">
-          <button id="logInBtn">Log In</button>
-        </div>
 
         <div id="signUpLinkDiv">
           <a
