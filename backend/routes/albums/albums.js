@@ -1,6 +1,8 @@
 const albums = require("express").Router();
 const db = require('../../db/index.js');
+const picturesRouter = require("./pictures/pictures")
 
+albums.use("/pictures", picturesRouter)
 
 albums.get("/:owner_id", async (req, res) => {
     try {
