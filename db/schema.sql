@@ -108,10 +108,3 @@ INSERT INTO prefrences (users_id, do_have_child, want_child, drink, smoke_weed, 
             (5,'y','y','y','y','y');
 
 
-
-
-
-
-
-
-
