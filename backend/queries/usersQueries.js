@@ -44,6 +44,10 @@ const insertSingleUser = async (req, res, next) => {
       }
     });
   } catch (error) {
+    res.json({
+      status: "Error",
+      message: "Username already exists"
+    });
     next(error);
   }
 };

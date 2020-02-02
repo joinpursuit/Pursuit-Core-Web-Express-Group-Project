@@ -25,15 +25,16 @@ signUpForm.addEventListener("submit", async e => {
 });
 
 const createNewUser = async () => {
-  let usernameInput = document.querySelector("#username").value;
-  let passwordInput = document.querySelector("#password").value;
-  let bioInput = document.querySelector("#bio").value;
-  let propicURL = document.querySelector("#propicURL").value;
   let res = await axios.post("http://localhost:3000/users", {
-    usernameInput,
-    passwordInput,
-    bioInput,
-    propicURL
+    username: usernameInput.value,
+    password: passwordInput.value,
+    bio: bioInput.value,
+    propicURL: propicURL.value
   });
-  debugger;
+  let { status, message } = res.data;
+  if (status === "Error") {
+    let h2 = document.createElement("h2");
+    h2.innerText = message;
+    signUpDiv.appendChild(h2);
+  }
 };

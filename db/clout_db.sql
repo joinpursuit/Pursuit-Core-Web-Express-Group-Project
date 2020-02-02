@@ -14,7 +14,7 @@ DROP TABLE IF EXISTS users;
 
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
-    username VARCHAR,
+    username VARCHAR UNIQUE,
     password TEXT,
     bio TEXT,
     proPicURL TEXT
