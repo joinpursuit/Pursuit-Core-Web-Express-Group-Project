@@ -32,3 +32,5 @@ app.use("/preferences", preferencesRouter)
 app.listen(port, () => {
     console.log("listening on port: ", port)
 });
+
+

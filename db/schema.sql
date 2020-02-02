@@ -102,7 +102,7 @@ INSERT INTO pictures (albums_id, picture_url)
             (5,'https://i.ytimg.com/vi/cYGrlEtqaVw/maxresdefault.jpg');
 INSERT INTO prefrences (users_id, do_have_child, want_child, drink, smoke_weed, long_term)
     VALUES (1,'y','y','y','y','y'), 
-            (2,'y','y','y','y','y'), 
+            (2,'y','y','y','y','y'),
             (3,'y','y','y','y','y'),
             (4,'y','y','y','y','y'),
             (5,'y','y','y','y','y');
