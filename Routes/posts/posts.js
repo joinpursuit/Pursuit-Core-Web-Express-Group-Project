@@ -1,5 +1,5 @@
 const posts = require("express").Router();
-const { getPosts, getPost, createPost, deletePost, editPost } = require("");
+const { getPosts, getPost, createPost, deletePost, editPost } = require("../../queries/posts");
 
 
 posts.get("/", getPosts);
