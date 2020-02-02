@@ -54,7 +54,27 @@ const getUserFollowingCount = async (req, res, next) => {
 }
 
 const getUserFollowerCount = async (req, res, next) => {
+    try {
+        let {userId} = req.params;
+        if(await isUserExisting(userId)) {
+            let follower = await db.any("SELECT COUNT(*) AS userFollowerCount FROM following WHERE followed_id=$1", userId);
+            if(follower.length) {
+                res.json({
+                    follower,
+                    status: "success",
+                    message: "retrieved follower count"
+                })
+            }
+        } else {
+            res.json({
+                status: "error",
+                error: "No user found by that ID"
+            })
+        }
 
+    } catch(err) {
+        next(err)
+    }
 }
 
 module.exports = { getUserFollowings, createUserFollowing, getUserFollowingCount, getUserFollowerCount }
