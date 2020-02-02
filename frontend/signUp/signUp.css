@@ -1,3 +1,29 @@
 body{
+  width: 100%;
+  height: 100%;
   background: skyblue;
+  margin: 0 px;
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+}
+
+
+#userPicture {
+  display: flex;
+  justify-content: center;
+  width: 400 px;
+  height: 400 px;
+}
+/* #sigUp {
+  display: flex;
+  justify-content: center;
+} */
+
+#firstNameInput {
+  display: flex;  
+  justify-content: center;
+  align-items: center;
 }
