@@ -56,13 +56,21 @@ const createUser = async (req, res, next) => {
 
 const deleteUser = async (req, res, next) => {
     try {
-        let user = await db.one("DELETE FROM users WHERE id =$1 RETURNING *", req.params.userId);
-        res.status(200).json({
-            user,
-            status: "Success",
-            message: "Deleted User"
-
-        })
+        if(await isUserExisting(req.params.userId)) {
+            let user = await db.one("DELETE FROM users WHERE id =$1 RETURNING *", req.params.userId);
+            res.status(200).json({
+                user,
+                status: "Success",
+                message: "Deleted User"
+    
+            })
+        } else {
+            res.json({
+                status: "error",
+                error: "No user found by that ID"
+            })
+        }
+        
     } catch(err){
         next(err)
     }
