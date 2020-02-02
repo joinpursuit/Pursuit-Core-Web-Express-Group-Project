@@ -16,8 +16,9 @@ const getUserFollowings = async (req, res, next) => {
 
 const createUserFollowing = async (req, res, next) => {
     try {
-        let {followerId, followedId} = req.body;
-        let following = await db.one("INSERT INTO followings (follower_id, followed_id) VALUES ($1, $2) RETURNING *", [followerId, followedId]);
+        let {followedId} = req.body;
+        let {userId} = req.params;
+        let following = await db.one("INSERT INTO followings (follower_id, followed_id) VALUES ($1, $2) RETURNING *", [userId, followedId]);
         res.status(200).json({
             following,
             status: "Success",
