@@ -1,5 +1,10 @@
 const db = require('../../db/db');
 
+const isUserExisting = async (userId) => {
+    let user = await db.any("SELECT * FROM users WHERE id=$1", userId);
+    if(user.length) return true;
+    return false;
+}
 
 const getUsers = async (req, res, next) => {
     try {
@@ -16,13 +21,21 @@ const getUsers = async (req, res, next) => {
 
 const getUser = async (req, res, next) => {
     try {
-        let user = await db.one("SELECT * FROM users WHERE user_id = $1", req.body
-        );
-        res.status(200).json({
-            user,
-            status: "success",
-            message: "Retrieved One User"
-        })
+        let {userId} = req.params
+        if(await isUserExisting(userId)) {
+            let user = await db.one("SELECT * FROM users WHERE id = $1", userId);
+            res.status(200).json({
+                user,
+                status: "success",
+                message: "Retrieved One User"
+            })
+        } else {
+            res.json({
+                status: "error",
+                error: "user is not existing"
+            })
+        }
+        
     }catch(err){
         next(err)
     }
@@ -30,7 +43,7 @@ const getUser = async (req, res, next) => {
 
 const createUser = async (req, res, next) => {
     try {
-        let user = await db.none("INSERT INTO users (full_name, birth_date, city, state, email, password) VALUES (${full_name}, ${birth_date}, ${city}, ${state}, ${email}, ${password}) RETURNING *", req.body);
+        let user = await db.one("INSERT INTO users (full_name, birth_date, city, state, email, password) VALUES (${full_name}, ${birth_date}, ${city}, ${state}, ${email}, ${password}) RETURNING *", req.body);
         res.status(200).json({
             user,
             status: "Success",
@@ -43,17 +56,41 @@ const createUser = async (req, res, next) => {
 
 const deleteUser = async (req, res, next) => {
     try {
-        let user = await db.none("DELETE FROM users WHERE user_id =$1", req.params.id
-        );
-        res.status(200).json({
-            user,
-            status: "Success",
-            message: "Deleted User"
-
-        })
+        if(await isUserExisting(req.params.userId)) {
+            let user = await db.one("DELETE FROM users WHERE id =$1 RETURNING *", req.params.userId);
+            res.status(200).json({
+                user,
+                status: "Success",
+                message: "Deleted User"
+    
+            })
+        } else {
+            res.json({
+                status: "error",
+                error: "No user found by that ID"
+            })
+        }
+        
     } catch(err){
         next(err)
     }
 }
 
-module.exports = { getUsers, getUser, createUser, deleteUser }
+const updateUser = async (req, res, next) => {
+    try {
+        let {betHistory} = req.body;
+        let {userId} = req.params;
+        if(await isUserExisting(userId)) {
+            let updatedUser = await db.one("UPDATE users SET bet_history=$1 WHERE id=$2 RETURNING *", [betHistory, userId]);
+            res.json({
+                status: "success",
+                message: "update user",
+                updatedUser
+            })
+        }
+    } catch (err) {
+        next(err);
+    }
+}
+
+module.exports = { getUsers, getUser, createUser, deleteUser, updateUser, isUserExisting }
