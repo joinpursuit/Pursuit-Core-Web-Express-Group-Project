@@ -1,17 +1,20 @@
+* {
+    font-family: 'Times New Roman', Times, serif;
+}
 body{
     background-color:#E9EBEE;
-    margin: 0;
-    padding 0;
+    margin: auto;
+    padding: 0;
 }
 .header {
     display: flex;
     flex-direction: row;
     text-align: center;
     justify-content: center;
-    background-color: rgb(27, 167, 160);
+    background-color: #272727   ;
     position: relative;
     width: 100vw;
-    height: 5vh;
+    height: 5vh;   
 }
 
 a:link {
@@ -20,43 +23,91 @@ a:link {
 }
 
 .mainHeader {
-    padding-left: 30vw;
+    padding-left: 80vw;
     padding-right: 2vw;
     margin-top: 1vh;
-}
-
-.owner_info_box{
-    display: flex;
-    position: absolute;
-    justify-content: center;
-    background-color: lightgrey;
-    border: solid white;
-    width: 800px;
-    height: 25vh;
-    left: 20%;
-    margin: 0 auto; 
-}
-
-.owner_info_box2{
-    display: flex;
-    position: absolute;
-    justify-content: center;
-    top: 30vh;
-    background-color: darkgrey  ;
-    border: solid white;
-    width: 800px;
-    height: 70vh;
-    left: 20%;
-    margin: 0 auto; 
 }
 
 .feedHeader{
     padding-right: 2vw;
     margin-top: 1vh;
 }
-
 .photoHeader {
     margin-top: 1vh;
+}
+
+.owner_info_box{
+    display: flex;
+    position: absolute;
+    background-color: #030303;
+    /* border: solid white; */
+    width: 20vw;
+    height: 100vh;
+    margin: auto;
+}
+
+.dot {
+    margin-top: 2.5vh;
+    height: 150px;
+    width: 150px;
+    background-color: white;
+    border-radius: 0%;
+    display: flex;
+    position: relative;
+    margin-left: 20%;
+    border: solid lightgrey;
+}
+
+.owner_info_box2{
+    display: block;
+    position: relative;
+    float: right;
+    background-color: whitesmoke;
+    /* border: solid white; */
+    width: 80vw;
+    height: 100vh;
+}
+.albumsHeader {
+    display: flex;
+    position: absolute;
+    background-color: lightgrey;
+    width: 60vw;
+    height: 10vh;
+    margin-left: 15vh;
+    border: solid grey;
+    border-width: 2px;
+    text-align: center;
+    justify-content: center;
+}
+
+.albumsFeed {
+    display: block;
+    position: absolute;
+    background-color: white;
+    width: 60vw;
+    height: 85vh;
+    margin-left: 28.6vw;
+    margin-top: 10vh;
+    border: solid grey;
+    border-width: 2px;
+}
+
+.albumButton {
+    position: absolute;
+    top: 65%;
+}
+
+#createAlbumButton {
+    display: flex;
+    position: relative;
+    float: right;
+    height: 20px;
+    float: right;
+}
+
+#userHeader {
+    color: white;
+    padding-left: 5vw;
 }
 
 .albumGroup{
