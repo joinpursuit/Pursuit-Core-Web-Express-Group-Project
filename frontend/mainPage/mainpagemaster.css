@@ -1,27 +1,81 @@
-body{
-    display: flex;
-    background-color: aqua;
-    width: 100vw;
-    height: 100vh;
+.gridContainer {
+  display: grid;
+  height: 100vh;
+  width: 100vw;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  grid-template-rows: 20% 20% 20% 20% 15% 5%;
+  grid-template-areas: "banner banner banner banner banner" "heroPic heroPic heroPic signUP signUP" "heroPic heroPic heroPic signUP signUP" "heroPic heroPic heroPic signUP signUP" "heroPic heroPic heroPic signUP signUP" "footer footer footer footer footer";
 }
-#leftSide {
-    flex-direction: column;
+
+.banner {
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  grid-template-rows: 20%;
+  grid-area: banner;
+  background-color: #c0252a;
 }
-#banner{
-    grid-column: 5 / span 3;
+
+#logo {
+  display: flex;
+  justify-content: center;
+  grid-column-start: 3;
 }
-#heroImage{
-    width: 90%;
-    height: auto;
+
+.heroPic {
+  grid-area: heroPic;
 }
-#rightSide{
-    align-content: center;
+
+#heroImage {
+  width: 90%;
+  height: auto;
+  border-radius: 20px;
+  margin-left: 10%;
+  margin-top: 2.5%;
 }
-#signUp{
-    display: flex;
-    flex-direction: column;
+
+.signUP {
+  margin-left: 100%;
+  margin-top: 70%;
 }
-#logIn {
-    display: flex;
-    flex-direction: column;
+
+input {
+  border-color: #247ba0;
+  border-style: solid;
+  padding: 2px;
+  font-size: 15px;
+  text-align: center;
+  border-width: 2px;
+  border-radius: 14px;
+  box-shadow: 0px 0px 4px 0px rgba(42, 42, 42, 0.99);
+  font-weight: normal;
+  margin-top: 15px;
 }
+
+.signIn {
+  grid-area: signIn;
+  grid-column: 5/5;
+}
+
+.footer {
+  grid-area: footer;
+  display: flex;
+  background-color: #c0252a;
+  justify-content: center;
+  justify-content: space-evenly;
+  color: white;
+  opacity: 90%;
+}
+h2 {
+  align-self: flex-end;
+  margin-bottom: 1%;
+}
+h2:hover {
+  color: skyblue;
+  text-decoration-line: underline;
+  cursor: pointer;
+}
+
+/* #userNameSU {
+    height: 10vh;
+    width: 10vw;
+} */

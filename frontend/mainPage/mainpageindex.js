@@ -21,30 +21,34 @@ document.addEventListener("DOMContentLoaded", () => {
         password: passwordSU.value,
         phone_number: phoneNumberSU.value
       });
+      debugger
+      sessionStorage.setItem("current_user", res.data.user.id);
+      window.location.href = "../FEEDPAGE/feedpageindex.html";
     } catch (err) {
       if (err.response.data.detail === "Key (user_name)=(1) already exists.") {
-        errorSU.innerText = "User already exists";
+        errorSU.innerText = "User Name Already In Use";
       } else if (
         err.response.data.detail === "Key (email)=(2@gmail.com) already exists."
       ) {
-        errorSU.innerText = "Email already exists";
+        errorSU.innerText = "Email Already In Use";
       } else {
-        errorSU.innerText = "Phone number already exists";
+        errorSU.innerText = "Phone Already In Use";
       }
-      debugger;
       console.log(err);
     }
   });
 
-  //log in form that logs in existing user on Log In click
   logInForm.addEventListener("submit", async e => {
     e.preventDefault();
     try {
-        debugger
-      let res = await axios.get("http://localhost:3000/users/login")
+      let res = await axios.post("http://localhost:3000/users/login", {
+        email: emailLI.value,
+        password: passwordLI.value
+      });
+      sessionStorage.setItem("current_user", res.data.user.id);
+      window.location.href = "../FEEDPAGE/feedpageindex.html";
     } catch (err) {
       console.log(err);
-      //Throwing error cannot sign in
     }
   });
 });
