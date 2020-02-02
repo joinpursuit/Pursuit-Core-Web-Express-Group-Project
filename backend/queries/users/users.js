@@ -68,4 +68,21 @@ const deleteUser = async (req, res, next) => {
     }
 }
 
-module.exports = { getUsers, getUser, createUser, deleteUser }
+const updateUser = async (req, res, next) => {
+    try {
+        let {betHistory} = req.body;
+        let {userId} = req.params;
+        if(await isUserExisting(userId)) {
+            let updatedUser = await db.one("UPDATE users SET bet_history=$1 WHERE id=$2", [betHistory, userId]);
+            res.json({
+                status: "success",
+                message: "update user",
+                updatedUser
+            })
+        }
+    } catch (err) {
+        next(err);
+    }
+}
+
+module.exports = { getUsers, getUser, createUser, deleteUser, updateUser }
