@@ -28,3 +28,4 @@ const createAlbum = (req, res, next) => {
     } catch (err) {
         next(err)
     }
+}
