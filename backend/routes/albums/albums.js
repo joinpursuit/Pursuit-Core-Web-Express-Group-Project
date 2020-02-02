@@ -16,7 +16,6 @@ albums.get("/:owner_id", async (req, res) => {
 });
 
 albums.post("/:owner_id", async (req, res) => {
-    console.log(req.body)
     try {
         let albumsDB = await db.any("INSERT INTO albums (album_name, album_owner) VALUES ($1, $2) RETURNING *", [req.body.album_name, Number(req.params.owner_id)]);
         res.json({
