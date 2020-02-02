@@ -53,9 +53,11 @@ const deletePost = async (req, res, next) => {
 }
 
 const editPost = async (req, res, next) => {
+    console.log(req.body, req.params)
     try {
-        await db.one("SELECT * FROM posts WHERE id = " + req.params.id);
+        let editedPost = await db.one("UPDATE posts SET body = '" + req.body.body + "' WHERE id = " + req.params.id + " RETURNING *");
         res.status(200).json({
+            editedPost,
             status: "Success!",
             message: "EDITED post!"
         })
