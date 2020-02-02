@@ -10,6 +10,10 @@ const getAllUsers = async (req, res, next) => {
       }
     });
   } catch (error) {
+    res.json({
+      status: "Error",
+      message: "Could not get all users"
+    });
     next(error);
   }
 };
@@ -25,6 +29,10 @@ const getSingleUserById = async (req, res, next) => {
       }
     });
   } catch (error) {
+    res.json({
+      status: "Error",
+      message: "No user found!"
+    });
     next(error);
   }
 };
@@ -64,6 +72,10 @@ const deleteUsersById = async (req, res, next) => {
       }
     });
   } catch (error) {
+    res.json({
+      status: "Error",
+      message: "User could not be deleted"
+    });
     next(error);
   }
 };
