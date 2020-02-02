@@ -3,12 +3,13 @@ const {isUserExisting} = require("./../users");
 
 const getUserLogin = async (req, res, next) => {
     try {
-        let {userId, email, password} = req.params
+        let {userId} = req.params;
+        let {email, password} = req.body;
         if(await isUserExisting(userId)) {
-            let login = db.any("SELECT * FROM users WHERE id=$1 AND email=$2 AND password=$3 RETURNING *", [userId, email, password]);
-            if(login.length) {
+            let user = await db.one("SELECT * FROM users WHERE id=$1", [userId]);
+            if(user.email === email && user.password === password) {
                 res.json({
-                    login,
+                    user,
                     status: "Success",
                     message: "logged in"
                 })
