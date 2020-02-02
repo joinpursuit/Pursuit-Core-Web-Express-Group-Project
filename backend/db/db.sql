@@ -27,7 +27,8 @@ CREATE TABLE posts
 (
     id SERIAL PRIMARY KEY,
     poster_id INT REFERENCES users(id) ON DELETE CASCADE,
-    body TEXT
+    body TEXT,
+    creation_date VARCHAR
 );
 
 CREATE TABLE likes (
@@ -40,7 +41,8 @@ CREATE TABLE comments (
     id SERIAL PRIMARY KEY,
     commenter_id INT REFERENCES users(id) ON DELETE CASCADE,
     post_id INT REFERENCES posts(id) ON DELETE CASCADE,
-    body TEXT
+    body TEXT,
+    creation_date VARCHAR
 );
 
 CREATE TABLE pictures (
