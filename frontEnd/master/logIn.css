@@ -32,24 +32,3 @@ body {
   color: white;
 }
 
-
-
-
-/* #signUpLinkDiv {
-    color: black;
-}
-
-#signUpLinkDiv:hover {
-    color: black;
-} */
-
-#logInDiv {
-  display: flex;
-  justify-content: space-evenly;
-  grid-column: 3 / 1;
-  padding-top: 600px;
-}
-
-#signUpLinkDiv {
-  padding-top: 70px;
-}
