@@ -1,19 +1,18 @@
-const db = require("../db/index.js")
+const db = require("../../db/index.js")
 
 const getAllComments = async (req, res, next) => {
     try{
         res.status(200).json({
-            status: "Succes",
+            status: "Success",
             message: "Grabbed all comments",
             body: {
-                comments: await db.any("SELECT * FROM comments WHERE post_id = $1 ")
+                comments: await db.any("SELECT * FROM comments WHERE post_id = $1", req.params.post_id)
             }
         });
     } catch(error) {
         next(error);
     }
 };
-
 
 
 const addSingleComment = async (req, res, next) => {
@@ -49,7 +48,6 @@ const editSingleComent = async (req, res, next) => {
 }
 
 
-
 const deleteSingleComment = async (req, res, next) => {
     try {
         res.status(200).json({
@@ -68,3 +66,5 @@ const deleteSingleComment = async (req, res, next) => {
 // POST /comments/posts/:post_id/:commenter_id - Add single comment.
 // PATCH /comments/:post_id/:commenter_id - Edit single comment.
 // DELETE /comments/:post_id/:commenter_id - Delete single comment.
+
+module.exports = {getAllCommentsByPost, addCommentByPost, editCommentByPost, deleteComment};

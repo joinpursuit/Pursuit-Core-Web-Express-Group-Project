@@ -1,27 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./signUp.css" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="signUp/signUp.js" async></script>
+    <link rel="stylesheet" href="./masterFolder/master_signup.css" />
     <title>Sign Up</title>
-</head>
-<body>
-    <div id="signUpDiv">
+  </head>
 
-        <form id="signUpForm"> 
-            Enter Email:<br>
-            <input type="text"><br>
-            Create Username:<br>
-            <input type="text"><br>
-            Create Password:<br>
-            <input type="text"><br>
-            Enter Birthday:<br>
-            <input type="text"><br>
-          </form>
-          
-          <button id="signUpBtn"> Sign Up</button>
-    </div>
-</body>
+  <body>
+    <form id="signUpForm">
+      <!-- Enter Email:<br />
+        <input id="email" type="text" /><br /> -->
+      Create Username:<br />
+      <input id="username" type="text" /><br />
+      Create Password:<br />
+      <input id="password" type="password" /><br />
+      Add a Bio:<br />
+      <input id="bio" type="text" /><br />
+      Add a profile pic (URL links only):<br />
+      <input id="propicURL" type="text" /><br />
+      <button id="signUpBtn">Sign Up</button>
+    </form>
+    <div id="signUpDiv"></div>
+  </body>
 </html>
