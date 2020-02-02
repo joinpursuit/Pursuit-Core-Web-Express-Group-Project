@@ -45,17 +45,17 @@ CREATE TABLE likes(
 
 CREATE TABLE albums(
     id SERIAL PRIMARY KEY,
-    albums_id INT REFERENCES users(id),
+    users_id INT REFERENCES users(id),
     album_name text, 
     thumbnail text, 
     time_stamp date
 );
 
 
-CREATE TABLE photos(
+CREATE TABLE pictures(
     id SERIAL PRIMARY KEY,
     table_id INT REFERENCES users(id),
-    photos_id INT REFERENCES albums(id),
+    albums_id INT REFERENCES albums(id),
     photo_url text,
     time_stamp date
 );
