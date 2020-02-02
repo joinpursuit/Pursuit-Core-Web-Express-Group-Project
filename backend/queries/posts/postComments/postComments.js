@@ -20,7 +20,8 @@ const isCommentExisting = async (postId, commentId) => {
 
 const getComments = async (req, res) => {
     try {
-        let comments = await db.any("SELECT * FROM comments INNER JOIN users ON comments.commenter_id=users.id");
+        let {postId} = req.params;
+        let comments = await db.any("SELECT * FROM comments INNER JOIN users ON comments.commenter_id=users.id WHERE post_id=$1", postId);
         successReq(res, comments, "Retrieved all comments");
     } catch (error) {
         sendError(res, error);
