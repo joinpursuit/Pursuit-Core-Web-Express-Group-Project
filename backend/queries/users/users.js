@@ -1,6 +1,5 @@
 const db = require('../../db/db');
 
-
 const getUsers = async (req, res, next) => {
     try {
         let users = await db.any("SELECT * FROM users");
@@ -16,8 +15,7 @@ const getUsers = async (req, res, next) => {
 
 const getUser = async (req, res, next) => {
     try {
-        let user = await db.one("SELECT * FROM users WHERE user_id = $1", req.body
-        );
+        let user = await db.one("SELECT * FROM users WHERE user_id = $1", req.body);
         res.status(200).json({
             user,
             status: "success",
