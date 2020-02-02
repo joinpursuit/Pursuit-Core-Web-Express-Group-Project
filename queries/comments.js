@@ -64,4 +64,4 @@ const addComment = async(req, res, next) =>{
         next(err)
     }
 }
-module.exports = { getAllComments, getSingleComment, editSingleComment, deleteSingleComment, addComment }
+module.exports = { getAllComments, getSingleComment, editSingleComment, deleteSingleComment, addComment };
