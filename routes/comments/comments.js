@@ -8,4 +8,4 @@ comments.delete("/:post_id/:commenter_id", deleteSingleComment)
 
 
 
-module.exports = comments
+module.exports = comments;
