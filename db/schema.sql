@@ -54,7 +54,7 @@ CREATE TABLE pictures (
   picture_url TEXT
 );
 
-CREATE TABLE prefrences (
+CREATE TABLE preferences (
     id SERIAL PRIMARY KEY,
   users_id INTEGER REFERENCES users(id) ON DELETE SET NULL,
   do_have_child BOOLEAN,
@@ -100,7 +100,7 @@ INSERT INTO pictures (albums_id, picture_url)
             (3,'https://i.ytimg.com/vi/cYGrlEtqaVw/maxresdefault.jpg'),
             (4,'https://i.ytimg.com/vi/cYGrlEtqaVw/maxresdefault.jpg'),
             (5,'https://i.ytimg.com/vi/cYGrlEtqaVw/maxresdefault.jpg');
-INSERT INTO prefrences (users_id, do_have_child, want_child, drink, smoke_weed, long_term)
+INSERT INTO preferences (users_id, do_have_child, want_child, drink, smoke_weed, long_term)
     VALUES (1,'y','y','y','y','y'), 
             (2,'y','y','y','y','y'),
             (3,'y','y','y','y','y'),
