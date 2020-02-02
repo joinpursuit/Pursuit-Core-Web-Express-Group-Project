@@ -1,49 +1,70 @@
 const db = require("../../db/index.js")
 
-const getAllCommentsByPost = async(req, res, next) => {
-    try {
+const getAllComments = async (req, res, next) => {
+    try{
         res.status(200).json({
-            status: "Succcess",
-            message: "get All Comment by post_id"
-        })
+            status: "Success",
+            message: "Grabbed all comments",
+            body: {
+                comments: await db.any("SELECT * FROM comments WHERE post_id = $1", req.params.post_id)
+            }
+        });
     } catch(error) {
-        console.log("error")
+        next(error);
+    }
+};
+
+
+const addSingleComment = async (req, res, next) => {
+    try {
+        let { post_id, author_id } = req.params;
+        let { content } = req.body;
+            let single_comment = await db.one("INSERT INTO comments (post_id, author_id, content) VALUES ($1, $2, $3) RETURNING *", [post_id, author_id, content] )
+        res.status(200).json({
+            status: "Success",
+            message: "Added a single comment",
+            body: {
+                single_comment
+            }
+        });
+    } catch(error) {
+        next(error);
     }
 }
 
-const addCommentByPost = async(req, res, next) => {
+
+const editSingleComent = async (req, res, next) => {
+    try {
+        res.status(200).json({
+            status: "Succes",
+            message: "You have edited a single comment",
+            body: {
+
+            }
+        });
+    } catch(error) {
+        next(error);
+    }
+}
+
+
+const deleteSingleComment = async (req, res, next) => {
     try {
         res.status(200).json({
             status: "Success",
-            message: "add a Comment by post_id from author_id"
+            message: "You have deleted a single comment",
+            body: {
 
-        })
-    } catch(error) {
-        console.log("error")
+            }
+        });
+    }catch(error) {
+        next(error);
     }
 }
 
-const editCommentByPost = async(req, res, next) => {
-    try {
-        res.status(200).json({
-            status: "Success",
-            message: "edit a Comment by post_id from author_id"
-        })
-    } catch(error) {
-        console.log("error")
-    }
-}
-
-const deleteComment = async(req, res, next) => {
-    try {
-        res.status(200).json({
-            status: "Success",
-            message: "delete a Comment by post_id from author_id"
-        })
-    } catch(error) {
-        console.log("error")
-    }
-}
-
+// GET /comments/posts/:post_id - Get all comments for a single post.
+// POST /comments/posts/:post_id/:commenter_id - Add single comment.
+// PATCH /comments/:post_id/:commenter_id - Edit single comment.
+// DELETE /comments/:post_id/:commenter_id - Delete single comment.
 
 module.exports = {getAllCommentsByPost, addCommentByPost, editCommentByPost, deleteComment};
