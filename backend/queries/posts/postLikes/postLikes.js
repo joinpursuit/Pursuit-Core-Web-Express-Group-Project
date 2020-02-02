@@ -2,6 +2,10 @@ const db = require("./../../../db/db");
 const {isPostExisting, sendError, sendDoesntExist, successReq} = require("./../posts");
 
 const sendNoLikes = (res) => {
+    res.json({
+        status: "error",
+        error: "That post has no likes"
+    })
 } // End of sendNoLikes
 
 const isLikeExisting = async (likerId, postId) => {
