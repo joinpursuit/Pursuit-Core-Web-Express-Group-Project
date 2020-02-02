@@ -79,4 +79,14 @@ const editPost = async (req, res) => {
     }
 } // End of editPost() function
 
-module.exports = {getAllPosts, getPostById, deletePost, editPost}
+const createPost = async (req, res) => {
+    try {
+        let {posterId, body} = req.body;
+        let post = await db.one("INSERT INTO posts (poster_id, body, creation_date) VALUES($1, $2, $3) RETURNING *", [posterId, body, newDate()]);
+        successReq(res, post, "Created post");
+    } catch (error) {
+        sendError(error);
+    }
+} // End of createPost() function
+
+module.exports = {getAllPosts, getPostById, deletePost, editPost, createPost}
