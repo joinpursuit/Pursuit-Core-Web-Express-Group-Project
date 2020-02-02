@@ -15,7 +15,7 @@ posts.get("/:user_id", getUserPosts, (req, res) => {
   })
 })
 
-posts.post("/", (req, res) => {
+posts.post("/", registerPosts, (req, res) => {
   res.status(200).json({
     status: "failure",
     message: "Unable to add single post"
@@ -29,7 +29,7 @@ posts.patch("/:id", (req, res) => {
   })
 })
 
-posts.delete("/:id", (req, res) => {
+posts.delete("/:id", deletePost, (req, res) => {
   res.status(200).json({
     status: "failure",
     message: "Unable to delete single post"
