@@ -93,4 +93,4 @@ const updateUser = async (req, res, next) => {
     }
 }
 
-module.exports = { getUsers, getUser, createUser, deleteUser, updateUser }
+module.exports = { getUsers, getUser, createUser, deleteUser, updateUser, isUserExisting }

@@ -1,4 +1,5 @@
 const db = require("./../../../db/db")
+const {isUserExisting} = require("./../users");
 
 const getUserFollowings = async (req, res, next) => {
     try {
@@ -15,7 +16,8 @@ const getUserFollowings = async (req, res, next) => {
 
 const createUserFollowing = async (req, res, next) => {
     try {
-        let following = await db.none("INSERT INTO followings VALUES (${followers_id}, ${followed_id}", req.params.id);
+        let {followerId, followedId} = req.body;
+        let following = await db.one("INSERT INTO followings (follower_id, followed_id) VALUES ($1, $2) RETURNING *", [followerId, followedId]);
         res.status(200).json({
             following,
             status: "Success",
