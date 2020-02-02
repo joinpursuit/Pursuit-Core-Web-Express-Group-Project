@@ -6,7 +6,7 @@ const getAllPosts = async (req, res, next) => {
       status: "Success",
       message: "Got all Posts",
       body: {
-        posts: await db.any("SELECT * FROM posts")
+        posts: await db.any("SELECT * FROM posts ORDER BY time_stamp DESC")
       }
     });
   } catch (error) {
