@@ -43,9 +43,11 @@ const getAllPosts = async (req, res) => {
 const getPostById = async (req, res) => {
     try {
         let {postId} = req.params;
-        let post = await db.any("SELECT * FROM posts WHERE id=$1", postId);
-        if(post.length) {
+        if(isPostExisting(postId)) {
+            let post = await db.one("SELECT * FROM posts WHERE id=$1", postId);
             successReq(res, post, `Retrieved post at id ${postId}`);
+        } else {
+            sendDoesntExist("post", postId);
         }
     } catch(error) {
         sendError(res, error);
@@ -55,9 +57,11 @@ const getPostById = async (req, res) => {
 const deletePost = async (req, res) => {
     try {
         let {postId} = req.params;
-        let post = await db.any("DELETE FROM posts WHERE id=$1 RETURNING *", postId);
-        if(post.length) {
+        if(isPostExisting(postId)) {
+            let post = await db.one("DELETE FROM posts WHERE id=$1 RETURNING *", postId);
             successReq(res, post, `Deleted post at id ${postId}`);
+        } else {
+            sendDoesntExist("post", postId);
         }
     } catch(error) {
         sendError(res, error);
@@ -89,4 +93,4 @@ const createPost = async (req, res) => {
     }
 } // End of createPost() function
 
-module.exports = {getAllPosts, getPostById, deletePost, editPost, createPost}
+module.exports = {getAllPosts, getPostById, deletePost, editPost, createPost, isPostExisting, sendError, newDate, sendDoesntExist, successReq}
