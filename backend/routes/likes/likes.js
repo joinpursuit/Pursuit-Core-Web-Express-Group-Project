@@ -5,11 +5,6 @@ likesRouter.post("/", (req, res) => {
   res.json(req.body);
 });
 
-// - **Likes**
-//   - GET `/likes/posts/:post_id` - Get all likes for a single post.
-//   - POST `/likes/posts/:post_id` - Add single like.
-//   - DELETE `/likes/:post_id/:liker_id` - Delete single like.
-
 likesRouter.get("/posts/:post_id", async (req, res) => {
   try {
     let allLikesById = await db.any(
@@ -30,10 +25,15 @@ likesRouter.post("/posts/:post_id", async (req, res) => {
   try {
     let newLike = await db.any(
       "INSERT INTO posts_likes (post_id, liker_id) VALUES ($1, $2) RETURNING *",
-      [req.params.post_id, req.body.liker_id]
+      [req.params.post_id, Number(req.body.liker_id)]
     );
+    res.json({
+      status: "success",
+      message: "added new post",
+      body: newLike
+    });
   } catch (error) {
-    next(error);
+    console.log(error);
   }
   res.json(req.body);
 });
