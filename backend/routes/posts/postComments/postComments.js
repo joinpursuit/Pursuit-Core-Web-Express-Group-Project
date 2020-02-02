@@ -3,7 +3,7 @@ const {getComments, addComment, editComment, deleteComment} = require("./../../.
 
 postComments.get("/", getComments);
 postComments.post("/", addComment);
-postComments.patch("/:commentId", editComment);
+postComments.patch("/:commenterId", editComment);
 postComments.delete("/:commentId", deleteComment);
 
 module.exports = postComments;
