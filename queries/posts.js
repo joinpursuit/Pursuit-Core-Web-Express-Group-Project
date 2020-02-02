@@ -4,8 +4,8 @@ const getAllPost =  async (req, res, next) =>{
     try{
         let posts = await db.any("SELECT * FROM posts");
         res.status(200).json({
-            status: "status",
-            message: "These are all the posts",
+            status: "success",
+            message: "These are all of the available posts",
             body: posts
         })
     }catch(err){
@@ -17,8 +17,8 @@ const getUserPosts = async (req, res, next) =>{
     try{
         let post = await db.any("SELECT * FROM posts WHERE poster_id = $1", [req.params.user_id]);
         res.status(200).json({
-            status: "status",
-            message: `${req.params.user_id}'s post`,
+            status: "success",
+            message: `User ID: ${req.params.user_id}'s posts`,
             body: post
         })
 
@@ -31,8 +31,8 @@ const registerPosts = async (req, res, next) =>{
     try{
         let newPost = await db.any("INSERT INTO posts (poster_id, body) VALUES (${poster_id}, ${body}) RETURNING *", req.body);
         res.status(200).json({
-            status: "status",
-            message: "post was success",
+            status: "success",
+            message: "post was a success",
             body: newPost
         })
     }catch(err){
@@ -44,8 +44,8 @@ const deletePost = async (req, res, next) =>{
     try{
         let removePost = await db.none("DELETE FROM posts WHERE id = $1", req.params.id);
         res.status(200).json({
-            status: "status",
-            message: "delete was success",
+            status: "success",
+            message: "delete was a success",
             body: removePost
         })
 
@@ -56,10 +56,17 @@ const deletePost = async (req, res, next) =>{
 
 const editPost = async (req, res, next)=>{
     try{
+
+        let edit = await db.one("UPDATE posts SET body = ${body} WHERE id = ${id} RETURNING *", req.body)
+        res.status(200).json({
+            status: "success",
+            message: "The post was edited successfully.",
+
         let edit = await db.one(`UPDATE posts SET body = '${req.body.body}' WHERE id=${req.params.id} RETURNING *`);
         res.status(200).json({
             status: "status",
             message: "Your status is now updates",
+
             body: edit
         })
     }catch(err){
