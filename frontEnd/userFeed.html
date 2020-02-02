@@ -6,18 +6,36 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="userFeed/userFeed.js" async></script>
-    <link rel="stylesheet" href="./masterFolder/master_userFeed.css" />
+    <link rel="stylesheet" href="./master/userFeed.css" />
     <title>Home</title>
   </head>
   <body>
-    <div id="mainDiv">
-      <div id="headerDiv">header here</div>
-
-      <div id="userProfileDiv">user profile info here</div>
-
-      <div id="feedDiv">feed goes here</div>
-
-      <div></div>
+    <nav class="header">
+      <div class="mainHeader">
+        <a href="./userFeed.html">Home</a>
+      </div>
+      <div class="albums">
+        <a href="./album.html">Albums</a>
+      </div>
+      <div class="photos">
+        <a href="./photo.html">Photos</a>
+      </div>
+    </nav>
+    <div class="owner_info_box">
+      <div class="owner_info_box">
+        <div id="ownerPic"></div>
+        <h1 id="ownerName"></h1>
+        <h5 id="ownerBio"></h5>
+        <button id="logOffBtn">Log Off</button>
+      </div>
     </div>
+    <div class="feedContent">
+      <div class="contentHeader">
+          
+      </div>
+    </div>
+    <br />
+
+    <div class="content"></div>
   </body>
 </html>
