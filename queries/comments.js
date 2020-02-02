@@ -56,4 +56,12 @@ const deleteSingleComment = async (req, res, next) => {
         next(err)
     }
 }
-module.exports = { getAllComments, getSingleComment, editSingleComment, deleteSingleComment }
+
+const addComment = async(req, res, next) =>{
+    try{
+        let addComment = await db.none("INSERT INTO comments (commenters_id, comments_post_id) VALUES (${commenters_id}, ${comments_post_id}", req.body)
+    }catch(err){
+        next(err)
+    }
+}
+module.exports = { getAllComments, getSingleComment, editSingleComment, deleteSingleComment, addComment }
