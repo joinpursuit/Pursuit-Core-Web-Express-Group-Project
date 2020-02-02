@@ -27,10 +27,21 @@ const getUserByid = async (req, res, next) => {
   }
 };
 
+const logInUser = async (req, res, next) => {
+  try {
+    let user = await dataBase.one(
+      `SELECT * FROM users WHERE email = '${req.body.email}' AND password = '${req.body.password}'`
+    );
+    res.status(200).json({user})
+  } catch (err) {
+    next(err);
+  }
+};
+
 const addUser = async (req, res, next) => {
   console.log(req.body);
   try {
-    let user = await dataBase.any(
+    let user = await dataBase.one(
       "INSERT INTO users (user_name,email,password,phone_number) VALUES (${user_name}, ${email},${password},${phone_number}) RETURNING *",
       req.body
     );
@@ -56,4 +67,4 @@ const deleteUser = async (req, res, next) => {
   }
 };
 
-module.exports = { getAllUsers, getUserByid, addUser, deleteUser };
+module.exports = { getAllUsers, getUserByid, logInUser, addUser, deleteUser };
