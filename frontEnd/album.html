@@ -1,45 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <script src="./index.js" async></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <link rel="stylesheet" href="./master/album.css">
+    <link rel="stylesheet" href="./master/album.css" />
     <title>User's Album Page</title>
-</head>
-<body>
+  </head>
+  <body>
     <nav class="header">
-        <div class="mainHeader">
-            <a href="./logIn.html">Home</a>
-        </div>
-        <div class="feedHeader">
-            <a href="./userFeed.html">Feed</a>
-        </div>
-        <div class="photoHeader">
-            <a href="./photo.html">Photos</a>
-        </div>
+      <div class="mainHeader">
+        <a href="./userFeed.html">Home</a>
+      </div>
+      <div class="albums">
+        <a href="./album.html">Albums</a>
+      </div>
+      <div class="photos">
+        <a href="./photo.html">Photos</a>
+      </div>
     </nav>
     <div class="owner_info_box">
-        <span class="profPic"></span>
-    </div>  
+      <div class="owner_info_box">
+        <div id="ownerPic"></div>
+        <h1 id="ownerName"></h1>
+        <h5 id="ownerBio"></h5>
+        <button id="logOffBtn">Log Off</button>
+      </div>
+    </div>
     <div class="feedContent">
-        <div class="contentHeader">
-            <!-- <img src="./imagesFolder/book.png" alt="albumsImage" height="50px" width="50px"> -->
-            <h2>Albums</h2>
-            <div class="contentButton">
-                <button id="createButton">Create New</button>
-            </div>
+      <div class="contentHeader">
+        <!-- <img src="./imagesFolder/book.png" alt="albumsImage" height="50px" width="50px"> -->
+        <h2>Albums</h2>
+        <div class="contentButton">
+          <button id="createButton">Create New</button>
         </div>
+      </div>
     </div>
-    <br>
+    <br />
 
-    <div class="content">
-    </div>
-</body>
+    <div class="content"></div>
+  </body>
 </html>
-
 
 <!-- credits 
 <div>Icons made by <a href="https://www.flaticon.com/authors/payungkead" title="Payungkead">Payungkead</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> -->

@@ -6,26 +6,31 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="./index.js" async></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <link rel="stylesheet" href="./masterFolder/master_photo.css">
+    <link rel="stylesheet" href="./master/photo.css">
     <title>User's Photo Page</title>
 </head>
 <body>
 
-    <div class="owner_info_box">
-        <p>Owner Info is Here</p>
-    </div>
-    <br>
-    <div class="header">
-        <header>
-            <a href="./home.html">Main Page</a>
-        </header>
-        <header>
-            <a href="./feed.html">Post Feed Page</a>
-        </header>
-        <header>
-            <a href="./album.html">Album Page</a>
-        </header>
-    </div>
+    <nav class="header">
+        <div class="mainHeader">
+          <a href="./userFeed.html">Home</a>
+        </div>
+        <div class="albums">
+          <a href="./album.html">Albums</a>
+        </div>
+        <div class="photos">
+          <a href="./photo.html">Photos</a>
+        </div>
+      </nav>
+      <div class="owner_info_box">
+        <div class="owner_info_box">
+          <div id="ownerPic"></div>
+          <h1 id="ownerName"></h1>
+          <h5 id="ownerBio"></h5>
+          <button id="logOffBtn">Log Off</button>
+        </div>
+      </div>
+
     <br>
     <div class="photoGroup">
         <div>description 1
