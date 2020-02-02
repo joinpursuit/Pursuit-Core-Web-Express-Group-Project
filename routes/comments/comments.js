@@ -4,7 +4,7 @@ const {getAllComments, getSingleComment, editSingleComment, deleteSingleComment}
 comments.get("/posts/:post_id", getAllComments);
 comments.post("/posts/:post_id/:commenter_id", getSingleComment);
 comments.patch("/:post_id/:commenter_id", editSingleComment);
-comments.delete("/:post_id/:commenter_id", deleteSingleComment)
+comments.delete("/:post_id/:commenter_id", deleteSingleComment);
 
 
 
