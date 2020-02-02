@@ -68,12 +68,4 @@ const deleteUser = async (req, res, next) => {
     }
 }
 
-const getBetHistory = async (req, res, next) => {
-
-}
-
-const updateBetHistory = async (req, res, next) => {
-
-}
-
-module.exports = { getUsers, getUser, createUser, deleteUser, getBetHistory, updateBetHistory }
+module.exports = { getUsers, getUser, createUser, deleteUser }
