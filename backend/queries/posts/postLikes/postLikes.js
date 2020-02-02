@@ -57,10 +57,16 @@ const addLike = async (req, res) => {
 
 const deleteLike = async (req, res) => {
     try {
-        
+        let {postId, likerId} = req.params;
+        if(isLikeExisting(likerId, postId)) {
+            let like = db.one("DELETE FROM likes WHERE liker_id=$1 AND post_id=$2 RETURNING *", [likerId, postId]);
+            successReq(res, like, "deleted like");
+        } else {
+            sendNoLikes(res);
+        }
     } catch (error) {
-        sendError
+        sendError(error);
     }
 } // End of deleteLike() function
 
-module.exports = {getLikes, addLike}
+module.exports = {getLikes, addLike, deleteLike}
