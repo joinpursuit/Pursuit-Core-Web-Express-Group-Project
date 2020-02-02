@@ -1,8 +1,8 @@
 {
-  "name": "pursuit-core-web-express-group-project",
+  "name": "Pursuit-Core-Web-Express-Group-Project",
   "version": "1.0.0",
   "description": "With your group, build an app that has the basic functionality of a social media website.",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,6 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/kwong0419/Pursuit-Core-Web-Express-Group-Project.git"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
