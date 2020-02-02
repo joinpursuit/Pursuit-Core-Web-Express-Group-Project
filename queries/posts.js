@@ -56,10 +56,17 @@ const deletePost = async (req, res, next) =>{
 
 const editPost = async (req, res, next)=>{
     try{
+
         let edit = await db.one("UPDATE posts SET body = ${body} WHERE id = ${id} RETURNING *", req.body)
         res.status(200).json({
             status: "success",
             message: "The post was edited successfully.",
+
+        let edit = await db.one(`UPDATE posts SET body = '${req.body.body}' WHERE id=${req.params.id} RETURNING *`);
+        res.status(200).json({
+            status: "status",
+            message: "Your status is now updates",
+
             body: edit
         })
     }catch(err){
