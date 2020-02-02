@@ -29,7 +29,7 @@ const getComments = async (req, res) => {
                 sendNoComments(res);
             }
         } else {
-            sendDoesntExist("post", postId);
+            sendDoesntExist(res, "post", postId);
         }
         
     } catch (error) {
@@ -46,10 +46,10 @@ const addComment = async (req, res) => {
                 let comment = await db.one("INSERT INTO comments (commenter_id, post_id, body, creation_date) VALUES($1, $2, $3, $4) RETURNING *", [commenterId, postId, body, newDate()]);
                 successReq(res, comment, "Added comment");
             } else {
-                sendDoesntExist("comment", commenterId);
+                sendDoesntExist(res, "comment", commenterId);
             }
         } else {
-            sendDoesntExist("post", postId);
+            sendDoesntExist(res, "post", postId);
         }
     } catch (error) {
         sendError(res, error);
@@ -65,17 +65,34 @@ const editComment = async (req, res) => {
                 let comment = await db.one("UPDATE comments SET body=$1, creation_date=$2 WHERE post_id=$3 AND commenter_id=$4 RETURNING *", [body, newDate(), postId, commenterId]);
                 successReq(res, comment, "edited comment");
 
+            } else {
+                sendDoesntExist(res, "comment", commenterId);
             }
         } else {
-            sendDoesntExist("post", postId);
+            sendDoesntExist(res, "post", postId);
         }
     } catch (error) {
         sendError(res, error);
     }
 } // End of editComment() function
 
-const deleteComment = (req, res) => {
+const deleteComment = async (req, res) => {
+    try {
+        let {postId, commenterId} = req.params;
+        if(await isPostExisting(postId)) {
+            if(await isCommentExisting(postId, commenterId)) {
+                let comment = await db.one("DELETE FROM comments WHERE post_id=$1 AND commenter_id=$2 RETURNING *", [postId, commenterId]);
+                successReq(res, comment, "deleted comment");
 
+            } else {
+                sendDoesntExist(res, "comment", commenterId);
+            }
+        } else {
+            sendDoesntExist(res, "post", postId);
+        }
+    } catch (error) {
+        sendError(res, error);
+    }
 } // End of deleteComment() function
 
 module.exports = {getComments, addComment, editComment, deleteComment}

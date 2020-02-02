@@ -29,7 +29,7 @@ const getLikes = async (req, res) => {
                 sendNoLikes(res);
             }
         } else {
-            sendDoesntExist("post", postId);
+            sendDoesntExist(res, "post", postId);
         }
     } catch(error) {
         sendError(res, error);
@@ -52,7 +52,7 @@ const addLike = async (req, res) => {
                 successReq(res, post, "Added like");
             }
         } else {
-            sendDoesntExist("post", postId);
+            sendDoesntExist(res, "post", postId);
         }
     } catch(error) {
         sendError(res, error);

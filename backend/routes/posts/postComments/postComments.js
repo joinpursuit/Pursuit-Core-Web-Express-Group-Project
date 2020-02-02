@@ -4,6 +4,6 @@ const {getComments, addComment, editComment, deleteComment} = require("./../../.
 postComments.get("/", getComments);
 postComments.post("/", addComment);
 postComments.patch("/:commenterId", editComment);
-postComments.delete("/:commentId", deleteComment);
+postComments.delete("/:commenterId", deleteComment);
 
 module.exports = postComments;

@@ -11,7 +11,7 @@ const sendError = (res, error) => {
         })
 } // End of sendError() function
 
-const sendDoesntExist = (item, id) => {
+const sendDoesntExist = (res, item, id) => {
     res.json({
         status: "error",
         error: `${item} with id ${id} doesn't exist`
@@ -47,7 +47,7 @@ const getPostById = async (req, res) => {
             let post = await db.one("SELECT * FROM posts WHERE id=$1", postId);
             successReq(res, post, `Retrieved post at id ${postId}`);
         } else {
-            sendDoesntExist("post", postId);
+            sendDoesntExist(res, "post", postId);
         }
     } catch(error) {
         sendError(res, error);
@@ -61,7 +61,7 @@ const deletePost = async (req, res) => {
             let post = await db.one("DELETE FROM posts WHERE id=$1 RETURNING *", postId);
             successReq(res, post, `Deleted post at id ${postId}`);
         } else {
-            sendDoesntExist("post", postId);
+            sendDoesntExist(res, "post", postId);
         }
     } catch(error) {
         sendError(res, error);
@@ -76,7 +76,7 @@ const editPost = async (req, res) => {
             let post = await db.one("UPDATE posts SET body=$1, creation_date=$2 WHERE id=$3 RETURNING *", [body, newDate(), postId]);
             successReq(res, post, "Updated post");
         } else {
-            sendDoesntExist("post", postId);
+            sendDoesntExist(res, "post", postId);
         }
     } catch(error) {
         sendError(res, error);
