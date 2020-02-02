@@ -1,7 +1,7 @@
 const db = require('../../db/db');
 
 const isUserExisting = async (userId) => {
-    let user = await db.any("SELECT * FROM users WHERE user_id=$1", userId);
+    let user = await db.any("SELECT * FROM users WHERE id=$1", userId);
     if(user.length) return true;
     return false;
 }
