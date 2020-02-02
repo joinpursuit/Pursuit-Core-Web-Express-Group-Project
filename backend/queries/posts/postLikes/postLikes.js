@@ -6,7 +6,9 @@ const sendNoLikes = (res) => {
 
 const isLikeExisting = async (likerId, postId) => {
     try {
-        return await db.any("SELECT * FROM likes WHERE liker_id=$1 AND post_id=$2",[likerId, postId]);
+        let like =  await db.any("SELECT * FROM likes WHERE liker_id=$1 AND post_id=$2",[likerId, postId]);
+        if(like.length) return true
+        return false;
     } catch (error) {
         console.log(error);
     }
@@ -34,8 +36,8 @@ const addLike = async (req, res) => {
     try {
         let {postId} = req.params;
         let {likerId} = req.body;
-        if(isPostExisting(postId)) {
-            if(isLikeExisting(likerId, postId)) {
+        if(await isPostExisting(postId)) {
+            if(await isLikeExisting(likerId, postId)) {
                 res.json({
                     status: "error",
                     error: "The user has liked the post already"
@@ -52,5 +54,13 @@ const addLike = async (req, res) => {
         sendError(res, error);
     }
 } // End of addLike() function
+
+const deleteLike = async (req, res) => {
+    try {
+        
+    } catch (error) {
+        sendError
+    }
+} // End of deleteLike() function
 
 module.exports = {getLikes, addLike}
