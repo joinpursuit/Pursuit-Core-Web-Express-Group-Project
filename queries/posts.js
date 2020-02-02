@@ -5,7 +5,7 @@ const getAllPost =  async (req, res, next) =>{
         let posts = await db.any("SELECT * FROM posts");
         res.status(200).json({
             status: "status",
-            message: "These are all the posts",
+            message: "These are all of the available posts",
             body: posts
         })
     }catch(err){
@@ -18,7 +18,7 @@ const getUserPosts = async (req, res, next) =>{
         let post = await db.any("SELECT * FROM posts WHERE poster_id = $1", [req.params.user_id]);
         res.status(200).json({
             status: "status",
-            message: `${req.params.user_id}'s post`,
+            message: `User ID: ${req.params.user_id}'s posts`,
             body: post
         })
 
