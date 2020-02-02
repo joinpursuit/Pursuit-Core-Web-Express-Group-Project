@@ -1,5 +1,10 @@
+
+const comments = require('express').Router;
+const { getAllComments, addSingleComment, editComment, deleteComment} = require('../../queries/comments');
+
 const comments = require('express').Router();
-const { getAllComments, addSingleComment, editComment, deleteComment} = require('');
+const { getAllComments, addSingleComment, editComment, deleteComment} = require('./../queries/comments');
+
 
 comments.get("/posts/:post_id", getAllComments);
 
