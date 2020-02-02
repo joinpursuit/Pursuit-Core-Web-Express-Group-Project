@@ -33,7 +33,7 @@ const getUserFollowingCount = async (req, res, next) => {
     try {
         let {userId} = req.params;
         if(await isUserExisting(userId)) {
-            let following = await db.any("SELECT COUNT(*) AS userFollowingCount FROM following WHERE follower_id=$1", userId);
+            let following = await db.any("SELECT COUNT(*) AS userFollowingCount FROM followings WHERE follower_id=$1", userId);
             if(following.length) {
                 res.json({
                     following,
@@ -57,7 +57,7 @@ const getUserFollowerCount = async (req, res, next) => {
     try {
         let {userId} = req.params;
         if(await isUserExisting(userId)) {
-            let follower = await db.any("SELECT COUNT(*) AS userFollowerCount FROM following WHERE followed_id=$1", userId);
+            let follower = await db.any("SELECT COUNT(*) AS userFollowerCount FROM followings WHERE followed_id=$1", userId);
             if(follower.length) {
                 res.json({
                     follower,
