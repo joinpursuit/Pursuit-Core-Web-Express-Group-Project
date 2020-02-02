@@ -22,3 +22,5 @@ let displayUserInfo = async () => {
 };
 
 displayUserInfo();
+
+
