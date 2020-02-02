@@ -13,7 +13,7 @@ DROP TABLE IF EXISTS users;
 CREATE TABLE users
 (
     id SERIAL PRIMARY KEY,
-    full_name TEXT NOT NULL UNIQUE,
+    full_name TEXT NOT NULL,
     birth_date VARCHAR,
     city TEXT,
     state TEXT,
