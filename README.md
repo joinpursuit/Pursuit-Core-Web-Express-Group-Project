@@ -11,7 +11,7 @@ This is our first large group project.  There are three large things to be aware
 3. Group Roles
 
 ### Git
-
+ 
 Unlike homework in the past where you forked a Pursuit repo, then committed and pushed at the end, a group project must be more collaborative.
 
 The master branch should be the most current version of the project.  Whenever you want to make a change to the project, you should create a new branch named after the change you will be making.  Make your changes in the branch, then make a PR against master.  Someone else from your team should review the PR, then merge it into the master branch.  Everyone else should then pull the master branch to have the most current version on their local machines.

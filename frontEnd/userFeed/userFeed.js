@@ -3,6 +3,7 @@ let displayUserInfo = async () => {
     `http://localhost:3000/users/${sessionStorage.userID}`
   );
   let { username, propicurl, bio } = res.data.body.single_user;
+
   let profName = document.querySelector("#ownerName")
   let profPic = document.querySelector("#ownerPic")
   let profBio = document.querySelector("#ownerBio")
@@ -19,6 +20,7 @@ let displayUserInfo = async () => {
     window.location.href = "logIn.html";
     window.location.href.reload();
   });
+
 };
 
 displayUserInfo();
