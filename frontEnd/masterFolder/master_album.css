@@ -1,16 +1,62 @@
 body{
-    background-color: blanchedalmond;
+    background-color:#E9EBEE;
+    margin: 0;
+    padding 0;
 }
+.header {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+    background-color: rgb(27, 167, 160);
+    position: relative;
+    width: 100vw;
+    height: 5vh;
+}
+
+a:link {
+    color: white;
+    text-decoration: none;
+}
+
+.mainHeader {
+    padding-left: 30vw;
+    padding-right: 2vw;
+    margin-top: 1vh;
+}
+
 .owner_info_box{
-    border: solid;
-    margin-top: 5%;
-    margin-left: 2%;
-    margin-right: 85%;
-    height: 250px;
-    width: 15%;
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    background-color: lightgrey;
+    border: solid white;
+    width: 800px;
+    height: 25vh;
+    left: 20%;
+    margin: 0 auto; 
 }
-.header{
-    border: solid;
+
+.owner_info_box2{
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    top: 30vh;
+    background-color: darkgrey  ;
+    border: solid white;
+    width: 800px;
+    height: 70vh;
+    left: 20%;
+    margin: 0 auto; 
+}
+
+.feedHeader{
+    padding-right: 2vw;
+    margin-top: 1vh;
+}
+
+.photoHeader {
+    margin-top: 1vh;
 }
 
 .albumGroup{
