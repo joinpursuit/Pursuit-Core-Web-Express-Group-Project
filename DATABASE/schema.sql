@@ -14,12 +14,26 @@ DROP TABLE IF EXISTS pictures;
 CREATE TABLE users
 (
     id SERIAL PRIMARY KEY,
-    username TEXT,
+    username TEXT UNIQUE,
     password TEXT,
     firstname TEXT,
-    lastname TEXT
-    AGE INT,
+    lastname TEXT,
+    age INT,
     PROFILE_PIC TEXT
+);
+
+CREATE TABLE albums
+(
+    id SERIAL PRIMARY KEY,
+    creator_id INT REFERENCES users(id) ON DELETE CASCADE,
+    album_title TEXT
+);
+
+CREATE TABLE pictures
+(
+    id SERIAL PRIMARY KEY,
+    album_id INT REFERENCES albums(id) ON DELETE CASCADE,
+    photo_url TEXT
 );
 
 CREATE TABLE posts
@@ -45,19 +59,7 @@ CREATE TABLE likes
     posts_id INT REFERENCES posts (id) ON DELETE CASCADE
 );
 
-CREATE TABLE albums
-(
-    id SERIAL PRIMARY KEY,
-    creator_id INT REFERENCES users(id) ON DELETE CASCADE,
-    album_title TEXT
-);
 
-CREATE TABLE pictures
-(
-    id SERIAL PRIMARY KEY,
-    album_id INT REFERENCES albums(id) ON DELETE CASCADE,
-    photo_url TEXT
-);
 
 INSERT INTO users
     (username,password,firstname,lastname,age,profile_pic)
@@ -66,13 +68,28 @@ VALUES
 ('HAL','Daisy1','Stanley','Kubrik',8,'../../avatars/4.eps'),
 ('Flower_Girl','Fauna12','Blossom', 'Utopium', 11,'../../avatars/5.eps'),
 ('Sports_fiend','Stadium12','Vince', 'Campbell',40,'../../avatars/6.eps'),
-('Griph','Karma12','Geoff','Ramsey',43,'../../avatars/7.eps')
+('Griph','Karma12','Geoff','Ramsey',43,'../../avatars/7.eps');
+
+INSERT INTO albums
+(creator_id, album_title)
+VALUES
+(1,'Movies'),
+(2, 'Memories');
+
+INSERT INTO pictures
+(album_id, photo_url)
+VALUES
+(1,'../../pictures/architecture-building-business-cinema-436413.jpg'),
+(1,'../../pictures/photos-in-the-wooden-box-5841.jpg'),
+(2,'../../pictures/greayscale-photo-of-baby-feet-with-father-and-mother-hands-in-733881.jpg'),
+(2,'../../pictures/people-silhouette-during-sunset-853168.jpg'),
+(2,'../../pictures/cottages-in-the-middle-of-beach-753626.jpg');
 
 INSERT INTO posts
-(poster_id,image,caption)
+(poster_id,album_id,body)
 VALUES
 (1,1,'This is the begining of a great day.' ),
-(2,2, 'Momentos Ive kept throughout the years'),
+(2,2, 'Momentos Ive kept throughout the years');
 
 
 INSERT INTO comments
@@ -93,19 +110,6 @@ VALUES
 (4,2),
 (1,1);
 
-INSERT INTO albums
-(creator_id, album_title)
-VALUES
-(1,'Movies'),
-(2, 'Memories');
 
-INSERT INTO pictures
-(album_id, photo_url)
-VALUES
-(1,'../../pictures/architecture-building-business-cinema-436413.jpg'),
-(1,'../../pictures/photos-in-the-wooden-box-5841.jpg'),
-(2,'../../pictures/greayscale-photo-of-baby-feet-with-father-and-mother-hands-in-733881.jpg'),
-(2,'../../pictures/people-silhouette-during-sunset-853168.jpg'),
-(2,'../../pictures/cottages-in-the-middle-of-beach-753626.jpg');
 
 
