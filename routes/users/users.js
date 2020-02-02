@@ -1,7 +1,7 @@
 const users = require('express').Router()
 
 
-users.get("/users",(res,req)=>{
+users.get("/",(req,res)=>{
     res.status(200).json({
         status:"failure",
         message:"Get all Users",
@@ -13,7 +13,7 @@ users.get("/users",(res,req)=>{
 
 // get /users/:id - get single user
 
-users.get("/users/:id",(res,req)=>{
+users.get("/users/:id",(req,res)=>{
     res.status(200).json({
         status:"failure",
         message:"Got Single User",
@@ -27,7 +27,7 @@ users.get("/users/:id",(res,req)=>{
 
 // post /users- add sungle user
 
-users.post("/users",(res,req)=>{
+users.post("/users",(req,res)=>{
     res.status(200).json({
         status:"failure",
         message:"Got single user",
@@ -38,7 +38,7 @@ users.post("/users",(res,req)=>{
 
 // delete /users/:id- delete user with corresponding id
 
-users.delete("/users/:id",(res,req)=>{
+users.delete("/users/:id",(req,res)=>{
     res.status(200).json({
         status:"failure",
         message:"Delete User",
@@ -46,4 +46,4 @@ users.delete("/users/:id",(res,req)=>{
     })
 })
 
-module.export = users
+module.exports = users
