@@ -81,7 +81,7 @@ const updateUser = async (req, res, next) => {
         let {betHistory} = req.body;
         let {userId} = req.params;
         if(await isUserExisting(userId)) {
-            let updatedUser = await db.one("UPDATE users SET bet_history=$1 WHERE id=$2", [betHistory, userId]);
+            let updatedUser = await db.one("UPDATE users SET bet_history=$1 WHERE id=$2 RETURNING *", [betHistory, userId]);
             res.json({
                 status: "success",
                 message: "update user",
