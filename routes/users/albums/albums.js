@@ -1,6 +1,9 @@
 const usersAlbums = require('express').Router({mergeParams: true})
-const { getAlbumsByUser } = require("../../../queries/users")
+const { getAlbumsByUser, createAlbum } = require("../../../queries/users")
 ​
-usersPets.get("/", getAlbumsByUser)
+usersAlbums.get("/:id", getAlbumsByUser)
+usersAlbums.post("/", createAlbum)
+
+
 ​
 module.exports = usersAlbums;
