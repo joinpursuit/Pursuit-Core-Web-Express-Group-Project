@@ -1,7 +1,7 @@
 const userLogins = require("express").Router({mergeParams: true});
 
-let {getUserLogin} = require("./../../users/userLogins");
+// let {getUserLogin} = require(".");
 
-userLogins.get("/logins/:email/:password", getUserLogin);
+// userLogins.get("/logins/:email/:password", getUserLogin);
 
 module.exports = userLogins;
