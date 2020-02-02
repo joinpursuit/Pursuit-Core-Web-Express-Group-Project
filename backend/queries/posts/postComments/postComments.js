@@ -28,8 +28,15 @@ const getComments = async (req, res) => {
     }
 } // End of getComments() function
 
-const addComment = (req, res) => {
-
+const addComment = async (req, res) => {
+    try {
+        let {postId} = req.params;
+        let {commenterId, body} = req.body;
+        let comment = await db.one("INSERT INTO comments (commenter_id, post_id, body, creation_date) VALUES($1, $2, $3, $4) RETURNING *", [commenterId, postId, body, newDate()]);
+        successReq(res, comment, "Added comment");
+    } catch (error) {
+        sendError(res, error);
+    }
 } // End of addComment() function
 
 const editComment = (req, res) => {
