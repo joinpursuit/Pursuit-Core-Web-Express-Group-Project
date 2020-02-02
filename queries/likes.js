@@ -1,6 +1,6 @@
 const db = require ("../db/index.js")
 
-const getAllLikes = (req, res, next)=>{
+const getAllLikes = async (req, res, next)=>{
     try{
        let likes =  await db.any("SELECT * FROM likes")
         res.status(200).json({
@@ -14,7 +14,7 @@ const getAllLikes = (req, res, next)=>{
     }
 }
 
-const addLike = (req, res, next) =>{
+const addLike = async(req, res, next) =>{
     try{
         let newLike = await db.one("INSERT INTO likes(post_id, comment_id, likers_id)VALUES(${post_id}, ${comment_id}, ${likers_id}", req.body)
         res.status(200).json({
@@ -27,7 +27,7 @@ const addLike = (req, res, next) =>{
     }
 }
 
-const deleteOneLike = (req, res, next) =>{
+const deleteOneLike = async (req, res, next) =>{
     try{
         let deleteLikes = await db.one("DELETE * FROM Likes WHERE id = $1", req.params.id);
         res.status(200).json({

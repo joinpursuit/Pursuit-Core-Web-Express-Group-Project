@@ -1,17 +1,18 @@
 const likes = require("express").Router()
+const {getAllLikes, addLike, deleteOneLike} = require("../../queries/likes")
 // get likes (/likes/posts/post_id)
 
-likes.get("/likes/posts/post_id", (res,req)=>{
+likes.get("/posts/:post_id", (res,req)=>{
     res.status(200).json({
         status:"Failure",
-        message:"Got all likes for single pic",
+        message:"Got all likes for single post",
         body:"test"
     })
 })
 
 // post likes (/likes/posts/post_id)
 
-likes.post("/likes/posts/post_id",(req,res)=>{
+likes.post("/posts/:post_id",(req,res)=>{
     res.status(200).json({
         status:"failure",
         message:"Add like to post",
@@ -20,15 +21,15 @@ likes.post("/likes/posts/post_id",(req,res)=>{
 })
 //delete likes (/likes/:post_id/:likerid)
 
-likes.delete("/likes/posts/post_id",(req,res)=>{
+likes.delete("/posts/:post_id",(req,res)=>{
     res.status(200).json({
         status:"failure",
         message:"like deleted",
         body:"test"
     })
 })
-s
 
 
 
-module.export = likes
+
+module.exports = likes
