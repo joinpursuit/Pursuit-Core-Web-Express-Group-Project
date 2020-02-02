@@ -55,6 +55,7 @@ CREATE TABLE followings (
     id SERIAL PRIMARY KEY,
     follower_id INT REFERENCES users(id) ON DELETE CASCADE,
     followed_id INT REFERENCES users(id) ON DELETE CASCADE
+
 );
 
 CREATE TABLE bets (

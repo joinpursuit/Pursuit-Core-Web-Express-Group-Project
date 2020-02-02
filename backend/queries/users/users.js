@@ -16,7 +16,7 @@ const getUsers = async (req, res, next) => {
 
 const getUser = async (req, res, next) => {
     try {
-        let user = await db.one("SELECT * FROM users WHERE id = $1", req.body
+        let user = await db.one("SELECT * FROM users WHERE user_id = $1", req.body
         );
         res.status(200).json({
             user,
@@ -30,10 +30,10 @@ const getUser = async (req, res, next) => {
 
 const createUser = async (req, res, next) => {
     try {
-        let user = await db.none("INSERT INTO users (full_name, birth_date, city, state, email, password)", req.body);
+        let user = await db.none("INSERT INTO users (full_name, birth_date, city, state, email, password) VALUES (${full_name}, ${birth_date}, ${city}, ${state}, ${email}, ${password}) RETURNING *", req.body);
         res.status(200).json({
             user,
-            status: "success",
+            status: "Success",
             message: "Created New User"
         })
     } catch(err){
@@ -41,4 +41,19 @@ const createUser = async (req, res, next) => {
     }
 }
 
-module.exports = { getUsers, getUser, createUser }
+const deleteUser = async (req, res, next) => {
+    try {
+        let user = await db.none("DELETE FROM users WHERE user_id =$1", req.params.id
+        );
+        res.status(200).json({
+            user,
+            status: "Success",
+            message: "Deleted User"
+
+        })
+    } catch(err){
+        next(err)
+    }
+}
+
+module.exports = { getUsers, getUser, createUser, deleteUser }
