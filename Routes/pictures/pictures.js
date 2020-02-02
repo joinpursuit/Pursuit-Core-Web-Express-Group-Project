@@ -1,4 +1,4 @@
-const pictures = require('express').Router
+const pictures = require('express').Router()
 const {getPicture,createPicture,deletePicture} = require('../../queries/pictures') 
 
 // (queries go above in require )
