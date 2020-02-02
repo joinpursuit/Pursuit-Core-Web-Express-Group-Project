@@ -1,5 +1,11 @@
 const db = require('../../db/db');
 
+const isUserExisting = async (userId) => {
+    let user = await db.any("SELECT * FROM users WHERE user_id=$1", userId);
+    if(user.length) return true;
+    return false;
+}
+
 const getUsers = async (req, res, next) => {
     try {
         let users = await db.any("SELECT * FROM users");
@@ -16,12 +22,20 @@ const getUsers = async (req, res, next) => {
 const getUser = async (req, res, next) => {
     try {
         let {userId} = req.params
-        let user = await db.one("SELECT * FROM users WHERE user_id = $1", userId);
-        res.status(200).json({
-            user,
-            status: "success",
-            message: "Retrieved One User"
-        })
+        if(await isUserExisting(userId)) {
+            let user = await db.one("SELECT * FROM users WHERE user_id = $1", userId);
+            res.status(200).json({
+                user,
+                status: "success",
+                message: "Retrieved One User"
+            })
+        } else {
+            res.json({
+                status: "error",
+                error: "user is not existing"
+            })
+        }
+        
     }catch(err){
         next(err)
     }
