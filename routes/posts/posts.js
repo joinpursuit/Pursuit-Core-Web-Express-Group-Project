@@ -1,5 +1,5 @@
 const posts = require("express").Router()
-const {getAllPost, getUserPosts, registerPosts, deletePost} = require("../../queries/posts.js")
+const {getAllPost, getUserPosts, registerPosts, deletePost, editPost} = require("../../queries/posts.js")
 
 posts.get("/", getAllPost, (req, res) => {
   res.status(200).json({
@@ -22,7 +22,7 @@ posts.post("/", registerPosts, (req, res) => {
   })
 })
 
-posts.patch("/:id", (req, res) => {
+posts.patch("/:id", editPost, (req, res) => {
   res.status(200).json({
     status: "failure",
     message: "Unable to edit single post"
