@@ -24,3 +24,5 @@ let displayUserInfo = async () => {
 };
 
 displayUserInfo();
+
+
