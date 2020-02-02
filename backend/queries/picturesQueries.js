@@ -17,6 +17,23 @@ const getAllPicturesByAlbum = async (req, res, next) => {
     next(error);
   }
 };
+const getAllPicturesByOwner = async (req, res, next) => {
+  try {
+    let { owner_id } = req.params;
+    res.status(200).json({
+      status: "Success",
+      message: "Got all pictures by Owner",
+      body: {
+        pictures: await db.any(
+          "SELECT * FROM pictures JOIN albums ON pictures.album_id = albums.id WHERE owner_id =$1",
+          owner_id
+        )
+      }
+    });
+  } catch (error) {
+    next(error);
+  }
+};
 
 const addSinglePicture = async (req, res, next) => {
   try {
@@ -57,5 +74,6 @@ const deleteSinglePicture = async (req, res, next) => {
 module.exports = {
   getAllPicturesByAlbum,
   addSinglePicture,
-  deleteSinglePicture
+  deleteSinglePicture,
+  getAllPicturesByOwner
 };
