@@ -46,7 +46,7 @@ a:link {
     margin: auto;
 }
 
-.dot {
+.profPic {
     margin-top: 2.5vh;
     height: 150px;
     width: 150px;
@@ -58,7 +58,7 @@ a:link {
     border: solid lightgrey;
 }
 
-.owner_info_box2{
+.feedContent{
     display: block;
     position: relative;
     float: right;
@@ -67,7 +67,7 @@ a:link {
     width: 80vw;
     height: 100vh;
 }
-.albumsHeader {
+.contentHeader {
     display: flex;
     position: absolute;
     background-color: lightgrey;
@@ -80,7 +80,7 @@ a:link {
     justify-content: center;
 }
 
-.albumsFeed {
+.content {
     display: block;
     position: absolute;
     background-color: white;
@@ -92,24 +92,15 @@ a:link {
     border-width: 2px;
 }
 
-.albumButton {
+.contentButton {
     position: absolute;
     top: 65%;
 }
 
-#createAlbumButton {
+#createButton {
     display: flex;
     position: relative;
     float: right;
     height: 20px;
     float: right;
-}
-
-#userHeader {
-    color: white;
-    padding-left: 5vw;
-}
-
-.albumGroup{
-    border: solid;
 }
