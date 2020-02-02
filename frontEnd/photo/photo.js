@@ -32,6 +32,6 @@ let displayUserInfo = async () => {
               content.appendChild(img)
             })
         }
-        
+
     displayUserInfo();
     displayPhoto(sessionStorage.userID)
