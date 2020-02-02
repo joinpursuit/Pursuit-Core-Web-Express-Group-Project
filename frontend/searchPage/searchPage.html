@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>RUFF Search</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- <link href="css/style.css" rel="stylesheet"> -->
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="./index.js"></script>
+    </head>
+    <body>
+        <form action="submit" id="search">
+            <label for="users">Select User</label>
+            <select name="users" id="users"></select>
+            <label for="userProfile" >show Profile</label>
+            <input type="radio" name="searchField" id="userProfile" checked="checked">
+            <label for="postSearch">Posts</label>
+            <input type="radio" name="searchField" id="postSearch">
+            <label for="albumSearch">Album</label>
+            <input type="radio" name="searchField" id="albumSearch">
+            <label for="pictureSearch">Pictures</label>
+            <input type="radio" name="searchField" id="pictureSearch">
+            <input type="submit" value="submit">
+        </form>
+        
+        
+        <form action="submit" method="post" id="newUser">
+            <h4>Add a new User</h4>
+            <label for="firstName">First Name</label>
+            <input type="text" name="firstName" id="firstName">
+            <label for="lastName">Last Name</label>
+            <input type="text" name="lastName" id="lastName">
+            <label for="age">Age</label>
+            <input type="number" name="age" id="age">
+            <label for="aboutStatement">About Statement</label>
+            <input type="text" name="aboutStatement" id="aboutStatement">
+        </form>
+
+        <footer id="results"></footer>
+        
+
+
+    </body>
+</html>
