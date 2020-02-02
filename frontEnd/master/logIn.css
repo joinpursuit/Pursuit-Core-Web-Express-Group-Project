@@ -1,0 +1,55 @@
+body {
+    background-color: white;
+    background-image: url("../assets/mainLogo.png");
+    background-size: 1450px 600px;
+    /* background-repeat: repeat-y; */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+#logInForm {
+  color: black;
+  /* background-color: gold; */
+  font-variant: small-caps;
+  font-size: 18px;
+  padding-top: 20px;
+}
+
+#logInBtn {
+  color: white;
+  background-color: black;
+  border-radius: 4px;
+  /* width: 120px; */
+  /* line-height: 20px; */
+  padding: 5px 38px;
+  font-size: 20px;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+#logInBtn:hover {
+  background-color: rgb(226, 195, 21); /* Green */
+  color: white;
+}
+
+
+
+
+/* #signUpLinkDiv {
+    color: black;
+}
+
+#signUpLinkDiv:hover {
+    color: black;
+} */
+
+#logInDiv {
+  display: flex;
+  justify-content: space-evenly;
+  grid-column: 3 / 1;
+  padding-top: 600px;
+}
+
+#signUpLinkDiv {
+  padding-top: 70px;
+}

@@ -1,0 +1,63 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    color: white;
+    background-color: orange;
+}
+
+#mainDiv{
+    height: 100vh;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#header {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 10vh;
+    max-width: 100%;
+    
+}
+
+#userProfileDiv {
+    background-color: rgb(48, 170, 201);
+    float: right; 
+    min-width: 30%;
+    display: flex;
+    height: 90vh;
+}
+
+#feedDiv {
+    background-color: purple;
+    min-width: 70%;
+    height: 90vh;
+}
+
+.navBar {
+    
+    min-width: 90%;
+}
+    
+ul {
+    list-style-type: none;
+    overflow: hidden;
+    background-color: pink;
+    justify-content: space-evenly;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
