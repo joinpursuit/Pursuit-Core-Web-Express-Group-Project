@@ -50,8 +50,25 @@ const editSingleComment = async (req, res, next) => {
     }
 }
 
-
 const deleteSingleComment = async (req, res, next) => {
+    try {
+        let { id, post_id, author_id } = req.params;
+        let { content } = req.body;
+            let deleted_comment = await db.one("DELETE FROM comments WHERE (id = $1 AND post_id = $2 AND author_id = $3) RETURNING *", [id, post_id, author_id])
+        res.status(200).json({
+            status: "Success",
+            message: "You have deleted a single comment",
+            body: {
+                deleted_comment
+            }
+        });
+    }catch(error) {
+        next(error);
+    }
+}
+
+
+const deleteAllComments = async (req, res, next) => {
     try {
         let { post_id, author_id } = req.params;
         let { content } = req.body;
@@ -68,11 +85,11 @@ const deleteSingleComment = async (req, res, next) => {
     }
 }
 
-module.exports = {getAllComments, addSingleComment, editSingleComment, deleteSingleComment};
+module.exports = {getAllComments, addSingleComment, editSingleComment, deleteSingleComment, deleteAllComments};
 
 // GET /comments/posts/:post_id - Get all comments for a single post.
 // POST /comments/posts/:post_id/:commenter_id - Add single comment.
 // PATCH /comments/:post_id/:commenter_id - Edit single comment.
 // DELETE /comments/:post_id/:commenter_id - Delete single comment.
 
-module.exports = {getAllCommentsByPost, addCommentByPost, editCommentByPost, deleteComment};
+// module.exports = {getAllCommentsByPost, addCommentByPost, editCommentByPost, deleteComment};
