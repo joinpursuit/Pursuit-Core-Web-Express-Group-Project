@@ -23,7 +23,7 @@ const getUser = async (req, res, next) => {
     try {
         let {userId} = req.params
         if(await isUserExisting(userId)) {
-            let user = await db.one("SELECT * FROM users WHERE user_id = $1", userId);
+            let user = await db.one("SELECT * FROM users WHERE id = $1", userId);
             res.status(200).json({
                 user,
                 status: "success",
