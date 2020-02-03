@@ -18,7 +18,7 @@ const getBetsById = async (req,res,next) => {
     try{ 
         let betsById = await db.any("SELECT from bets WHERE id=$1", betId);
         res.status(200).json({
-            bets_id,
+            betsById,
             status: "sucess",
             message: "ALL BETS BY ID"
         })
