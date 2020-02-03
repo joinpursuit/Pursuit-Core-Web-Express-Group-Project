@@ -6,13 +6,13 @@ let logo = document.querySelector("#logo");
 let h1 =document.querySelector("h1")
 let main = document.querySelector("main");
 
-login.addEventListener("click" ,() => {
+login.addEventListener("click" ,(e) => {
     h1.innerText = "Welcome Back";
     main.appendChild(logInForm);
 
 })
 
-signUp.addEventListener("click", ()=> {
+signUp.addEventListener("click", (e)=> {
     h1.innerText = "Be part of the action !"
     main.appendChild(formSignIn)
     debugger
