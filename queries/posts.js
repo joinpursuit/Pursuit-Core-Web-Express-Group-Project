@@ -16,7 +16,7 @@ const getPosts = async (req, res, next) => {
       })
    }
 }
-//the getPost function is not working
+//I need an eye on the this, it is not working
 const getPost = async (req, res, next) => {
    try {
       let post = await db.one("SELECT username FROM Users JOIN users.id = posts.poster_id WHERE id = $1", req.params.id)
