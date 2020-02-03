@@ -21,19 +21,27 @@
         <a href="./photo.html">Photos</a>
       </div>
     </nav>
+
     <div class="owner_info_box">
-      <div class="owner_info_box">
-        <div id="ownerPic"></div>
-        <h1 id="ownerName"></h1>
-        <h5 id="ownerBio"></h5>
-        <button id="logOffBtn">Log Off</button>
-      </div>
+      <div id="ownerPic"></div>
+      <h1 id="ownerName"></h1>
+      <h5 id="ownerBio"></h5>
+      <button id="logOffBtn">Log Off</button>
     </div>
+
     <div class="feedContent">
       <div class="contentHeader">
-          
+        <h2>Your Clout Feed</h2>
+        <form id="createPostForm">
+          <label for="imgurlInput">Input an image URL: </label>
+          <input id="imgurlInput" type="text" required></input>
+          <label for="descriptionInput">Enter a description: </label>
+          <input id="descriptionInput" type="text" required></input>
+          <button type="submit" id="createPostBtn">Create a new post</button>
+        </form>
       </div>
     </div>
+
     <br />
 
     <div class="content"></div>
