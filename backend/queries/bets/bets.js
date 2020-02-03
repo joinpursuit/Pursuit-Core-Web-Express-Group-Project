@@ -2,7 +2,7 @@ const db = require("./../../db/db")
 
 const getBets = async (req, res, next) => {
     try {
-        let bets = await db.any("SELECT * FROM bets")
+        let bets = await db.any("SELECT * FROM bets INNER JOIN ")
         res.status(200).json({
             bets,
             status: "success",

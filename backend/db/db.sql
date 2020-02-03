@@ -62,7 +62,7 @@ CREATE TABLE bets (
     id SERIAL PRIMARY KEY,
     game_id VARCHAR,
     team_id VARCHAR, 
-    bet_id INT REFERENCES users(id) ON DELETE CASCADE,
+    better_id INT REFERENCES users(id) ON DELETE CASCADE,
     bet_amount INTEGER,
     taker_id INT REFERENCES users(id) ON DELETE CASCADE
 );
