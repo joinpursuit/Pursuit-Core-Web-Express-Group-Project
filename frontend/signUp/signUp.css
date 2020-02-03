@@ -14,16 +14,13 @@ h1 {
 #userPicture {
   display: flex;
   justify-content: center;
-  width: 400 px;
-  height: 400 px;
+  width: 500 px;
+  height: 500 px;
 }
-/* #sigUp {
-  display: flex;
-  justify-content: center;
-} */
 
-#firstNameInput {
-  display: flex;  
+#sigUpDiv {
+  display: flex;   
   justify-content: center;
   align-items: center;
+  margin: 10px;
 }
