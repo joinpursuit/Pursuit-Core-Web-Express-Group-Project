@@ -40,7 +40,7 @@ CREATE TABLE albums(
     id SERIAL PRIMARY KEY,
     owner_id INT REFERENCES users(id) ON DELETE CASCADE,
     album_title TEXT,
-    album_date DATE,
+    album_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     album_coverURL TEXT
 );
 

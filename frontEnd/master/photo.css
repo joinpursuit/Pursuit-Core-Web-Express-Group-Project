@@ -1,18 +1,93 @@
-body{
-    background-color: lightblue;
+* {
+    font-family: 'Times New Roman', Times, serif;
 }
-.owner_info_box{
-    border: solid;
-    margin-top: 5%;
-    margin-left: 2%;
-    margin-right: 85%;
-    height: 250px;
-    width: 15%;
+body{
+    background-color:#E9EBEE;
+    margin: auto;
+    padding: 0;
+}
+.header {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+    background-color: #272727   ;
+    position: relative;
+    width: 100vw;
+    height: 5vh;   
 }
 
-.header{
-    border: solid;
+a:link {
+    color: white;
+    text-decoration: none;
 }
-.photoGroup{
-    border: solid;
+
+.mainHeader {
+    padding-left: 80vw;
+    padding-right: 2vw;
+    margin-top: 1vh;
 }
+
+.feedHeader{
+    padding-right: 2vw;
+    margin-top: 1vh;
+}
+.photoHeader {
+    margin-top: 1vh;
+}
+
+.owner_info_box{
+    display: flex;
+    flex-flow: row wrap;
+    position: absolute;
+    width: 20vw;
+    height: 100vh;
+    margin: auto;
+}
+
+.profPic {
+    margin-top: 2.5vh;
+    height: 150px;
+    width: 150px;
+    background-color: white;
+    border-radius: 0%;
+    display: flex;
+    position: relative;
+    margin-left: 20%;
+    border: solid lightgrey;
+}
+
+.feedContent{
+    display: block;
+    position: relative;
+    float: right;
+    background-color: whitesmoke;
+    /* border: solid white; */
+    width: 80vw;
+    height: 100vh;
+}
+.contentHeader {
+    display: flex;
+    position: absolute;
+    background-color: lightgrey;
+    width: 60vw;
+    height: 10vh;
+    margin-left: 15vh;
+    border: solid grey;
+    border-width: 2px;
+    text-align: center;
+    justify-content: center;
+}
+
+.content {
+    display: block;
+    position: absolute;
+    background-color: white;
+    width: 60vw;
+    height: 85vh;
+    margin-left: 28.6vw;
+    margin-top: 10vh;
+    border: solid grey;
+    border-width: 2px;
+}
+
