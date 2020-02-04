@@ -4,9 +4,9 @@ const getUsers = async(req, res, next)  => {
     try{ 
     let users = await db.any('SELECT * FROM users')
     res.status(200).json({
-        users, 
         status: 'success!',
-        message: 'all users'
+        message: 'all users',
+        body: users 
     })
     }catch(err){
         next(err)
@@ -20,9 +20,9 @@ const getUser = async(req, res, next) => {
         )
         
         res.status(200).json({
-            users,
-            status:'successs',
-            message:'one user retreived'
+            status: "success",
+            message: "got single user",
+            body: users
         })
     }catch(err) {
         next(err)
