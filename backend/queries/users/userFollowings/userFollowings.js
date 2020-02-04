@@ -61,6 +61,8 @@ const getUserFollowerCount = async (req, res, next) => {
                     status: "success",
                     message: "retrieved follower count"
                 })
+            } else {
+                throw {status: 404, error: "User has no followers"}
             }
         } else {
             throw {status: 404, error: "User does not exist"}
