@@ -28,7 +28,6 @@ const getBetsById = async (req,res,next) => {
 }
 
 const getBetsNoTaker = async (req,res,next) => {
-
     try {
         let noTaker = await db.any("SELECT from bets WHERE taker_id IS NULL");
         res.status(200).json({
@@ -43,8 +42,7 @@ const getBetsNoTaker = async (req,res,next) => {
 
 const postBets = async (req,res,next) => {
     try{
-        let betToPost = req.body;
-        let bet = await db.one("INSERT INTO bets (game_id, team_id, bet_id, bet_amount, taker_id) VALUES (${game_id}, ${team_id}, ${bet_id}, ${bet_amount}, ${taker_id} RETURNING *", betToPost);
+        let bet = await db.one("INSERT INTO bets (game_id, team_id, bet_id, bet_amount, taker_id) VALUES (${game_id}, ${team_id}, ${bet_id}, ${bet_amount}, ${taker_id}) RETURNING *", req.body);
         res.status(200).json({
             bet,
             status: "sucess",
