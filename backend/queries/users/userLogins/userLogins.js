@@ -20,10 +20,7 @@ const getUserLogin = async (req, res, next) => {
                 })
             }
         } else {
-            res.json({
-                status: "error",
-                error: "No user existing by that ID"
-            })
+            throw {status: 404, error: "User does not exist"}
         }
         
     } catch(err){
