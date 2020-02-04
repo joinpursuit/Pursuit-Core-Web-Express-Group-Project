@@ -42,7 +42,7 @@ const getBetsNoTaker = async (req,res,next) => {
 
 const postBets = async (req,res,next) => {
     try{
-        let bet = await db.one("INSERT INTO bets (game_id, team_id, bet_id, bet_amount, taker_id) VALUES (${game_id}, ${team_id}, ${bet_id}, ${bet_amount}, ${taker_id}) RETURNING *", req.body);
+        let bet = await db.one("INSERT INTO bets (game_id, team_id, better_id, bet_amount) VALUES (${game_id}, ${team_id}, ${better_id}, ${bet_amount}) RETURNING *", req.body);
         res.status(200).json({
             bet,
             status: "sucess",

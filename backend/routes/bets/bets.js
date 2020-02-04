@@ -4,7 +4,7 @@ const {getBets, getBetsById, postBets, getBetsNoTaker, patchBets, deleteBet} = r
 bets.get("/", getBets);
 bets.get("/bets/:id", getBetsById);
 bets.get("/bets/notaker", getBetsNoTaker);
-bets.post("/bets", postBets);
+bets.post("/", postBets);
 bets.patch("/bets/:betId", patchBets);
 bets.delete("/bets/:betId",deleteBet);
 
