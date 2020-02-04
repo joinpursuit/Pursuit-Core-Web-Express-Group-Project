@@ -42,10 +42,7 @@ const getUserFollowingCount = async (req, res, next) => {
                 })
             }
         } else {
-            res.json({
-                status: "error",
-                error: "No user found by that ID"
-            })
+            throw {status: 404, error: "User does not exist"}
         }
 
     } catch(err) {
