@@ -81,6 +81,8 @@ const updateUser = async (req, res, next) => {
                 message: "update user",
                 updatedUser
             })
+        } else {
+            throw {status: 404, error: "User does not exist"}
         }
     } catch (err) {
         next(err);
