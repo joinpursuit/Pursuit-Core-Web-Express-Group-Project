@@ -16,7 +16,7 @@ const getBets = async (req, res, next) => {
 const getBetsById = async (req,res,next) => {
     let {betId} = req.params
     try{ 
-        let bet = await db.any("SELECT from bets WHERE id=$1", betId);
+        let bet = await db.any("SELECT from bets WHERE id=$1 INNER JOIN users ON bets.better_id=users.id", betId);
         res.status(200).json({
             bet,
             status: "sucess",
