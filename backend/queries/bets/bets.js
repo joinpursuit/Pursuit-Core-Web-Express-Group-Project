@@ -20,7 +20,7 @@ const getBetsById = async (req,res,next) => {
         res.status(200).json({
             bet,
             status: "sucess",
-            message: "ALL BETS BY ID"
+            message: "Grabbed bet by ID"
         })
     } catch(err) {
         next(err)
@@ -33,7 +33,7 @@ const getBetsNoTaker = async (req,res,next) => {
         res.status(200).json({
             bets, 
             status: "sucess",
-            message: "BET NOT TAKEN"
+            message: "Grabbed bets with no taker"
         })
     } catch(err){
         next(err)
@@ -46,7 +46,7 @@ const postBets = async (req,res,next) => {
         res.status(200).json({
             bet,
             status: "sucess",
-            message: "POST BET"
+            message: "Created bet"
         })
       } catch(err){
         next(err)
@@ -56,11 +56,11 @@ const postBets = async (req,res,next) => {
 const patchBets = async (req,res,next) => {
     try{
         let {takerId} = req.body;
-        let updateBet = await db.one("UPDATE bets SET taker_id=$1",takerId);
+        let updateBet = await db.one("UPDATE bets SET taker_id=$1 RETURNING *",takerId);
         res.status(200).json({
             updateBet,
             status:"Sucess",
-            message: "BET UPDATED"
+            message: "Updated bet"
         })
     } catch(err) {
         next(err)
@@ -70,11 +70,11 @@ const patchBets = async (req,res,next) => {
 const deleteBet = async (req,res,next) => {
     try{
         let {deleteBetPosted} = req.params;
-        let eraseBet = await db.one("DELETE bets WHERE bet_id", deleteBetPosted);
+        let eraseBet = await db.one("DELETE bets WHERE bet_id RETURNING *", deleteBetPosted);
         res.status(200).json({
             eraseBet,
             status: "Sucess",
-            message: "BET DELETED"
+            message: "Deleted Bet"
         })
 
     } catch(err){
