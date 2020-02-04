@@ -1,24 +1,17 @@
 let db = require("./../../../db/db");
-const {isPostExisting, sendError, newDate, sendDoesntExist, successReq} = require("./../posts");
+const {isPostExisting, newDate, successReq} = require("./../posts");
 
-const sendNoComments = (res) => {
-    res.json({
-        status: "error",
-        error: "That post has no comments"
-    })
-} // End of sendNoComments() function
-
-const isCommentExisting = async (postId, commenterId) => {
+const isCommenterExisting = async (commenterId) => {
     try {
-        let comment =  await db.any("SELECT * FROM comments WHERE post_id=$1 AND commenter_id=$2",[postId, commenterId]);
-        if(comment.length) return true
-        return false;
+        let commenter =  await db.any("SELECT * FROM users WHERE id=$1",commenterId);
+        if(commenter.length) return true
+        else return false;
     } catch (error) {
         console.log(error);
     }
 } // End of isCommentExisting() function
 
-const getComments = async (req, res) => {
+const getComments = async (req, res, next) => {
     try {
         let {postId} = req.params;
         if(await isPostExisting(postId)) {
@@ -26,33 +19,33 @@ const getComments = async (req, res) => {
             if(comments.length) {
                 successReq(res, comments, "Retrieved all comments");
             } else {
-                sendNoComments(res);
+                throw {status: 404, error: "No comments found"}
             }
         } else {
-            sendDoesntExist(res, "post", postId);
+            throw {status: 404, error: "Post doesn't exist"}
         }
         
     } catch (error) {
-        sendError(res, error);
+        next(error);
     }
 } // End of getComments() function
 
-const addComment = async (req, res) => {
+const addComment = async (req, res, next) => {
     try {
         let {postId} = req.params;
         let {commenterId, body} = req.body;
         if(await isPostExisting(postId)) {
-            if(await isCommentExisting(postId, commenterId)) {
+            if(await isCommenterExisting(commenterId)) {
                 let comment = await db.one("INSERT INTO comments (commenter_id, post_id, body, creation_date) VALUES($1, $2, $3, $4) RETURNING *", [commenterId, postId, body, newDate()]);
                 successReq(res, comment, "Added comment");
             } else {
-                sendDoesntExist(res, "comment", commenterId);
+                throw {status: 404, error: "Commenter doesn't exist"}
             }
         } else {
-            sendDoesntExist(res, "post", postId);
+            throw {status: 404, error: "Post doesn't exist"}
         }
     } catch (error) {
-        sendError(res, error);
+        next(error);
     }
 } // End of addComment() function
 
@@ -66,13 +59,13 @@ const editComment = async (req, res) => {
                 successReq(res, comment, "edited comment");
 
             } else {
-                sendDoesntExist(res, "comment", commenterId);
+                throw {status: 404, error: "Comment doesn't exist"}
             }
         } else {
-            sendDoesntExist(res, "post", postId);
+            throw {status: 404, error: "Post doesn't exist"}
         }
     } catch (error) {
-        sendError(res, error);
+        next(error);
     }
 } // End of editComment() function
 
@@ -85,13 +78,13 @@ const deleteComment = async (req, res) => {
                 successReq(res, comment, "deleted comment");
 
             } else {
-                sendDoesntExist(res, "comment", commenterId);
+                throw {status: 404, error: "Comment doesn't exist"}
             }
         } else {
-            sendDoesntExist(res, "post", postId);
+            throw {status: 404, error: "Post doesn't exist"}
         }
     } catch (error) {
-        sendError(res, error);
+        next(error);
     }
 } // End of deleteComment() function
 
