@@ -2,13 +2,6 @@ const db = require("./../../db/db");
 
 const newDate = () => new Date().toString()
 
-const sendDoesntExist = (res, item, id) => {
-    res.json({
-        status: "error",
-        error: `${item} with id ${id} doesn't exist`
-    })
-} // End of sendDoesntExist() function
-
 const isPostExisting = async (id) => {
     try {
         let post = await db.any("SELECT * FROM posts WHERE id=$1", id);
@@ -91,4 +84,4 @@ const createPost = async (req, res, next) => {
     }
 } // End of createPost() function
 
-module.exports = {getAllPosts, getPostById, deletePost, editPost, createPost, isPostExisting, newDate, sendDoesntExist, successReq}
+module.exports = {getAllPosts, getPostById, deletePost, editPost, createPost, isPostExisting, newDate, successReq}
