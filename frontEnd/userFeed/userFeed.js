@@ -1,3 +1,5 @@
+
+
 let imgurlInput = document.querySelector("#imgurlInput");
 let descriptionInput = document.querySelector("#descriptionInput");
 let createPostForm = document.querySelector("#createPostForm");
@@ -119,11 +121,30 @@ const loadComments = async (post, div) => {
   let res = await axios.get(`http://localhost:3000/comments/posts/${post.id}`);
   res.data.body.comments.forEach(comment => {
     let p = document.createElement("p");
-    p.author_id = comment.author_id;
     p.innerHTML = `${comment.time_stamp} <b>${comment.username} commented on your post:</b> ${comment.content}`;
     div.appendChild(p);
+    p.author_id = comment.author_id;
+    p.comment_id=comment.id;
+
+    if(p.author_id==sessionStorage.userID){
+      debugger;
+      let deletedCommentBtn = document.createElement("button");
+      deletedCommentBtn.innerText="x";
+      div.appendChild(deletedCommentBtn);
+
+      deletedCommentBtn.addEventListener("click",async(e)=>{
+        deletedComment(p.comment_id, post.id)
+      })
+      // loadComments(post,div)
+    }
+
+
   });
 };
+
+const deletedComment= async(comment_id, post_id)=>{
+  await axios.delete(`http://localhost:3000/comments/${comment_id}/${post_id}`)
+}
 
 const displayLikesComments = (div1, div2) => {
   if (div1.hidden === false && div2.hidden === false) {

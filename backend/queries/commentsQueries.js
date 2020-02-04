@@ -59,11 +59,10 @@ const editSingleComment = async (req, res, next) => {
 
 const deleteSingleComment = async (req, res, next) => {
   try {
-    let { id, post_id, author_id } = req.params;
-    let { content } = req.body;
+    let { id, post_id } = req.params;
     let deleted_comment = await db.one(
-      "DELETE FROM comments WHERE (id = $1 AND post_id = $2 AND author_id = $3) RETURNING *",
-      [id, post_id, author_id]
+      "DELETE FROM comments WHERE (id = $1 AND post_id = $2) RETURNING *",
+      [id, post_id]
     );
     res.status(200).json({
       status: "Success",
