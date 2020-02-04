@@ -19,7 +19,14 @@ const sendDoesntExist = (res, item, id) => {
 } // End of sendDoesntExist() function
 
 const isPostExisting = async (id) => {
-    return await db.any("SELECT * FROM posts WHERE id=$1", id);
+    try {
+        let post = await db.any("SELECT * FROM posts WHERE id=$1", id);
+        if(post.length) return true;
+        else return false;
+    } catch (err) {
+        console.log(err);
+    }
+    
 } // End of isPostExisting() function
 
 const successReq = (res, data, message) => {
