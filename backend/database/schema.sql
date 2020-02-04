@@ -77,8 +77,8 @@ VALUES('All Photos', 1),
       ('All Photos', 4);
 INSERT INTO posts
       (type,body,url_img,album_id,user_id)
-VALUES('img', 'pizza', 'https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwi6jNOcpKrnAhVCg3IEHXkpDwAQjRx6BAgBEAQ&url=https%3A%2F%2Fwww.thekitchn.com%2Feasy-everyday-pizza-dough-that-is-gluten-free-255421&psig=AOvVaw3yKZdhSRHCBDN4FrN5GUrT&ust=1580437923656859', 1, 1),
-      ('img', 'burger', 'https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwi1jt-jparnAhV7hHIEHdlCD5AQjRx6BAgBEAQ&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FHamburger&psig=AOvVaw19jG3cIwEAWrXtt9h4vABV&ust=1580438169504671', 1, 2);
+VALUES('img', 'pizza', 'https://www.refrigeratedfrozenfood.com/ext/resources/NEW_RD_Website/DefaultImages/default-pizza.jpg?1430942592', 1, 1),
+      ('img', 'burger', 'https://upload.wikimedia.org/wikipedia/commons/8/80/Guacamole_Pepper-Jack_Burger.jpg', 1, 2);
 INSERT INTO posts
       (type,body,user_id)
 VALUES('text', 'who up for chinese food?', 3),

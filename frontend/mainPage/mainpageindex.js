@@ -21,8 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
         password: passwordSU.value,
         phone_number: phoneNumberSU.value
       });
-      debugger
-      sessionStorage.setItem("current_user", res.data.user.id);
+      sessionStorage.setItem("currentUser", res.data.user.id);
       window.location.href = "../FEEDPAGE/feedpageindex.html";
     } catch (err) {
       if (err.response.data.detail === "Key (user_name)=(1) already exists.") {
@@ -45,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
         email: emailLI.value,
         password: passwordLI.value
       });
-      sessionStorage.setItem("current_user", res.data.user.id);
+      sessionStorage.setItem("currentUser", res.data.user.id);
       window.location.href = "../FEEDPAGE/feedpageindex.html";
     } catch (err) {
       console.log(err);
