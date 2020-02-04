@@ -18,12 +18,17 @@ const createUserFollowing = async (req, res, next) => {
     try {
         let {followedId} = req.body;
         let {userId} = req.params;
-        let following = await db.one("INSERT INTO followings (follower_id, followed_id) VALUES ($1, $2) RETURNING *", [userId, followedId]);
-        res.status(200).json({
-            following,
-            status: "Success",
-            message: "Created New Follower"
-        })
+        if(isUserExisting(userId)) {
+            let following = await db.one("INSERT INTO followings (follower_id, followed_id) VALUES ($1, $2) RETURNING *", [userId, followedId]);
+            res.status(200).json({
+                following,
+                status: "Success",
+                message: "Created New Follower"
+            })
+        } else {
+            throw {status: 404, error: "User does not exist"}
+        }
+        
     }catch(err){
         next(err)
     }
