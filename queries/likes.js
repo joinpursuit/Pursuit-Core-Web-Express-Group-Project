@@ -16,7 +16,7 @@ const getAllLikes = async (req, res, next)=>{
 
 const addLike = async(req, res, next) =>{
     try{
-        let newLike = await db.one("INSERT INTO likes(post_id, comment_id, likers_id)VALUES(${post_id}, ${comment_id}, ${likers_id}", req.body)
+        let newLike = await db.one("INSERT INTO likes(post_id, comment_id, user_id)VALUES(${post_id}, ${comment_id}, ${user_id}", req.body)
         res.status(200).json({
             status:"message",
             message:"Added like",

@@ -32,7 +32,7 @@ const getSingleComment = async (req, res, next) => {
 
 const editSingleComment = async (req, res, next) => {
     try {
-        let editComment = await db.one(`UPDATE comments SET body ='${req.params.commenter_id}' WHERE id = ${req.params.commenter_id} RETURNING *`);
+        let editComment = await db.one(`UPDATE comments SET body ='${req.params.user_id}' WHERE id = ${req.params.user_id} RETURNING *`);
         res.status(200).json({
             status: "status",
             message: "the single comment is now edited",
@@ -45,7 +45,7 @@ const editSingleComment = async (req, res, next) => {
 
 const deleteSingleComment = async (req, res, next) => {
     try {
-        let removeComment = await db.none("DELETE FROM comments WHERE id = $1", req.params.commenter_id);
+        let removeComment = await db.none("DELETE FROM comments WHERE id = $1", req.params.user_id);
         res.status(200).json({
             status: "status",
             message: "delete was a success",
@@ -59,7 +59,7 @@ const deleteSingleComment = async (req, res, next) => {
 
 const addComment = async(req, res, next) =>{
     try{
-        let addComment = await db.none("INSERT INTO comments (commenters_id, comments_post_id) VALUES (${commenters_id}, ${comments_post_id}", req.body)
+        let addComment = await db.none("INSERT INTO comments (user_id, post_id) VALUES (${user_id}, ${post_id}", req.body)
     }catch(err){
         next(err)
     }
