@@ -30,8 +30,7 @@ const getBetsById = async (req,res,next) => {
 const getBetsNoTaker = async (req,res,next) => {
 
     try {
-        let {noTaker} = req.params;
-        let getBetsNotaker = await db.any("SELECT from bets WHERE taker_id", noTaker);
+        let noTaker = await db.any("SELECT from bets WHERE taker_id IS NULL");
         res.status(200).json({
             noTaker, 
             status: "sucess",
