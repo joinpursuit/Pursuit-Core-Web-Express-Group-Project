@@ -18,7 +18,7 @@ const isLikeExisting = async (likerId, postId) => {
     }
 } // End of isLikeExisting() function
 
-const getLikes = async (req, res) => {
+const getLikes = async (req, res, next) => {
     try {
         let {postId} = req.params;
         if(isPostExisting(postId)) {
@@ -32,11 +32,11 @@ const getLikes = async (req, res) => {
             sendDoesntExist(res, "post", postId);
         }
     } catch(error) {
-        sendError(res, error);
+        next(error);
     }
 } // End of getLikes() function
 
-const addLike = async (req, res) => {
+const addLike = async (req, res, next) => {
     try {
         let {postId} = req.params;
         let {likerId} = req.body;
@@ -55,11 +55,11 @@ const addLike = async (req, res) => {
             sendDoesntExist(res, "post", postId);
         }
     } catch(error) {
-        sendError(res, error);
+        next(error);
     }
 } // End of addLike() function
 
-const deleteLike = async (req, res) => {
+const deleteLike = async (req, res, next) => {
     try {
         let {postId, likerId} = req.params;
         if(isPostExisting(postId)) {
@@ -74,7 +74,7 @@ const deleteLike = async (req, res) => {
         }
         
     } catch (error) {
-        sendError(error);
+        next(error);
     }
 } // End of deleteLike() function
 
