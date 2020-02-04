@@ -19,6 +19,13 @@ app.use("/albums",albumRouter)
 app.use("/likes",likesRouter)
 app.use("/users",usersRouter)
 app.use("/comments",commentsRouter)
+app.use((err, req, res, next) => {
+  if(err.status){
+    res.status(err.status).json(err)
+  }else {
+    res.json(err)
+  }
+})
 
 app.listen(port, () => {
   console.log("The server is currently running on port " + port)
