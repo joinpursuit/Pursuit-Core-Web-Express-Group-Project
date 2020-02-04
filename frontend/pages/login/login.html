@@ -13,19 +13,21 @@
 <body>
     
     <main>
-        
+        <left>
         <div id="logo">
             <div id="moveLogo">
                 <img src="./assets/hotboxLogo.png" alt="">
             </div>
         </div>
-        
-        <section id="grid-container">
-            </div id="signLog"> 
-                <button id="logInButton" class="myButton">Login</button>
-                <button id="signUp" class="myButton">Sign Up</button>
-           <div>
-               
+         </left>
+
+        <right>
+        <section id="buttons">
+
+                <button id="logInButton" class="myButton" onClick="showLogin()">Login</button>
+
+                <button id="signUp" class="myButton" onClick="showSignUp()">Sign Up</button>  
+                 
         </section>
         
         <section id="login" style="display: none">
@@ -36,6 +38,8 @@
     
                 <label for="password">Password: </label>
                 <input type="text" name="password" id="userPass">
+
+                <button type="submit" id="loginButton" class="myButton">Log In</button>
     
             </form>
     
@@ -67,7 +71,7 @@
             </form>
         
         </section>
-
+    </right>
     </main>
        
 </body>
