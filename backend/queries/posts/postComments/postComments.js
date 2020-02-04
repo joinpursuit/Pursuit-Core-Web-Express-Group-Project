@@ -29,7 +29,7 @@ const getComments = async (req, res, next) => {
                 sendNoComments(res);
             }
         } else {
-            sendDoesntExist(res, "post", postId);
+            throw {status: 404, error: "Post doesn't exist"}
         }
         
     } catch (error) {
@@ -49,7 +49,7 @@ const addComment = async (req, res, next) => {
                 sendDoesntExist(res, "comment", commenterId);
             }
         } else {
-            sendDoesntExist(res, "post", postId);
+            throw {status: 404, error: "Post doesn't exist"}
         }
     } catch (error) {
         next(error);
@@ -69,7 +69,7 @@ const editComment = async (req, res) => {
                 sendDoesntExist(res, "comment", commenterId);
             }
         } else {
-            sendDoesntExist(res, "post", postId);
+            throw {status: 404, error: "Post doesn't exist"}
         }
     } catch (error) {
         next(error);
@@ -88,7 +88,7 @@ const deleteComment = async (req, res) => {
                 sendDoesntExist(res, "comment", commenterId);
             }
         } else {
-            sendDoesntExist(res, "post", postId);
+            throw {status: 404, error: "Post doesn't exist"}
         }
     } catch (error) {
         next(error);
