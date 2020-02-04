@@ -4,22 +4,20 @@
         <title>RUFF Search</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- <link href="css/style.css" rel="stylesheet"> -->
+        <link href="./index.css" rel="stylesheet">
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <script src="./index.js"></script>
     </head>
     <body>
         <form action="submit" id="search">
             <label for="users">Select User</label>
-            <select name="users" id="users"></select>
+            <select name="users" id="users" required>
+                <option selected disabled>Select User</option>
+            </select>
             <label for="userProfile" >show Profile</label>
             <input type="radio" name="searchField" id="userProfile" checked="checked">
             <label for="postSearch">Posts</label>
             <input type="radio" name="searchField" id="postSearch">
-            <label for="albumSearch">Album</label>
-            <input type="radio" name="searchField" id="albumSearch">
-            <label for="pictureSearch">Pictures</label>
-            <input type="radio" name="searchField" id="pictureSearch">
             <input type="submit" value="submit">
         </form>
         
