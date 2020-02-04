@@ -6,23 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="index.js"></script>
-    <title></title>
+    <title>Homepage</title>
 
 </head>
 <body>
-    <a href="./userpage.html">My Profile</a>
-    <a href="./albumpage.html">My Photos</a>
+    <a href="./userpage.html" id="myProfile">My Profile</a>
+    <a href="./albumpage.html" id="myAlbum">My Albums</a>
+    <a href="https://github.com/joinpursuit">github photo belongs here</a>
+    <a href="https://linkedin.com">linkedin photo belongs here</a>
+
     <form>
         Search<input type="text" placeholder="...">
-        <button>GO!</button>
+        <button id="searchBtn">GO!</button>
     </form>
-    <a href="https://github.com/joinpursuit">
-        github photo belongs here
-    </a>
-    <a href="https://linkedin.com">
-        linkedin photo belongs here
-    </a>
-
+    
     <img src="" alt="">
     <div>
         name:
@@ -32,11 +29,11 @@
         Member Since:
         Website:
     </div>
-    <div>
+    <div id="albumPage">
         <a href="./albumpage.html">Albums</a>
     </div>
     <form>
-        <input type="text" width="50" height="100">
+        What is on your mind?<input type="text" size="100" maxlength="120" placeholder="Enter Text Here...">
         <button>Send</button>
     </form>
 </body>
