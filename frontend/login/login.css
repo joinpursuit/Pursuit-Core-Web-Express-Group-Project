@@ -110,7 +110,7 @@ h4 {
   text-align: center;
 } 
 
- #food_div, #people_div, #view_div, #architecture_div, #shopping_div, #memories_div,#connection_div, #culture_div{ 
+#food_div, #people_div, #view_div, #architecture_div, #shopping_div, #memories_div,#connection_div, #culture_div{ 
   background-color: white;
   display: flex;
   width: 100px;
@@ -131,9 +131,9 @@ h4 {
   left: 10%; 
  }
 
- #people_div{
+#people_div{
   top: 5%;
-  left: 50%; 
+  left: 46%; 
 } 
 
 #view_div{
@@ -153,15 +153,127 @@ h4 {
 
 #memories_div{
   top: 85%; 
-  left: 50%; 
+  left: 46%; 
 }
 
 #connection_div{
   top: 80%;
-  left: 20%;
+  left: 10%;
 }
 
 #culture_div{
   top: 50%;
-  left: 10%;
+  left: 4%;
 } 
+img {
+  object-fit: cover;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+
+/* On screens that are 1150px wide or less, the background color is skyblue */
+@media screen and (max-width: 1150px) {
+  body {
+    background-color: skyblue;
+    color: white;
+  }
+
+  .IN {
+  margin-left: 716px;
+  margin-top: -133px;
+}
+}
+/* On screens that are 1366px wide or less, the background color is skyblue */
+@media screen and (max-width: 1366px) {
+  body {
+    background-color: skyblue;
+    color: white;
+  }
+  .TRIPP {
+    margin-top: 21%;
+    margin-right: 5%;
+  }
+
+  .IN {
+    margin-left: 61%;
+    font-size: 153px;
+  }
+
+  .subTittleLogo {
+    margin: 40px;
+  }
+
+  #loginForm {
+    margin: 26px;
+  }
+
+  #userLoginInput, #logInPasswordInput, #logInBtn {
+    width: 313px;
+    height: 60px;
+    font-size: 27px;
+    margin-top: 72px;
+  }
+  
+  h4{
+    font-size: 26px;
+  }
+
+  #signUpLink {
+    font-size: 31px;
+  }
+
+
+}
+
+/* On screens that are 830px wide or less, the background color is blue */
+@media screen and (max-width: 830px) {
+  body {
+    background-color: hsl(207, 63%, 62%);
+    color: white;
+  }
+  .TRIPP {
+    font-size: 134px;
+    margin-top: 176px
+  }
+
+  .IN {
+    font-size: 102px;
+    margin-left: 490px;
+    margin-top: -90px;
+}
+}
+/* On screens that are 750px wide or less, the background color is beige */
+@media screen and (max-width: 750px) {
+  body {
+    background-color: rgb(228, 223, 216);
+    color: white;
+  }
+  #food_div, #people_div, #view_div, #architecture_div, #shopping_div, #memories_div,#connection_div, #culture_div {
+    display: none;
+  }
+
+  .logo_div {
+    margin-top: 29%;
+    margin-left: 105px;
+  }
+
+  .IN {
+    margin-left: 377px;
+  }
+  .subTittleLogo {
+    color: brown;
+    text-align: center;
+    margin-left: 23%;
+  }
+  .loginForm {
+    margin-left: 10%;
+  }
+  h4 {
+    color: darkblue;
+  }
+}
+
