@@ -37,7 +37,7 @@ const getBetsById = async (req,res,next) => {
                 message: "Grabbed bet by ID"
             })
         } else {
-
+            throw {status: 404, error: "Bet doesn't exist"}
         }
         
     } catch(err) {
@@ -101,6 +101,8 @@ const deleteBet = async (req,res,next) => {
                 status: "Sucess",
                 message: "Deleted Bet"
             })
+        } else {
+
         }
         
 
