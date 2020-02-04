@@ -66,7 +66,7 @@ const editComment = async (req, res) => {
                 successReq(res, comment, "edited comment");
 
             } else {
-                sendDoesntExist(res, "comment", commenterId);
+                throw {status: 404, error: "Comment doesn't exist"}
             }
         } else {
             throw {status: 404, error: "Post doesn't exist"}
@@ -85,7 +85,7 @@ const deleteComment = async (req, res) => {
                 successReq(res, comment, "deleted comment");
 
             } else {
-                sendDoesntExist(res, "comment", commenterId);
+                throw {status: 404, error: "Comment doesn't exist"}
             }
         } else {
             throw {status: 404, error: "Post doesn't exist"}
