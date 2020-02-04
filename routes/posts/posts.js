@@ -1,39 +1,14 @@
 const posts = require("express").Router()
 const {getAllPost, getUserPosts, registerPosts, deletePost, editPost} = require("../../queries/posts.js")
 
-posts.get("/", getAllPost, (req, res) => {
-  res.status(200).json({
-    status: "failure",
-    message: "Server is unable to retrieve all posts" 
-  })
-})
+posts.get("/", getAllPost)
 
-posts.get("/:user_id", getUserPosts, (req, res) => {
-  res.status(200).json({
-    status: "failure",
-    message: "Unable to get single post"
-  })
-})
+posts.get("/:user_id", getUserPosts)
 
-posts.post("/", registerPosts, (req, res) => {
-  res.status(200).json({
-    status: "failure",
-    message: "Unable to add single post"
-  })
-})
+posts.post("/", registerPosts)
 
-posts.patch("/:id", editPost, (req, res) => {
-  res.status(200).json({
-    status: "failure",
-    message: "Unable to edit single post"
-  })
-})
+posts.patch("/:id", editPost)
 
-posts.delete("/:id", deletePost, (req, res) => {
-  res.status(200).json({
-    status: "failure",
-    message: "Unable to delete single post"
-  })
-})
+posts.delete("/:id", deletePost)
 
 module.exports = posts
