@@ -6,7 +6,7 @@ const getBets = async (req, res, next) => {
         res.status(200).json({
             bets,
             status: "success",
-            message: "ALL BETS"
+            message: "Grabbed all bets"
         })
     } catch (err) {
         next(err)
