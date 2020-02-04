@@ -55,8 +55,8 @@ const postBets = async (req,res,next) => {
 
 const patchBets = async (req,res,next) => {
     try{
-        let {takerId} = req.body;
-        let updateBet = await db.one("UPDATE bets SET taker_id=$1 RETURNING *",takerId);
+        let {taker_id} = req.body;
+        let updateBet = await db.one("UPDATE bets SET taker_id=$1 RETURNING *", taker_id);
         res.status(200).json({
             updateBet,
             status:"Sucess",
@@ -69,8 +69,8 @@ const patchBets = async (req,res,next) => {
 
 const deleteBet = async (req,res,next) => {
     try{
-        let {deleteBetPosted} = req.params;
-        let eraseBet = await db.one("DELETE bets WHERE bet_id RETURNING *", deleteBetPosted);
+        let {betId} = req.params;
+        let eraseBet = await db.one("DELETE FROM bets WHERE id=$1 RETURNING *", betId);
         res.status(200).json({
             eraseBet,
             status: "Sucess",
