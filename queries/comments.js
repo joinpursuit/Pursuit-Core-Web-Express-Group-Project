@@ -2,9 +2,9 @@ const db = require('../db/index');
 
 const getAllComments = async (req, res, next) => {
     try {
-        let comments = await db.any("SELECT * FROM comments")
+        let comments = await db.any("SELECT * FROM comments WHERE post_id = " + req.params.post_id)
         res.status(200).json({
-            likes,
+            comments,
             status: "success",
             message: "all comments"
         })
@@ -15,7 +15,9 @@ const getAllComments = async (req, res, next) => {
 
 const addSingleComment =  async (req, res, next) => {
     try {
-        let comment =  await db.one("INSERT into comments (commentor_id, post_id, body) VALUES (${commentor_id}, ${post_id}), ${body}", req.body)
+        req.body.commentor_id = req.params.commentor_id
+        req.body.post_id = req.params.post_id
+        let comment =  await db.one("INSERT INTO comments (commentor_id, post_id, body) VALUES (${commentor_id}, ${post_id}, ${body}) RETURNING * ", req.body)
         res.status(200).json({
             comment,
             status: "success",
@@ -28,7 +30,7 @@ const addSingleComment =  async (req, res, next) => {
 
 const editSingleComment = async (req, res, next) => {
     try {
-      let comment = await db.one("UPDATE comments SET body = $1 WHERE commentor_id = $2", req.body) 
+      let comment = await db.one("UPDATE comments SET body = $1 WHERE commentor_id = $2 RETURNING *", [ req.body.body, req.params.id ]) 
       res.status(200).json({
           comment,
           status: "success",
@@ -41,7 +43,7 @@ const editSingleComment = async (req, res, next) => {
 
 const deleteComment = async (req, res, next) => {
     try {
-        let comment = await db.none("DELETE FROM comments WHERE id = ", req.params.id)
+        let comment = await db.none("DELETE FROM comments WHERE id = " + req.params.id)
         res.status(200).json({
             comment,
             status: "success",
