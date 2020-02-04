@@ -71,7 +71,7 @@ VALUES
 ('Griph','Karma12','Geoff','Ramsey',43,'../../avatars/7.eps');
 
 INSERT INTO albums
-(creator_id, album_title)
+(creator_id,title)
 VALUES
 (1,'Movies'),
 (2, 'Memories');
