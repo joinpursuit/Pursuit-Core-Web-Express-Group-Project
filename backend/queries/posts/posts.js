@@ -45,7 +45,7 @@ const getPostById = async (req, res, next) => {
             let post = await db.one("SELECT * FROM posts WHERE id=$1", postId);
             successReq(res, post, `Retrieved post at id ${postId}`);
         } else {
-            sendDoesntExist(res, "post", postId);
+            throw {status: 404, error: "Post doesn't exist"}
         }
     } catch(error) {
         next(error);
@@ -59,7 +59,7 @@ const deletePost = async (req, res, next) => {
             let post = await db.one("DELETE FROM posts WHERE id=$1 RETURNING *", postId);
             successReq(res, post, `Deleted post at id ${postId}`);
         } else {
-            sendDoesntExist(res, "post", postId);
+            throw {status: 404, error: "Post doesn't exist"}
         }
     } catch(error) {
         next(error);
@@ -74,7 +74,7 @@ const editPost = async (req, res, next) => {
             let post = await db.one("UPDATE posts SET body=$1, creation_date=$2 WHERE id=$3 RETURNING *", [body, newDate(), postId]);
             successReq(res, post, "Updated post");
         } else {
-            sendDoesntExist(res, "post", postId);
+            throw {status: 404, error: "Post doesn't exist"}
         }
     } catch(error) {
         next(error);
