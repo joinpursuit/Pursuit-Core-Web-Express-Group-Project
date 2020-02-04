@@ -3,7 +3,7 @@ const {getBets, getBetsById, postBets, getBetsNoTaker, patchBets, deleteBet} = r
 
 bets.get("/", getBets);
 bets.get("/bets/:id", getBetsById);
-bets.get("/bets/notaker", getBetsNoTaker);
+bets.get("/notaker", getBetsNoTaker);
 bets.post("/", postBets);
 bets.patch("/bets/:betId", patchBets);
 bets.delete("/bets/:betId",deleteBet);
