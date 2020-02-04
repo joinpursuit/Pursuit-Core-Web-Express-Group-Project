@@ -10,6 +10,8 @@ logInForm.addEventListener("submit", async e => {
   let res = await axios.get(
     `http://localhost:3000/users/search/${usernameInput.value}`
   );
+  // console.log(usernameInput.value)
+  // debugger;
   let { body, message } = res.data;
   p.innerText = message;
   if (

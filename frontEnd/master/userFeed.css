@@ -1,63 +1,107 @@
 * {
-    margin: 0;
+    font-family: 'Times New Roman', Times, serif;
+}
+body{
+    background-color:#E9EBEE;
+    margin: auto;
     padding: 0;
 }
 
-
-body {
-    color: white;
-    background-color: orange;
-}
-
-#mainDiv{
-    height: 100vh;
+.header {
     display: flex;
-    justify-content: space-evenly;
-}
-
-#header {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    height: 10vh;
-    max-width: 100%;
-    
-}
-
-#userProfileDiv {
-    background-color: rgb(48, 170, 201);
-    float: right; 
-    min-width: 30%;
-    display: flex;
-    height: 90vh;
-}
-
-#feedDiv {
-    background-color: purple;
-    min-width: 70%;
-    height: 90vh;
-}
-
-.navBar {
-    
-    min-width: 90%;
-}
-    
-ul {
-    list-style-type: none;
-    overflow: hidden;
-    background-color: pink;
-    justify-content: space-evenly;
-}
-
-li {
-    float: left;
-}
-
-li a {
-    display: block;
-    color: white;
+    flex-direction: row;
     text-align: center;
-    padding: 14px 16px;
+    justify-content: center;
+    background-color: #272727   ;
+    position: relative;
+    width: 100vw;
+    height: 5vh;   
+}
+
+a:link {
+    color: white;
     text-decoration: none;
+}
+
+.mainHeader {
+    padding-left: 80vw;
+    padding-right: 2vw;
+    margin-top: 1vh;
+}
+
+.feedHeader{
+    padding-right: 2vw;
+    margin-top: 1vh;
+}
+.photoHeader {
+    margin-top: 1vh;
+}
+
+.owner_info_box{
+    display: flex;
+    position: absolute;
+    background-color: #030303;
+    /* border: solid white; */
+    width: 20vw;
+    height: 100vh;
+    margin: auto;
+}
+
+.profPic {
+    margin-top: 2.5vh;
+    height: 150px;
+    width: 150px;
+    background-color: white;
+    border-radius: 0%;
+    display: flex;
+    position: relative;
+    margin-left: 20%;
+    border: solid lightgrey;
+}
+
+.feedContent{
+    display: block;
+    position: relative;
+    float: right;
+    background-color: whitesmoke;
+    /* border: solid white; */
+    width: 80vw;
+    height: 100vh;
+}
+.contentHeader {
+    display: flex;
+    position: absolute;
+    background-color: lightgrey;
+    width: 60vw;
+    height: 10vh;
+    margin-left: 15vh;
+    border: solid grey;
+    border-width: 2px;
+    text-align: center;
+    justify-content: center;
+}
+
+.content {
+    display: block;
+    position: absolute;
+    background-color: white;
+    width: 60vw;
+    height: 85vh;
+    margin-left: 28.6vw;
+    margin-top: 10vh;
+    border: solid grey;
+    border-width: 2px;
+}
+
+.contentButton {
+    position: absolute;
+    top: 65%;
+}
+
+#createButton {
+    display: flex;
+    position: relative;
+    float: right;
+    height: 20px;
+    float: right;
 }

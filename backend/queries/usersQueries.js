@@ -83,6 +83,7 @@ const deleteUsersById = async (req, res, next) => {
 const searchUserByName = async (req, res, next) => {
   try {
     let { username } = req.params;
+    // console.log(username)
     let user = await db.one(
       "SELECT * FROM users WHERE username = $1",
       username
