@@ -15,6 +15,20 @@ const getAllPreferences = async (req, res, next) => {
     }
 }
 
+const getUserPreferences = async (req, res, next) => {
+    try{
+        let preferences = await  db.any("SELECT * FROM users WHERE users_id = " + req.params.user_id)
+        res.status(200).json({
+            preferences, 
+            staus: "success",
+            message: "All preferences"
+        })
+
+    } catch (err){
+        next(err)
+    }
+}
+
 
 const createPreference = async (req, res, next) => {
     try{
@@ -45,4 +59,4 @@ const editPreference = async (req, res, next) => {
     }
 }
 
-module.exports = { getAllPreferences, createPreference, editPreference }
+module.exports = { getAllPreferences, getUserPreferences, createPreference, editPreference }

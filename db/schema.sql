@@ -44,8 +44,7 @@ CREATE TABLE comments (
 
 CREATE TABLE albums (
     id SERIAL PRIMARY KEY,
-  users_id INTEGER REFERENCES users(id) ON DELETE SET NULL,
-  pics VARCHAR(250)
+  users_id INTEGER REFERENCES users(id) ON DELETE SET NULL
 );
 
 CREATE TABLE pictures (

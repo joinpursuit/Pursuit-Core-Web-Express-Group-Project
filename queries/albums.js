@@ -18,7 +18,7 @@ const getAlbums = async (req,res,next) =>{
 const getAlbum = async (req,res,next) =>{
 
     try {
-        let album = await db.one("SELECT * FROM albums WHERE id = $1", [req.params.id]
+        let album = await db.one("SELECT * FROM albums LEFT JOIN pictures ON pictures.albums_id = albums.id WHERE albums.id = $1", [req.params.id]
         )
         res.status(200).json({
             album,
