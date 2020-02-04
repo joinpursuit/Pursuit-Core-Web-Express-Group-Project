@@ -26,7 +26,7 @@ const getLikes = async (req, res, next) => {
             if(likes.length) {
                 successReq(res, likes, `retrieved likes for post ${postId}`);
             } else {
-                sendNoLikes(res);
+                throw {status: 404, error: "No likes found"}
             }
         } else {
             throw {status: 404, error: "Post doesn't exist"}
@@ -42,10 +42,7 @@ const addLike = async (req, res, next) => {
         let {likerId} = req.body;
         if(await isPostExisting(postId)) {
             if(await isLikeExisting(likerId, postId)) {
-                res.json({
-                    status: "error",
-                    error: "The user has liked the post already"
-                })
+                throw {status: 409, error: "User already liked the post"}
             } else {
                 await db.none("INSERT INTO likes (liker_id, post_id) VALUES ($1, $2)", [likerId, postId]);
                 let post = await db.one("SELECT * FROM posts WHERE id=$1", postId);
@@ -67,7 +64,7 @@ const deleteLike = async (req, res, next) => {
                 let like = db.one("DELETE FROM likes WHERE liker_id=$1 AND post_id=$2 RETURNING *", [likerId, postId]);
                 successReq(res, like, "deleted like");
             } else {
-                sendNoLikes(res);
+                throw {status: 404, error: "Like doesn't exist"}
             }
         } else {
             throw {status: 404, error: "Post doesn't exist"}
