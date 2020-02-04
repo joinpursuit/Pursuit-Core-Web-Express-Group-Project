@@ -1,6 +1,6 @@
 const axios = require("axios");
 
-const fetchData = async (url) => {
+const fetchData = async (url, next) => {
     let config = {
         headers: {
             "x-rapidapi-key": "141c23a7d4msh5ef06f55c75a949p136086jsnd07e585c2813"
@@ -11,12 +11,12 @@ const fetchData = async (url) => {
         let res =  await axios.get(url, config);
         return res.data
     } catch(err) {
-        console.log(err);
+        next(err);
     }
 } // End of fetchData() function
 
-const getAllSports = async (req, res) => {
-    let response = await fetchData("https://therundown-therundown-v1.p.rapidapi.com/sports");
+const getAllSports = async (req, res, next) => {
+    let response = await fetchData("https://therundown-therundown-v1.p.rapidapi.com/sports", next);
     res.json({
         status: "success", 
         message: "Retrieved all sports",
@@ -24,9 +24,9 @@ const getAllSports = async (req, res) => {
     })
 } // End of getAllSports() function
 
-const getSportEvents = async (req, res) => {
+const getSportEvents = async (req, res, next) => {
     let {sportId} = req.params;
-    let response = await fetchData(`https://therundown-therundown-v1.p.rapidapi.com/sports/${sportId}/events`);
+    let response = await fetchData(`https://therundown-therundown-v1.p.rapidapi.com/sports/${sportId}/events`, next);
     res.json({
         status: "success",
         message: "Retrieved all events for your sport",
@@ -34,9 +34,9 @@ const getSportEvents = async (req, res) => {
     })
 } // End of getSportEvents() function
 
-const getEventById = async (req, res) => {
+const getEventById = async (req, res, next) => {
     let {eventId} = req.params;
-    let response = await fetchData(`https://therundown-therundown-v1.p.rapidapi.com/events/${eventId}`)
+    let response = await fetchData(`https://therundown-therundown-v1.p.rapidapi.com/events/${eventId}`, next)
     res.json({
         status: "success",
         message: "Retrieved the event",
