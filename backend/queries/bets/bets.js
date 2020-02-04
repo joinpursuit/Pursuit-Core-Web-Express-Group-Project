@@ -16,11 +16,16 @@ const isBetExisting = async (betId) => {
 const getBets = async (req, res, next) => {
     try {
         let bets = await db.any("SELECT * FROM bets INNER JOIN users ON bets.better_id=users.id");
-        res.status(200).json({
-            bets,
-            status: "success",
-            message: "Grabbed all bets"
-        })
+        if(bets.length) {
+            res.status(200).json({
+                bets,
+                status: "success",
+                message: "Grabbed all bets"
+            })
+        } else {
+            throw {status: 404, error: "No bets found"}
+        }
+        
     } catch (err) {
         next(err)
     }
@@ -48,11 +53,16 @@ const getBetsById = async (req,res,next) => {
 const getBetsNoTaker = async (req,res,next) => {
     try {
         let bets = await db.any("SELECT * FROM bets INNER JOIN users ON bets.better_id=users.id WHERE taker_id IS NULL");
-        res.status(200).json({
-            bets, 
-            status: "sucess",
-            message: "Grabbed bets with no taker"
-        })
+        if(bets.length) {
+            res.status(200).json({
+                bets, 
+                status: "sucess",
+                message: "Grabbed bets with no taker"
+            })
+        } else {
+            throw {status: 404, error: "No bets found"}
+        }
+        
     } catch(err){
         next(err)
     }
@@ -104,8 +114,6 @@ const deleteBet = async (req,res,next) => {
         } else {
             throw {status: 404, error: "Bet doesn't exist"}
         }
-        
-
     } catch(err){
         next(err)
     }
