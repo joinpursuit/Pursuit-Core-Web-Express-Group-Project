@@ -18,7 +18,7 @@ const isCommentExisting = async (postId, commenterId) => {
     }
 } // End of isCommentExisting() function
 
-const getComments = async (req, res) => {
+const getComments = async (req, res, next) => {
     try {
         let {postId} = req.params;
         if(await isPostExisting(postId)) {
@@ -33,11 +33,11 @@ const getComments = async (req, res) => {
         }
         
     } catch (error) {
-        sendError(res, error);
+        next(error);
     }
 } // End of getComments() function
 
-const addComment = async (req, res) => {
+const addComment = async (req, res, next) => {
     try {
         let {postId} = req.params;
         let {commenterId, body} = req.body;
@@ -52,7 +52,7 @@ const addComment = async (req, res) => {
             sendDoesntExist(res, "post", postId);
         }
     } catch (error) {
-        sendError(res, error);
+        next(error);
     }
 } // End of addComment() function
 
@@ -72,7 +72,7 @@ const editComment = async (req, res) => {
             sendDoesntExist(res, "post", postId);
         }
     } catch (error) {
-        sendError(res, error);
+        next(error);
     }
 } // End of editComment() function
 
@@ -91,7 +91,7 @@ const deleteComment = async (req, res) => {
             sendDoesntExist(res, "post", postId);
         }
     } catch (error) {
-        sendError(res, error);
+        next(error);
     }
 } // End of deleteComment() function
 
