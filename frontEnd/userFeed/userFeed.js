@@ -35,30 +35,74 @@ let displayUserPostFeed = async () => {
     let lineBreak = document.createElement("hr");
     let postDiv = document.createElement("div");
     postDiv.className = "postDiv";
+    postDiv.post_id = post.id;
+
     let h4 = document.createElement("h4");
-    h4.innerHTML = `<b>${post.username}</b> posted at ${post.time_stamp}`;
     let img = document.createElement("img");
-    img.src = post.imgurl;
     let p = document.createElement("p");
+    h4.innerHTML = `<b>${post.username}</b> posted at ${post.time_stamp}`;
+    img.src = post.imgurl;
     p.innerHTML = `${post.description}`;
+
+    let showCommentsLikesBtn = document.createElement("button");
+    showCommentsLikesBtn.className = "showCommentsLikesBtn";
+    showCommentsLikesBtn.innerText = "Show Comments & Likes";
     let likesDiv = document.createElement("div");
     let commentsDiv = document.createElement("div");
     likesDiv.className = "likesDiv";
     commentsDiv.className = "commentsDiv";
+
+    let insertCommentBtn = document.createElement("button");
+    insertCommentBtn.className = "insertCommentBtn";
+    insertCommentBtn.innerText = "Add a Comment";
+
     postDiv.appendChild(h4);
     postDiv.appendChild(img);
     postDiv.appendChild(p);
+    postDiv.appendChild(showCommentsLikesBtn);
+    postDiv.appendChild(insertCommentBtn);
     postDiv.appendChild(likesDiv);
     postDiv.appendChild(commentsDiv);
+    likesDiv.hidden = true;
+    commentsDiv.hidden = true;
     content.appendChild(postDiv);
     content.appendChild(lineBreak);
-    postDiv.addEventListener("dblclick", () => {
+
+    showCommentsLikesBtn.addEventListener("click", () => {
       loadLikes(post, likesDiv);
       loadComments(post, commentsDiv);
-      likesDiv.style.display = "block";
-      commentsDiv.style.display = "block";
+      displayLikesComments(likesDiv, commentsDiv);
+    });
+
+    insertCommentBtn.addEventListener("click", () => {
+      let form = document.createElement("form");
+      form.id = "insertCommentForm";
+      let commentInput = document.createElement("input");
+      let commentBtn = document.createElement("button");
+      commentInput.type = "text";
+      commentInput.required = true;
+      commentInput.placeholder = "Enter a comment here";
+      commentBtn.type = "submit";
+      commentBtn.innerText = "Submit Comment";
+      form.appendChild(commentInput);
+      form.appendChild(commentBtn);
+      postDiv.appendChild(form);
+      insertCommentBtn.disabled = true;
+      form.addEventListener("submit", e => {
+        e.preventDefault();
+        insertComment(postDiv, commentInput.value);
+        commentInput.value = "";
+      });
     });
   });
+};
+
+const insertComment = async (div, input) => {
+  console.log(input);
+  let res = await axios.post(
+    `http://localhost:3000/comments/posts/${div.post_id}/${sessionStorage.userID}`,
+    { content: input }
+  );
 };
 
 const loadLikes = async (post, div) => {
@@ -68,9 +112,6 @@ const loadLikes = async (post, div) => {
   let h3 = document.createElement("h3");
   h3.innerText = `Likes: ${numLikes}`;
   div.appendChild(h3);
-  div.addEventListener("click", () => {
-    div.style.display = "none";
-  });
 };
 
 const loadComments = async (post, div) => {
@@ -78,12 +119,20 @@ const loadComments = async (post, div) => {
   let res = await axios.get(`http://localhost:3000/comments/posts/${post.id}`);
   res.data.body.comments.forEach(comment => {
     let p = document.createElement("p");
+    p.author_id = comment.author_id;
     p.innerHTML = `${comment.time_stamp} <b>${comment.username} commented on your post:</b> ${comment.content}`;
     div.appendChild(p);
-    div.addEventListener("click", () => {
-      div.style.display = "none";
-    });
   });
+};
+
+const displayLikesComments = (div1, div2) => {
+  if (div1.hidden === false && div2.hidden === false) {
+    div1.hidden = true;
+    div2.hidden = true;
+  } else {
+    div1.hidden = false;
+    div2.hidden = false;
+  }
 };
 
 const createPost = async () => {
@@ -93,6 +142,8 @@ const createPost = async () => {
     imgURL: imgurlInput.value,
     description: descriptionInput.value
   });
+  imgurlInput.value = "";
+  descriptionInput.value = "";
 };
 
 createPostForm.addEventListener("submit", async e => {

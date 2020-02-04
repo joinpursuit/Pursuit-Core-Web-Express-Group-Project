@@ -84,7 +84,7 @@ const searchUserByName = async (req, res, next) => {
   try {
     let { username } = req.params;
     let user = await db.one(
-      "SELECT * FROM users WHERE username = $1",
+      "SELECT * FROM users WHERE username = $1 RETURNING *",
       username
     );
     if (user) {
