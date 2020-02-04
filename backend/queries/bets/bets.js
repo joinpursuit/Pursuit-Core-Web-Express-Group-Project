@@ -1,5 +1,18 @@
 const db = require("./../../db/db")
 
+const isBetExisting = async (betId) => {
+    try {
+        let bet = await db.any("SELECT * FROM bets WHERE id=$1", betId);
+        if(bet.length) {
+            return true;
+        } else {
+            return false;
+        }
+    } catch(err) {
+        console.log(err);
+    }
+}
+
 const getBets = async (req, res, next) => {
     try {
         let bets = await db.any("SELECT * FROM bets INNER JOIN users ON bets.better_id=users.id");
