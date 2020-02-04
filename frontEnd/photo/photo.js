@@ -17,6 +17,7 @@ let displayUserInfo = async () => {
     logOffBtn.addEventListener("click",e =>{
       debugger;
       sessionStorage.removeItem('userID');
+      sessionStorage.removeItem('resultUserID');
       window.location.href = "logIn.html";
       window.location.href.reload();
     });
@@ -34,9 +35,10 @@ let displayUserInfo = async () => {
   let displayPhoto = async(id)=>{
       let res = await axios.get(
           `http://localhost:3000/pictures/${id}`);
-          res.data.body.pictures.forEach(el=>{
+          res.data.body.pictures.forEach(photo=>{
+       
               let img = document.createElement("img");
-              img.src = el.pictureurl;
+              img.src = photo.pictureurl;
               content.appendChild(img)
             })
     }
