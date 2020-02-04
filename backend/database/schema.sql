@@ -33,6 +33,7 @@ CREATE TABLE posts
       id SERIAL PRIMARY KEY,
       type VARCHAR,
       body TEXT,
+      url_img TEXT ,
       album_id INT REFERENCES albums(id) ON DELETE SET NULL,
       user_id INT REFERENCES users(id) ON DELETE CASCADE,
       post_time timestamp
@@ -47,11 +48,12 @@ CREATE TABLE likes
 );
 
 
-CREATE TABLE comments(
-       id SERIAL PRIMARY KEY,
-       body text,
-       user_id INT REFERENCES users(id) ON DELETE CASCADE,
-       post_id INT REFERENCES posts(id) ON DELETE CASCADE
+CREATE TABLE comments
+(
+      id SERIAL PRIMARY KEY,
+      body text,
+      user_id INT REFERENCES users(id) ON DELETE CASCADE,
+      post_id INT REFERENCES posts(id) ON DELETE CASCADE
 );
 
 
@@ -74,9 +76,9 @@ VALUES('All Photos', 1),
       ('All Photos', 3),
       ('All Photos', 4);
 INSERT INTO posts
-      (type,body,album_id,user_id)
-VALUES('img', 'https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwi6jNOcpKrnAhVCg3IEHXkpDwAQjRx6BAgBEAQ&url=https%3A%2F%2Fwww.thekitchn.com%2Feasy-everyday-pizza-dough-that-is-gluten-free-255421&psig=AOvVaw3yKZdhSRHCBDN4FrN5GUrT&ust=1580437923656859', 1, 1),
-      ('img', 'https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwi1jt-jparnAhV7hHIEHdlCD5AQjRx6BAgBEAQ&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FHamburger&psig=AOvVaw19jG3cIwEAWrXtt9h4vABV&ust=1580438169504671', 1, 2);
+      (type,body,url_img,album_id,user_id)
+VALUES('img', 'pizza', 'https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwi6jNOcpKrnAhVCg3IEHXkpDwAQjRx6BAgBEAQ&url=https%3A%2F%2Fwww.thekitchn.com%2Feasy-everyday-pizza-dough-that-is-gluten-free-255421&psig=AOvVaw3yKZdhSRHCBDN4FrN5GUrT&ust=1580437923656859', 1, 1),
+      ('img', 'burger', 'https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwi1jt-jparnAhV7hHIEHdlCD5AQjRx6BAgBEAQ&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FHamburger&psig=AOvVaw19jG3cIwEAWrXtt9h4vABV&ust=1580438169504671', 1, 2);
 INSERT INTO posts
       (type,body,user_id)
 VALUES('text', 'who up for chinese food?', 3),

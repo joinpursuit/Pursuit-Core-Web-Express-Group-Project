@@ -15,7 +15,7 @@ const getposts = async (req, res, next) => {
 
 const getpost = async (req, res, next) => {
   try {
-    let post = await dataBase.any("SELECT * FROM posts WHERE id=$1", [
+    let post = await dataBase.one("SELECT * FROM posts WHERE id=$1", [
       req.params.id
     ]);
     res.status(200).json({
@@ -31,7 +31,7 @@ const getpost = async (req, res, next) => {
 const newpost = async (req, res, next) => {
   try {
     let newpost = await dataBase.any(
-      `INSERT INTO posts (type,body,album_id,user_id) VALUES ('${req.body.type}','${req.body.body}',${req.body.album_id},${req.body.user_id} RETURNING *)`
+      `INSERT INTO posts (type,body,url,album_id,user_id) VALUES ('${req.body.type}','${req.body.body}','${req.body.url}',${req.body.album_id},${req.body.user_id} RETURNING *)`
     );
     res.status(200).json({
       newpost,
