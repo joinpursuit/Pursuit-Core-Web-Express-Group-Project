@@ -30,10 +30,7 @@ const getUser = async (req, res, next) => {
                 message: "Retrieved One User"
             })
         } else {
-            res.json({
-                status: "error",
-                error: "user is not existing"
-            })
+            throw {status: 404, error: "User does not exist"}
         }
         
     }catch(err){
