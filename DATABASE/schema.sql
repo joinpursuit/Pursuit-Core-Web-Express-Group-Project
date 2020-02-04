@@ -19,14 +19,14 @@ CREATE TABLE users
     firstname TEXT,
     lastname TEXT,
     age INT,
-    PROFILE_PIC TEXT
+    profile_pic TEXT OPTIONAL
 );
 
 CREATE TABLE albums
 (
     id SERIAL PRIMARY KEY,
     creator_id INT REFERENCES users(id) ON DELETE CASCADE,
-    album_title TEXT
+    title TEXT
 );
 
 CREATE TABLE pictures
