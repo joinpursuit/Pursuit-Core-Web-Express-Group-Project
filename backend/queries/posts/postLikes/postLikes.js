@@ -1,5 +1,5 @@
 const db = require("./../../../db/db");
-const {isPostExisting, sendError, sendDoesntExist, successReq} = require("./../posts");
+const {isPostExisting, sendDoesntExist, successReq} = require("./../posts");
 
 const sendNoLikes = (res) => {
     res.json({

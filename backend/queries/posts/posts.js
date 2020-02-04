@@ -2,15 +2,6 @@ const db = require("./../../db/db");
 
 const newDate = () => new Date().toString()
 
-const sendError = (res, error) => {
-    console.log(error);
-    res.json({
-            status: "error",
-            error,
-            timestamp: newDate()
-        })
-} // End of sendError() function
-
 const sendDoesntExist = (res, item, id) => {
     res.json({
         status: "error",
@@ -100,4 +91,4 @@ const createPost = async (req, res, next) => {
     }
 } // End of createPost() function
 
-module.exports = {getAllPosts, getPostById, deletePost, editPost, createPost, isPostExisting, sendError, newDate, sendDoesntExist, successReq}
+module.exports = {getAllPosts, getPostById, deletePost, editPost, createPost, isPostExisting, newDate, sendDoesntExist, successReq}
