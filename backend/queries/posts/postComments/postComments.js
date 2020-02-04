@@ -1,13 +1,6 @@
 let db = require("./../../../db/db");
 const {isPostExisting, newDate, successReq} = require("./../posts");
 
-const sendNoComments = (res) => {
-    res.json({
-        status: "error",
-        error: "That post has no comments"
-    })
-} // End of sendNoComments() function
-
 const isCommenterExisting = async (commenterId) => {
     try {
         let commenter =  await db.any("SELECT * FROM users WHERE id=$1",commenterId);
@@ -26,7 +19,7 @@ const getComments = async (req, res, next) => {
             if(comments.length) {
                 successReq(res, comments, "Retrieved all comments");
             } else {
-                sendNoComments(res);
+                throw {status: 404, error: "No comments found"}
             }
         } else {
             throw {status: 404, error: "Post doesn't exist"}

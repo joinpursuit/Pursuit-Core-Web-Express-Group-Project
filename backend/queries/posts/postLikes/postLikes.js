@@ -1,13 +1,6 @@
 const db = require("./../../../db/db");
 const {isPostExisting, successReq} = require("./../posts");
 
-const sendNoLikes = (res) => {
-    res.json({
-        status: "error",
-        error: "That post has no likes"
-    })
-} // End of sendNoLikes
-
 const isLikeExisting = async (likerId, postId) => {
     try {
         let like =  await db.any("SELECT * FROM likes WHERE liker_id=$1 AND post_id=$2",[likerId, postId]);

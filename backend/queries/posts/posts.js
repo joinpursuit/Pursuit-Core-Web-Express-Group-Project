@@ -10,7 +10,6 @@ const isPostExisting = async (id) => {
     } catch (err) {
         console.log(err);
     }
-    
 } // End of isPostExisting() function
 
 const successReq = (res, data, message) => {
