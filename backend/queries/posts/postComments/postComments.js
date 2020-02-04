@@ -1,5 +1,5 @@
 let db = require("./../../../db/db");
-const {isPostExisting, newDate, sendDoesntExist, successReq} = require("./../posts");
+const {isPostExisting, newDate, successReq} = require("./../posts");
 
 const sendNoComments = (res) => {
     res.json({

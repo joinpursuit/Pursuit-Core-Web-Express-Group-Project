@@ -29,7 +29,7 @@ const getLikes = async (req, res, next) => {
                 sendNoLikes(res);
             }
         } else {
-            sendDoesntExist(res, "post", postId);
+            throw {status: 404, error: "Post doesn't exist"}
         }
     } catch(error) {
         next(error);
@@ -52,7 +52,7 @@ const addLike = async (req, res, next) => {
                 successReq(res, post, "Added like");
             }
         } else {
-            sendDoesntExist(res, "post", postId);
+            throw {status: 404, error: "Post doesn't exist"}
         }
     } catch(error) {
         next(error);
@@ -70,7 +70,7 @@ const deleteLike = async (req, res, next) => {
                 sendNoLikes(res);
             }
         } else {
-            sendDoesntExist(res, "post", postId);
+            throw {status: 404, error: "Post doesn't exist"}
         }
         
     } catch (error) {
