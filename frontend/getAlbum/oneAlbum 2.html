@@ -1,0 +1,106 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="./oneAlbum.js"></script>
+  <link rel="stylesheet" href="./oneAlbum.css">
+  <title>Album</title>
+</head>
+<body>
+  <h4>TRIPPin</h4><br>
+  <p>Username</p>
+<!-- <div id="SearchUser"> -->
+  <!-- <button id="SearchUserBtn">Search</button> -->
+</div>
+<div id="albumText">
+  <h4>Beautiful view from Morocco</h4>
+</div>
+  <!-- Container for the image gallery -->
+<div class="container">
+  <!-- Full-width images with number text -->
+  <div class="mySlides">
+    <div class="numbertext">1 / 9</div>
+      <img src="../media/Morocco/AgadirTaghazout.jpg">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">2 / 9</div>
+      <img src="../media/Morocco/Agadir.jpg">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">3 / 9</div>
+      <img src="../media/Morocco/casablanca.jpg">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">4 / 9</div>
+      <img src="../media/Morocco/couscous.jpg">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">5 / 9</div>
+      <img src="../media/Morocco/lamPlumes.jpg">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">6 / 9</div>
+      <img src="../media/Morocco/morocco-casablanca-hassan-ii-mosque-interior-detail.jpg">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">7 / 9</div>
+      <img src="../media/Morocco/pastilla.jpg">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">8 / 9</div>
+      <img src="../media/Morocco/shopping-chefchaouen-morocco-f9607d8eac98.jpg">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">9 / 9</div>
+      <img src="../media/Morocco/caftan-mariage-vert-royale-2019.jpg">
+  </div>
+
+  <!-- Next and previous buttons -->
+  <a class="prev" onclick="plusSlides(-1)">&#10096;</a>
+  <a class="next" onclick="plusSlides(1)">&#10097;</a>
+
+  <!-- Image text -->
+  <div class="caption-container">
+    <p id="caption"></p>
+  </div>
+
+  <!-- Thumbnail images -->
+  <div class="row">
+    <div class="column">
+      <img class="demo cursor" src="../media/Morocco/AgadirTaghazout.jpg" onclick="currentSlide(1)" alt="Taghazout">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="../media/Morocco/Agadir.jpg" onclick="currentSlide(2)" alt="Agadir">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="../media/Morocco/casablanca.jpg" onclick="currentSlide(3)" alt="casablanca">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="../media/Morocco/couscous.jpg" onclick="currentSlide(4)" alt="Couscous">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="../media/Morocco/lamPlumes.jpg" onclick="currentSlide(5)" alt="lam with Plumes">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="../media/Morocco/pastilla.jpg" onclick="currentSlide(6)" alt="Pastilla">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="../media/Morocco/shopping-chefchaouen-morocco-f9607d8eac98.jpg" onclick="currentSlide(6)" alt="Chefchaouen">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="../media/Morocco/caftan-mariage-vert-royale-2019.jpg" onclick="currentSlide(6)" alt="Caftan">
+    </div>
+  </div>
+</div>
+</body>
+</html>
