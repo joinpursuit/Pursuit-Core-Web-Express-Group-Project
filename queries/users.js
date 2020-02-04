@@ -1,7 +1,7 @@
 // Get all users
 const db = require ("../db/index.js")
 
-const getAllUsers = async(res, req, next) =>{
+const getAllUsers = async(req, res, next) =>{
     try{
         let users = await db.any("SELECT * FROM users")
         res.status(200).json({
@@ -18,7 +18,7 @@ const getAllUsers = async(res, req, next) =>{
 
 // Get single users
 
-const getSingleUsers = async(res, req, next) =>{
+const getSingleUsers = async(req, res, next) =>{
     try{
         let user = await db.one("SELECT * FROM users WHERE id = $1", req.params.id)
         res.status(200).json({
@@ -34,9 +34,9 @@ const getSingleUsers = async(res, req, next) =>{
 
 //Add single user
 
-const addSingleUser = async(res, req, next)=>{
+const addSingleUser = async(req, res, next)=>{
     try{
-        let newUser = await db.one("INSERT INTO users(full_name, email, date_of_birth, gender, profile_pic, join_date) VALUES (${full_name}, ${email}, ${date_of_birth}, ${gender}, ${profile_pic}, ${join_date})", req.body)
+        let newUser = await db.one("INSERT INTO users(full_name, email, date_of_birth, gender, profile_pic) VALUES (${full_name}, ${email}, ${date_of_birth}, ${gender}, ${profile_pic}) returning *", req.body)
         res.status(200).json({
             status:"success",
             message: "Added User",
@@ -50,7 +50,7 @@ const addSingleUser = async(res, req, next)=>{
 
 // Delete Single User
 
-const deleteSingleUser = async(res, req, next)=>{
+const deleteSingleUser = async(req, res, next)=>{
     try{
         let deleteUser = await db.none("DELETE * FROM USERS WHERE id = $1", req.params.id);
         res.status(200).json({
