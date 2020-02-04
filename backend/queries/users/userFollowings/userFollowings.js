@@ -40,6 +40,8 @@ const getUserFollowingCount = async (req, res, next) => {
                     status: "success",
                     message: "retrieved following count"
                 })
+            } else {
+                throw {status: 404, error: "User is not following anyone"}
             }
         } else {
             throw {status: 404, error: "User does not exist"}
