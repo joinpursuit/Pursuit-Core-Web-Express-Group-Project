@@ -3,12 +3,18 @@ const {isUserExisting} = require("./../users");
 
 const getUserFollowings = async (req, res, next) => {
     try {
-        let followings = await db.any("SELECT * FROM followings WHERE follower_id =$1", req.params.userId);
-        res.status(200).json({
-            followings,
-            status: "Success",
-            message: "All User Followings"
-        })
+        let {userId} = req.params;
+        if(isUserExisting(userId)) {
+            let followings = await db.any("SELECT * FROM followings WHERE follower_id =$1", req.params.userId);
+            res.status(200).json({
+                followings,
+                status: "Success",
+                message: "All User Followings"
+            })
+        } else {
+            throw {status: 404, error: "User does not exist"}
+        }
+        
     }catch(err){
         next(err)
     }   
