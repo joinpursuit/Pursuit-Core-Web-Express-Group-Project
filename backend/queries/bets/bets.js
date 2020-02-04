@@ -83,7 +83,7 @@ const patchBets = async (req,res,next) => {
                 message: "Updated bet"
             })
         } else {
-
+            throw {status: 404, error: "Bet doesn't exist"}
         }
         
     } catch(err) {
@@ -102,7 +102,7 @@ const deleteBet = async (req,res,next) => {
                 message: "Deleted Bet"
             })
         } else {
-
+            throw {status: 404, error: "Bet doesn't exist"}
         }
         
 
