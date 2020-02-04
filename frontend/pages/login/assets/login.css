@@ -1,63 +1,66 @@
+body{
+    margin: 0px
+}
 
 main{ 
+    margin: 0px;
     height: 100vh;
     background-repeat: no-repeat;
     background-position: 50%;
     background-image: linear-gradient(#592185, #FAC346);  
     display: flex;
-    justify-content: space-evenly;
-
-    
+    justify-content: space-evenly; 
 }
 
-left{
-    background-color: lightblue;
-    width: 50%;
-    
-    
+left {
+    display: flex;
+    margin: auto;
+    /* background-color: lightblue; */
+    width: 50%;  
 }
 
 right {
-    background-color: lightcoral;
-    width: 50%;
-}
-/* #signLog {
+    height: 100vh;
     display: flex;
     flex-direction: column;
- 
-} */
+    /* background-color: lightcoral; */
+    width: 30%; 
+    margin: auto;
+}
 
-.logo {
-    display: grid;
-    grid-template-columns: 2fr 0.1fr 1fr 1fr;
-    grid-template-rows: 2.1fr 0.1fr 1fr;
-    grid-template-areas: "logo . . ." ". . . ." ". . . .";
-  }
-  
-  .moveLogo { grid-area: logo; }
+#signInForm {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin-top: 30%;
+}
 
-/* .logo {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
-    grid-template-areas: ". . logo logo logo logo . ." ". . logo logo logo logo . ." ". . logo logo logo logo . ." ". . . . . . . .";
-  }
-  
-  .logo { grid-area: logo; 
-} */
+#logInForm {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin-top: 30%;
+}
+
+
 
 #buttons {
-    /* display: grid; */
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-template-areas: ". . signLog ." ". . . ." ". . . .";
     display: flex;
-    flex-direction: column;
+    width: 50%;
+    justify-content: space-evenly;
+    justify-items: center;
+    margin-top: 50%;
+    height: 50%;
+    /* background-color: lawngreen; */
+    vertical-align: middle;
+    align-items: center; 
+ 
   }
-  
-/* .signLog { grid-area: signLog; } */
 
 .myButton {
+    display: flex;
+    justify-content: center;
+    /* margin-top: 25%; */
 	box-shadow: 0px 1px 0px 0px #fff6af;
 	background:linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
 	background-color:#ffec64;
@@ -72,7 +75,8 @@ right {
 	font-style:italic;
 	padding:5px 24px;
 	text-decoration:none;
-	text-shadow:0px 0px 0px #ffee66;
+    text-shadow:0px 0px 0px #ffee66;
+    min-width: 80%
 }
 .myButton:hover {
 	background:linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
@@ -83,5 +87,20 @@ right {
 	top:1px;
 }
 
+#logInButton {
+   /* margin-top: auto */
+
+}
+
+#signUp {
+    margin-top: 25%;
+    /* margin-bottom: auto; */
+    /* align-self: middle */
+}
+
+#buttonDiv {
+    display: flex;
+    flex-direction: column;
+}
 
 
