@@ -1,22 +1,43 @@
-let content = document.querySelector(".content")
+let displayUserInfo = async () => {
+    let res = await axios.get(
+      `http://localhost:3000/users/${sessionStorage.userID}`
+    );
+    let { username, propicurl, bio } = res.data.body.single_user;
+    let profName = document.querySelector("#ownerName")
+    let profPic = document.querySelector("#ownerPic")
+    let profBio = document.querySelector("#ownerBio")
+    let logOffBtn = document.querySelector("#logOffBtn")
+    
+    let img = document.createElement("img");
+    img.src = propicurl;
+    profName.innerText = username;
+    profPic.appendChild(img);
+    profBio.innerText = bio;
+  
+    logOffBtn.addEventListener("click",e =>{
+      debugger;
+      sessionStorage.removeItem('userID');
+      window.location.href = "logIn.html";
+      window.location.href.reload();
+    });
 
-
-// display Users Album on page 
-
-let displayUserAlbum = async (userID) => {
-    let res = await axios.get(`http://localhost:3000/albums/${userID}`)
-    let data = res.data.body.albums
-    data.forEach(album => {
-        let h2 = document.createElement("h2")
-        h2.innerText = album.album_title
-        let p = document.createElement("p")
-        p.innerText = album.album_date
-        let img = document.createElement("img")
-        img.src = album.album_coverurl
-        content.appendChild(h2)
-        content.appendChild(p)
-        content.appendChild(img)
-    })
-}
-
-displayUserAlbum(sessionStorage.userID)
+    if(sessionStorage.resultUserID){
+        displayPhoto(sessionStorage.resultUserID)
+    }else{
+        displayPhoto(sessionStorage.userID)
+    }
+  };
+  
+  
+  let content = document.querySelector(".content")
+  let displayPhoto = async(id)=>{
+      let res = await axios.get(
+          `http://localhost:3000/pictures/${id}`);
+          res.data.body.pictures.forEach(el=>{
+              let img = document.createElement("img");
+              img.src = el.pictureurl;
+              content.appendChild(img)
+            })
+        }
+        
+    displayUserInfo();

@@ -20,19 +20,25 @@ let displayUserInfo = async () => {
       window.location.href = "logIn.html";
       window.location.href.reload();
     });
+
+    if(sessionStorage.resultUserID){
+      displayPhoto(sessionStorage.resultUserID)
+  }else{
+      displayPhoto(sessionStorage.userID)
+  }
+
   };
   
   
-  let content = document.querySelector(".content")
-  let displayPhoto = async(userID)=>{
+ let content = document.querySelector(".content")
+  let displayPhoto = async(id)=>{
       let res = await axios.get(
-          `http://localhost:3000/pictures/${userID}`);
+          `http://localhost:3000/pictures/${id}`);
           res.data.body.pictures.forEach(el=>{
               let img = document.createElement("img");
               img.src = el.pictureurl;
               content.appendChild(img)
             })
-        }
+    }
 
     displayUserInfo();
-    displayPhoto(sessionStorage.userID)
