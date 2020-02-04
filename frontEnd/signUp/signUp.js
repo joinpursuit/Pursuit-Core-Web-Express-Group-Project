@@ -40,5 +40,9 @@ const createNewUser = async () => {
     let h2 = document.createElement("h2");
     h2.innerText = "User successfully created!";
     signUpDiv.appendChild(h2);
+    usernameInput.value = "";
+    passwordInput.value = "";
+    bioInput.value = "";
+    propicURL.value = "";
   }
 };
