@@ -16,17 +16,15 @@ const getPosts = async (req, res, next) => {
       })
    }
 }
-//I need an eye on the this, it is not working
+//I need an eye on the Get is not working
 const getPost = async (req, res, next) => {
    try {
-      let post = await db.one("SELECT username FROM Users JOIN users.id = posts.poster_id WHERE id = $1", req.params.id)
-      let albums = await db.any("SELECT album_title, photo.url FROM albums JOIN albums.id = pictures.album_id WHERE creator_id = $1", req.params.id)
-      post.albums = albums
+      let post = await db.one("SELECT users.username, albumPics.* FROM users JOIN (SELECT albums.creator_id,albums.album_title, ARRAY_AGG(pictures.photo_url) photo_array FROM albums JOIN pictures ON pictures.album_id = albums.id GROUP BY albums.album_title, albums.creator_id HAVING albums.creator_id = $1) AS albumPics ON albumPics.creator_id = users.id", req.params.id)
       res.status(200).json({
-         status: "Success",
-         message: "Got a single post",
-         body: post
-      })
+            status: "Success",
+            message: "Got a single post",
+            body: post
+         })
 
    } catch (err) {
       res.json({
@@ -36,14 +34,14 @@ const getPost = async (req, res, next) => {
    }
 }
 
-const createPost = async (req, res, next) =>{
+const createPost = async (req, res, next) => {
    try {
       let post = await db.none('INSERT INTO posts (poster_id, album_id, body) VALUES (${poster_id},${album_id}, ${body}) RETURNING *', req.body)
       res.status(200).json({
-         status:'Success',
-         message:'Add a new post',
+         status: 'Success',
+         message: 'Add a new post',
          body: post
-     })
+      })
    } catch (err) {
       res.json({
          status: "Failed",
@@ -53,18 +51,18 @@ const createPost = async (req, res, next) =>{
 }
 
 const deletePost = async (req, res, next) => {
-   try{
+   try {
       await db.none('DELETE * FROM posts WHERE id = $1', req.params.id)
       res.status(200).json({
-          status:'Success',
-          message:'Post is now deleted'
+         status: 'Success',
+         message: 'Post is now deleted'
       })
-  }catch(err){
+   } catch (err) {
       res.json({
          status: "Failed",
          message: err
       })
-  }
+   }
 }
 
 
