@@ -15,6 +15,7 @@ let displayUserInfo = async () => {
     profBio.innerText = bio;
   
     logOffBtn.addEventListener("click",e =>{
+      debugger;
       sessionStorage.removeItem('userID');
       window.location.href = "logIn.html";
       window.location.href.reload();
