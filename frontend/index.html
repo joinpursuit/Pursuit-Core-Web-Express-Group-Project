@@ -6,22 +6,29 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="index.js"></script>
+    <link rel="stylesheet" href="index.css">
     <title>Homepage</title>
 
 </head>
 <body>
-    <a href="./userpage.html" id="myProfile">My Profile</a>
-    <a href="./albumpage.html" id="myAlbum">My Albums</a>
-    <a href="https://github.com/joinpursuit">github photo belongs here</a>
-    <a href="https://linkedin.com">linkedin photo belongs here</a>
+    <div class="body">
 
-    <form>
-        Search<input type="text" placeholder="...">
-        <button id="searchBtn">GO!</button>
-    </form>
-    
-    <img src="" alt="">
-    <div>
+    <div class= "navBar">
+        <a href="./userpage.html" id="myProfile">My Profile</a>
+        <a href="./albumpage.html" id="myAlbum">My Albums</a>
+        <a href="https://github.com/joinpursuit">github photo belongs here</a>
+        <a href="https://linkedin.com">linkedin photo belongs here</a>
+
+        <form>
+            Search<input type="text" placeholder="...">
+            <button id="searchBtn">GO!</button>
+        </form>
+    </div>
+    <div class="profilePic">
+        <img src="" alt="">
+    </div>
+
+    <div class="userInfo">
         name:
         email:
         birthday:
@@ -29,12 +36,16 @@
         Member Since:
         Website:
     </div>
-    <div id="albumPage">
+    <div class="albumPage">
         <a href="./albumpage.html">Albums</a>
     </div>
-    <form>
+    <div class="liveFeed"></div>
+    <div class="exploreSection"></div>
+
+    <!-- <form>
         What is on your mind?<input type="text" size="100" maxlength="120" placeholder="Enter Text Here...">
         <button>Send</button>
-    </form>
+    </form> -->
+</div>
 </body>
 </html>

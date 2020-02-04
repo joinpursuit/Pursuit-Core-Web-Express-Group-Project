@@ -1,0 +1,18 @@
+.body {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 10% 1.5fr 1.6fr 1fr;
+    grid-template-areas: "navBar navBar navBar navBar" "profilePic liveFeed liveFeed exploreSection" "userInfo liveFeed liveFeed exploreSection" "albums liveFeed liveFeed .";
+  }
+  
+.navBar { grid-area: navBar; }
+  
+.profilePic { grid-area: profilePic; }
+  
+.userInfo { grid-area: userInfo; }
+  
+.albumPage { grid-area: albums; }
+  
+.liveFeed { grid-area: liveFeed; }
+  
+.exploreSection { grid-area: exploreSection; }
