@@ -28,7 +28,7 @@ const addSingleLike = async (req, res, next) => {
 
 const deleteSingleLike =  async (req, res, next) => {
     try {
-        let like =  await db.none("DELETE FROM likes WHERE id = ", req.params.id)
+        let like =  await db.none("DELETE FROM likes WHERE id = " + req.params.id)
         res.status(200).json({
             like,
             status: "success",
