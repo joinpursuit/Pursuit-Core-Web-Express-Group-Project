@@ -95,12 +95,12 @@
       letter-spacing: 1px;
       word-spacing: 10px;
       background: rgba(6,25,31,1);
+      width: 200%;
   }
   
-  #postForm {
+button {
     width: 200%;
-  
-  }
+}
   
   h1 {
     font-family: 'Exo 2', sans-serif; 
