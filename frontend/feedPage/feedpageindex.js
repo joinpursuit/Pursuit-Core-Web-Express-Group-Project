@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const likePost = async e => {
     let id = e.target.value;
     let res = await axios.post(`http://localhost:3000/likes/posts/${id}`, {
-      user_id: 4
+      user_id: currentUser
     });
     let p = document.querySelector(`#p${id}`);
     p.innerText = `${await getLikes(id)} Likes`;
@@ -23,7 +23,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const dislikefun = async e => {
     let id = e.target.value;
-    let res = await axios.delete(`http://localhost:3000/likes/${id}/${4}`);
+    let res = await axios.delete(
+      `http://localhost:3000/likes/${id}/${currentUser}`
+    );
     debugger;
     let p = document.querySelector(`#p${id}`);
     p.innerText = `${await getLikes(id)} Likes`;
