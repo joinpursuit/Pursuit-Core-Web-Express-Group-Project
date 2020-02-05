@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./src/login.js" async></script>
+    <link rel="stylesheet" href="./assets/login.css">
+    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
+    <title>HotBox Sports</title>
+</head>
+<body>
+    
+    <main>
+        <left>
+        <div id="logo">
+            <div id="moveLogo">
+                <img src="./assets/hotboxLogo.png" alt="">
+            </div>
+        </div>
+         </left>
+
+        <right>
+        <section id="buttons">
+            <div id="buttonDiv">
+                <button id="logInButton" class="myButton" onClick="showLogin()">Login</button>
+
+                <button id="signUp" class="myButton" onClick="showSignUp()">Sign Up</button>  
+            </div>
+            
+        </section>
+        
+        <section id="login" style="display: none">
+            <form id="logInForm" autocomplete="off">
+                <h1></h1>
+                <label for="loginEmail">Email: </label>
+                <input type="text" name="username" id="loginEmail">
+    
+                <label for="password">Password: </label>
+                <input type="text" name="password" id="userPass">
+
+                <button type="submit" id="loginButton" class="myButton">Log In</button>
+    
+            </form>
+    
+        </section>
+    
+        <section id="signIn" style="display: none">
+            <form id="signInForm" autocomplete="off">
+                <h1></h1>
+                <label for="firstName">First Name</label>
+                <input type="text" name="firstName" id="first">
+    
+                <label for="lastName">Last Name</label>
+                <input type="text" name="lastName" id="last">
+    
+                <label for="dateOfBirth">Date Of Birth</label>
+                <input type="text" name="dateOfBirth" id="dob">
+    
+                <label for="email">Email</label>
+                <input type="text" name="email" id="email">
+    
+                <label for="city">City</label>
+                <input type="text" name="city" id="city">
+    
+                <label for="state">State</label>
+                <input type="text" name="state" id="st">
+    
+                <button type="submit" id="submit" class="myButton">Submit</button>
+    
+            </form>
+        
+        </section>
+    </right>
+    </main>
+       
+</body>
+</html>
