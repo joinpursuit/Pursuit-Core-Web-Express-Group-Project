@@ -79,11 +79,11 @@ INSERT INTO posts (poster_id, imgURL, description)
         (2, 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTaUSy9dIb9FMKSbyOVfHwVRXAqYU-1l3MzjpKD3JJ7bpfwEDwL', 'art paints'),
         (2, 'https://www.francetoday.com/wp-content/uploads/2019/06/Caumont-Guggenheim.jpg', 'green farm'),
         (3, 'https://scontent-lga3-1.xx.fbcdn.net/v/t1.0-9/p960x960/44319720_10213301554596867_5397196873570189312_o.jpg?_nc_cat=101&_nc_ohc=TO0GIvFMgNoAX8418Z0&_nc_ht=scontent-lga3-1.xx&_nc_tp=6&oh=20cb34113c855268ddeca103a4258c27&oe=5EDB491E', 'water fall'),
-        (3, 'https://scontent-lga3-1.xx.fbcdn.net/v/t31.0-8/17966804_10209225039326533_5918438096743874858_o.jpg?_nc_cat=110&_nc_ohc=hnio5NRzB58AX9P7Tvw&_nc_ht=scontent-lga3-1.xx&oh=8f3bc54e0cfe2aa14b1e91cc3f1ca480&oe=5ED14C1D', 'partyy'),
-        (3, 'https://scontent-lga3-1.xx.fbcdn.net/v/t31.0-8/14380016_598667860294007_3506811280356476293_o.jpg?_nc_cat=102&_nc_ohc=-WmIl9dkFykAX_bqdxc&_nc_ht=scontent-lga3-1.xx&oh=31b315c4b32996d250f3be35b8a1ffc8&oe=5ED48779', 'night out'),
-        (4, 'https://scontent-lga3-1.xx.fbcdn.net/v/t1.0-9/13606540_10201927256979278_7391028318321080445_n.jpg?_nc_cat=109&_nc_ohc=L3xtP2FBE8gAX_E4nB5&_nc_ht=scontent-lga3-1.xx&oh=6eb4a7d52e9a32cb0a80abdc3579ad1a&oe=5EC3C344', 'LMAO'),
-        (2, 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTEETsfZN3QhAiu5bFsJmhVXOVLKd-EKTDE-FH2ur_2agkcvvWV', 'yellow paint'),
         (2, 'https://pm1.narvii.com/6304/45d14aa734fc9dda0a842e2991e78a464ef14f30_hq.jpg', 'charizard'),
+        (3, 'https://scontent-lga3-1.xx.fbcdn.net/v/t31.0-8/17966804_10209225039326533_5918438096743874858_o.jpg?_nc_cat=110&_nc_ohc=hnio5NRzB58AX9P7Tvw&_nc_ht=scontent-lga3-1.xx&oh=8f3bc54e0cfe2aa14b1e91cc3f1ca480&oe=5ED14C1D', 'partyy'),
+        (4, 'https://scontent-lga3-1.xx.fbcdn.net/v/t1.0-9/13606540_10201927256979278_7391028318321080445_n.jpg?_nc_cat=109&_nc_ohc=L3xtP2FBE8gAX_E4nB5&_nc_ht=scontent-lga3-1.xx&oh=6eb4a7d52e9a32cb0a80abdc3579ad1a&oe=5EC3C344', 'LMAO'),
+        (3, 'https://scontent-lga3-1.xx.fbcdn.net/v/t31.0-8/14380016_598667860294007_3506811280356476293_o.jpg?_nc_cat=102&_nc_ohc=-WmIl9dkFykAX_bqdxc&_nc_ht=scontent-lga3-1.xx&oh=31b315c4b32996d250f3be35b8a1ffc8&oe=5ED48779', 'night out'),
+        (2, 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTEETsfZN3QhAiu5bFsJmhVXOVLKd-EKTDE-FH2ur_2agkcvvWV', 'yellow paint'),
         (2, 'https://pixelart.io/uploads/2018-11-25/pixelart_1543145545002.png', 'pikachu');
 
 
