@@ -2,7 +2,10 @@ const dataBase = require("../../database/index.js");
 
 const getposts = async (req, res, next) => {
   try {
-    let posts = await dataBase.any("SELECT * FROM posts");
+    let posts = await dataBase.any(
+      "SELECT posts.id, posts.type,posts.url_img, posts.body, posts.album_id, posts.user_id, posts.post_time, users.user_name FROM posts LEFT JOIN users ON posts.user_id = users.id;"
+    );
+
     res.status(200).json({
       posts,
       status: "success",

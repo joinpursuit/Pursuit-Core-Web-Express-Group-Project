@@ -3,7 +3,7 @@ const db = require("../../database/index");
 const getCommentsPost = async (req, res, next) => {
   try {
     let comments = await db.any(
-      `SELECT body FROM comments WHERE post_id = ${req.params.post_id}`
+      `SELECT comments.id, comments.body, comments.user_id, comments.post_id, users.user_name FROM comments JOIN users ON comments.user_id = users.id WHERE post_id = ${req.params.post_id}`
     );
     res.status(200).json({
       comments,
