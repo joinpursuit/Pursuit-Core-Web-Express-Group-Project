@@ -1,4 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 body {
     color: black;
-    background-color: lavender;
+    /* background-image:url("../assets/greyscale.png") ; */
+    /* background-size: 900px 800px; */
+    /* background-repeat: no-repeat;
+    background-attachment: fixed; */
 }
+
+#leftSideDiv {
+    background-image:url("../assets/greyscale.png");
+    /* animation: mymove 5s infinite; */
+    background-size: 800px 950px;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    float: left;
+    width: 50%;
+    height: 100vh;
+
+}
+
+#rightSideDiv {
+    /* background-image:url("../assets/mainLogo.png"); */
+    background-color: black;
+    animation: mymove 5s infinite;
+    animation-delay: 2s;
+    animation-fill-mode: inherit;
+    background-size: 2000px 2005px;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    float: right;
+    height: 100vh;
+    width: 50%;
+    justify-content: center;
+    align-content: space-between;
+}
+
+#signUpDiv {
+    color: white;
+    align-content: center;
+    padding-top: 200px;
+}
+
+#signUpForm {
+    font-size: 20px;
+    font-style: oblique;
+    font-variant:small-caps;
+    font-weight: bold;
+}
+
+a {
+    color: black;
+    font-size: 20px;
+}
+  
+a:hover {
+    color: goldenrod;
+}
+
+
+#chaseThatHeading {
+    font-size: 50px;
+    font-family: fantasy;
+    padding-right: 40px;
+    padding-bottom: 20px;
+  }
+  
+
+#cloutHeading {
+    padding-top: 170px;
+    padding-left: 80px;
+    font-size: 50px;
+    font-family: fantasy;
+    padding-right: 40px;
+  }
+  
+
+  #signUpForm {
+    padding-bottom: 10px;
+    /* padding-left: 60px; */
+  }
+
+
+#signUpBtn {
+    font-size: 18px;
+    padding: 5px;
+    /* border: 0.16em; */
+    margin: 5px;
+    border-radius: 20px;
+    width: 200px;
+    font-family: fantasy;
+    text-align: center;
+  }
+ 
+#buttonDiv {
+    padding-left: 25px;
+    padding-top: 30px;
+}
+  
+input {
+    width: 90%;
+}
+
+@keyframes mymove {
+    from {background-color: black;}
+    to {background-color: goldenrod;};
+    }
+
+
+ 
+
