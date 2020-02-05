@@ -1,5 +1,3 @@
-
-
 let imgurlInput = document.querySelector("#imgurlInput");
 let descriptionInput = document.querySelector("#descriptionInput");
 let createPostForm = document.querySelector("#createPostForm");
@@ -42,7 +40,10 @@ let displayUserPostFeed = async () => {
     let h4 = document.createElement("h4");
     let img = document.createElement("img");
     let p = document.createElement("p");
-    h4.innerHTML = `<b>${post.username}</b> posted at ${post.time_stamp}`;
+    post.time_stamp = new Date();
+    h4.innerHTML = `<b>${
+      post.username
+    }</b> posted at ${post.time_stamp.toDateString()}`;
     img.src = post.imgurl;
     p.innerHTML = `${post.description}`;
 
@@ -90,11 +91,16 @@ let displayUserPostFeed = async () => {
       form.appendChild(commentBtn);
       postDiv.appendChild(form);
       insertCommentBtn.disabled = true;
-      form.addEventListener("submit", e => {
+      form.addEventListener("submit", async e => {
         e.preventDefault();
         insertComment(postDiv, commentInput.value);
         commentInput.value = "";
+        await loadComments(post, commentsDiv);
       });
+    });
+
+    img.addEventListener("dblclick", async e => {
+      await likePost(post, postDiv.post_id, likesDiv);
     });
   });
 };
@@ -121,30 +127,28 @@ const loadComments = async (post, div) => {
   let res = await axios.get(`http://localhost:3000/comments/posts/${post.id}`);
   res.data.body.comments.forEach(comment => {
     let p = document.createElement("p");
-    p.innerHTML = `${comment.time_stamp} <b>${comment.username} commented on your post:</b> ${comment.content}`;
+    comment.time_stamp = new Date();
+    p.innerHTML = `${comment.time_stamp.toDateString()} <b>${
+      comment.username
+    } commented on your post:</b> ${comment.content}`;
     div.appendChild(p);
     p.author_id = comment.author_id;
-    p.comment_id=comment.id;
-
-    if(p.author_id==sessionStorage.userID){
-      debugger;
-      let deletedCommentBtn = document.createElement("button");
-      deletedCommentBtn.innerText="x";
-      div.appendChild(deletedCommentBtn);
-
-      deletedCommentBtn.addEventListener("click",async(e)=>{
-        deletedComment(p.comment_id, post.id)
-      })
-      // loadComments(post,div)
+    p.comment_id = comment.id;
+    if (p.author_id == sessionStorage.userID) {
+      let deleteCommentBtn = document.createElement("button");
+      deleteCommentBtn.innerText = "x";
+      div.appendChild(deleteCommentBtn);
+      deleteCommentBtn.addEventListener("click", async e => {
+        await deleteComment(p.comment_id, post.id);
+        await loadComments(post, div);
+      });
     }
-
-
   });
 };
 
-const deletedComment= async(comment_id, post_id)=>{
-  await axios.delete(`http://localhost:3000/comments/${comment_id}/${post_id}`)
-}
+const deleteComment = async (comment_id, post_id) => {
+  await axios.delete(`http://localhost:3000/comments/${comment_id}/${post_id}`);
+};
 
 const displayLikesComments = (div1, div2) => {
   if (div1.hidden === false && div2.hidden === false) {
@@ -167,9 +171,36 @@ const createPost = async () => {
   descriptionInput.value = "";
 };
 
+const likePost = async (post, post_id, div) => {
+  let likeStatus = document.createElement("div");
+  let liker_id = sessionStorage.userID;
+  let res = await axios.post(
+    `http://localhost:3000/likes/post/${post_id}/${liker_id}`
+  );
+  let h3 = document.createElement("h3");
+  h3.innerHTML = "";
+  if (res.data.error) {
+    await deleteLikePost(post_id, liker_id);
+    h3.innerText = "You unliked this post";
+    likeStatus.appendChild(h3);
+    await loadLikes(post, div);
+  } else {
+    h3.innerText = "You liked this post";
+    likeStatus.appendChild(h3);
+    await loadLikes(post, div);
+  }
+  div.appendChild(likeStatus);
+};
+
+const deleteLikePost = async (post_id, liker_id) => {
+  let res = await axios.delete(
+    `http://localhost:3000/likes/${post_id}/${liker_id}`
+  );
+};
+
 createPostForm.addEventListener("submit", async e => {
   e.preventDefault();
-  createPost();
+  await createPost();
   window.reload();
 });
 
