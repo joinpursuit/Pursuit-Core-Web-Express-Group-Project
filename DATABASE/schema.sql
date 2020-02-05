@@ -40,8 +40,8 @@ CREATE TABLE posts
 (
     id SERIAL PRIMARY KEY,
     poster_id INT REFERENCES users(id) ON DELETE CASCADE,
-    album_id INT REFERENCES albums(id) ON DELETE CASCADE,
-    body TEXT
+    image text,
+    caption TEXT
 );
 
 CREATE TABLE comments
@@ -59,7 +59,19 @@ CREATE TABLE likes
     posts_id INT REFERENCES posts (id) ON DELETE CASCADE
 );
 
+CREATE TABLE albums
+(
+    id SERIAL PRIMARY KEY,
+    creator_id INT REFERENCES users(id) ON DELETE CASCADE,
+    title TEXT
+);
 
+CREATE TABLE pictures
+(
+    id SERIAL PRIMARY KEY,
+    album_id INT REFERENCES albums(id) ON DELETE CASCADE,
+    photo_url TEXT
+);
 
 INSERT INTO users
     (username,password,firstname,lastname,age,profile_pic)
@@ -109,7 +121,6 @@ VALUES
 (3,2),
 (4,2),
 (1,1);
-
 
 
 

@@ -2,7 +2,7 @@ const posts = require("express").Router();
 
 const { getPosts } = require("../../queries/posts")
 
-// const postsCommentsRouter = require("./comments/comments")
+// const postsCommentsRouter = require("./comments/comments.js")
 
 // const postsLikesRouter = require("./likes/likes")
 
