@@ -1,5 +1,5 @@
 const pictures = require('express').Router();
-
+const {postPicture, getAllAlbumPictures, deletePictures} = require("../../queries/pictures.js")
 const picturesAlbumsRouter = require('./albums/albums.js');
 
 pictures.use('/albums', picturesAlbumsRouter);
