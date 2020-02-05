@@ -12,10 +12,10 @@ const getAllAlbumPictures = async (req, res, next) => {
           body: pics
         })
       } else {
-        throw {status: 404, error: "Target album is empty"}
+        throw {status: 404, error: "Target album is empty."}
       }
     } else{
-      throw {status: 404, error: "Target album is not available"}
+      throw {status: 404, error: "Target album does not exist."}
     }
 
   }catch(err){
@@ -33,7 +33,7 @@ const postPicture = async (req, res, next) => {
         body: pic
       })
     } else{
-      throw {status: 404, error: "Target album is not available"}
+      throw {status: 404, error: "Target album does not exist."}
     }
 
   }catch(err){
@@ -51,7 +51,7 @@ const deletePictures = async (req, res, next) => {
         body: pic
       })
     } else{
-      throw {status: 404, error: "Target picture is not available"}
+      throw {status: 404, error: "Target picture does not exist."}
     }
   }catch(err){
     next(err)

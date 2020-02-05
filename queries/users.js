@@ -1,4 +1,3 @@
-// Get all users
 const db = require ("../db/index.js")
 
 const getAllUsers = async(req, res, next) =>{
@@ -14,9 +13,6 @@ const getAllUsers = async(req, res, next) =>{
         next(err)
     }
 }
-//getAllUsers()
-
-// Get single users
 
 const getSingleUsers = async(req, res, next) =>{
     try{
@@ -32,8 +28,6 @@ const getSingleUsers = async(req, res, next) =>{
     }
 }
 
-//Add single user
-
 const addSingleUser = async(req, res, next)=>{
     try{
         let newUser = await db.one("INSERT INTO users(full_name, email, date_of_birth, gender, profile_pic) VALUES (${full_name}, ${email}, ${date_of_birth}, ${gender}, ${profile_pic}) returning *", req.body)
@@ -47,8 +41,6 @@ const addSingleUser = async(req, res, next)=>{
         next(err)
     }
 }
-
-// Delete Single User
 
 const deleteSingleUser = async(req, res, next)=>{
     try{
