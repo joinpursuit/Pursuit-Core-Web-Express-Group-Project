@@ -86,3 +86,8 @@ INSERT INTO likes (liker_id, post_id)
 VALUES (3, 1),
 (4, 1),
 (4, 2);
+
+INSERT INTO followings (follower_id, followed_id)
+VALUES (1, 2),
+(1, 3),
+(1, 4);

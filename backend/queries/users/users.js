@@ -39,10 +39,7 @@ const getUser = async (req, res, next) => {
                 message: "Retrieved One User"
             })
         } else {
-            res.json({
-                status: "error",
-                error: "user is not existing"
-            })
+            throw {status: 404, error: "User does not exist"}
         }
         
 >>>>>>> c552837cf9e81b4907c56ce1774ac98995fb40d8
@@ -90,10 +87,7 @@ const deleteUser = async (req, res, next) => {
     
             })
         } else {
-            res.json({
-                status: "error",
-                error: "No user found by that ID"
-            })
+            throw {status: 404, error: "User does not exist"}
         }
         
 >>>>>>> c552837cf9e81b4907c56ce1774ac98995fb40d8
@@ -113,6 +107,8 @@ const updateUser = async (req, res, next) => {
                 message: "update user",
                 updatedUser
             })
+        } else {
+            throw {status: 404, error: "User does not exist"}
         }
     } catch (err) {
         next(err);
