@@ -21,7 +21,7 @@ app.use("/users",usersRouter)
 app.use("/comments",commentsRouter)
 app.use((err, req, res, next) => {
   if(err.status){
-    res.status(err.status).json(err)
+    res.status(err.status).json(err.error)
   }else {
     res.json(err)
   }
