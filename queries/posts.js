@@ -55,12 +55,17 @@ const registerPosts = async (req, res, next) =>{
 
 const deletePost = async (req, res, next) =>{
     try{
-        let removePost = await db.none("DELETE FROM posts WHERE id = $1", req.params.id);
-        res.status(200).json({
-            status: "success",
-            message: "Post deleted successfully",
-            body: removePost
-        })
+        if (await db.one("SELECT * FROM posts WHERE id = $1", [req.params.post_id])){
+
+            let removePost = await db.one("DELETE FROM posts WHERE id = $1 RETURNING *", [req.params.post_id]);
+            res.status(200).json({
+                status: "success",
+                message: "Post deleted successfully",
+                body: removePost
+            })
+        } else {
+            throw {status: 404, error: "The target post does not exist."}
+        }
 
     }catch(err){
         next(err)

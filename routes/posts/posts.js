@@ -9,6 +9,6 @@ posts.post("/", registerPosts)
 
 posts.patch("/:id", editPost)
 
-posts.delete("/:id", deletePost)
+posts.delete("/:post_id", deletePost)
 
 module.exports = posts
