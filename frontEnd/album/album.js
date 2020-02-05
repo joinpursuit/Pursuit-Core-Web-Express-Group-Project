@@ -21,7 +21,6 @@ const displayUserInfo = async id => {
   });
   if (sessionStorage.searchUserID) {
     displayAlbum(sessionStorage.searchUserID);
-    // sessionStorage.removeItem("searchUserID");
   } else {
     displayAlbum(sessionStorage.userID);
   }

@@ -7,9 +7,9 @@ const {
   deletePost
 } = require("../queries/postQueries");
 
-posts.get("/", getAllPosts); // Get all posts
-posts.get("/:id", getSinglePost); // Get single post
-posts.post("/", insertSinglePost); // Insert single post
+posts.get("/", getAllPosts); 
+posts.get("/:id", getSinglePost); 
+posts.post("/", insertSinglePost);
 posts.patch("/:id", updateSinglePost);
 posts.delete("/:id", deletePost);
 
