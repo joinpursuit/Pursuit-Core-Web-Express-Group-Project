@@ -60,7 +60,7 @@ CREATE TABLE likes(
 
 
 INSERT INTO users (username, password, bio, proPicURL)
-    VALUES ('kwong', 'admin123', 'NYC ABC. DM for beats', 'https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/profile-face-of-a-small-black-labrador-retriever-pup-dejavu-designs.jpg'),
+    VALUES ('kwong', 'admin123', 'NYC ABC. DM for beats. https://soundcloud.com/kj_wongg', 'https://scontent-lga3-1.xx.fbcdn.net/v/t1.0-9/35428358_10155525285981088_195203712392626176_n.jpg?_nc_cat=108&_nc_ohc=hFrvRM-lxQ0AX-loDFi&_nc_ht=scontent-lga3-1.xx&oh=fd27939bb7eab472adb49de8e39fde50&oe=5EBDF5B5'),
           ('kong', 'admin123', 'Kong''s Bio Would Go Here', 'https://www.seekpng.com/png/small/41-410093_circled-user-icon-user-profile-icon-png.png'),
           ('trilltown', 'admin123', 'Phil''s Bio Would Go Here', 'https://www.seekpng.com/png/small/41-410093_circled-user-icon-user-profile-icon-png.png'),
           ('darsuabasi', 'admin123', 'Uduakabasi''s Bio Would Go Here', 'https://www.seekpng.com/png/small/41-410093_circled-user-icon-user-profile-icon-png.png');
