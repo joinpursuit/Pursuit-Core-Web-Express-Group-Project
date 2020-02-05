@@ -6,14 +6,26 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="phtotos.js"></script>
+    <link rel="stylesheet" href="photos.css">
     <title>Document</title>
 </head>
 <body>
     
-    <a href="./userpage.html" id="myProfile">My Profile</a>
+    <div class="grid-container">
+        <div class="navBar">
+            <a href="./userpage.html" id="myProfile">My Profile</a>
     <a href="./albumpage.html" id="myAlbum">My Albums</a>
     <a href="https://github.com/joinpursuit">github photo belongs here</a>
     <a href="https://linkedin.com">linkedin photo belongs here</a>
+    <form>
+        Search<input type="text" placeholder="...">
+        <button id="searchBtn">GO!</button>
+    </form>
+        </div>
+        <div class="photoArea"></div>
+        <div class="profileInfo"></div>
+        <div class="commentSec"></div>
+      </div>
 
     <form>
         Search<input type="text" placeholder="...">
