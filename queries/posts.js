@@ -3,7 +3,7 @@ const db = require("../DATABASE/index.js");
 
 const getPosts = async (req, res, next) => {
    try {
-      let posts = await db.any("SELECT username, album_id, body FROM users JOIN posts on users.id = posts.poster_id");
+      let posts = await db.any("SELECT u.username, a.title, p.body, ARRAY_AGG (pic.photo_url) FROM users u JOIN albums a ON a.creator_id = u.id JOIN pictures pic ON pic.album_id = a.id JOIN posts p ON p.album_id = a.id GROUP BY a.title, u.username, p.body");
       res.status(200).json({
          status: "Success",
          message: "Pull all posts",
@@ -16,10 +16,10 @@ const getPosts = async (req, res, next) => {
       })
    }
 }
-//I need an eye on the Get is not working
+//pay attention to likes at the likes
 const getPost = async (req, res, next) => {
    try {
-      let post = await db.one("SELECT users.username, albumPics.* FROM users JOIN (SELECT albums.creator_id,albums.album_title, ARRAY_AGG(pictures.photo_url) photo_array FROM albums JOIN pictures ON pictures.album_id = albums.id GROUP BY albums.album_title, albums.creator_id HAVING albums.creator_id = $1) AS albumPics ON albumPics.creator_id = users.id", req.params.id)
+      let post = await db.one("SELECT DISTINCT u.username, a.title, a.creator_id, p.body description, c.body note, c.commenter_id, COUNT (l.posts_id) total_likes, ARRAY_AGG (pic.photo_url) AS pics FROM users u JOIN posts p ON p.poster_id = u.id JOIN albums a ON a.creator_id = u.id JOIN pictures pic ON pic.album_id = a.id JOIN comments c ON c.posts_id = p.id JOIN likes l ON l.posts_id = p.id GROUP BY a.id, a.title, u.username, p.body, c.body, p.id, c.commenter_id HAVING p.id = $1 ORDER BY c.commenter_id ASC", req.params.id)
       res.status(200).json({
             status: "Success",
             message: "Got a single post",
@@ -36,10 +36,10 @@ const getPost = async (req, res, next) => {
 
 const createPost = async (req, res, next) => {
    try {
-      let post = await db.none('INSERT INTO posts (poster_id, album_id, body) VALUES (${poster_id},${album_id}, ${body}) RETURNING *', req.body)
+      let post = await db.any('INSERT INTO posts (poster_id, album_id, body) VALUES (${poster_id},${album_id}, ${body}) RETURNING *', req.body)
       res.status(200).json({
          status: 'Success',
-         message: 'Add a new post',
+         message: 'Add a new  post',
          body: post
       })
    } catch (err) {
