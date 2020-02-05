@@ -54,8 +54,10 @@ right {
     /* background-color: lawngreen; */
     vertical-align: middle;
     align-items: center; 
+    
  
   }
+  
 
 .myButton {
     display: flex;
@@ -69,14 +71,14 @@ right {
 	display:inline-block;
 	cursor:pointer;
 	color:#333333;
-	font-family:Verdana;
+    font-family:Verdana;
 	font-size:17px;
 	font-weight:bold;
 	font-style:italic;
 	padding:5px 24px;
 	text-decoration:none;
     text-shadow:0px 0px 0px #ffee66;
-    min-width: 80%
+    min-width: 80%;
 }
 .myButton:hover {
 	background:linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
