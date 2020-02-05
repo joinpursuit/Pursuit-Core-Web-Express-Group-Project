@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./index.js"></script>
+    <!-- <link rel="stylesheet" href="../frontend/signUp_page/index.css"> -->
+    <title>Git.Me - Sign Up</title>
+</head>
+<body>
+    <div id="signUpBanner"></div>
+    <H3>SIGN UP/CREATE PROFILE</H3>
+    <br>
+    <div class="signUpForm">
+        <form>
+            <div id="inputInfo">
+                FIRST NAME:<br>
+                <input type="text" id="firstName" required>
+                <br>
+                LAST NAME:<br>
+                <input type="text" id="lastName" required>
+                <br>
+                EMAIL:<br>
+                <input type="email" id="email" name="email" required>
+                <br>
+                CREATE USERNAME:<br>
+                <input type="text" id="userName" required>
+                <br>
+                CREATE PASSWORD:<br>
+                <input type="password" id="passWord" required>
+                <br>
+                CONFIRM PASSWORD:<br>
+                <input type="password" id="passWordConfirm">
+                <br>
+                DATE OF BIRTH:<br>
+                <input type="date" id="dob" name="dob" min="1989-01-01" required>
+                <br>
+
+            </div>
+            <br>
+            <!-- <div id="do_have_child">
+                Have Kids? <br>
+               <input type="radio" id="yes1" name="radio" value="true" required="required">
+               <label for="yes1">Yes</label>
+               <input type="radio" id="no1" name="radio" value="false" required="required">
+               <label for="no1">No</label>
+            </div>
+            <br>
+            <div id="do_want_child">
+                Want Kids? <br>
+               <input type="radio" id="yes2" name="wantKids" value="true" required="required">
+               <label for="yes2">Yes</label>
+               <input type="radio" id="no2" name="wantKids" value="false" required="required">
+               <label for="no2">No</label>
+            </div>
+            <br>
+            <div id="drink">
+                Do you Drink? <br>
+                <input type="radio" id="yes3" name="drink" value="true" required="required">
+               <label for="yes3">Yes</label>
+               <input type="radio" id="no3" name="drink" value="false" required="required">
+               <label for="no3">No</label>           
+            </div>
+            <br>
+            <div id="smoke_weed">
+                Smoke weed? <br>
+                <input type="radio" id="yes4" name="weed" value="true" required="required">
+                <label for="yes4">Yes</label>
+                <input type="radio" id="no4" name="weed" value="false" required="required">
+                <label for="no4">No</label> 
+            </div>
+            <br>
+            <div id="long_term">
+                Seeking something Long-Term? <br>
+                <input type="radio" id="yes5" name="marraige" value="yes" required="required">
+                <label for="yes5">Yes</label>
+                <input type="radio" id="no5" name="marraige" value="no" required="required">
+                <label for="no5">No</label>  
+            </div> -->
+            
+            <div id="gender">
+                Gender <br>
+                <select>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Agender">Agender</option>
+                    <option value="BiGender">BiGender</opt>
+                    <option value="GenderFluid">GenderFluid</option>
+                    <option value="FTM">FTM</option>
+                    <option value="MTF">MTF</option>
+                    <option value="Gender nonconforming">Gender noncomforming</option>
+                    <option value="Genderqueer">Genderqueer</option>
+                    <option value="Intersex">Intersex</option>
+                    <option value="Non-binary">Non-binary</option>
+                    <option value="Pangender">Pangender</option>
+                    <option value="Trans">Trans</option>
+                    <option value="Trans-Male">Trans-Male</option>
+                    <option value="Trans-Female">Trans-Female</option>
+                    <option value="Trans-Person">Trans-Person</option>
+                    <option value="Gender-Variant">Gender-Variant</option>
+                    <option value="Other">Other</option>
+                </select>
+                
+            </div>
+                 <br>
+            <div id="orientation">
+                     Orientation <br>
+                <input type="radio" id="orientation1" name="orientation" value="Straight" required="required">
+                <label for="yes2">Straight</label>
+                <input type="radio" id="orientation2" name="orientation" value="gay/bi-sexual" required="required">
+                <label for="no2">Gay/Bi</label>
+            </div>
+                 <br>
+
+            
+            <div></div>
+            <br>
+            <button type="submit">CREATE PROFILE</button>
+        </form>
+    </divid>
+</body>
+</html>
+
