@@ -39,6 +39,7 @@ left {
     margin: auto;
     /* background-color: lightblue; */
     width: 5%;  
+   
 }
 
 right {
@@ -48,6 +49,7 @@ right {
     /* background-color: lightcoral; */
     width: 30%; 
     margin: auto;
+    margin-left: 30%;
 }
 
 #signInForm {
