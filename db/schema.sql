@@ -25,14 +25,14 @@ CREATE TABLE posts(
     id SERIAL PRIMARY KEY,
     user_id INT REFERENCES users(id),
     body text,
-    time_stamp date DEFAULT CURRENT_TIMESTAMP
+    time_stamp timestamp DEFAULT CURRENT_TIMESTAMP
 );
 CREATE TABLE comments(
     id SERIAL PRIMARY KEY,
     user_id INT REFERENCES users(id),
     post_id INT REFERENCES posts(id),
     body text,
-    time_stamp date DEFAULT CURRENT_TIMESTAMP
+    time_stamp timestamp DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE likes(
@@ -48,7 +48,7 @@ CREATE TABLE albums(
     user_id INT REFERENCES users(id),
     album_name text, 
     thumbnail text, 
-    time_stamp date DEFAULT CURRENT_TIMESTAMP
+    time_stamp timestamp DEFAULT CURRENT_TIMESTAMP
 );
 
 
@@ -56,7 +56,7 @@ CREATE TABLE pictures(
     id SERIAL PRIMARY KEY,
     album_id INT REFERENCES albums(id),
     photo_url text,
-    time_stamp date DEFAULT CURRENT_TIMESTAMP
+    time_stamp timestamp DEFAULT CURRENT_TIMESTAMP
 );
 
 INSERT INTO users(id, full_name, email, date_of_birth, gender, profile_pic)
