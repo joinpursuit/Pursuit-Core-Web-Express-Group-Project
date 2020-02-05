@@ -1,3 +1,7 @@
+body {
+    background-color: #C2DCF8;
+}
+
 nav {
     display: flex;
     flex-direction: row;
@@ -16,6 +20,7 @@ a {
     color: #FDB927;
     text-decoration: none;
     margin-left: 15px;
+    font-family: 'Exo 2', sans-serif;
 }
 
 a:hover {
@@ -43,4 +48,19 @@ input[type="text"] {
 
 input[type="text"]:focus {
     outline: none;
+}
+
+h1 {
+    font-family: 'Exo 2', sans-serif;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#searchResults {
+    width: 50%;
+    height: 100vh;
 }
