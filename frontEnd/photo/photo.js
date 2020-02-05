@@ -17,7 +17,7 @@ let displayUserInfo = async () => {
   
     logOffBtn.addEventListener("click",e =>{
       sessionStorage.removeItem('userID');
-      sessionStorage.removeItem('resultUserID');
+      sessionStorage.removeItem('searchUserID');
       window.location.href = "logIn.html";
       window.location.href.reload();
     });
@@ -34,12 +34,24 @@ let displayUserInfo = async () => {
         window.location.href = "album.html";
         window.location.href.reload();
       })
-    }else if(sessionStorage.resultUserID){
-      displayPhoto(sessionStorage.resultUserID)
+      
+    }else if(sessionStorage.searchUserID){
+      displayPhoto(sessionStorage.searchUserID)
+      let quitSearch = document.createElement("button")
+      quitSearch.innerText="return to Search";
+      content.appendChild(quitSearch);
+      quitSearch.addEventListener("click",e=>{
+        e.preventDefault()
+        sessionStorage.removeItem('searchUserID');
+        window.location.href = "logIn.html";
+        window.location.href.reload();
+      })
   }else{
       displayPhoto(sessionStorage.userID)
   }
   };
+
+
   
   let displayAlbumPhotos=async(album_id)=>{
     let res =await axios.get(`http://localhost:3000/pictures/albums/${album_id}`)
