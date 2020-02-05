@@ -19,6 +19,9 @@
     grid-area: logo; 
   }
   
+  #logoHead{
+      height: 100px;
+  }
   .projectName {
     display: grid;
     /* justify-content: center; */
