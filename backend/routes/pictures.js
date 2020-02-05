@@ -6,9 +6,9 @@ const {
   getAllPicturesByOwner
 } = require("../queries/picturesQueries");
 
-pictures.get("/albums/:album_id", getAllPicturesByAlbum); // queries all the posts
-pictures.get("/:owner_id", getAllPicturesByOwner); // queries all the posts
-pictures.post("/albums/:album_id", addSinglePicture); // uplaods a single picture
-pictures.delete("/:id", deleteSinglePicture); // deletes a single picture
+pictures.get("/albums/:album_id", getAllPicturesByAlbum);
+pictures.get("/:owner_id", getAllPicturesByOwner);
+pictures.post("/albums/:album_id", addSinglePicture);
+pictures.delete("/:id", deleteSinglePicture);
 
 module.exports = pictures;
