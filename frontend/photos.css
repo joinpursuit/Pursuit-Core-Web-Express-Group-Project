@@ -1,6 +1,6 @@
 #photosPage{
     display: grid;
-    grid-template-columns:100%, 100%, 100%, 100%;
+    grid-template-columns:100%;
     }
   
 #navBar {
@@ -27,6 +27,7 @@
         border-style: solid;
         border-color: yellow;
         margin-left: 50%;
+        height: 80px;
     }
 
 #profileInfo{
