@@ -33,8 +33,8 @@ const getAllAlbumsThatBelongToUser = async (req, res, next) => {
 const createNewEmptyAlbumForUser = async (req,res,next) => {
     try {
         let {owner_id} = req.params;
-        let {album_title, album_date, album_coverURL} = req.body;
-        let newAlbum = await db.one("INSERT INTO albums (owner_id, album_title, album_date, album_coverURL) VALUES ($1, $2, $3, $4) RETURNING *", [owner_id, album_title, album_date, album_coverURL])
+        let {album_title, album_coverURL} = req.body;
+        let newAlbum = await db.one("INSERT INTO albums (owner_id, album_title, album_coverURL) VALUES ($1, $2, $3) RETURNING *", [owner_id, album_title, album_coverURL])
         res.status(200).json({
             status: "Success",
             message: "Create New Empty Album For User",

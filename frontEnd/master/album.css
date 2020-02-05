@@ -12,11 +12,13 @@ body{
     text-align: center;
     justify-content: center;
     background-color: #272727;
-    position: relative;
+    position: fixed;
     width: 100vw;
     height: 5vh;  
     border: solid black; 
     border-width: 1.5px;
+    top: 0;
+    z-index: 3;
 }
 
 a:link {
@@ -55,12 +57,13 @@ a:visited {
 
 .owner_info_box{
     display: flex;
-    position: absolute;
+    position: fixed;
     background-color: #030303;
     /* border: solid white; */
     width: 20vw;
     height: 100vh;
     margin: auto;
+    top: 5vh;
 }
 
 .profPic {
@@ -83,6 +86,7 @@ a:visited {
     /* border: solid white; */
     width: 80vw;
     height: 100vh;
+    z-index: 1;
 }
 .contentHeader {
     display: flex;
@@ -93,6 +97,11 @@ a:visited {
     margin-left: 15vh;
     text-align: center;
     justify-content: center;
+    color: black;
+}
+
+h1 {
+    color: black;
 }
 
 .content {
@@ -119,11 +128,16 @@ a:visited {
 }
 
 #logOffBtn {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     height: 30px;
     width: 300px;
     background-color: black;
     border: none;
     color: white;
+}
+
+#ownerPic {
+    height: 10px;
+    width: 10px;
 }
