@@ -5,65 +5,73 @@ html, body, .grid-container { height: 100%; margin: 0; }
  border-right: 1px solid black;
  position: relative;
 }
+
 .grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 0.4fr 1.5fr;
+  grid-template-areas: "header header" "container container";
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "leftSide posts rightSide";
+  grid-area: container;
+}
+
+.posts { grid-area: posts; }
+
+.rightSide { grid-area: rightSide; }
+
+.leftSide { grid-area: leftSide; }
+
+.header {
+  display: grid;
+  grid-template-columns: 0.6fr 1.8fr 0.6fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "logoNav projectName searchBar";
+  grid-area: header;
+}
+
+.projectName { grid-area: projectName; }
+
+.searchBar { grid-area: searchBar; }
+
+.logoNav { grid-area: logoNav; }
+
+img {
+    width: 70%;
+    height: 80%;
+    /* background-color: rgb(0, 0, 0); */
+}
+
+.header { 
+    
+    background-image: linear-gradient(#592185, #FAC346);
+    color: rgb(85,37,130);
+    text-align: center;
+    border-bottom: 1px solid black;
+    /* width: 100%; */
+} 
+.container {
+    background-color: lightgray;
+    grid-auto-rows: minmax(100%, auto);
+}
+.posts {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 0.4fr 1.5fr;
-    grid-template-areas: "header header" "container container";
-  }
-  
-  .container {
-    display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
-    grid-template-rows: 1fr;
-    grid-template-areas: "leftSide posts rightSide";
-    grid-area: container;
-  }
-  
-  .posts { grid-area: posts; }
-  
-  .rightSide { grid-area: rightSide; }
-  
-  .leftSide { grid-area: leftSide; }
-  
-  .header {
-    display: grid;
-    grid-template-columns: 0.6fr 1.8fr 0.6fr;
-    grid-template-rows: 1fr;
-    grid-template-areas: "logoNav projectName searchBar";
-    grid-area: header;
-  }
-  
-  .projectName { grid-area: projectName; }
-  
-  .searchBar { grid-area: searchBar; }
-  
-  .logoNav { grid-area: logoNav; }
-  
-  img {
-      width: 70%;
-      height: 80%;
-      /* background-color: rgb(0, 0, 0); */
-  }
-  
-  .header { 
-      
-      background-image: linear-gradient(#592185, #FAC346);
-      color: rgb(85,37,130);
-      text-align: center;
-      border-bottom: 1px solid black;
-      /* width: 100%; */
-  } 
-  .container {
-      background-color: lightgray;
-      grid-auto-rows: minmax(100%, auto);
-  }
-  .posts {
-      background-color: white;
-      grid-template-rows: 20% 80%;
-  
-  }
-  .leftSide {
+    background-color: rgb(223, 238, 253);
+    grid-template-rows: 20% 80% auto;
+    
+
+}
+#headerName {
+    width: 50%;
+    height: 50%;
+}
+
+.leftSide {
     display: grid;
     grid-template-rows: 50% 50%; 
     grid-gap: 20px;
@@ -90,7 +98,7 @@ html, body, .grid-container { height: 100%; margin: 0; }
     background-color: rgb(85,37,130, 0.9);
     /* border-radius: 5%; */
     box-shadow: 5px 5px white;
-
+    
 }
 .bets {
     width: 90%;
@@ -125,5 +133,11 @@ html, body, .grid-container { height: 100%; margin: 0; }
     color: white;
     background-color: lightgray;
     border-bottom: 1px solid black;
+    
+}
 
+.newsFeed {
+    /* grid-template-rows: 500px auto; */
+    margin-top: 20%;
+    color: black;
 }
