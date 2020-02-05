@@ -40,6 +40,7 @@ const displayUserInfo = async (id) => {
   contentButtonDiv.appendChild(createBtn);
 
 createBtn.addEventListener("click",async()=>{
+    createBtn.disabled = true;
     let form = document.createElement("form");
     form.id = "createNewAlbum";
     let albumTitleInput = document.createElement("input");
@@ -64,7 +65,6 @@ createBtn.addEventListener("click",async()=>{
 
   const insertAlbum =async(id,title,url)=>{
     let insert = await axios.post(`http://localhost:3000/albums/${id}`,{album_title:title, album_coverURL:url})
-    debugger
   }
   
   let content = document.querySelector(".content")
@@ -72,10 +72,22 @@ createBtn.addEventListener("click",async()=>{
       let res = await axios.get(
           `http://localhost:3000/albums/${id}`);
           res.data.body.albums.forEach(album=>{
-              let img = document.createElement("img");
-              img.src = album.album_coverurl;
-              content.appendChild(img)
+            let div =document.createElement("div")
+            div.album_id=album.id
+            div.className="albumCover"
+            let img = document.createElement("img");
+            img.src = album.album_coverurl;
+            div.appendChild(img);
+            content.appendChild(div)
+            div.addEventListener("click",(e)=>{
+              e.preventDefault()
+              sessionStorage.album_id=div.album_id;
+              window.location.href = "photo.html";
+             window.location.href.reload();
+            })
+
             })
         }
+
 
 displayUserInfo(sessionStorage.userID);
