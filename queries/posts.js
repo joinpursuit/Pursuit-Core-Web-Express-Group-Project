@@ -2,12 +2,17 @@ const db = require("../db/index.js");
 
 const getAllPosts =  async (req, res, next) =>{
     try{
-        let posts = await db.any("SELECT * FROM posts");
-        res.status(200).json({
-            status: "success",
-            message: "These are all of the available posts",
-            body: posts
-        })
+        if (await db.any("SELECT * FROM posts")){
+
+            let posts = await db.any("SELECT * FROM posts");
+            res.status(200).json({
+                status: "success",
+                message: "These are all of the available posts",
+                body: posts
+            })
+        } else {
+            throw {status: 404, error: "There are no existings posts."}
+        }
     }catch(err){
         next(err)
     }
