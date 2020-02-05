@@ -7,7 +7,7 @@ posts.get("/:post_id", getSinglePost)
 
 posts.post("/", registerPosts)
 
-posts.patch("/:id", editPost)
+posts.patch("/:post_id", editPost)
 
 posts.delete("/:post_id", deletePost)
 

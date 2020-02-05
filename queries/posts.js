@@ -74,14 +74,17 @@ const deletePost = async (req, res, next) =>{
 
 const editPost = async (req, res, next)=>{
     try{
+        if (await db.one("SELECT * FROM posts WHERE id = ${id}", req.body)){
 
-        let edit = await db.one("UPDATE posts SET body = ${body} WHERE id = ${id} RETURNING *", req.body)
-        res.status(200).json({
-            status: "success",
-            message: "The post was edited successfully.",
-
-       
-        })
+            let edit = await db.one("UPDATE posts SET body = ${body} WHERE id = ${id} RETURNING *", req.body)
+            res.status(200).json({
+                status: "success",
+                message: "The post was edited successfully.",
+                body: edit
+            })
+        } else {
+            throw {status: 404, error: "The target post does not exist."}
+        }
     }catch(err){
         next(err)
     }
