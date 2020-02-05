@@ -2,6 +2,18 @@ let imgurlInput = document.querySelector("#imgurlInput");
 let descriptionInput = document.querySelector("#descriptionInput");
 let createPostForm = document.querySelector("#createPostForm");
 let postDiv = document.querySelector(".postDiv");
+let userSearchForm = document.querySelector("#userSearchForm");
+let userSearchInput = document.querySelector("#userSearchInput");
+
+userSearchForm.addEventListener("submit", async e => {
+  e.preventDefault();
+  let res = await axios.get(
+    `http://localhost:3000/users/search/${userSearchInput.value}`
+  );
+  sessionStorage.searchUserID = res.data.body.user.id;
+  window.location.href = "album.html";
+  window.location.href.reload();
+});
 
 let displayUserInfo = async () => {
   let res = await axios.get(
@@ -22,6 +34,7 @@ let displayUserInfo = async () => {
 
   logOffBtn.addEventListener("click", e => {
     sessionStorage.removeItem("userID");
+    sessionStorage.removeItem("searchUserID");
     window.location.href = "logIn.html";
     window.location.href.reload();
   });
@@ -93,7 +106,7 @@ let displayUserPostFeed = async () => {
       insertCommentBtn.disabled = true;
       form.addEventListener("submit", async e => {
         e.preventDefault();
-        insertComment(postDiv, commentInput.value);
+        await insertComment(postDiv, commentInput.value);
         commentInput.value = "";
         await loadComments(post, commentsDiv);
       });
@@ -106,7 +119,6 @@ let displayUserPostFeed = async () => {
 };
 
 const insertComment = async (div, input) => {
-  console.log(input);
   let res = await axios.post(
     `http://localhost:3000/comments/posts/${div.post_id}/${sessionStorage.userID}`,
     { content: input }
@@ -181,11 +193,11 @@ const likePost = async (post, post_id, div) => {
   h3.innerHTML = "";
   if (res.data.error) {
     await deleteLikePost(post_id, liker_id);
-    h3.innerText = "You unliked this post";
+    h3.innerText = "Unliked!";
     likeStatus.appendChild(h3);
     await loadLikes(post, div);
   } else {
-    h3.innerText = "You liked this post";
+    h3.innerText = "Liked!";
     likeStatus.appendChild(h3);
     await loadLikes(post, div);
   }
