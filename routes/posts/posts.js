@@ -2,12 +2,12 @@ const posts = require("express").Router();
 
 const { getPosts, getPost, createPost, deletePost } = require("../../queries/posts");
 
-//kelvin work on these routes
-// const postsCommentsRouter = require("./comments/comments.js")
+const postsCommentsRouter = require("./comments/comments.js")
+
+posts.use("/:id", postsCommentsRouter);
 
 // const postsLikesRouter = require("./likes/likes")
 
-// posts.use("/:id", postsCommentsRouter);
 // posts.use("/:id", postsLikesRouter);
 
 posts.get("/", getPosts);
