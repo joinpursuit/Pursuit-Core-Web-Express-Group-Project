@@ -2,30 +2,36 @@ const db = require("../DATABASE/index.js");
 
 const getUsers = async(req, res, next)  => {
     try{ 
-    let users = await db.any('SELECT * FROM users')
+    let users = await db.any('SELECT * FROM users;')
     res.status(200).json({
         users, 
         status: 'success!',
         message: 'all users'
     })
     }catch(err){
-        next(err)
+        res.json({
+            status: 'failed!',
+            message: err
+        })
     }
 
 }
 const getUser = async(req, res, next) => {
     try{
         let users = await db.one ( 
-            'SELECT * FROM users WHERE id =  $1', req.params.id 
+            'SELECT username FROM users WHERE username =  $1', req.params.username
         )
         
         res.status(200).json({
             users,
-            status:'successs',
-            message:'one user retreived'
+            status:'success',
+            message:'one user retrieved'
         })
     }catch(err) {
-        next(err)
+        res.json({
+            status: 'failed',
+            message: err
+        })
     }
 }
 
