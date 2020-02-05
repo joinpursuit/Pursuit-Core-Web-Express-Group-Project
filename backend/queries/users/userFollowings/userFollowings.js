@@ -3,12 +3,18 @@ const {isUserExisting} = require("./../users");
 
 const getUserFollowings = async (req, res, next) => {
     try {
-        let followings = await db.any("SELECT * FROM followings WHERE follower_id =$1", req.params.userId);
-        res.status(200).json({
-            followings,
-            status: "Success",
-            message: "All User Followings"
-        })
+        let {userId} = req.params;
+        if(isUserExisting(userId)) {
+            let followings = await db.any("SELECT * FROM followings WHERE follower_id =$1", req.params.userId);
+            res.status(200).json({
+                followings,
+                status: "Success",
+                message: "All User Followings"
+            })
+        } else {
+            throw {status: 404, error: "User does not exist"}
+        }
+        
     }catch(err){
         next(err)
     }   
@@ -18,12 +24,17 @@ const createUserFollowing = async (req, res, next) => {
     try {
         let {followedId} = req.body;
         let {userId} = req.params;
-        let following = await db.one("INSERT INTO followings (follower_id, followed_id) VALUES ($1, $2) RETURNING *", [userId, followedId]);
-        res.status(200).json({
-            following,
-            status: "Success",
-            message: "Created New Follower"
-        })
+        if(isUserExisting(userId)) {
+            let following = await db.one("INSERT INTO followings (follower_id, followed_id) VALUES ($1, $2) RETURNING *", [userId, followedId]);
+            res.status(200).json({
+                following,
+                status: "Success",
+                message: "Created New Follower"
+            })
+        } else {
+            throw {status: 404, error: "User does not exist"}
+        }
+        
     }catch(err){
         next(err)
     }
@@ -40,12 +51,11 @@ const getUserFollowingCount = async (req, res, next) => {
                     status: "success",
                     message: "retrieved following count"
                 })
+            } else {
+                throw {status: 404, error: "User is not following anyone"}
             }
         } else {
-            res.json({
-                status: "error",
-                error: "No user found by that ID"
-            })
+            throw {status: 404, error: "User does not exist"}
         }
 
     } catch(err) {
@@ -64,12 +74,11 @@ const getUserFollowerCount = async (req, res, next) => {
                     status: "success",
                     message: "retrieved follower count"
                 })
+            } else {
+                throw {status: 404, error: "User has no followers"}
             }
         } else {
-            res.json({
-                status: "error",
-                error: "No user found by that ID"
-            })
+            throw {status: 404, error: "User does not exist"}
         }
 
     } catch(err) {
