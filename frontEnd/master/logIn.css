@@ -1,4 +1,8 @@
-body {
+* {
+  margin: 0;
+  padding: 0;
+}
+  body {
     background-color: white;
     background-image: url("../assets/mainLogo.png");
     background-size: 1450px 600px;
@@ -42,3 +46,5 @@ body {
 #signUpLinkDiv {
   padding-top: 70px;
 }
+
+

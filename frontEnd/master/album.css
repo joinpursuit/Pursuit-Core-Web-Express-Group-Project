@@ -2,7 +2,7 @@
     font-family: 'Times New Roman', Times, serif;
 }
 body{
-    background-color:#E9EBEE;
+    background-color: white;
     margin: auto;
     padding: 0;
 }
@@ -11,20 +11,39 @@ body{
     flex-direction: row;
     text-align: center;
     justify-content: center;
-    background-color: #272727   ;
-    position: relative;
+    background-color: #272727;
+    position: fixed;
     width: 100vw;
-    height: 5vh;   
+    height: 5vh;  
+    border: solid black; 
+    border-width: 1.5px;
+    top: 0;
+    z-index: 3;
 }
 
 a:link {
     color: white;
     text-decoration: none;
+
 }
+
+a:visited {
+    color: white;
+}
+
 
 .mainHeader {
     padding-left: 80vw;
     padding-right: 2vw;
+    margin-top: 1vh;
+}
+
+.albums {
+    margin-top: 1vh;
+    padding-right: 2vw;
+}
+
+.photos {
     margin-top: 1vh;
 }
 
@@ -38,12 +57,13 @@ a:link {
 
 .owner_info_box{
     display: flex;
-    position: absolute;
+    position: fixed;
     background-color: #030303;
     /* border: solid white; */
     width: 20vw;
     height: 100vh;
     margin: auto;
+    top: 5vh;
 }
 
 .profPic {
@@ -55,41 +75,43 @@ a:link {
     display: flex;
     position: relative;
     margin-left: 20%;
-    border: solid lightgrey;
+    border: solid black;
 }
 
 .feedContent{
     display: block;
     position: relative;
     float: right;
-    background-color: whitesmoke;
+    background-color: white;
     /* border: solid white; */
     width: 80vw;
     height: 100vh;
+    z-index: 1;
 }
 .contentHeader {
     display: flex;
     position: absolute;
-    background-color: lightgrey;
+    background-color: white;
     width: 60vw;
     height: 10vh;
     margin-left: 15vh;
-    border: solid grey;
-    border-width: 2px;
     text-align: center;
     justify-content: center;
+    color: black;
+}
+
+h1 {
+    color: black;
 }
 
 .content {
     display: block;
-    position: absolute;
+    position: sticky;
     background-color: white;
-    width: 60vw;
-    height: 85vh;
-    margin-left: 28.6vw;
+    width: 80vw;
+    height: 90vh;
+    margin-left: 20vw;
     margin-top: 10vh;
-    border: solid grey;
-    border-width: 2px;
 }
 
 .contentButton {
@@ -103,4 +125,19 @@ a:link {
     float: right;
     height: 20px;
     float: right;
+}
+
+#logOffBtn {
+    position: fixed;
+    bottom: 0;
+    height: 30px;
+    width: 300px;
+    background-color: black;
+    border: none;
+    color: white;
+}
+
+#ownerPic {
+    height: 10px;
+    width: 10px;
 }
