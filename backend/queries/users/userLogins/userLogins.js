@@ -14,16 +14,10 @@ const getUserLogin = async (req, res, next) => {
                     message: "logged in"
                 })
             } else {
-                res.status(200).json({
-                    status: "error",
-                    error: "Email or password is incorrect"
-                })
+                throw {status: 404, error: "Email/Password is incorrect"}
             }
         } else {
-            res.json({
-                status: "error",
-                error: "No user existing by that ID"
-            })
+            throw {status: 404, error: "User does not exist"}
         }
         
     } catch(err){

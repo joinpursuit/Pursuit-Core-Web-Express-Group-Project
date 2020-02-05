@@ -6,59 +6,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <script src="./index.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="master.css">
 </head>
 
 <body>
-    <div class="header">
-        
-        <div class="logo">
-            <h2>LOGO</h2>
-        </div>
-
-        <div class="navBar">
-            <nav>
-                <ul>
-                    <li>hi</li>
-                    <li>bye</li>
-                </ul>
-            </nav>
-        </div>
-
-        <div>
-        <h1>HotBox</h1>
-        </div>
-
-    </div>
-
-    <div class="container">
-
-        <div class="leftSide">
-
-            <div class="gamesToday">
-                <h2>games today</h2>
+    <div class="grid-container">
+        <div class="header">
+            <div class="logoNav">
+                <img src="hotboxLogo.png" alt=""> 
+                <select name="" id="">
+                    <option value="0">Nav</option>
+                    <option value="1">About</option>
+                    <option value="2">Profile Page</option> 
+                </select>
             </div>
-
-            <div class="bets">
-                <h2>bets</h2>
+            <div class="projectName">
+                <h1>HotBox Sports</h1>
             </div>
-
-        </div>
-
-        <div class="newsFeed">
-            <h3>NewsFeed</h3>
-
-        </div>
-
-        <div class="rightSide">
-
-            <div class="topFans">
-                <h2>topFans</h2>
+            <div class="searchBar">
+                <input type="text">
             </div>
-            
         </div>
-
-    </div>
+        <div class="container">
+            <div class="leftSide">
+                <div class="gamesToday">
+                    <h2>games today</h2>
+                </div>
+                <div class="bets">
+                    <h2>Bets</h2>
+                </div>
+            </div>
+          <div class="posts">
+              <div class="makePost">
+                <h3>NewsFeed</h3>
+                <input type="text" placeholder="Say Something Hot!">
+                <button>POST</button>
+              </div>
+              <div class="newsFeed">
+                <h1>hi</h1>
+              </div>
+          </div>
+          <div class="rightSide">
+            <div class="followers">
+                <h2>Followers</h2>
+            </div>
+            <div class="following">
+                <h2>Following</h2>
+            </div>
+          </div>
+        </div>
+      </div>
 
 </body>
 
