@@ -15,23 +15,32 @@ let displayUserInfo = async () => {
     profBio.innerText = bio;
   
     logOffBtn.addEventListener("click",e =>{
+      debugger;
       sessionStorage.removeItem('userID');
+      sessionStorage.removeItem('resultUserID');
       window.location.href = "logIn.html";
       window.location.href.reload();
     });
+
+    if(sessionStorage.resultUserID){
+      displayPhoto(sessionStorage.resultUserID)
+  }else{
+      displayPhoto(sessionStorage.userID)
+  }
+
   };
   
   
-  let content = document.querySelector(".content")
-  let displayPhoto = async(userID)=>{
+ let content = document.querySelector(".content")
+  let displayPhoto = async(id)=>{
       let res = await axios.get(
-          `http://localhost:3000/pictures/${userID}`);
-          res.data.body.pictures.forEach(el=>{
+          `http://localhost:3000/pictures/${id}`);
+          res.data.body.pictures.forEach(photo=>{
+       
               let img = document.createElement("img");
-              img.src = el.pictureurl;
+              img.src = photo.pictureurl;
               content.appendChild(img)
             })
-        }
+    }
 
     displayUserInfo();
-    displayPhoto(sessionStorage.userID)
