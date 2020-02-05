@@ -19,7 +19,7 @@
     </div>
 
     <section id="sigUp">
-      <form id="sigUpForm">
+      <form id="signUpForm">
 
         <div id="sigUpDiv">
           <input type="text" id="firstNameInput" placeholder=" First Name"/>
@@ -50,9 +50,11 @@
         </div> 
 
         <div id="sigUpDiv">
+          <div id ="geners">
           <input type="radio" name="gender" value="Female"/> Female
           <input type="radio" name="gender" value="Male"/> Male
           <input type="radio" name="gender" value="Custom"/> Other
+        </div>
         </div>
         <div id="sigUpDiv">
           <h6
@@ -60,13 +62,13 @@
             id="PrivacyPolicy">
               By clicking Sign Up, you agree to our Terms, Data Policy and 
               Cookies 
-              <a href="http://localhost:3000/signUp/Policy">Policy.</a> 
+              <!-- <a href="http://localhost:3000/signUp/Policy">Policy.</a>  -->
               You may receive SMS Notification from us and can opt any time
           </h6>
         </div>
 
         <div id="sigUpDiv">
-          <button id="sigUpBtn">Log in</button>
+          <button type="submit" id="sigUpBtn">Log in</button>
         </div>
 
       </form>
