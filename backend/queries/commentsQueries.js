@@ -7,7 +7,7 @@ const getAllComments = async (req, res, next) => {
       message: "Grabbed all comments",
       body: {
         comments: await db.any(
-          "SELECT comments.id, post_id, author_id, content, time_stamp, username FROM comments INNER JOIN users ON users.id = comments.author_id WHERE post_id = $1",
+          "SELECT comments.id, post_id, author_id, content, time_stamp, username FROM comments INNER JOIN users ON users.id = comments.author_id WHERE post_id = $1 ORDER BY time_stamp DESC",
           req.params.post_id
         )
       }

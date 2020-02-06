@@ -1,5 +1,3 @@
-console.log("Hello async is working");
-
 let usernameInput = document.querySelector("#username");
 let passwordInput = document.querySelector("#password");
 let bioInput = document.querySelector("#bio");

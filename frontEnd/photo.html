@@ -1,48 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="./index.js" async></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <link rel="stylesheet" href="./master/photo.css">
+    <script src="./photo/photo.js" async></script>
+    <link rel="stylesheet" href="./master/photo.css" />
+    <link
+      href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAID/wACA/8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAID/wC+//8Avv//AAID/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAID/wC+//8AAgP/AAID/wC+//8AAgP/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAID/wC+//8AAgP/AL7//wC+//8AAgP/AL7//wACA/8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAID/wC+//8Avv//AAID/wC+//8Avv//AAID/wC+//8Avv//AAID/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAID/wC+//8Avv//AAID/wC+//8Avv//AL7//wC+//8AAgP/AL7//wC+//8AAgP/AAAAAAAAAAAAAAAAAAID/wACA/8AAgP/AAID/wACA/8AAgP/AAID/wACA/8AAgP/AAID/wACA/8AAgP/AAID/wACA/8AAAAAAAAAAAAAAAAAAgP/AL7//wC+//8AAgP/AL7//wC+//8Avv//AL7//wACA/8Avv//AL7//wACA/8AAgMIAAAAAAAAAAAAAAAAAAAAAAACA/8Avv//AL7//wACA/8Avv//AL7//wACA/8Avv//AL7//wACA/8AAgMIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAID/wACA/8AAgP/AAID/wACA/8AAgP/AAID/wACA/8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//8AAP//AAD//wAA/n8AAPw/AAD4HwAA8A8AAOAHAADAAwAAgAEAAMADAADgBwAA8A8AAP//AAD//wAA//8AAA=="
+      rel="icon"
+      type="image/x-icon"
+    />
     <title>User's Photo Page</title>
-</head>
-<body>
+  </head>
+  <body>
     <nav class="header">
-        <div class="mainHeader">
-          <a href="./userFeed.html">Home</a>
-        </div>
-        <div class="albums">
-          <a href="./album.html">Albums</a>
-        </div>
-        <div class="photos">
-          <a href="./photo.html">Photos</a>
-        </div>
-      </nav>
-      <div class="owner_info_box">
-        <div class="owner_info_box">
-          <div id="ownerPic"></div>
-          <h1 id="ownerName"></h1>
-          <h5 id="ownerBio"></h5>
-          <button id="logOffBtn">Log Off</button>
-        </div>
+      <div id="navLogo">
+        <img src="./assets/mainLogo.png" alt="" height="40px" width="70px" />
       </div>
+      <div class="mainHeader">
+        <a href="./userFeed.html" onclick="return clearUserSearch();">Home</a>
+        <script type="text/javascript">
+          const clearUserSearch = () => {
+            sessionStorage.removeItem("searchUserID");
+          };
+        </script>
+      </div>
+      <div class="albums">
+        <a href="./album.html">Albums</a>
+      </div>
+      <div class="photos">
+        <a href="./photo.html">Photos</a>
+      </div>
+    </nav>
 
-    <br>
-    <div class="photoGroup">
-        <div>description 1
-                <img border="0" alt="photo 1" src="https://cloudfour.com/examples/img-currentsrc/images/kitten-small.png" width="100" height="100">
-        </div> 
-        <div>description 2
-                <img border="0" alt="Photo 2" src="https://cloudfour.com/examples/img-currentsrc/images/kitten-small.png" width="100" height="100">
-        </div> 
-        <div>description 3
-                <img border="0" alt="Photo 3" src="https://cloudfour.com/examples/img-currentsrc/images/kitten-small.png" width="100" height="100">
-        </div> 
+    <div class="owner_info_box">
+      <div class="owner_info_box">
+        <div id="ownerPic"></div>
+        <h1 id="ownerName"></h1>
+        <h5 id="ownerBio"></h5>
+        <button id="logOffBtn">Log Off</button>
+      </div>
     </div>
 
-   
-</body>
+    <br />
+
+    <div class="feedContent">
+      <div class="contentHeader">
+        <h2>Photo Page</h2>
+      </div>
+    </div>
+
+    <br />
+    <div class="content"></div>
+  </body>
 </html>

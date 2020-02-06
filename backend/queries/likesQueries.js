@@ -50,7 +50,7 @@ const deleteSingleLike = async (req, res, next) => {
         liker_id: req.params.liker_id,
         post_id: req.params.post_id,
         result: await db.one(
-          "DELETE FROM likes WHERE (liker_ID =$1 AND post_id=$2) RETURNING *",
+          "DELETE FROM likes WHERE (liker_ID = $1 AND post_id = $2) RETURNING *",
           [req.params.liker_id, req.params.post_id]
         )
       }
