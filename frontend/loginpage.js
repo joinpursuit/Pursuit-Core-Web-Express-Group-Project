@@ -10,18 +10,19 @@ newUser.addEventListener("submit",async(e)=>{
     try{
         let res = await axios.post("http://localhost:3000/users",{
             
-            fullName:fullName.value,
+            full_name:fullName.value,
             email: email.value,
-            birthday:birthday.value,
+            date_of_birth:birthday.value,
             gender: gender.value,
+            profile_pic:"None set",
+            join_date: ""
 
         })
-
+        debugger
        fullName.value = ""
        email.value = ""
        birthday.value = ""
        gender.value = ""
-       testFunction.innerText = res.config.data
     }catch(err){
         console.log(err)
     }

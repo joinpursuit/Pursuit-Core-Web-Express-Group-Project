@@ -37,6 +37,7 @@ const getSingleUsers = async(req, res, next) =>{
 const addSingleUser = async(req, res, next)=>{
     try{
         let newUser = await db.one("INSERT INTO users(full_name, email, date_of_birth, gender, profile_pic) VALUES (${full_name}, ${email}, ${date_of_birth}, ${gender}, ${profile_pic}) returning *", req.body)
+        
         res.status(200).json({
             status:"success",
             message: "Added User",
@@ -44,9 +45,11 @@ const addSingleUser = async(req, res, next)=>{
         })
 
     }catch(err){
+    
         next(err)
     }
 }
+
 
 // Delete Single User
 
