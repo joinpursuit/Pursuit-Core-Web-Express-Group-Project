@@ -12,6 +12,29 @@ header {
     background-image: linear-gradient(#592185, #FAC346);
 }
 
+.logo { 
+    grid-area: logo; 
+}
+
+#logoHead{
+    height: 100px;
+}
+
+#projName {
+    height: 100px;
+  }
+
+.projectName {
+    display: grid;
+    /* justify-content: center; */
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: ".";
+    grid-area: projectName;
+    margin-left: 350px;
+    
+}
+
 nav {
     display: flex;
     flex-direction: row;
