@@ -1,0 +1,124 @@
+html{
+    height: 100vh;
+    background-color: white;
+}
+
+a{
+    color: black;
+}
+body{
+    margin: 0px;
+}
+
+header{
+    background-color:rgb(38, 94, 12);
+    height: 100px;
+    display: flex;
+    /* align-items: ; */
+    justify-content: flex-end;
+    align-items: center;
+    
+
+}
+
+#loginUser{
+    margin-right: 10%;
+    /* background-color: lemonchiffon; */
+   
+}
+
+ #createUser{
+     display: flex;
+     justify-content: flex-end;
+     align-content: center;
+ }
+
+ #username{
+    height: 20px;
+    width: 50%;
+    border-color: black;   
+    margin-right: 20px;
+}
+ 
+ #password{
+    height: 20px;
+    border-color: black;
+    margin-right: 20px;
+}
+
+
+ #fullName{
+    height: 25px;
+    width: 172px;
+    border-color: gray;
+    
+ }
+
+#email{
+    height: 25px;
+    width: 172px;
+    border-color: gray;
+}
+#dateOfBirth{
+    height: 25px;
+    width: 172px;
+    margin-top: 10px;
+    border-color: gray;
+}
+#gender{
+    height: 25px;
+    width: 172px;
+    border-color: gray;
+}
+#submitNewUser{
+    height: 20px;
+    width: 50%;
+}
+ #newUser{
+     margin-right: 8%;
+     margin-top: -.5%;
+     padding-top: 95px;
+ }
+
+ img{
+    width: 400px;
+    height: 100%;
+    margin-right: 25%;
+    
+}
+ 
+#enterInfo{
+    
+    display: flex;
+}
+
+#submit{
+    width: 100px;
+    margin-top: 5px;
+    height: 20px;
+    
+}
+/* h2{
+    display: flex;
+    
+} */
+
+#submitNewUser{
+    margin-left: 25%;
+    margin-top: 5%;
+    border-color: black;
+    border-radius:5px
+    
+}
+
+#mainLogo{
+    margin-top: 100px;
+}
+
+h1{
+    margin-left: 50px;
+}
+
+h3{
+    margin-left: 50px;
+}

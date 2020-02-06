@@ -1,0 +1,21 @@
+#userPage{
+    display: grid;
+    grid-template-columns:50%, 50%, 50%, 50%;
+}
+
+#navBar {
+        border-style: solid;
+        height: 50px;
+        display: flex;
+        flex-direction: row;
+        justify-content: stretch;
+        align-items: baseline;
+        padding-top: 15px;
+        margin: auto;
+        width: 100%;
+        justify-content: space-evenly;
+}
+
+.userInfo{
+    
+}
