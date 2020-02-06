@@ -12,10 +12,10 @@ document.addEventListener("DOMContentLoaded", () => {
     let dob = document.querySelector("#dob")
 
     // grabbing checkbox variables for the second half of the form
-    let gender = document.querySelector("select")
-    let orientationStraight = document.querySelector("#orientation1")
-    let orientationGay = document.querySelector("#orientation2")
+    let gender = document.querySelector("#gender")
+    let orientation = document.querySelector("#orientation")
 
+    // preferences
     let haveKidsYes = document.querySelector("#yes1")
     let haveKidsNo = document.querySelector("#no1")
     let wantKidsYes = document.querySelector("#yes2")
@@ -26,16 +26,20 @@ document.addEventListener("DOMContentLoaded", () => {
     let smokeNo = document.querySelector("#no4")
     let longTermYes = document.querySelector("#yes5")
     let longTermNo = document.querySelector("#no5")
+    //
 
-    form.addEventListener("submit", async(e) => {
+    const getRadioValue = () => {
+        
+    }
+
+    form.addEventListener("submit", async (e) => {
         e.preventDefault()
         try {
-            let data = await axios.post("http://localhost:3000/users", {firstName: firstName.value, lastName: lastName.value, email: email.value, password: passWord.value, userName: userName.value, dob: dob.value, }).then((res) => {
-                debugger
-            })
+            let res = await axios.post("http://localhost:3000/users", {firstName: firstName.value, lastName: lastName.value, userName: userName.value, password: passWord.value, email: email.value, dob: dob.value, gender: gender.options[gender.options["selectedIndex"]].value, orientation: orientation.options[orientation.options["selectedIndex"]].value})
+            debugger
+            let res2 = await axios.post(`http://localhost:3000/preferences/${res.data.user_id.id}`, )
         } catch (error) {
-            
+            console.log(error)
         }
     })
-
 })
