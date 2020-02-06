@@ -30,7 +30,7 @@ const getUser = async (req, res, next) => {
 
 const createUser = async (req, res, next) => {
     try{
-        await db.none("INSERT INTO users (firstName, lastName, userName, password, email, dob, gender, orientation) VALUES (${firstName}, ${lastName}, ${userName}, ${password}, ${email}, ${dob}, ${gender}, ${orientation})", req.body)
+        await db.one("INSERT INTO users (firstName, lastName, userName, password, email, dob, gender, orientation) VALUES (${firstName}, ${lastName}, ${userName}, ${password}, ${email}, ${dob}, ${gender}, ${orientation})", req.body)
         res.status(200).json({
             status: "success",
             message: "Success"
