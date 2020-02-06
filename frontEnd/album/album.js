@@ -52,11 +52,13 @@ createBtn.addEventListener("click",async()=>{
     form.appendChild(coverInput)
     form.appendChild(newAlbumBtn)
     contentButtonDiv.appendChild(form)
-    createNewAlbum.addEventListener("submit",(e)=>{
+    createNewAlbum.addEventListener("submit",async (e)=>{
       e.preventDefault()
       insertAlbum(sessionStorage.userID,albumTitleInput.value,coverInput.value)
       albumTitleInput.value="";
       coverInput.value=""
+      debugger
+      await displayAlbum(sessionStorage.userID)
     })
 
   })
@@ -67,17 +69,24 @@ const insertAlbum =async(id,title,url)=>{
   }
   
 let content = document.querySelector(".content")
-const displayAlbum= async(id)=>{
+const displayAlbum = async(id)=>{
     let res = await axios.get(
         `http://localhost:3000/albums/${id}`);
+        content.innerHTML = "";
         res.data.body.albums.forEach(album=>{
           let div =document.createElement("div")
           div.album_id=album.id
           div.className="albumCover"
+          let h3 = document.createElement("h3");
+          let p = document.createElement("p")
           let img = document.createElement("img");
+          h3.innerText = album.album_title;
+          p.innerText = album.album_date;
           img.src = album.album_coverurl;
+          div.appendChild(h3);
           div.appendChild(img);
-          content.appendChild(div)
+          div.appendChild(p);  
+          content.appendChild(div);
           div.addEventListener("click",(e)=>{
             e.preventDefault()
             sessionStorage.album_id=div.album_id;

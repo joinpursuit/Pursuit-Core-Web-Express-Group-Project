@@ -2,7 +2,7 @@
     font-family: 'Times New Roman', Times, serif;
 }
 body{
-    background-color:#E9EBEE;
+    background-color: #E9EBEE;
     margin: auto;
     padding: 0;
 }
@@ -11,10 +11,14 @@ body{
     flex-direction: row;
     text-align: center;
     justify-content: center;
-    background-color: #272727   ;
-    position: relative;
+    background-color: #272727;
+    position: fixed;
     width: 100vw;
-    height: 5vh;   
+    height: 5vh;  
+    border: solid black; 
+    border-width: 1.5px;
+    top: 0;
+    z-index: 3;
 }
 
 a:link {
@@ -22,10 +26,46 @@ a:link {
     text-decoration: none;
 }
 
-.mainHeader {
-    padding-left: 80vw;
-    padding-right: 2vw;
+a:visited {
+    color: white;
+}
+
+a:hover {
+    color: gold;
+}
+
+#navLogo {
+    position: absolute;
+    margin-top: 0vh;
+    left: 0;
+    overflow-y: hidden;
+}
+
+#searchUser{
+    position: absolute;
     margin-top: 1vh;
+    padding-right: 75vw;
+
+}
+
+.mainHeader {
+    position: absolute;
+    padding-left: 70vw;
+    margin-top: 1vh;
+    z-index: 4;
+}
+
+.albums {
+    position: absolute;
+    margin-top: 1vh;
+    padding-left: 80vw;
+    z-index: 3;
+}
+
+.photos {
+    position: absolute;
+    margin-top: 1vh;
+    padding-left: 90vw;       
 }
 
 .feedHeader{
@@ -38,11 +78,12 @@ a:link {
 
 .owner_info_box{
     display: flex;
-    flex-flow: row wrap;
-    position: absolute;
+    position: fixed;
+    background-color: #030303;
     width: 20vw;
     height: 100vh;
     margin: auto;
+    top: 5vh;
 }
 
 .profPic {
@@ -54,40 +95,97 @@ a:link {
     display: flex;
     position: relative;
     margin-left: 20%;
-    border: solid lightgrey;
+    border: solid black;
 }
 
 .feedContent{
-    display: block;
+    display: flex;
     position: relative;
     float: right;
-    background-color: whitesmoke;
-    /* border: solid white; */
+    background-color: #E9EBEE;
     width: 80vw;
-    height: 100vh;
+    height: 13vh;
+    z-index: 1;
 }
 .contentHeader {
     display: flex;
     position: absolute;
-    background-color: lightgrey;
+    background-color: #E9EBEE;
     width: 60vw;
     height: 10vh;
-    margin-left: 15vh;
-    border: solid grey;
-    border-width: 2px;
+    margin-left: 10vw;
     text-align: center;
     justify-content: center;
+    color: black;
+
+}
+
+h1 {
+    color: black;
 }
 
 .content {
     display: block;
-    position: absolute;
-    background-color: white;
-    width: 60vw;
-    height: 85vh;
-    margin-left: 28.6vw;
+    position: sticky;
+    background-color: #E9EBEE;
+    width: 80vw;
+    height: 90vh;
+    margin-left: 20vw;
     margin-top: 10vh;
-    border: solid grey;
-    border-width: 2px;
+    justify-content: center;
+    text-align: center;
 }
 
+.contentButton {
+    position: absolute;
+    top: 65%;
+}
+
+#createButton {
+    display: flex;
+    position: relative;
+    float: right;
+    height: 20px;
+    float: right;
+}
+
+#logOffBtn {
+    position: fixed;
+    bottom: 0;
+    height: 30px;
+    width: 285px;
+    background-color: black;
+    border: none;
+    color: white;
+}
+
+#ownerPic img{
+    color: black;
+    height: 200px;
+    width: 200px;
+    padding-top: 5vh;
+    padding-left: 2.5vw;    
+}
+
+#ownerName {
+    position: absolute;
+    padding-top: 30vh;
+    padding-left: 5vw;
+    color: white;
+    text-align: center;
+    
+}
+
+#ownerBio {
+    position: absolute;
+    padding-top: 37vh;
+    padding-left: 3vw;
+    color: gold;
+    text-align: justify;
+    width: 20px;
+}
+
+.content img {
+    max-width: 60%;
+    max-height: 60%;
+}
