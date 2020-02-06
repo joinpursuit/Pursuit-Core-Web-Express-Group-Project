@@ -1,5 +1,9 @@
-// const postsComments = require("express").Router({mergeParams:true});
-// const { getCommentByPost } = require("../../../queries")
 
-// postComments.get("/:id", getCommentByPost)
-// module.exports = postsComments;
+const postsComments = require("express").Router({mergeParams:true});
+
+const { getAllCommentsByPost } = require("../../../queries/posts")
+
+postsComments.get("/:id", getAllCommentsByPost)
+
+module.exports = postsComments;
+
