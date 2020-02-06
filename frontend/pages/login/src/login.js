@@ -41,6 +41,7 @@ const checkLogin = (data) => {
 const fetchData = async (url, callback) => {
     try {
         let res = await axios.get(url);
+        debugger;
         callback(res.data);
     } catch(err) {
         console.log(err);
