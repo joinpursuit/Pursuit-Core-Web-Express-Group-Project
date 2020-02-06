@@ -3,15 +3,6 @@ const {isUserExisting} = require("./../users");
 
 const getUserPost = async (req, res, next) => {
     try {
-<<<<<<< HEAD
-        let { postId } = req.params
-        let post = await db.any("SELECT * FROM posts WHERE poster_id = $1", postId);
-        res.status(200).json({
-            post,
-            status: "Success",
-            message: "All Users Posts"
-        })
-=======
         if(await isUserExisting(req.params.userId)) {
             let post = await db.any("SELECT * FROM posts WHERE poster_id = $1", req.params.userId);
             res.status(200).json({
@@ -23,7 +14,6 @@ const getUserPost = async (req, res, next) => {
             throw {status: 404, error: "User does not exist"}
         }
         
->>>>>>> c552837cf9e81b4907c56ce1774ac98995fb40d8
     } catch(err){
         next(err)
     }
