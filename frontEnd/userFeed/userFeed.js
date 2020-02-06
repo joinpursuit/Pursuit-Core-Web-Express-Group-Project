@@ -17,7 +17,7 @@ userSearchForm.addEventListener("submit", async e => {
   } catch (error) {
     errorDiv.innerHTML = "";
     let errorMessage = document.createElement("p");
-    errorMessage.innerHTML = `<b>No user found!</b>`;
+    errorMessage.innerHTML = `No user found!`;
     errorDiv.appendChild(errorMessage);
   }
 });
