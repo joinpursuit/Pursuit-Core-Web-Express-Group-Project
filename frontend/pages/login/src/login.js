@@ -1,5 +1,3 @@
-import { errors } from "pg-promise";
-
 let login = document.querySelector("#login");
 let signUp = document.querySelector("#signUp");
 let logInForm = document.querySelector("#logInForm");
@@ -37,11 +35,17 @@ logInForm.addEventListener("submit", async (e) => {
 })
 
 const checkLogin = (data) => {
-    debugger;
+    
 }
 
 const errorHandling = (err) => {
-    
+    if(login.style.display !== "none") {
+        loginH1.innerText = err.error;
+        loginH1.style.color = "#940E06"
+    } else if(signUp.style.display !== "none") {
+        signInh1.innerText = err.error;
+        signInh1.style.color = "#940E06"
+    }
 }
 
 const fetchData = async (url, callback) => {
@@ -49,7 +53,7 @@ const fetchData = async (url, callback) => {
         let res = await axios.get(url);
         callback(res.data);
     } catch(err) {
-        if(err.response) errorHandling(err.response)
+        if(err.response) errorHandling(err.response.data)
         else console.log(err);
     }
 }
