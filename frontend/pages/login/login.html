@@ -6,6 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="./src/login.js" async></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Russo+One&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Exo+2|Poppins&display=swap" rel="stylesheet">>
+
     <link rel="stylesheet" href="./assets/login.css">
     <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
     <title>HotBox Sports</title>
@@ -33,14 +38,21 @@
         
         <section id="login" style="display: none">
             <form id="logInForm" autocomplete="off">
-                <h1></h1>
+                <div class="h1">
+                    <h1 id="loginH1"></h1>
+                </div>
                 <label for="loginEmail">Email: </label>
                 <input type="text" name="username" id="loginEmail">
     
                 <label for="password">Password: </label>
                 <input type="text" name="password" id="userPass">
+        <div>
+            <button type="submit" id="loginButton2" class="myButton">Log In</button>
+        </div>
 
-                <button type="submit" id="loginButton" class="myButton">Log In</button>
+        <div>
+            <button type="submit" id="goToSignUp" class="myButton">Go to Sign Up</button>
+        </div>
     
             </form>
     
@@ -48,7 +60,11 @@
     
         <section id="signIn" style="display: none">
             <form id="signInForm" autocomplete="off">
-                <h1></h1>
+                
+                <div class="h1">
+                    <h1 id="signInh1"></h1>
+              </div>  
+
                 <label for="firstName">First Name</label>
                 <input type="text" name="firstName" id="first">
     
@@ -66,14 +82,20 @@
     
                 <label for="state">State</label>
                 <input type="text" name="state" id="st">
-    
-                <button type="submit" id="submit" class="myButton">Submit</button>
+                
+        <div>
+        <button type="submit" id="submitButton" class="myButton">Submit</button>
+         </div>
+         <div>
+             <button type="submit" id="goBackLogin" class="myButton">Go Back to Login</button>
+         </div>
+
     
             </form>
         
         </section>
     </right>
-    </main>
+</main>
        
 </body>
 </html>

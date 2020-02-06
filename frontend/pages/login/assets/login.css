@@ -12,11 +12,51 @@ main{
     justify-content: space-evenly; 
 }
 
+#moveLogo {
+    display: flex;
+    margin-left: 8%;
+}
+
+#signIn {
+    display: flex;
+    position: relative;
+    bottom: 10%;
+}
+
+#login {
+    display: flex;
+    position: relative;
+    bottom: 8%;
+}
+
+input[type="text"] {
+    display: inline-block;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  cursor: pointer;
+  padding: 10px 20px;
+  border: 1px solid #FDB927;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  font-family: 'Poppins', sans-serif;
+  color: rgba(253,185,39,1);
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  letter-spacing: 1px;
+  word-spacing: 29px;
+  background: rgba(6,25,31,1);
+   }
+
+
+
 left {
+    
     display: flex;
     margin: auto;
     /* background-color: lightblue; */
-    width: 50%;  
+    width: 5%;  
+   
 }
 
 right {
@@ -26,22 +66,25 @@ right {
     /* background-color: lightcoral; */
     width: 30%; 
     margin: auto;
+    margin-left: 30%;
 }
 
 #signInForm {
     display: flex;
     flex-direction: column;
-    width: 50%;
-    margin-top: 30%;
+    width: 30%;
+    margin-top: 40%;
+    margin-bottom: auto;
+    
 }
 
 #logInForm {
     display: flex;
     flex-direction: column;
-    width: 60%;
-    margin-top: 30%;
+    width: 30%;
+    margin-top: 60%;
+    margin-bottom: auto;
 }
-
 
 
 #buttons {
@@ -54,10 +97,12 @@ right {
     /* background-color: lawngreen; */
     vertical-align: middle;
     align-items: center; 
-    
- 
   }
-  
+
+.h1 {
+    font-family: 'Exo 2', sans-serif;
+    width: max-content;
+  }
 
 .myButton {
     display: flex;
@@ -71,7 +116,7 @@ right {
 	display:inline-block;
 	cursor:pointer;
 	color:#333333;
-    font-family:Verdana;
+    font-family: 'Russo One', sans-serif;
 	font-size:17px;
 	font-weight:bold;
 	font-style:italic;
@@ -89,9 +134,23 @@ right {
 	top:1px;
 }
 
-#logInButton {
-   /* margin-top: auto */
+label {
+    font-family: 'Poppins', sans-serif;
+}
 
+#loginButton2 {
+    display: flex;
+    margin-bottom: 8%;
+    width: 100%;
+   justify-items: center;
+
+}
+
+#submitButton {
+    width: 100%;
+   justify-items: center;
+   display: flex;
+   margin-bottom: 8%;
 }
 
 #signUp {
@@ -104,5 +163,17 @@ right {
     display: flex;
     flex-direction: column;
 }
+
+#userPass {
+    display: flex;
+    margin-bottom: 8%;
+}
+
+#st {
+    display: flex;
+    margin-bottom: 8%;
+}
+
+
 
 
