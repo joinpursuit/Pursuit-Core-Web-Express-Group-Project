@@ -1,3 +1,5 @@
+import { errors } from "pg-promise";
+
 let login = document.querySelector("#login");
 let signUp = document.querySelector("#signUp");
 let logInForm = document.querySelector("#logInForm");
@@ -38,12 +40,16 @@ const checkLogin = (data) => {
     debugger;
 }
 
+const errorHandling = (err) => {
+    
+}
+
 const fetchData = async (url, callback) => {
     try {
         let res = await axios.get(url);
-        debugger;
         callback(res.data);
     } catch(err) {
-        console.log(err);
+        if(err.response) errorHandling(err.response)
+        else console.log(err);
     }
 }
