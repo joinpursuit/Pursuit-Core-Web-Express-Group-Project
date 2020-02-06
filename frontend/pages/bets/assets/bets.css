@@ -1,9 +1,4 @@
-html, body { height: 100%; margin: 0; }
-
-main {
-    margin: 0%;
-    height: 100%;
-}
+html, body, main { height: 100%; margin: 0; }
 
 #top {
     
@@ -45,34 +40,20 @@ a:hover {
 
 #container2 {
     display: flex;
+    font-family:  'Exo 2', sans-serif;
 }
 
 #gamesToday {
     flex: 1;
     background-color: lightseagreen;
-    /* position: absolute;
-    left: 0px;
-    justify-content: space-around;
-    height: 100%;
-    width: 33%; */
 }
 
 #bets {
     flex: 2;
-    background-color: magenta;
-    /* margin: auto;
-    position: relative;
-    width: 33%;
-    height: 100%; */
-   
+    background-color: magenta;  
 }
 
 #upcoming {
     flex: 1;
-    background-color: mediumturquoise;
-    /* position: absolute;
-    right: 0px;
-    height: 100%;
-    width: 33%;
-    margin: auto; */
+    background-color: mediumturquoise; 
 }
