@@ -2,12 +2,17 @@ const db = require ("../db/index.js")
 
 const getAllUsers = async(req, res, next) =>{
     try{
-        let users = await db.any("SELECT * FROM users")
-        res.status(200).json({
-            status:"Success",
-            message: "Got All Users",
-            body: users
-        })
+        if (await db.any("SELECT * FROM users")) {
+
+            let users = await db.any("SELECT * FROM users")
+            res.status(200).json({
+                status:"Success",
+                message: "Got All Users",
+                body: users
+            })
+        } else {
+            throw {status: 404, error: "There are no existing users."}
+        }
 
     }catch(err){
         next(err)
