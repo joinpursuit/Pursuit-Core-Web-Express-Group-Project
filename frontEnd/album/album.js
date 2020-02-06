@@ -67,7 +67,8 @@ const displayAlbum = async id => {
     let p = document.createElement("p");
     let img = document.createElement("img");
     h3.innerText = album.album_title;
-    p.innerText = album.album_date;
+    album.album_date = new Date();
+    p.innerHTML = `<b>Created on:</b> ${album.album_date.toDateString()}`;
     img.src = album.album_coverurl;
     div.appendChild(h3);
     div.appendChild(img);
