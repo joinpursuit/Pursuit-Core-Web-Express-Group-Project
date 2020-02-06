@@ -20,15 +20,6 @@ const showSignUp = () => {
     buttons.style.display = "none";
     login.style.display = "none";
     signIn.style.display = "inline";
-    
 }
-
-login.addEventListener("click" ,() => {
-    showLogin();
-})
-
-signUp.addEventListener("click", ()=> {
-    showSignUp();
-})
 
 

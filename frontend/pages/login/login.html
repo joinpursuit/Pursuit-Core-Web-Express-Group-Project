@@ -30,7 +30,6 @@
         <section id="buttons">
             <div id="buttonDiv">
                 <button id="logInButton" class="myButton" onClick="showLogin()">Login</button>
-
                 <button id="signUp" class="myButton" onClick="showSignUp()">Sign Up</button>  
             </div>
             
@@ -38,32 +37,22 @@
         
         <section id="login" style="display: none">
             <form id="logInForm" autocomplete="off">
-                <div class="h1">
-                    <h1 id="loginH1"></h1>
-                </div>
+                <h1 id="loginH1"></h1>
                 <label for="loginEmail">Email: </label>
                 <input type="text" name="username" id="loginEmail">
     
                 <label for="password">Password: </label>
                 <input type="text" name="password" id="userPass">
-        <div>
-            <button type="submit" id="loginButton2" class="myButton">Log In</button>
-        </div>
+                <button type="submit" id="loginButton2" class="myButton">Log In</button>
 
-        <div>
-            <button type="submit" id="goToSignUp" class="myButton">Go to Sign Up</button>
-        </div>
-    
             </form>
-    
+            <button id="goToSignUp" class="myButton" onclick="showSignUp()">Go to Sign Up</button>
+            
         </section>
     
         <section id="signIn" style="display: none">
             <form id="signInForm" autocomplete="off">
-                
-                <div class="h1">
-                    <h1 id="signInh1"></h1>
-              </div>  
+                <h1 id="signInh1"></h1>
 
                 <label for="firstName">First Name</label>
                 <input type="text" name="firstName" id="first">
@@ -83,15 +72,10 @@
                 <label for="state">State</label>
                 <input type="text" name="state" id="st">
                 
-        <div>
-        <button type="submit" id="submitButton" class="myButton">Submit</button>
-         </div>
-         <div>
-             <button type="submit" id="goBackLogin" class="myButton">Go Back to Login</button>
-         </div>
+                <button type="submit" id="submitButton" class="myButton">Submit</button>
 
-    
             </form>
+            <button id="goBackLogin" class="myButton" onclick="showLogin()">Go Back to Login</button>
         
         </section>
     </right>
