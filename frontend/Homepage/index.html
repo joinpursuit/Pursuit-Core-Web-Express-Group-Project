@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./index.js"></script>
+    <link rel="stylesheet" href="./master.css">
+    <title>Git.Me</title>
+</head>
+<body>
+
+    <button id="signUp">Sign Up</button>
+    <br>
+    <button id="alreadyUser" >Already a user?</button>
+    <!-- <form>
+        <input type="text" placeholder="Email/Username">
+        <input type="text" placeholder="Password">
+        <button id="logInSubmit">Submit</button>
+    </form> -->
+    <div class="form-popup" id="logInForm">
+        <form id="formlogin" class="form-container">
+          <h1>Login</h1>
+      
+          <label for="username"><b>Username</b></label>
+          <input id="username" type="text" placeholder="Enter Username" name="username" required>
+      
+          <label for="psw"><b>Password</b></label>
+          <input id="password" type="password" placeholder="Enter Password" name="psw" required>
+      
+          <button   id="logIn" class="btn">Login</button>
+          <button type="button" id="cancelBtn" class="btn cancel">Close</button>
+        </form>
+    </div>
+</body>
+</html>

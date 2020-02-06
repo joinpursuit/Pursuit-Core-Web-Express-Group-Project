@@ -17,12 +17,22 @@ const getUsers = async (req, res, next) => {
 
 const getUser = async (req, res, next) => {
     try{
-        let user = await db.one("SELECT * FROM users WHERE id = "+ req.params.id)
-        res.status(200).json({
-            user, 
-            status: "success",
-            message: "USER"
-        })
+        let user = await db.one("SELECT * FROM users WHERE username = $1", req.body.username);
+        if (!user) {
+            res.json({
+                message: "User doesn't exist!"
+            })
+        } else if (user.password !== req.body.password) {
+            res.json({
+                message: "Password is incorrect!"
+            })
+        } else {
+            res.status(200).json({
+                user, 
+                status: "success",
+                message: "USER"
+            })
+        }
     } catch (err){
         next(err)
     }
@@ -30,14 +40,14 @@ const getUser = async (req, res, next) => {
 
 const createUser = async (req, res, next) => {
     try{
-        await db.one("INSERT INTO users (firstName, lastName, userName, password, email, dob, gender, orientation) VALUES (${firstName}, ${lastName}, ${userName}, ${password}, ${email}, ${dob}, ${gender}, ${orientation})", req.body)
+        let user_id = await db.one("INSERT INTO users (firstName, lastName, userName, password, email, dob, gender, orientation) VALUES (${firstName}, ${lastName}, ${userName}, ${password}, ${email}, ${dob}, ${gender}, ${orientation}) RETURNING id", req.body)
         res.status(200).json({
+            user_id,
             status: "success",
             message: "Success"
         
         })
     } catch (err){
-        console.log("not working")
         next(err)
     }
 }
