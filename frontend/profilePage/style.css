@@ -58,3 +58,8 @@ footer ul :hover {
     border-style: solid;
     border-color: yellow;
  }
+ p{
+    text-indent: 30px;
+    margin: 0;
+    padding: 0;
+ }

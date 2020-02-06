@@ -25,18 +25,46 @@ document.addEventListener("DOMContentLoaded", () =>{
         try{
           let res = await axios.get("http://localhost:3000/users/5");
         // debugger
+        let userKeys = Object.keys(res.data.user)
         let usersi = Object.values(res.data.user)
 
         let ul = document.querySelector("#info")
         
-        for(let key of usersi){
-            // debugger
-            let li = document.createElement("li")
-            li.innerText = key 
-            // debugger
-            ul.appendChild(li)
+        
+        // for(let key of usersi){
+        //     let i = 0;
+        //     // debugger
+        //     let label = document.createElement("label")
+        //     label.innerText = userKeys[i]
+        //     let p = document.createElement("p")
+        //     p.innerText =  key 
+        //     let li = document.createElement("li")
+        //     li.innerText = key 
+        //     // debugger
+        //     divUserInfo.appendChild(label)
+        //     i++
+
+            
+        //     // ul.appendChild(li)
+        // }
+
+        for(let i =0; i < userKeys.length; i++){
+            let label = document.createElement("label")
+            if(userKeys[i] === "orientation"){
+                label.innerText = "What im looking for:"
+                
+            }else {
+                label.innerText = userKeys[i] + ":"
+            }
+            
+            let p = document.createElement("p")
+            p.innerText =  usersi[i] 
+            divUserInfo.appendChild(label)
+            divUserInfo.appendChild(p)
+            let br =document.createElement("br")
+            divUserInfo.appendChild(br)
         }
-        divUserInfo.appendChild(ul)
+        // divUserInfo.appendChild(ul)
         } 
           catch(err) {
               console.log(err)
