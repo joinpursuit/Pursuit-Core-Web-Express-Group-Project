@@ -4,7 +4,7 @@ const db = require("../db/index.js")
 // Get all albums that belong to a user.
 const getAlbum = async (req, res, next) => {
     try {
-        let albums = await db.any("SELECT * FROM albums WHERE albums_id = $1", req.params.albums_id)
+        let albums = await db.any("SELECT * FROM albums WHERE user_id = $1", req.params.owner_id)
         res.status(200).json({
             status: "Success",
             message: "Get all albums",
@@ -18,7 +18,7 @@ const getAlbum = async (req, res, next) => {
 // create new album for a single user. 
 const createAlbum = async (req, res, next) => {
     try {
-        let newAlbum = await db.none("INSERT INTO albums (user_id, album_name, thumbnail, time_stamp) VALUES (${user_id}, ${album_name}, ${thumbnail}, ${time_stamp})", req.body)
+        let newAlbum = await db.one("INSERT INTO albums (user_id, album_name) VALUES (${user_id}, ${album_name}) RETURNING *", req.body)
         res.status(200).json({
             status: "success",
             message: "Add album",

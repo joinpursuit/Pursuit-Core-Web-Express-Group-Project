@@ -15,10 +15,10 @@ const getAllPost =  async (req, res, next) =>{
 
 const getUserPosts = async (req, res, next) =>{
     try{
-        let post = await db.any("SELECT * FROM posts WHERE poster_id = $1", [req.params.user_id]);
+        let post = await db.any("SELECT * FROM posts WHERE user_id = $1", [req.params.user_id]);
         res.status(200).json({
             status: "success",
-            message: `User ID: ${req.params.user_id}'s posts`,
+            message: "post added",
             body: post
         })
 
@@ -29,7 +29,7 @@ const getUserPosts = async (req, res, next) =>{
 
 const registerPosts = async (req, res, next) =>{
     try{
-        let newPost = await db.any("INSERT INTO posts (user_id, body) VALUES ($user_id}, ${body}) RETURNING *", req.body);
+        let newPost = await db.any("INSERT INTO posts (user_id, body) VALUES (${user_id}, ${body}) RETURNING *", req.body);
         res.status(200).json({
             status: "success",
             message: "post was a success",
