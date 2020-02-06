@@ -31,7 +31,7 @@ const getUser = async(req, res, next) => {
 
 const createUser = async (req,res, next) => {
     try{
-        await db.none('INSERT INTO users (name, age) VALUES (${name},${age}) RETURNING *', req.body)  // make a new id????
+        await db.none('INSERT INTO users (username, password,firstname, lastname, age, profile_pic) VALUES (${username}, ${password}, ${firstname}, ${lastname}, ${age}, ${profile_pic}) RETURNING *', req.body)  
         res.status(200).json({
             status:'success',
             message:'new user created'
@@ -46,7 +46,7 @@ const deleteUser = async (req, res, next) => {
         await db.none('DELETE FROM users WHERE id = $1', req.params.id)
         res.status(200).json({
             status:'success',
-            message:'user deleted'
+            message: username + 'deleted'
         })
     }catch(err){
         next(err)

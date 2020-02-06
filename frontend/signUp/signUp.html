@@ -11,38 +11,64 @@
   <body>
     <h1>Create your account</h1>
 
-    <picture id="userPicture">
+    <div id="userPicture">
       <img
         src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAH4AfgMBIgACEQEDEQH/xAAbAAEAAgMBAQAAAAAAAAAAAAAABAUCAwYBB//EADAQAAICAQIEAwcDBQAAAAAAAAABAgMEBRESITFRE0FhI1JxgZHB0TJCsRQiM6Gi/8QAGAEBAQEBAQAAAAAAAAAAAAAAAAIBAwT/xAAaEQEBAAMBAQAAAAAAAAAAAAAAAQIRMVES/9oADAMBAAIRAxEAPwD6KAD0OYAAAAAA20Y92Q/ZVuS7+X1JcdIyGuc6182ZbI3SvBPnpORFf2uE/RPYh21zqlw2wcX2YllZpgADQAAAAAAAAAAAnabhf1L8Szfwl/0yHXB2TjCPWT2R09NUaa4wh0itiM7qaVIyjGMYpRWyXRI9AOSg1X0V3wcLI7r+DaAOazMaWLdwS5p84vujQdDqWP4+M9v1x5x/Bzx2xu4izQACmAAAAAAAAJ2j18eXxPpCLfz6F8VOhR5XS9Uv5LY459XOAAJaAADxnM5NfhZFla6Rk9vgdOUGrx2zp+qTLw6nJCAB1SAAAAAAAAutDW2PY+8/siyIekx4cKD95t/7JhwvVwABjQAACj1tbZcX3h9y8KnXY/4Z/FFYdZeKkAHZAAAAAAHvw6nhJ0+rxcutbck+J/Iyi/x4eFTXWv2xSNgBwdAAAAAAIOrw48OT84NS+33JxhbBWVyhLpJbGwcsD2UXGTjJbNPZnh3cwAAAAANuPfZjz46mk+nNb7moAW1WseVtPzi/sblq+Pt+mz6L8lGEm3slzfJEfEbuuqhJThGceklujIwphwVQh7sUjM5LDTk5EMavjsUmt9uRuIWrQ48KW37WpGzpWt6vR5Qsb+C/JHt1ect1VUo+snuVgOvxEbZTnKycpze8m92zEApgAAAAAAyhCU5cMIuUuyW7J+PpVs+d0vDXZc2ZbIaV6TbSS3b6JFtp2nyhJXXrZrnGHb1J2PiU469nHn7z5s3nO57VIAAhQeNJrZ80egChzdPsolKdSc6vTrEgnVkXJ0+i/d7cE/eidJn6mxzwJt+m5FXOKVke8ev0IbW3J8n2LllS8ABo34uJblN+GuS6yfRFnRpFUdnbNzfZckTMSqNWPXCPkufqzccbnauRhXVCqPDXCMV2S2MwCWgAAAAAAAAAAGm7GqvXtYKXr5m4AVV+kLfeizb0l+SruqnRY4Wx4WjqSJqGLHJhFN7NPqXjn6mx/9k="
         alt=""
       />
-    </picture>
+    </div>
 
     <section id="sigUp">
       <form id="sigUpForm">
-        <input type="text" id="firstNameInput" placeholder="First Name"/><br/>
-        <input type="text" id="lastNameInput" placeholder="Last Name"/><br/>
-        <input type="text" id="userNameInput" placeholder="UserName"/><br/>
-        <input
-          type="text"
-          id="signUpPasswordInput"
-          placeholder="Password"
-        /><br />
-        <input type="number" min="0" id="userAge" placeholder="Age"/>
-        <option type="number"></option>
 
-        <input type="radio" name="gender" value="Female"/> Female
-        <input type="radio" name="gender" value="Male"/> Male
-        <input type="radio" name="gender" value="Custom"/> Other
-        <h6
-          type="text"
-          id="PrivacyPolicy">
-            By clicking Sign Up, you agree to our Terms, Data Policy and 
-            Cookies 
-            <a href="http://localhost:3000/signUp/Policy">Policy.</a> 
-            You may receive SMS Notification from us and can opt any time
-        </h6><br/>
-        <button id="sigUpBtn">Log in</button>
+        <div id="sigUpDiv">
+          <input type="text" id="firstNameInput" placeholder=" First Name"/>
+        </div>
+
+        <div id="sigUpDiv">
+          <input type="text" id="lastNameInput" placeholder=" Last Name"/>
+        </div>
+
+        <div id="sigUpDiv">
+          <input type="text" id="userNameInput" placeholder=" UserName"/>
+        </div>
+
+        <div id="sigUpDiv">
+          <input
+            type="text"
+            id="signUpPasswordInput"
+            placeholder="Password"
+          />
+        </div>
+
+        <div id="sigUpDiv">
+          <input type="number" min="0" id="userAge" placeholder=" Age"/>
+        </div>
+
+        <div id="sigUpDiv">
+          <option type="number"></option>
+        </div> 
+
+        <div id="sigUpDiv">
+          <input type="radio" name="gender" value="Female"/> Female
+          <input type="radio" name="gender" value="Male"/> Male
+          <input type="radio" name="gender" value="Custom"/> Other
+        </div>
+        <div id="sigUpDiv">
+          <h6
+            type="text"
+            id="PrivacyPolicy">
+              By clicking Sign Up, you agree to our Terms, Data Policy and 
+              Cookies 
+              <a href="http://localhost:3000/signUp/Policy">Policy.</a> 
+              You may receive SMS Notification from us and can opt any time
+          </h6>
+        </div>
+
+        <div id="sigUpDiv">
+          <button id="sigUpBtn">Log in</button>
+        </div>
+
       </form>
     </section>
   </body>
