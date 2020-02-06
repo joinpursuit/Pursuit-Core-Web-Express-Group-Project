@@ -1,0 +1,68 @@
+html, body { height: 100%; margin: 0; }
+
+main {
+    margin: 0%;
+    height: 100%;
+}
+
+#top {
+    
+    display: flex;
+    flex-direction: row;
+    height: 20%;
+    /* justify-content: space-evenly; */
+    background-color: lightcoral;
+    justify-content: flex-start;
+    
+  }
+  img{
+      display: flex;
+      height: 160px;
+  }
+
+nav {
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: rgb(6,25,34);
+    font-size: 24px;
+    padding: 10px;
+    width: fit-content;
+}
+.leftBorder {
+    border-left: 1px solid #FDB927;
+    padding-left: 15px;
+}
+a {
+    color: #FDB927;
+    text-decoration: none;
+    margin-left: 15px;
+    font-family: 'Exo 2', sans-serif;
+}
+a:hover {
+    font-size: 26px;
+}
+
+#gamesToday {
+    background-color: lightseagreen;
+    display: flex;
+    flex-direction: column;
+    order: 1;
+    justify-content: space-around;
+    width: 33%;
+}
+
+#bets {
+    display: flex;
+    flex-direction: column;
+    background-color: magenta;
+    width: 33%;
+    order: 2;
+}
+
+#upcoming {
+    display: flex;
+    flex-direction: row;
+    background-color: mediumturquoise;
+    width: 33%;
+}
