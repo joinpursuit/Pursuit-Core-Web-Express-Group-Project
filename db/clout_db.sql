@@ -120,26 +120,6 @@ UPDATE pictures SET album_id=4 WHERE id in (17,11,10,2);
 UPDATE pictures SET album_id=5 WHERE id in (16,14,12,9,7,6); 
 UPDATE pictures SET album_id=6 WHERE id in (15,8,3); 
 
--- INSERT INTO pictures (post_id, pictureURL, album_id) SELECT id, imgURL, album_id as owner FROM posts INNER JOIN albums on albums.owner_id = posts.poster_id WHERE owner = poster_id;
-
--- INSERT INTO pictures (post_id, pictureURL, album_id)
--- VALUES
---     (1, 'https://media.inquirer.com/storage/inquirer/projects/year-in-pictures-2019/photos/POY2019_RedC.JPG', 2),
---     (2, 'https://static.scientificamerican.com/sciam/cache/file/5C51E427-1715-44E6-9B14D9487D7B7F2D_source.jpg?w=590&h=800&91ED69A6-2A32-43A3-97F8B241182A7D50', 3),
---     (3, 'https://www.rd.com/wp-content/uploads/2019/08/Amazon-Jungle-Yasuni-Ecuador-800x450.jpg', 6),
---     (4, 'https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fcdn-image.travelandleisure.com%2Fsites%2Fdefault%2Ffiles%2Fstyles%2F1600x1000%2Fpublic%2F1507053534%2F00-lead-plane-flying-clouds-LASTMINUTEHACKS1017.jpg%3Fitok%3DYHo_gGPL&q=85', 5),
---     (5, 'https://i.picsum.photos/id/931/536/354.jpg', 1),
---     (6, 'https://i.picsum.photos/id/927/536/354.jpg', 2),
---     (7, 'https://i.picsum.photos/id/827/536/354.jpg', 3),
---     (8, 'https://i.picsum.photos/id/577/536/354.jpg', 4),
---     (9, 'https://i.picsum.photos/id/287/536/354.jpg', 1),
---     (11, 'https://i.picsum.photos/id/932/536/354.jpg', 3),
---     (12, 'https://i.picsum.photos/id/157/536/354.jpg', 4),
---     (13, 'https://i.picsum.photos/id/347/536/354.jpg', 6),
---     (13, 'https://i.picsum.photos/id/437/536/354.jpg', 6),
---     (13, 'https://i.picsum.photos/id/917/536/354.jpg', 6),
---     (10, 'https://seoimgak.mmtcdn.com/blog/sites/default/files/images/Lake-Louise.jpg', 1);
-
 INSERT INTO likes
     (liker_id, post_id)
 VALUES
