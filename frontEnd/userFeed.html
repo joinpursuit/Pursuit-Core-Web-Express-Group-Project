@@ -8,22 +8,20 @@
     <script src="userFeed/userFeed.js" async></script>
     <link rel="stylesheet" href="./master/userFeed.css" />
     <link href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAID/wACA/8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAID/wC+//8Avv//AAID/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAID/wC+//8AAgP/AAID/wC+//8AAgP/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAID/wC+//8AAgP/AL7//wC+//8AAgP/AL7//wACA/8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAID/wC+//8Avv//AAID/wC+//8Avv//AAID/wC+//8Avv//AAID/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAID/wC+//8Avv//AAID/wC+//8Avv//AL7//wC+//8AAgP/AL7//wC+//8AAgP/AAAAAAAAAAAAAAAAAAID/wACA/8AAgP/AAID/wACA/8AAgP/AAID/wACA/8AAgP/AAID/wACA/8AAgP/AAID/wACA/8AAAAAAAAAAAAAAAAAAgP/AL7//wC+//8AAgP/AL7//wC+//8Avv//AL7//wACA/8Avv//AL7//wACA/8AAgMIAAAAAAAAAAAAAAAAAAAAAAACA/8Avv//AL7//wACA/8Avv//AL7//wACA/8Avv//AL7//wACA/8AAgMIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAID/wACA/8AAgP/AAID/wACA/8AAgP/AAID/wACA/8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//8AAP//AAD//wAA/n8AAPw/AAD4HwAA8A8AAOAHAADAAwAAgAEAAMADAADgBwAA8A8AAP//AAD//wAA//8AAA==" rel="icon" type="image/x-icon" />
-    <title>Home</title>
+    <title>Feed</title>
   </head>
   <body>
     <nav class="header">
       <div id="navLogo">
         <img src="./assets/mainLogo.png" alt="" height="40px" width="70px">
-    </div>
-    <div id="searchUser">
-      <form id="userSearchForm">
-        <input id="userSearchInput" type="text" placeholder="Search User"></input>
-        <button id="userSearchBtn" type="submit">Search a User</button>
-        <div id="errorDiv"></div>
-      </form>
-    </div>
+      </div>
+        <form id="userSearchForm">
+          <input id="userSearchInput" type="text" placeholder="Search User"></input>
+          <button id="userSearchBtn" type="submit">Search a User</button>
+          <div id="errorDiv"></div>
+        </form>
       <div class="mainHeader">
-        <a href="./userFeed.html">Home</a>
+        <a href="./userFeed.html">Feed</a>
       </div>
       <div class="albums">
         <a href="./album.html">Albums</a>
@@ -42,8 +40,8 @@
 
     <div class="feedContent">
       <div class="contentHeader">
-        <!-- <h2>Your Clout Feed</h2> -->
         <form id="createPostForm">
+          <h2>Post on Feed</h2 >
           <label for="imgurlInput">Input an image URL: </label>
           <input id="imgurlInput" type="text" required></input>
           <label for="descriptionInput">Enter a description: </label>

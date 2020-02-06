@@ -41,12 +41,22 @@ a:hover {
   overflow-y: hidden;
 }
 
-#searchUser {
+#userSearchForm {
   position: absolute;
   margin-top: 1vh;
   padding-right: 75vw;
+  width: 50vw;
   z-index: 10;
 }
+
+#userSearchForm b {
+    position: absolute;
+    top: 0;
+    margin-left: 7.5%;
+    color: white;
+
+}
+
 
 .mainHeader {
   position: absolute;
@@ -112,6 +122,7 @@ a:hover {
 }
 .contentHeader {
   display: flex;
+  flex-direction: row;
   position: absolute;
   background-color: #e9ebee;
   width: 60vw;
@@ -183,8 +194,8 @@ h1 {
   padding-top: 37vh;
   padding-left: 3vw;
   color: gold;
-  text-align: justify;
-  width: 20px;
+  text-align: left;
+  width: 70%;
 }
 
 /* .albumCover img{
@@ -218,4 +229,11 @@ h1 {
 .content img {
   max-width: 80%;
   max-width: 80%;
+}
+
+h2 {
+    position: absolute;
+    top: 0;
+    justify-content: center;
+    text-align: center;
 }
