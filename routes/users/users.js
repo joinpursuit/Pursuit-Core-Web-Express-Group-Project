@@ -1,9 +1,9 @@
 const users = require("express").Router();
-const { getUser, getUsers } = require("../../queries/users")
+const { getUsers, getUser } = require("../../queries/users")
 
-users.get("/:id", getUser);
+users.get("/:username", getUser);
 
- users.get("/", getUsers);
+users.get("/", getUsers);
 
 // users.post("/", createUser);
 
