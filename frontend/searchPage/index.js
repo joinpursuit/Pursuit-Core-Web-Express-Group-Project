@@ -15,6 +15,8 @@ document.addEventListener("DOMContentLoaded",()=>{
     const fetchAllUsers = async()=>{
         let userUrl = "http://localhost:3000/users/"
         let usersDb = await fetchData(userUrl)
+        // debugger
+        // console.log(usersDb)
         let users = usersDb.body
 
         users.forEach(user =>{
@@ -99,7 +101,7 @@ document.addEventListener("DOMContentLoaded",()=>{
         let userData = await fetchData(userUrl)
         let profile = userData.body
         createUserCard(profile)
-        debugger
+        // debugger
 
     }
 
@@ -114,7 +116,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 
         if(search.userProfile.checked === true){
             getUserProfile(userSelected)
-            debugger
+            // debugger
         } else if(search.postSearch.checked === true){
             getUserPosts(userSelected)
         }
