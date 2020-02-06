@@ -54,34 +54,33 @@ createBtn.addEventListener("click", async () => {
     coverInput.value = "";
   });
 });
-  
-let content = document.querySelector(".content")
-const displayAlbum = async(id)=>{
-    let res = await axios.get(
-        `http://localhost:3000/albums/${id}`);
-        content.innerHTML = "";
-        res.data.body.albums.forEach(album=>{
-          let div =document.createElement("div")
-          div.album_id=album.id
-          div.className="albumCover"
-          let h3 = document.createElement("h3");
-          let p = document.createElement("p")
-          let img = document.createElement("img");
-          h3.innerText = album.album_title;
-          p.innerText = album.album_date;
-          img.src = album.album_coverurl;
-          div.appendChild(h3);
-          div.appendChild(img);
-          div.appendChild(p);  
-          content.appendChild(div);
-          div.addEventListener("click",(e)=>{
-            e.preventDefault()
-            sessionStorage.album_id=div.album_id;
-            window.location.href = "photo.html";
-           window.location.href.reload();
-          })
-      })
-  }
+
+let content = document.querySelector(".content");
+const displayAlbum = async id => {
+  let res = await axios.get(`http://localhost:3000/albums/${id}`);
+  content.innerHTML = "";
+  res.data.body.albums.forEach(album => {
+    let div = document.createElement("div");
+    div.album_id = album.id;
+    div.className = "albumCover";
+    let h3 = document.createElement("h3");
+    let p = document.createElement("p");
+    let img = document.createElement("img");
+    h3.innerText = album.album_title;
+    p.innerText = album.album_date;
+    img.src = album.album_coverurl;
+    div.appendChild(h3);
+    div.appendChild(img);
+    div.appendChild(p);
+    content.appendChild(div);
+    div.addEventListener("click", e => {
+      e.preventDefault();
+      sessionStorage.album_id = div.album_id;
+      window.location.href = "photo.html";
+      window.location.href.reload();
+    });
+  });
+};
 
 const insertAlbum = async (id, title, url) => {
   let insert = await axios.post(`http://localhost:3000/albums/${id}`, {
@@ -89,3 +88,5 @@ const insertAlbum = async (id, title, url) => {
     album_coverURL: url
   });
 };
+
+displayUserInfo(sessionStorage.userID);
