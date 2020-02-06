@@ -73,8 +73,9 @@ VALUES
 ('Griph','Karma12','Geoff','Ramsey',43,'../../avatars/7.eps');
 
 INSERT INTO albums
- fix_Schema
-(creator_id, title)
+queries
+(creator_id,title)
+
 VALUES
 (1,'Movies'),
 (2, 'Memories'),

@@ -1,14 +1,14 @@
 const users = require("express").Router();
-const { getUser, getUsers } = require("../../queries/users")
+const { getUser, getUsers, createUser,deleteUser } = require("../../queries/users")
 
 users.get("/:id", getUser);
 
  users.get("/", getUsers);
 
-// users.post("/", createUser);
+users.post("/", createUser);
 
-// users.patch("/:id", updateUser)
+//users.patch("/:id", updateUser)
 
-// users.delete("/", deleteUser)
+users.delete("/", deleteUser)
 
 module.exports = users;
