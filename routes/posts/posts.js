@@ -1,14 +1,14 @@
 const posts = require("express").Router()
-const {getAllPost, getUserPosts, registerPosts, deletePost, editPost} = require("../../queries/posts.js")
+const {getAllPosts, getSinglePost, registerPosts, deletePost, editPost} = require("../../queries/posts.js")
 
-posts.get("/", getAllPost)
+posts.get("/", getAllPosts)
 
-posts.get("/:user_id", getUserPosts)
+posts.get("/:post_id", getSinglePost)
 
 posts.post("/", registerPosts)
 
-posts.patch("/:id", editPost)
+posts.patch("/:post_id", editPost)
 
-posts.delete("/:id", deletePost)
+posts.delete("/:post_id", deletePost)
 
 module.exports = posts
