@@ -1,0 +1,38 @@
+#photosPage{
+    display: grid;
+    grid-template-columns:100%;
+    }
+  
+#navBar {
+        border-style: solid;
+        height: 50px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: baseline;
+        padding-top: 15px;
+        margin: auto;
+        width: 100%;
+    }
+
+
+#photoArea {
+        border-style: solid;
+        border-color: darkgray;
+        margin-right: 50%;
+        height: 500px;
+    }
+
+#commentSec{
+        border-style: solid;
+        border-color: yellow;
+        margin-left: 50%;
+        height: 80px;
+    }
+
+#profileInfo{
+    border-style: solid;
+    border-color: teal;
+    width: 50%;
+    height: 200px;
+    }
