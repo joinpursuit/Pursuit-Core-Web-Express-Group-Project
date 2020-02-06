@@ -2,7 +2,7 @@ const posts = require("express").Router();
 
 const { getPosts, getPost, createPost, deletePost } = require("../../queries/posts");
 
-const postsCommentsRouter = require("./comments/comments.js")
+const postsCommentsRouter = require("../posts/comments/comments")
 
 posts.use("/:id", postsCommentsRouter);
 
@@ -10,7 +10,7 @@ posts.use("/:id", postsCommentsRouter);
 
 // posts.use("/:id", postsLikesRouter);
 
-posts.get("/", getPosts);
+posts.get("/home", getPosts);
 
 posts.get("/:id", getPost);
 
