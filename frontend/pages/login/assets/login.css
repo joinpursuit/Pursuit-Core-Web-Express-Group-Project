@@ -12,6 +12,23 @@ main{
     justify-content: space-evenly; 
 }
 
+#moveLogo {
+    display: flex;
+    margin-left: 8%;
+}
+
+#signIn {
+    display: flex;
+    position: relative;
+    bottom: 10%;
+}
+
+#login {
+    display: flex;
+    position: relative;
+    bottom: 8%;
+}
+
 input[type="text"] {
     display: inline-block;
   -webkit-box-sizing: border-box;
@@ -117,7 +134,13 @@ right {
 	top:1px;
 }
 
+label {
+    font-family: 'Poppins', sans-serif;
+}
+
 #loginButton2 {
+    display: flex;
+    margin-bottom: 8%;
     width: 100%;
    justify-items: center;
 
@@ -126,6 +149,8 @@ right {
 #submitButton {
     width: 100%;
    justify-items: center;
+   display: flex;
+   margin-bottom: 8%;
 }
 
 #signUp {
@@ -148,5 +173,7 @@ right {
     display: flex;
     margin-bottom: 8%;
 }
+
+
 
 
