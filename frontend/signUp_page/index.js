@@ -38,6 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
             let res = await axios.post("http://localhost:3000/users", {firstName: firstName.value, lastName: lastName.value, userName: userName.value, password: passWord.value, email: email.value, dob: dob.value, gender: gender.options[gender.options["selectedIndex"]].value, orientation: orientation.options[orientation.options["selectedIndex"]].value})
             debugger
             let res2 = await axios.post(`http://localhost:3000/preferences/${res.data.user_id.id}`, )
+            
         } catch (error) {
             console.log(error)
         }
