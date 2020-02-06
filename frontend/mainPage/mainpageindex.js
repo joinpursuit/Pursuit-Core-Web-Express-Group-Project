@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+  sessionStorage.clear();
   let signUpForm = document.querySelector("#signUp");
   let logInForm = document.querySelector("#logIn");
   let userNameSU = document.querySelector("#userNameSU");
@@ -22,6 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
         phone_number: phoneNumberSU.value
       });
       sessionStorage.setItem("currentUser", res.data.user.id);
+      sessionStorage.setItem("currentUserName", res.data.user.user_name);
       window.location.href = "../FEEDPAGE/feedpageindex.html";
     } catch (err) {
       if (err.response.data.detail === "Key (user_name)=(1) already exists.") {
@@ -45,6 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
         password: passwordLI.value
       });
       sessionStorage.setItem("currentUser", res.data.user.id);
+      sessionStorage.setItem("currentUserName", res.data.user.user_name);
       window.location.href = "../FEEDPAGE/feedpageindex.html";
     } catch (err) {
       console.log(err);

@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   let currentUser = sessionStorage.currentUser;
+  let currentUserName = sessionStorage.currentUserName;
   let feed = document.querySelector(".feed");
 
   const displayLikes = async id => {
@@ -37,23 +38,89 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const displayComments = async id => {
     let commentUl = document.querySelector(`#commentsUl${id}`);
+    commentUl.innerHTML = "";
     let res = await axios.get(`http://localhost:3000/comments/posts/${id}`);
     let comments = res.data.comments;
 
-    comments.forEach(comment => {
+    comments.reverse().forEach(comment => {
       let li = document.createElement("li");
-      li.id = comment.id;
-      li.innerText = `${comment.user_name} ${comment.body}`;
-      commentUl.appendChild(li); //not working reading property of null
+      li.id = `li${comment.id}`;
+      li.innerText = `${comment.user_name} ${comment.body}:::::>`;
+      if (comment.user_name === currentUserName) {
+        let editButton = document.createElement("button");
+        editButton.innerHTML = "edit";
+        editButton.value = comment.id;
+        editButton.id = id;
+        editButton.class = "editButton";
+        editButton.onclick = editComment;
+
+        let deleteButton = document.createElement("button");
+        deleteButton.innerHTML = "delete";
+        deleteButton.value = comment.id;
+        deleteButton.id = `${id}`;
+        deleteButton.class = "deleteButton";
+        deleteButton.onclick = deleteComment;
+        li.appendChild(editButton);
+        li.appendChild(deleteButton);
+      }
+      commentUl.appendChild(li);
     });
   };
+
+  const editComment = async e => {
+    let id = e.target.value;
+
+    // let button = document.querySelector('editButton${id}`");
+    let li = document.querySelector(`#li${id}`);
+    let form = document.createElement("form");
+    form.onsubmit = commentEditSubmit;
+    let input = document.createElement("input");
+    li.innerHTML;
+    let start = li.innerText.indexOf(" ") + 1;
+    let end = li.innerText.indexOf(":");
+
+    text = li.innerText.slice(start, end);
+
+    input.value = text;
+    li.innerHTML = "";
+    let submitEdit = document.createElement("button");
+    submitEdit.innerText = " edit now";
+    submitEdit.value = id;
+    submitEdit.id = e.target.id;
+
+    // submitEdit.onclick = commentEditSubmit;
+
+    form.appendChild(input);
+    form.appendChild(submitEdit);
+    li.appendChild(form);
+  };
+  const commentEditSubmit = async e => {
+    e.preventDefault();
+    let id = e.currentTarget.elements[1].value;
+    let post_id = e.currentTarget.elements[1].id;
+    let body = e.currentTarget.elements[0].value;
+
+    // debugger;
+    await axios.patch(`http://localhost:3000/comments/${id}`, { body: body }); // new comment gets pushed to the End.
+    displayComments(post_id);
+  };
+
+  const deleteComment = async e => {
+    let id = e.target.value;
+    let postId = e.target.id;
+    await axios.delete(`http://localhost:3000/comments/${id}`);
+
+    displayComments(postId);
+  };
   const commentOnPost = async e => {
+    e.preventDefault();
     let id = e.target.value;
     let comment = document.querySelector(`#comment${id}`);
     let res = await axios.post(
       `http://localhost:3000/comments/posts/${id}/${currentUser}`,
       { body: comment.value }
     );
+    displayComments(id);
   };
 
   const populateFeed = async () => {
@@ -89,6 +156,7 @@ document.addEventListener("DOMContentLoaded", () => {
           commentButton.class = "commentButton";
           commentButton.onclick = commentOnPost;
           let commentBody = document.createElement("input");
+
           commentBody.class = "comments";
           commentBody.type = "text";
           commentBody.placeholder = "Write a comment...";
@@ -102,11 +170,12 @@ document.addEventListener("DOMContentLoaded", () => {
           postDiv.appendChild(caption);
           postDiv.appendChild(likes);
           postDiv.appendChild(likeButton);
-          postDiv.appendChild(commentForm);
           postDiv.appendChild(commentUl);
-          displayComments(id);
+          //   debugger;
 
           feed.appendChild(postDiv);
+          displayComments(id);
+          postDiv.appendChild(commentForm);
         }
       });
     } catch (err) {
