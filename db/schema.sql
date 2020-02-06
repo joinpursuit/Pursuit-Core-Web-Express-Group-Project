@@ -15,29 +15,29 @@ CREATE TABLE users(
     id SERIAL PRIMARY KEY,
     full_name text,
     email text,
-    date_of_birth text,
+    date_of_birth date,
     gender text,
     profile_pic text,
-    join_date date
+    join_date date DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE posts(
     id SERIAL PRIMARY KEY,
     user_id INT REFERENCES users(id),
     body text,
-    time_stamp date
+    time_stamp timestamp DEFAULT CURRENT_TIMESTAMP
 );
 CREATE TABLE comments(
     id SERIAL PRIMARY KEY,
     user_id INT REFERENCES users(id),
     post_id INT REFERENCES posts(id),
-    body text
+    body text,
+    time_stamp timestamp DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE likes(
     id SERIAL PRIMARY KEY,
     post_id INT REFERENCES posts(id),
-    comment_id INT REFERENCES comments(id),
     user_id INT REFERENCES users(id)
 );
 
@@ -48,19 +48,19 @@ CREATE TABLE albums(
     user_id INT REFERENCES users(id),
     album_name text, 
     thumbnail text, 
-    time_stamp date
+    time_stamp timestamp DEFAULT CURRENT_TIMESTAMP
 );
 
 
 CREATE TABLE pictures(
     id SERIAL PRIMARY KEY,
-    user_id INT REFERENCES users(id),
     album_id INT REFERENCES albums(id),
     photo_url text,
-    time_stamp date
+    time_stamp timestamp DEFAULT CURRENT_TIMESTAMP
 );
 
--- INSERT INTO users(id, full_name, email, date_of_birth, gender, profile_pic, join_date)
--- VALUES(1, 'Rafid Hossain', 'rafidhos9@gmail.com', 'July 11 1995', 'male', 'new profile pic', '12/10/2012'),
--- (2, 'Henry Nunez', 'henrynunez@pursuit.org', 'October 11 1991','male', 'no profile pic', '12/12/2010')
-
+INSERT INTO users(id, full_name, email, date_of_birth, gender, profile_pic)
+VALUES(1, 'Rafid Hossain', 'rafidhosain@pursuit.org', '1995-07-11', 'male', 'new profile pic'),
+(2, 'Henry Nunez', 'henrynunez@pursuit.org', '1991-10-11','male', 'no profile pic'),
+(3, 'Cassidy Beni', 'cassidybeni@pursuit.org', '1996-11-01', 'female', 'no profile pic'),
+(4, 'Javon Fowler', 'javonfowler@pursuit.org', '1994-04-14', 'male', 'no profile pic')

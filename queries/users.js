@@ -1,42 +1,48 @@
-// Get all users
 const db = require ("../db/index.js")
 
-const getAllUsers = async(req, res, next) =>{
+const getAllUsers = async (req, res, next) =>{
     try{
-        let users = await db.any("SELECT * FROM users")
-        res.status(200).json({
-            status:"Success",
-            message: "Got All Users",
-            body: users
-        })
+        if (await db.any("SELECT * FROM users")) {
+
+            let users = await db.any("SELECT * FROM users")
+            res.status(200).json({
+                status:"Success",
+                message: "Got All Users",
+                body: users
+            })
+        } else {
+            throw {status: 404, error: "There are no existing users."}
+        }
 
     }catch(err){
         next(err)
     }
 }
-//getAllUsers()
 
-// Get single users
-
-const getSingleUsers = async(req, res, next) =>{
+const getSingleUser = async (req, res, next) =>{
     try{
-        let user = await db.one("SELECT * FROM users WHERE id = $1", req.params.id)
-        res.status(200).json({
-            status:"success",
-            message: "Got Single User",
-            body: user
-        })
+        if (await db.one("SELECT * FROM users WHERE id = $1", [req.params.id])){
+
+            let user = await db.one("SELECT * FROM users WHERE id =$1", [req.params.id])
+            res.status(200).json({
+                status:"success",
+                message: "Got Single User",
+                body: user
+            })
+        } else {
+            throw {status: 404, error: "The target user does not exist."}
+        }
 
     } catch(err){
         next(err)
     }
 }
 
-//Add single user
-
 const addSingleUser = async(req, res, next)=>{
     try{
-        let newUser = await db.one("INSERT INTO users(full_name, email, date_of_birth, gender, profile_pic) VALUES (${full_name}, ${email}, ${date_of_birth}, ${gender}, ${profile_pic}) returning *", req.body)
+      
+        let newUser = await db.one("INSERT INTO users(full_name, email, date_of_birth, gender, profile_pic) VALUES (${full_name}, ${email}, ${date_of_birth}, ${gender}, ${profile_pic}) RETURNING *", req.body)
+
         res.status(200).json({
             status:"success",
             message: "Added User",
@@ -44,11 +50,10 @@ const addSingleUser = async(req, res, next)=>{
         })
 
     }catch(err){
+    
         next(err)
     }
 }
-
-// Delete Single User
 
 const deleteSingleUser = async(req, res, next)=>{
     try{
@@ -63,4 +68,4 @@ const deleteSingleUser = async(req, res, next)=>{
     }
 }
 
-module.exports = {getAllUsers, getSingleUsers, addSingleUser, deleteSingleUser};
+module.exports = {getAllUsers, getSingleUser, addSingleUser, deleteSingleUser};
