@@ -40,7 +40,6 @@ const getSingleUser = async (req, res, next) =>{
 
 const addSingleUser = async(req, res, next)=>{
     try{
-      
         let newUser = await db.one("INSERT INTO users(full_name, email, date_of_birth, gender, profile_pic) VALUES (${full_name}, ${email}, ${date_of_birth}, ${gender}, ${profile_pic}) RETURNING *", req.body)
 
         res.status(200).json({
@@ -57,12 +56,14 @@ const addSingleUser = async(req, res, next)=>{
 
 const deleteSingleUser = async(req, res, next)=>{
     try{
-        let deleteUser = await db.none("DELETE * FROM USERS WHERE id = $1", req.params.id);
-        res.status(200).json({
-            status:"Success",
-            message:"User deleted",
-            body: deleteSingleUser
-        })
+
+            let deleteUser = await db.one("DELETE FROM users WHERE id = $1 RETURNING *", req.params.id);
+            res.status(200).json({
+                status:"Success",
+                message:"User deleted",
+                body: deleteUser
+            })
+        
     }catch(err){
         next(err)
     }
