@@ -39,7 +39,7 @@ form {
     bottom: 8%;
 }
 
-input[type="text"] {
+input[type="text"], input[type="password"] {
     display: inline-block;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -111,6 +111,7 @@ h1 {
   }
 
 button {
+    margin-top: 10px;
     display: flex;
     justify-content: center;
 	box-shadow: 0px 1px 0px 0px #fff6af;
@@ -129,6 +130,10 @@ button {
 	text-decoration:none;
     text-shadow:0px 0px 0px #ffee66;
     min-width: 80%;
+}
+
+button:focus {
+    outline: none;
 }
 
 button:hover {
@@ -180,6 +185,6 @@ label {
     margin-bottom: 8%;
 }
 
-input[type="text"]:focus {
+input:focus {
     outline: none;
 }

@@ -22,12 +22,27 @@ const showSignUp = () => {
     signIn.style.display = "inline";
 }
 
-logInForm.addEventListener("submit", (e) => {
+logInForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     let loginEmail = document.querySelector("#loginEmail");
     let loginPass = document.querySelector("#loginPass");
     if(!loginEmail.value || !loginPass.value) {
         loginH1.innerText = "Please fill out all the information";
         loginH1.style.color = "#940E06";
+    } else {
+        fetchData(`http://localhost:3000/users/logins?email=${loginEmail.value}&password=${loginPass.value}`, checkLogin);
     }
 })
+
+const checkLogin = (data) => {
+    debugger;
+}
+
+const fetchData = async (url, callback) => {
+    try {
+        let res = await axios.get(url);
+        callback(res.data);
+    } catch(err) {
+        console.log(err);
+    }
+}

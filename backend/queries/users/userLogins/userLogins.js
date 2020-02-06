@@ -4,7 +4,7 @@ const {isUserExisting} = require("./../users");
 const getUserLogin = async (req, res, next) => {
     try {
         let {userId} = req.params;
-        let {email, password} = req.body;
+        let {email, password} = req.query;
         if(await isUserExisting(userId)) {
             let user = await db.one("SELECT * FROM users WHERE id=$1", [userId]);
             if(user.email === email && user.password === password) {
