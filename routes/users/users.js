@@ -7,7 +7,7 @@ users.get("/",getAllUsers)
 
 // get /users/:id - get single user
 
-users.get("/users/:id",getSingleUsers)
+users.get("/:id",getSingleUsers)
 
 
 
