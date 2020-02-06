@@ -2,6 +2,25 @@ let imgurlInput = document.querySelector("#imgurlInput");
 let descriptionInput = document.querySelector("#descriptionInput");
 let createPostForm = document.querySelector("#createPostForm");
 let postDiv = document.querySelector(".postDiv");
+let userSearchForm = document.querySelector("#userSearchForm");
+let userSearchInput = document.querySelector("#userSearchInput");
+let errorDiv = userSearchForm.addEventListener("submit", async e => {
+  e.preventDefault();
+  let errorDiv = document.querySelector("#errorDiv");
+  try {
+    let res = await axios.get(
+      `http://localhost:3000/users/search/${userSearchInput.value}`
+    );
+    sessionStorage.searchUserID = res.data.body.user.id;
+    window.location.href = "album.html";
+    window.location.href.reload();
+  } catch (error) {
+    errorDiv.innerHTML = "";
+    let errorMessage = document.createElement("p");
+    errorMessage.innerHTML = `<b>No user found!</b>`;
+    errorDiv.appendChild(errorMessage);
+  }
+});
 
 let displayUserInfo = async () => {
   let res = await axios.get(
@@ -22,6 +41,7 @@ let displayUserInfo = async () => {
 
   logOffBtn.addEventListener("click", e => {
     sessionStorage.removeItem("userID");
+    sessionStorage.removeItem("searchUserID");
     window.location.href = "logIn.html";
     window.location.href.reload();
   });
@@ -66,6 +86,7 @@ let displayUserPostFeed = async () => {
     postDiv.appendChild(insertCommentBtn);
     postDiv.appendChild(likesDiv);
     postDiv.appendChild(commentsDiv);
+    isDeletePost(post, postDiv);
     likesDiv.hidden = true;
     commentsDiv.hidden = true;
     content.appendChild(postDiv);
@@ -74,7 +95,7 @@ let displayUserPostFeed = async () => {
     showCommentsLikesBtn.addEventListener("click", () => {
       loadLikes(post, likesDiv);
       loadComments(post, commentsDiv);
-      displayLikesComments(likesDiv, commentsDiv);
+      displayLikesCommentsDivs(likesDiv, commentsDiv);
     });
 
     insertCommentBtn.addEventListener("click", () => {
@@ -93,7 +114,7 @@ let displayUserPostFeed = async () => {
       insertCommentBtn.disabled = true;
       form.addEventListener("submit", async e => {
         e.preventDefault();
-        insertComment(postDiv, commentInput.value);
+        await insertComment(postDiv, commentInput.value);
         commentInput.value = "";
         await loadComments(post, commentsDiv);
       });
@@ -105,8 +126,36 @@ let displayUserPostFeed = async () => {
   });
 };
 
+const isDeletePost = (post, div) => {
+  if (post.poster_id == sessionStorage.userID) {
+    let deletePostBtn = document.createElement("button");
+    deletePostBtn.className = "deletePostBtn";
+    deletePostBtn.innerText = "x";
+    div.appendChild(deletePostBtn);
+    deletePostBtn.addEventListener("click", async e => {
+      e.preventDefault();
+      await deletePost(post);
+      displayUserPostFeed();
+    });
+  }
+};
+
+const deletePost = async post => {
+  let res = await axios.delete(`http://localhost:3000/posts/${post.id}`);
+  window.location.reload();
+};
+// if (p.author_id == sessionStorage.userID) {
+//   let deleteCommentBtn = document.createElement("button");
+//   deleteCommentBtn.className = "deleteCommentBtn";
+//   deleteCommentBtn.innerText = "x";
+//   div.appendChild(deleteCommentBtn);
+//   deleteCommentBtn.addEventListener("click", async e => {
+//     await deleteComment(p.comment_id, post.id);
+//     await loadComments(post, div);
+//   });
+// }
+
 const insertComment = async (div, input) => {
-  console.log(input);
   let res = await axios.post(
     `http://localhost:3000/comments/posts/${div.post_id}/${sessionStorage.userID}`,
     { content: input }
@@ -136,6 +185,7 @@ const loadComments = async (post, div) => {
     p.comment_id = comment.id;
     if (p.author_id == sessionStorage.userID) {
       let deleteCommentBtn = document.createElement("button");
+      deleteCommentBtn.className = "deleteCommentBtn";
       deleteCommentBtn.innerText = "x";
       div.appendChild(deleteCommentBtn);
       deleteCommentBtn.addEventListener("click", async e => {
@@ -150,7 +200,7 @@ const deleteComment = async (comment_id, post_id) => {
   await axios.delete(`http://localhost:3000/comments/${comment_id}/${post_id}`);
 };
 
-const displayLikesComments = (div1, div2) => {
+const displayLikesCommentsDivs = (div1, div2) => {
   if (div1.hidden === false && div2.hidden === false) {
     div1.hidden = true;
     div2.hidden = true;
@@ -181,11 +231,11 @@ const likePost = async (post, post_id, div) => {
   h3.innerHTML = "";
   if (res.data.error) {
     await deleteLikePost(post_id, liker_id);
-    h3.innerText = "You unliked this post";
+    h3.innerText = "Unliked!";
     likeStatus.appendChild(h3);
     await loadLikes(post, div);
   } else {
-    h3.innerText = "You liked this post";
+    h3.innerText = "Liked!";
     likeStatus.appendChild(h3);
     await loadLikes(post, div);
   }
