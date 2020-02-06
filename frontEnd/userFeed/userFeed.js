@@ -80,13 +80,13 @@ let displayUserPostFeed = async () => {
     insertCommentBtn.innerText = "Add a Comment";
 
     postDiv.appendChild(h4);
+    isDeletePost(post, postDiv);
     postDiv.appendChild(img);
     postDiv.appendChild(p);
     postDiv.appendChild(showCommentsLikesBtn);
     postDiv.appendChild(insertCommentBtn);
     postDiv.appendChild(likesDiv);
     postDiv.appendChild(commentsDiv);
-    isDeletePost(post, postDiv);
     likesDiv.hidden = true;
     commentsDiv.hidden = true;
     content.appendChild(postDiv);
