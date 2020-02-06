@@ -22,4 +22,12 @@ const showSignUp = () => {
     signIn.style.display = "inline";
 }
 
-
+logInForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    let loginEmail = document.querySelector("#loginEmail");
+    let loginPass = document.querySelector("#loginPass");
+    if(!loginEmail.value || !loginPass.value) {
+        loginH1.innerText = "Please fill out all the information";
+        loginH1.style.color = "#940E06";
+    }
+})
