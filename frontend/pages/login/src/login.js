@@ -10,6 +10,7 @@ let buttons = document.querySelector("#buttons")
 
 const showLogin = () => {
     loginH1.innerText = "Welcome Back";
+    loginH1.style.color = "rgba(6,25,31,1)";
     buttons.style.display = "none";
     signIn.style.display = "none";
     login.style.display = "inline";
@@ -35,7 +36,8 @@ logInForm.addEventListener("submit", async (e) => {
 })
 
 const checkLogin = (data) => {
-    
+    sessionStorage.setItem("userId", JSON.stringify(data.user[0].id));
+    window.location.href = "./../../index.html";
 }
 
 const errorHandling = (err) => {
