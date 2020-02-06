@@ -2,7 +2,7 @@
     font-family: 'Times New Roman', Times, serif;
 }
 body{
-    background-color: white;
+    background-color: #E9EBEE;
     margin: auto;
     padding: 0;
 }
@@ -31,20 +31,42 @@ a:visited {
     color: white;
 }
 
+a:hover {
+    color: gold;
+}
+
+#navLogo {
+    position: absolute;
+    margin-top: 0vh;
+    left: 0;
+    overflow-y: hidden;
+}
+
+#searchUser{
+    position: absolute;
+    margin-top: 1vh;
+    padding-right: 75vw;
+
+}
 
 .mainHeader {
-    padding-left: 80vw;
-    padding-right: 2vw;
+    position: absolute;
+    padding-left: 70vw;
     margin-top: 1vh;
+    z-index: 4;
 }
 
 .albums {
+    position: absolute;
     margin-top: 1vh;
-    padding-right: 2vw;
+    padding-left: 80vw;
+    z-index: 3;
 }
 
 .photos {
+    position: absolute;
     margin-top: 1vh;
+    padding-left: 90vw;       
 }
 
 .feedHeader{
@@ -59,7 +81,6 @@ a:visited {
     display: flex;
     position: fixed;
     background-color: #030303;
-    /* border: solid white; */
     width: 20vw;
     height: 100vh;
     margin: auto;
@@ -79,25 +100,25 @@ a:visited {
 }
 
 .feedContent{
-    display: block;
+    display: flex;
     position: relative;
     float: right;
-    background-color: white;
-    /* border: solid white; */
+    background-color: #E9EBEE;
     width: 80vw;
-    height: 100vh;
+    height: 13vh;
     z-index: 1;
 }
 .contentHeader {
     display: flex;
     position: absolute;
-    background-color: white;
+    background-color: #E9EBEE;
     width: 60vw;
     height: 10vh;
-    margin-left: 15vh;
+    margin-left: 10vw;
     text-align: center;
     justify-content: center;
     color: black;
+
 }
 
 h1 {
@@ -107,11 +128,13 @@ h1 {
 .content {
     display: block;
     position: sticky;
-    background-color: white;
+    background-color: #E9EBEE;
     width: 80vw;
     height: 90vh;
     margin-left: 20vw;
     margin-top: 10vh;
+    justify-content: center;
+    text-align: center;
 }
 
 .contentButton {
@@ -131,13 +154,38 @@ h1 {
     position: fixed;
     bottom: 0;
     height: 30px;
-    width: 300px;
+    width: 285px;
     background-color: black;
     border: none;
     color: white;
 }
 
-#ownerPic {
-    height: 10px;
-    width: 10px;
+#ownerPic img{
+    color: black;
+    height: 200px;
+    width: 200px;
+    padding-top: 5vh;
+    padding-left: 2.5vw;    
+}
+
+#ownerName {
+    position: absolute;
+    padding-top: 30vh;
+    padding-left: 5vw;
+    color: white;
+    text-align: center;
+    
+}
+
+#ownerBio {
+    position: absolute;
+    padding-top: 37vh;
+    padding-left: 3vw;
+    color: gold;
+    text-align: justify;
+    width: 20px;
+}
+.albumCover img {
+    max-width: 50%;
+    max-height: 50%;
 }
