@@ -1,193 +1,190 @@
 * {
-    font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
 }
-body{
-    background-color: #E9EBEE;
-    margin: auto;
-    padding: 0;
+body {
+  background-color: #e9ebee;
+  margin: auto;
+  padding: 0;
 }
 .header {
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-    justify-content: center;
-    background-color: #272727;
-    position: fixed;
-    width: 100vw;
-    height: 5vh;  
-    border: solid black; 
-    border-width: 1.5px;
-    top: 0;
-    z-index: 3;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+  background-color: #272727;
+  position: fixed;
+  width: 100vw;
+  height: 5vh;
+  border: solid black;
+  border-width: 1.5px;
+  top: 0;
+  z-index: 3;
 }
 
 a:link {
-    color: white;
-    text-decoration: none;
-
+  color: white;
+  text-decoration: none;
 }
 
 a:visited {
-    color: white;
+  color: white;
 }
 
 a:hover {
-    color: gold;
+  color: gold;
 }
 
 #navLogo {
-    position: absolute;
-    margin-top: 0vh;
-    left: 0;
-    overflow-y: hidden;
+  position: absolute;
+  margin-top: 0vh;
+  left: 0;
+  overflow-y: hidden;
 }
 
-#searchUser{
-    position: absolute;
-    margin-top: 1vh;
-    padding-right: 75vw;
-
+#searchUser {
+  position: absolute;
+  margin-top: 1vh;
+  padding-right: 75vw;
+  z-index: 10;
 }
 
 .mainHeader {
-    position: absolute;
-    padding-left: 70vw;
-    margin-top: 1vh;
-    z-index: 4;
+  position: absolute;
+  padding-left: 70vw;
+  margin-top: 1vh;
+  z-index: 4;
 }
 
 .albums {
-    position: absolute;
-    margin-top: 1vh;
-    padding-left: 80vw;
-    z-index: 3;
+  position: absolute;
+  margin-top: 1vh;
+  padding-left: 80vw;
+  z-index: 3;
 }
 
 .photos {
-    position: absolute;
-    margin-top: 1vh;
-    padding-left: 90vw;       
+  position: absolute;
+  margin-top: 1vh;
+  padding-left: 90vw;
 }
 
-.feedHeader{
-    padding-right: 2vw;
-    margin-top: 1vh;
+.feedHeader {
+  padding-right: 2vw;
+  margin-top: 1vh;
 }
 .photoHeader {
-    margin-top: 1vh;
+  margin-top: 1vh;
 }
 
-.owner_info_box{
-    display: flex;
-    position: fixed;
-    background-color: #030303;
-    /* border: solid white; */
-    width: 20vw;
-    height: 100vh;
-    margin: auto;
-    top: 5vh;
+.owner_info_box {
+  display: flex;
+  position: fixed;
+  background-color: #030303;
+  /* border: solid white; */
+  width: 20vw;
+  height: 100vh;
+  margin: auto;
+  top: 5vh;
 }
 
 .profPic {
-    margin-top: 2.5vh;
-    height: 150px;
-    width: 150px;
-    background-color: white;
-    border-radius: 0%;
-    display: flex;
-    position: relative;
-    margin-left: 20%;
-    border: solid black;
+  margin-top: 2.5vh;
+  height: 150px;
+  width: 150px;
+  background-color: white;
+  border-radius: 0%;
+  display: flex;
+  position: relative;
+  margin-left: 20%;
+  border: solid black;
 }
 
-.feedContent{
-    display: flex;
-    position: relative;
-    float: right;
-    background-color: #E9EBEE;
-    /* border: solid white; */
-    width: 80vw;
-    height: 13vh;
-    z-index: 1;
-    margin-top: 10vh;
+.feedContent {
+  display: flex;
+  position: relative;
+  float: right;
+  background-color: #e9ebee;
+  /* border: solid white; */
+  width: 80vw;
+  height: 13vh;
+  z-index: 1;
+  margin-top: 10vh;
 }
 .contentHeader {
-    display: flex;
-    position: absolute;
-    background-color: #E9EBEE;
-    width: 60vw;
-    height: 10vh;
-    margin-left: 10vw;
-    text-align: center;
-    justify-content: center;
-    color: black;
-
+  display: flex;
+  position: absolute;
+  background-color: #e9ebee;
+  width: 60vw;
+  height: 10vh;
+  margin-left: 10vw;
+  text-align: center;
+  justify-content: center;
+  color: black;
 }
 
 h1 {
-    color: black;
+  color: black;
 }
 
 .content {
-    display: block;
-    position: sticky;
-    background-color: #E9EBEE;
-    width: 80vw;
-    height: 90vh;
-    margin-left: 20vw;
-    margin-top: 10vh;
-    justify-content: center;
-    text-align: center;
-    margin-top: 20vh;
+  display: block;
+  position: sticky;
+  background-color: #e9ebee;
+  width: 80vw;
+  height: 90vh;
+  margin-left: 20vw;
+  margin-top: 10vh;
+  justify-content: center;
+  text-align: center;
+  margin-top: 20vh;
 }
 
 .contentButton {
-    position: absolute;
-    top: 65%;
+  position: absolute;
+  top: 65%;
 }
 
 #createButton {
-    display: flex;
-    position: relative;
-    float: right;
-    height: 20px;
-    float: right;
+  display: flex;
+  position: relative;
+  float: right;
+  height: 20px;
+  float: right;
 }
 
 #logOffBtn {
-    position: fixed;
-    bottom: 0;
-    height: 30px;
-    width: 285px;
-    background-color: black;
-    border: none;
-    color: white;
+  position: fixed;
+  bottom: 0;
+  height: 30px;
+  width: 285px;
+  background-color: black;
+  border: none;
+  color: white;
 }
 
-#ownerPic img{
-    color: black;
-    height: 200px;
-    width: 200px;
-    padding-top: 5vh;
-    padding-left: 2.5vw;    
+#ownerPic img {
+  color: black;
+  height: 200px;
+  width: 200px;
+  padding-top: 5vh;
+  padding-left: 2.5vw;
 }
 
 #ownerName {
-    position: absolute;
-    padding-top: 30vh;
-    padding-left: 5vw;
-    color: white;
-    text-align: center;
-    
+  position: absolute;
+  padding-top: 30vh;
+  padding-left: 5vw;
+  color: white;
+  text-align: center;
 }
 
 #ownerBio {
-    position: absolute;
-    padding-top: 37vh;
-    padding-left: 3vw;
-    color: gold;
-    text-align: justify;
-    width: 20px;
+  position: absolute;
+  padding-top: 37vh;
+  padding-left: 3vw;
+  color: gold;
+  text-align: justify;
+  width: 20px;
 }
 
 /* .albumCover img{
@@ -201,24 +198,24 @@ h1 {
 } */
 
 .albumCover img {
-    max-width: 500px;
-    max-height: 500px;
+  max-width: 500px;
+  max-height: 500px;
 }
 
 .contentButton {
-    position: absolute;
-    top: 65%;
+  position: absolute;
+  top: 65%;
 }
 
 #createButton {
-    display: flex;
-    position: relative;
-    float: right;
-    height: 20px;
-    float: right;
+  display: flex;
+  position: relative;
+  float: right;
+  height: 20px;
+  float: right;
 }
 
 .content img {
-    max-width: 80%;
-    max-width: 80%;
+  max-width: 80%;
+  max-width: 80%;
 }

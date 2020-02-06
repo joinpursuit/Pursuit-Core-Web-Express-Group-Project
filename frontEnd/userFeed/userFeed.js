@@ -4,7 +4,7 @@ let createPostForm = document.querySelector("#createPostForm");
 let postDiv = document.querySelector(".postDiv");
 let userSearchForm = document.querySelector("#userSearchForm");
 let userSearchInput = document.querySelector("#userSearchInput");
-let errorDiv = userSearchForm.addEventListener("submit", async e => {
+userSearchForm.addEventListener("submit", async e => {
   e.preventDefault();
   let errorDiv = document.querySelector("#errorDiv");
   try {
@@ -144,16 +144,6 @@ const deletePost = async post => {
   let res = await axios.delete(`http://localhost:3000/posts/${post.id}`);
   window.location.reload();
 };
-// if (p.author_id == sessionStorage.userID) {
-//   let deleteCommentBtn = document.createElement("button");
-//   deleteCommentBtn.className = "deleteCommentBtn";
-//   deleteCommentBtn.innerText = "x";
-//   div.appendChild(deleteCommentBtn);
-//   deleteCommentBtn.addEventListener("click", async e => {
-//     await deleteComment(p.comment_id, post.id);
-//     await loadComments(post, div);
-//   });
-// }
 
 const insertComment = async (div, input) => {
   let res = await axios.post(
