@@ -16,6 +16,7 @@
 <body>
     
     <main>
+<<<<<<< HEAD
         <left>
         <div id="logo">
             <div id="moveLogo">
@@ -78,8 +79,125 @@
             </form>
             <button id="goBackLogin" class="myButton" onclick="showLogin()">Go Back to Login</button>
         
+=======
+        <section id="logoSection">
+            <img src="./assets/hotboxLogo.png" alt="" id="logo">
         </section>
-    </right>
+
+        <section id="forms">
+            <section id="buttons">
+                <button id="logInButton" onClick="showLogin()">Login</button>
+                <button id="signUpButton" onClick="showSignUp()">Sign Up</button>  
+            </section>
+            
+            <section id="login" style="display: none">
+                <form id="logInForm" autocomplete="off">
+                    <h1 id="loginH1"></h1>
+                    <label for="loginUser">Username: </label>
+                    <input type="text" name="username" id="loginUser">
+        
+                    <label for="password">Password: </label>
+                    <input type="password" name="password" id="loginPass">
+                    <button type="submit" id="confirmLogin">Log In</button>
+    
+                </form>
+                <button id="goToSignUp" class="myButton" onclick="showSignUp()">Show Sign Up</button>
+                
+            </section>
+        
+            <section id="signUp" style="display: none">
+                <form id="signUpForm" autocomplete="off">
+                    <h1 id="signUpH1"></h1>
+    
+                    <label for="firstName">First Name</label>
+                    <input type="text" name="firstName" id="signUpFirst">
+        
+                    <label for="lastName">Last Name</label>
+                    <input type="text" name="lastName" id="signUpLast">
+        
+                    <label for="dateOfBirth">Date Of Birth</label>
+                    <input type="date" name="dateOfBirth" id="signUpBirth">
+        
+                    <label for="city">City</label>
+                    <input type="text" name="city" id="signUpCity">
+        
+                    <label for="state">State</label>
+                    <select name="state" id="signUpState">
+                        <option value="disabled" disabled selected>Select A State</option>
+                        <option value="AL">Alabama</option>
+                        <option value="AK">Alaska</option>
+                        <option value="AZ">Arizona</option>
+                        <option value="AR">Arkansas</option>
+                        <option value="CA">California</option>
+                        <option value="CO">Colorado</option>
+                        <option value="CT">Connecticut</option>
+                        <option value="DE">Delaware</option>
+                        <option value="DC">District Of Columbia</option>
+                        <option value="FL">Florida</option>
+                        <option value="GA">Georgia</option>
+                        <option value="HI">Hawaii</option>
+                        <option value="ID">Idaho</option>
+                        <option value="IL">Illinois</option>
+                        <option value="IN">Indiana</option>
+                        <option value="IA">Iowa</option>
+                        <option value="KS">Kansas</option>
+                        <option value="KY">Kentucky</option>
+                        <option value="LA">Louisiana</option>
+                        <option value="ME">Maine</option>
+                        <option value="MD">Maryland</option>
+                        <option value="MA">Massachusetts</option>
+                        <option value="MI">Michigan</option>
+                        <option value="MN">Minnesota</option>
+                        <option value="MS">Mississippi</option>
+                        <option value="MO">Missouri</option>
+                        <option value="MT">Montana</option>
+                        <option value="NE">Nebraska</option>
+                        <option value="NV">Nevada</option>
+                        <option value="NH">New Hampshire</option>
+                        <option value="NJ">New Jersey</option>
+                        <option value="NM">New Mexico</option>
+                        <option value="NY">New York</option>
+                        <option value="NC">North Carolina</option>
+                        <option value="ND">North Dakota</option>
+                        <option value="OH">Ohio</option>
+                        <option value="OK">Oklahoma</option>
+                        <option value="OR">Oregon</option>
+                        <option value="PA">Pennsylvania</option>
+                        <option value="RI">Rhode Island</option>
+                        <option value="SC">South Carolina</option>
+                        <option value="SD">South Dakota</option>
+                        <option value="TN">Tennessee</option>
+                        <option value="TX">Texas</option>
+                        <option value="UT">Utah</option>
+                        <option value="VT">Vermont</option>
+                        <option value="VA">Virginia</option>
+                        <option value="WA">Washington</option>
+                        <option value="WV">West Virginia</option>
+                        <option value="WI">Wisconsin</option>
+                        <option value="WY">Wyoming</option>
+                        <option value="AS">American Samoa</option>
+                        <option value="GU">Guam</option>
+                        <option value="MP">Northern Mariana Islands</option>
+                        <option value="PR">Puerto Rico</option>
+                        <option value="UM">United States Minor Outlying Islands</option>
+                        <option value="VI">Virgin Islands</option>
+                    </select>
+    
+                    <label for="username">Username</label>
+                    <input type="text" name="username" id="signUpUser">
+    
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="signUpPass">
+                    
+                    <button type="submit" id="confirmSignUp">Sign Up</button>
+    
+                </form>
+                <button id="goToLogin" onclick="showLogin()">Show Login</button>
+            
+            </section>
+>>>>>>> 014935080076615dff3546194ca38201a22229c6
+        </section>
+        
 </main>
        
 </body>

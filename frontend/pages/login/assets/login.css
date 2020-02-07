@@ -1,17 +1,11 @@
 body{
-    margin: 0px
-}
-
-main{ 
     margin: 0px;
-    height: 100vh;
     background-repeat: no-repeat;
     background-position: 50%;
     background-image: linear-gradient(#592185, #FAC346);  
-    display: flex;
-    justify-content: space-evenly; 
 }
 
+<<<<<<< HEAD
 form {
     display: flex;
     flex-direction: column;
@@ -108,6 +102,28 @@ h1 {
     width: max-content;
   }
 
+=======
+input[type="text"], input[type="password"], input[type="date"] {
+    display: inline-block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    cursor: pointer;
+    padding: 10px 20px;
+    border: 1px solid #FDB927;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+    color: rgba(253,185,39,1);
+    -o-text-overflow: clip;
+    text-overflow: clip;
+    letter-spacing: 1px;
+    word-spacing: 29px;
+    background: rgba(6,25,31,1);
+    width: 175%;
+}
+
+>>>>>>> 014935080076615dff3546194ca38201a22229c6
 button {
     margin-top: 10px;
     display: flex;
@@ -143,44 +159,167 @@ button:active {
 	top:1px;
 }
 
+input:focus {
+    outline: none;
+}
+
+select {
+    font-family: 'Poppins', sans-serif;
+    display: inline-block;
+    min-width: 80%;
+    width: 175%;
+    cursor: pointer;
+    padding: 10px 15px;
+    outline: 0;
+    border: 1px solid #FDB927;
+    border-radius: 0px;
+    background: #06191f;
+    color: #FDB927;
+    appearance: none;
+    border-radius: 10px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+select::-ms-expand {
+    display: none;
+}
+
+select:hover, select:focus {
+    border-color: #06191f;
+    color: #06191f;
+    background: #FDB927;
+}
+
+select:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+<<<<<<< HEAD
+#signUp {
+    margin-top: 25%;
+=======
 label {
     font-family: 'Poppins', sans-serif;
+>>>>>>> 014935080076615dff3546194ca38201a22229c6
 }
 
-#loginButton2 {
+main{ 
+    height: 100vh;
     display: flex;
-    margin-bottom: 8%;
-    width: 100%;
-   justify-items: center;
-
+    justify-content: space-evenly; 
+    align-items: center;
 }
 
-#submitButton {
-    width: 100%;
-   justify-items: center;
-   display: flex;
-   margin-bottom: 8%;
+h1 {
+    font-family: 'Exo 2', sans-serif;
+    width: max-content;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#forms {
+    display: flex;
+    flex-direction: column;
+    width: 30%; 
+    margin: auto;
+    margin-left: 30%;
+    justify-content: center;
+}
+
+#logoSection {
+    margin: auto;
+    width: 5%;  
+}
+
+#buttons {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    justify-content: center;
+    align-items: center; 
+}
+
+#login {
+    align-items: center;
+    width: 40%;
 }
 
 #signUp {
-    margin-top: 25%;
+    align-items: center;
+    width: 40%;
 }
 
-#buttonDiv {
-    display: flex;
-    flex-direction: column;
-}
-
-#userPass {
-    display: flex;
-    margin-bottom: 8%;
-}
-
-#st {
-    display: flex;
-    margin-bottom: 8%;
-}
-
+<<<<<<< HEAD
 input:focus {
     outline: none;
+=======
+#goToLogin {
+    width: 100%;
+}
+
+@media only screen and (max-width: 1100px) {
+    main {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #logoSection {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 0px;
+        margin-top: 0px;
+    }
+
+    #logo {
+        height: 300px;
+    }
+
+    #buttons {
+        width: 60%;
+    }
+
+    #forms {
+        width: 40%;
+        align-items: center;
+        margin-top: 50px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    #logo {
+        height: 200px;
+    }
+
+    #logoSection {
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+
+    #forms {
+        margin-top: 50px;
+    }
+    
+}
+
+@media only screen and (max-width: 520px) {
+    #buttons > button {
+        font-size: 12px;
+        padding: 5px;
+    }
+}
+
+@media only screen and (max-width: 1100px) {
+    main {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+>>>>>>> 014935080076615dff3546194ca38201a22229c6
 }
