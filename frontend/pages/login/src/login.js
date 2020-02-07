@@ -37,7 +37,18 @@ logInForm.addEventListener("submit", async (e) => {
 
 formSignIn.addEventListener("submit", (e) => {
     e.preventDefault();
-    let 
+    let signUpFirst = document.querySelector("#signUpFirst").value;
+    let signUpLast = document.querySelector("#signUpLast").value;
+    let signUpBirth = document.querySelector("#signUpBirth").value;
+    let signUpEmail = document.querySelector("#signUpEmail").value;
+    let signUpCity = document.querySelector("#signUpCity").value;
+    let signUpState = document.querySelector("#signUpState").value;
+    if(!signUpFirst || !signUpLast || !signUpBirth || !signUpEmail || !signUpCity || !signUpState) {
+        signInh1.innerText = "Please fill out all the information";
+        loginH1.style.color = "#940E06";
+    } else {
+        
+    }
 })
 
 const checkLogin = (data) => {
