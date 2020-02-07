@@ -3,37 +3,6 @@ body {
     margin: 0px;
 }
 
-header {
-    display: grid;
-    grid-template-columns: 1fr 6fr;
-    grid-template-rows: 1fr 1fr;
-    grid-template-areas: "logo projectName" "logo projectName";
-    grid-area: header;
-    background-image: linear-gradient(#592185, #FAC346);
-}
-
-.logo { 
-    grid-area: logo; 
-}
-
-#logoHead{
-    height: 100px;
-}
-
-#projName {
-    height: 100px;
-  }
-
-.projectName {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
-    grid-template-areas: ".";
-    grid-area: projectName;
-    margin-left: 350px;
-    
-}
-
 nav {
     display: flex;
     flex-direction: row;
@@ -159,7 +128,8 @@ input[type="submit"] {
 }
 
 ul {
-    list-style-type: none;
+    list-style: none;
+    padding-left: 0px;
 }
 
 .users {
@@ -174,15 +144,37 @@ ul {
     cursor: pointer;
 }
 
-@media only screen and (max-width: 850) {
+@media only screen and (max-width: 850px) {
     main {
         width: 100%;
     }
     #searchResults {
-        width: 100%;
+        width: 75%;
     }
 
     #searchForm {
-        width: 50%;
+        width: 75%;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    body {
+       width: 100%; 
+    }
+
+    .nav {
+        font-size: 16px;
+    }
+
+    .nav:hover {
+        font-size: 18px;
+    }
+
+    .users {
+        font-size: 14px;
+    }
+
+    .users:hover {
+        font-size: 16px;
     }
 }
