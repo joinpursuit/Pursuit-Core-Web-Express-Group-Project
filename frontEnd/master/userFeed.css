@@ -50,13 +50,11 @@ a:hover {
 }
 
 #userSearchForm b {
-    position: absolute;
-    top: 0;
-    margin-left: 7.5%;
-    color: white;
-
+  position: absolute;
+  top: 0;
+  margin-left: 7.5%;
+  color: white;
 }
-
 
 .mainHeader {
   position: absolute;
@@ -111,6 +109,7 @@ a:hover {
 
 .feedContent {
   display: flex;
+  flex-direction: row;
   position: relative;
   float: right;
   background-color: #e9ebee;
@@ -121,8 +120,8 @@ a:hover {
   margin-top: 10vh;
 }
 .contentHeader {
-  display: flex;
-  flex-direction: row;
+  /* display: flex;
+  flex-direction: row; */
   position: absolute;
   background-color: #e9ebee;
   width: 60vw;
@@ -232,8 +231,8 @@ h1 {
 }
 
 h2 {
-    position: absolute;
-    top: 0;
-    justify-content: center;
-    text-align: center;
+  position: absolute;
+  top: 0;
+  justify-content: center;
+  text-align: center;
 }

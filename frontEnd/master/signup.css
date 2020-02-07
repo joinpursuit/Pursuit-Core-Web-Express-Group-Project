@@ -124,7 +124,6 @@ input {
         }
         
         #rightSideDiv {
-            
             background-color: black;
             animation: mymove 5s infinite;
             animation-delay: 2s;
@@ -143,6 +142,7 @@ input {
         #signUpDiv {
             color: white;
             align-content: center;
+            padding-left: 20px;
             padding-top: 200px;
         }
         
@@ -180,9 +180,10 @@ input {
           }
           
         
-          #signUpForm {
+        #signUpForm {
+            text-align: center;
             padding-bottom: 10px;
-          }
+        }
         
         
         #signUpBtn {
