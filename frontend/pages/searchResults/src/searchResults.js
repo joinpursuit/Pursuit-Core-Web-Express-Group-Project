@@ -40,7 +40,7 @@ const findUser = (data) => {
             userList.appendChild(li);
         }
         searchResponse.appendChild(userList);
-        userList.addEventListener("click", findUserId);
+        userList.addEventListener("click", findForeignId);
     }
 } // End of findUser() function
 
