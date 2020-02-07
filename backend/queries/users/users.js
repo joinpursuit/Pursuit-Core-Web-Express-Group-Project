@@ -12,14 +12,37 @@ const isUsernameExisting = async (username) => {
     else return false;
 }
 
+const findUsers = async (req, res, next) => {
+    try {
+        let {search} = req.query;
+        let users = await db.any("SELECT * FROM users WHERE full_name LIKE '%" + search + "%'");
+        if(users.length) {
+            res.status(200).json({
+                users,
+                status: "success",
+                message: "Retrieved searched users"
+            })
+        } else {
+            throw {status: 404, error: "No users found"};
+        }
+    } catch(err) {
+        console.log(err);
+        next(err);
+    }
+}
+
 const getUsers = async (req, res, next) => {
     try {
-        let users = await db.any("SELECT * FROM users");
-        res.status(200).json({
-            users, 
-            status: "success",
-            message: "All Users"
-        })
+        if(req.query.search) {
+            findUsers(req, res, next);
+        } else {
+            let users = await db.any("SELECT * FROM users");
+            res.status(200).json({
+                users, 
+                status: "success",
+                message: "All Users"
+            })
+        }
     } catch(err){
         next(err)
     }
