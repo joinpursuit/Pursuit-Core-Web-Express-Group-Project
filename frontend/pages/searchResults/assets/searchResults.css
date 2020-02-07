@@ -37,10 +37,12 @@ header {
 nav {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    text-align: left;
     background-color: rgb(6,25,34);
     font-size: 24px;
     padding: 10px;
+    justify-content: space-between;
+    padding-right: 20%;
 }
 
 .leftBorder {
