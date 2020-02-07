@@ -16,29 +16,18 @@ document.addEventListener("DOMContentLoaded", () => {
     let orientation = document.querySelector("#orientation")
 
     // preferences
-    let haveKidsYes = document.querySelector("#yes1")
-    let haveKidsNo = document.querySelector("#no1")
-    let wantKidsYes = document.querySelector("#yes2")
-    let wantKidsNo = document.querySelector("#no2")
-    let drinkYes = document.querySelector("#yes3")
-    let drinkNo = document.querySelector("#no3")
-    let smokeYes = document.querySelector("#yes4")
-    let smokeNo = document.querySelector("#no4")
-    let longTermYes = document.querySelector("#yes5")
-    let longTermNo = document.querySelector("#no5")
-    //
-
-    const getRadioValue = () => {
-        
-    }
+    let haveKidsYes = document.getElementById("yes1")
+    let wantKidsYes = document.getElementById("yes2")
+    let drinkYes = document.getElementById("yes3")
+    let smokeYes = document.getElementById("yes4")
+    let longTermYes = document.getElementById("yes5")
 
     form.addEventListener("submit", async (e) => {
         e.preventDefault()
         try {
             let res = await axios.post("http://localhost:3000/users", {firstName: firstName.value, lastName: lastName.value, userName: userName.value, password: passWord.value, email: email.value, dob: dob.value, gender: gender.options[gender.options["selectedIndex"]].value, orientation: orientation.options[orientation.options["selectedIndex"]].value})
-            debugger
-            let res2 = await axios.post(`http://localhost:3000/preferences/${res.data.user_id.id}`, )
-            
+
+            let res2 = await axios.post(`http://localhost:3000/preferences/${res.data.user_id.id}`, {users_id:res.data.user_id.id, do_have_child: haveKidsYes.checked, want_child: wantKidsYes.checked, drink: drinkYes.checked, smoke_weed: smokeYes.checked, long_term: longTermYes.checked})
         } catch (error) {
             console.log(error)
         }
