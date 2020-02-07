@@ -1,10 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
+    // sessionStorage.clear()
     let signUpbtn = document.querySelector("#signUp");
     let logInBtn = document.querySelector("#alreadyUser");
     let logIn = document.querySelector('#formlogin');
     let cancelBtn = document.querySelector("#cancelBtn");
     let username = document.querySelector("#username").value;
     let password = document.querySelector("#password").value;
+    let currentUser = sessionStorage.currentUser;
+    let currentUsername = sessionStorage.currentUsername;
     
     logInBtn.addEventListener('click', () => {
         document.getElementById("logInForm").style.display = "block";
@@ -15,20 +18,22 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     
     signUpbtn.addEventListener("click", () => {
-        debugger
+        window.location.href = "../signUp_page/index.html";
     })
     
     const getUserParams = async () => {
         let username = document.querySelector("#username").value;
         let password = document.querySelector("#password").value;
-        debugger
         try {
             
             let res = await axios.post("http://localhost:3000/users/" + username, {username, password });
             let user = res.data.user;
-            
-        } catch (err) {
             debugger
+            sessionStorage.setItem("currentUser", user.id);
+            sessionStorage.setItem("currentUsername", user.username);
+            window.location.href = "../feedPage/feedPage.html";
+
+        } catch (err) {
             console.log(err);
         }
     }
