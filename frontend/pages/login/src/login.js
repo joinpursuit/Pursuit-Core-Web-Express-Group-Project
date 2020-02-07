@@ -4,7 +4,7 @@ let logInForm = document.querySelector("#logInForm");
 let signUpForm = document.querySelector("#signUpForm");
 let logo = document.querySelector("#logo");
 let loginH1 = document.querySelector("#loginH1")
-let signInh1 = document.querySelector("#signInh1")
+let signUpH1 = document.querySelector("#signUpH1")
 let main = document.querySelector("main");
 let buttons = document.querySelector("#buttons")
 
@@ -17,7 +17,7 @@ const showLogin = () => {
 }
 
 const showSignUp = () => {
-    signInh1.innerText = "Be part of the action !";
+    signUpH1.innerText = "Be part of the action !";
     buttons.style.display = "none";
     login.style.display = "none";
     signIn.style.display = "inline";
@@ -44,7 +44,7 @@ signUpForm.addEventListener("submit", (e) => {
     let signUpCity = document.querySelector("#signUpCity").value;
     let signUpState = document.querySelector("#signUpState").value;
     if(!signUpFirst || !signUpLast || !signUpBirth || !signUpEmail || !signUpCity || !signUpState) {
-        signInh1.innerText = "Please fill out all the information";
+        signUpH1.innerText = "Please fill out all the information";
         loginH1.style.color = "#940E06";
     } else {
         
