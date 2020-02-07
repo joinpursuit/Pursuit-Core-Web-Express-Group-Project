@@ -25,9 +25,9 @@ const showSignUp = () => {
 
 logInForm.addEventListener("submit", async (e) => {
     e.preventDefault();
-    let loginUser = document.querySelector("#loginUser");
-    let loginPass = document.querySelector("#loginPass");
-    if(!loginUser.value || !loginPass.value) {
+    let loginUser = document.querySelector("#loginUser").value;
+    let loginPass = document.querySelector("#loginPass").value;
+    if(!loginUser || !loginPass) {
         loginH1.innerText = "Please fill out all the information";
         loginH1.style.color = "#940E06";
     } else {
