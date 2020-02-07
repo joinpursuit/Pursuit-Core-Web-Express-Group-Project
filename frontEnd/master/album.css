@@ -115,15 +115,16 @@ a:hover {
 }
 .contentHeader {
     display: flex;
-    position: absolute;
-    background-color: #E9EBEE;
+    position: relative;
+    background-color:none;
     width: 60vw;
     height: 10vh;
     margin-left: 10vw;
     text-align: center;
     justify-content: center;
     color: black;
-
+    z-index: 1;
+    /* opacity: 90%; */
 }
 
 h1 {
@@ -189,8 +190,9 @@ h1 {
     color: gold;
     text-align: left;
     width: 70%;
+    font-size: 15px;
 }
 .albumCover img {
     max-width: 50%;
-    max-height: 50%;
+    max-height: 50%;   
 }
