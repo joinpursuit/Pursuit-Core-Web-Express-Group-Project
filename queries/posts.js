@@ -3,7 +3,7 @@ const db = require('../db/index');
 
 const getPosts = async (req, res, next) => {
     try {
-        let posts = await db.any("SELECT posts.*, ARRAY_AGG(comments.*)AS comments FROM posts JOIN comments ON comments.post_id = posts.id GROUP BY posts.id ORDER BY users_id");
+        let posts = await db.any("SELECT posts.*, ARRAY_AGG(comments.body)AS comments FROM posts JOIN comments ON comments.post_id = posts.id GROUP BY posts.id ORDER BY users_id");
         res.status(200).json({
             posts,
             status: "Success!",
