@@ -13,8 +13,10 @@ const fetchData = async (url, cb) => {
     }
 } // End of fetchData() function
 
-const findUserId = () => {
-    debugger;
+const findUserId = (e) => {
+    let userId = e.target.id;
+    sessionStorage.setItem("foreignUser", JSON.stringify(userId));
+    window.location.href = "./../userProfile/userProfile.html";
 } // End of findUserId() function
 
 const findUser = (data) => {
@@ -31,7 +33,9 @@ const findUser = (data) => {
             if(i === 10) break;
             let user = users[i];
             let li = document.createElement("li");
-            li.innerHTML = `<a class="users" id=${user.id} href="./../userProfile/userProfile.html">${user.full_name}</a>`
+            li.className = "users";
+            li.id = user.id;
+            li.innerText = user.full_name;
             userList.appendChild(li);
         }
         searchResponse.appendChild(userList);
