@@ -138,12 +138,20 @@ document.addEventListener("DOMContentLoaded", () =>{
       form.addEventListener("submit", (e)=>{
         e.preventDefault()
         submitPref()
-        userPref(users_id)
+        divUserPref.innerHTML =""
+        // userPref(user_id)
       })
 
 const submitPref = async () => {
   try{
-    let res2 = await axios.post(`http://localhost:3000/preferences/${res.data.user_id.id}`, {users_id:res.data.user_id.id, do_have_child: haveKidsYes.checked, want_child: wantKidsYes.checked, drink: drinkYes.checked, smoke_weed: smokeYes.checked, long_term: longTermYes.checked})
+    let haveKidsYes = document.getElementById("yes1")
+    let wantKidsYes = document.getElementById("yes2")
+    let drinkYes = document.getElementById("yes3")
+    let smokeYes = document.getElementById("yes4")
+    let longTermYes = document.getElementById("yes5")
+    let res2 = await axios.put(`http://localhost:3000/preferences/${user_id}`, {users_id:user_id, do_have_child: haveKidsYes.checked, want_child: wantKidsYes.checked, drink: drinkYes.checked, smoke_weed: smokeYes.checked, long_term: longTermYes.checked})
+    // debugger
+    userPref(user_id)
   } 
   catch(err){
     console.log(err);
