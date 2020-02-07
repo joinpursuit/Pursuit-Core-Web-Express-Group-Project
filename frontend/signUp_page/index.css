@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
 img {
     width: 20%;
     margin-left: 40%;
@@ -11,6 +12,7 @@ h3 {
     width: 14%;
     border-style: solid;
     border-color: #F7402C;
+    font-family: 'Josefin Sans', sans-serif;
 }
 
 #signUpForm {
@@ -19,6 +21,10 @@ h3 {
     height: 50%;
     padding: 10px;
     /* background-color: black; */
+}
+
+form {
+    font-family: 'Josefin Sans', sans-serif;
 }
 
 #inputInfo {
@@ -34,6 +40,9 @@ button {
     margin-left: 44%;
     margin-right: 39%;
     bottom: 10px;
+    font-family: 'Josefin Sans', sans-serif;
+    height: 35px;
+    width: 100px;
 }
 
 input {
