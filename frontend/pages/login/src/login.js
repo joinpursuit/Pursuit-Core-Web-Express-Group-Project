@@ -12,7 +12,7 @@ const showLogin = () => {
     loginH1.innerText = "Welcome Back";
     loginH1.style.color = "rgba(6,25,31,1)";
     buttons.style.display = "none";
-    signIn.style.display = "none";
+    signUp.style.display = "none";
     login.style.display = "inline";
 }
 
@@ -20,7 +20,7 @@ const showSignUp = () => {
     signUpH1.innerText = "Be part of the action !";
     buttons.style.display = "none";
     login.style.display = "none";
-    signIn.style.display = "inline";
+    signUp.style.display = "inline";
 }
 
 logInForm.addEventListener("submit", async (e) => {
@@ -35,19 +35,33 @@ logInForm.addEventListener("submit", async (e) => {
     }
 })
 
-signUpForm.addEventListener("submit", (e) => {
+signUpForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     let signUpFirst = document.querySelector("#signUpFirst").value;
     let signUpLast = document.querySelector("#signUpLast").value;
     let signUpBirth = document.querySelector("#signUpBirth").value;
-    let signUpEmail = document.querySelector("#signUpEmail").value;
     let signUpCity = document.querySelector("#signUpCity").value;
     let signUpState = document.querySelector("#signUpState").value;
-    if(!signUpFirst || !signUpLast || !signUpBirth || !signUpEmail || !signUpCity || !signUpState) {
+    let signUpEmail = document.querySelector("#signUpEmail").value;
+    let signUpPass = document.querySelector("#signUpPass").value;
+    if(!signUpFirst || !signUpLast || !signUpBirth || !signUpEmail || !signUpCity || !signUpState || !signUpPass) {
         signUpH1.innerText = "Please fill out all the information";
         loginH1.style.color = "#940E06";
     } else {
-        
+        try {
+            let user = {
+                full_name: signUpFirst + " " + signUpLast, 
+                birth_date: signUpBirth,
+                city: signUpCity,
+                state: signUpState,
+                email: signUpEmail,
+                password: signUpPass 
+            }
+            let res = await axios.post(`http://localhost:3000/users`, user);
+            window.location.href = "./../../index.html";
+        } catch(err) {
+
+        }
     }
 })
 

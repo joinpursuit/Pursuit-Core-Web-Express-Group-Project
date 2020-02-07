@@ -30,7 +30,7 @@
         <section id="buttons">
             <div id="buttonDiv">
                 <button id="logInButton" class="myButton" onClick="showLogin()">Login</button>
-                <button id="signUp" class="myButton" onClick="showSignUp()">Sign Up</button>  
+                <button id="signUpButton" class="myButton" onClick="showSignUp()">Sign Up</button>  
             </div>
             
         </section>
@@ -50,7 +50,7 @@
             
         </section>
     
-        <section id="signIn" style="display: none">
+        <section id="signUp" style="display: none">
             <form id="signUpForm" autocomplete="off">
                 <h1 id="signUpH1"></h1>
 
@@ -63,14 +63,17 @@
                 <label for="dateOfBirth">Date Of Birth</label>
                 <input type="text" name="dateOfBirth" id="signUpBirth">
     
-                <label for="email">Email</label>
-                <input type="text" name="email" id="signUpEmail">
-    
                 <label for="city">City</label>
                 <input type="text" name="city" id="signUpCity">
     
                 <label for="state">State</label>
                 <input type="text" name="state" id="signUpState">
+
+                <label for="email">Email</label>
+                <input type="text" name="email" id="signUpEmail">
+
+                <label for="password">Password</label>
+                <input type="password" name="password" id="signUpPass">
                 
                 <button type="submit" id="submitButton" class="myButton">Submit</button>
 
