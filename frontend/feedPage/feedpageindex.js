@@ -114,6 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     displayComments(postId);
   };
+
   const commentOnPost = async e => {
     e.preventDefault();
     let id = e.target.value;
@@ -128,10 +129,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const deletePost = async e => {
     let id = e.target.value;
     let postId = e.target.id;
-    debugger;
-    await axios.delete(`http://localhost:3000/posts/${postId}`);
-
-    displayComments(postId);
+    await axios.delete(`http://localhost:3000/posts/${id}`);
+    populateFeed();
   };
 
   const populateFeed = async () => {
@@ -179,9 +178,19 @@ document.addEventListener("DOMContentLoaded", () => {
           commentForm.appendChild(commentButton);
           let commentUl = document.createElement("ul");
           commentUl.id = `commentsUl${id}`;
+
           postDiv.appendChild(userName);
           postDiv.appendChild(img);
           postDiv.appendChild(caption);
+          if (post.user_name === currentUserName) {
+            let deleteButton = document.createElement("button");
+            deleteButton.innerHTML = "Delete Post";
+            deleteButton.value = post.id;
+            deleteButton.id = `${id}`;
+            deleteButton.class = "deleteButton";
+            deleteButton.onclick = deletePost;
+            postDiv.appendChild(deleteButton);
+          }
           postDiv.appendChild(likes);
           postDiv.appendChild(likeButton);
           postDiv.appendChild(commentUl);
@@ -224,6 +233,17 @@ document.addEventListener("DOMContentLoaded", () => {
           commentUl.id = `commentsUl${id}`;
           postDiv.appendChild(userName);
           postDiv.appendChild(caption);
+
+          if (post.user_name === currentUserName) {
+            let deleteButton = document.createElement("button");
+            deleteButton.innerHTML = "Delete Post";
+            deleteButton.value = post.id;
+            deleteButton.id = `${id}`;
+            deleteButton.class = "deleteButton";
+            deleteButton.onclick = deletePost;
+            postDiv.appendChild(deleteButton);
+          }
+
           postDiv.appendChild(likes);
           postDiv.appendChild(likeButton);
           postDiv.appendChild(commentUl);
