@@ -1,20 +1,19 @@
 html, body, main { height: 100%; margin: 0; }
 
-#top {
-    
+/* #top {
     display: flex;
     flex-direction: row;
-    /* height: 20%; */
+    height: 20%;
     justify-content: space-evenly;
-    background-color: lightcoral;
-
-    
+    background-image: linear-gradient(#592185, #FAC346); 
   }
   img{
       height: 160px;
-  }
+  } */
 
-nav {
+  
+
+/* nav {
     display: inline-flex;
     flex-direction: row;
     justify-content: space-between;
@@ -36,24 +35,109 @@ a {
 }
 a:hover {
     font-size: 26px;
+} */
+
+#logoSection {
+    display: flex;
+    flex-direction: row;
+    background-image: linear-gradient(#592185, #FAC346);
+    color: rgb(85,37,130);
+    text-align: center;
+    align-items: center;
+    border-bottom: 1px solid black;
+    justify-content: space-between;
+}
+#logo {
+    width: 40%;
+}
+#headerName {
+    width: 22%;
+    margin-right: 39%;
+}
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: rgb(6,25,34);
+    font-size: 24px;
+    padding: 10px;
+}
+.leftBorder {
+    border-left: 1px solid #FDB927;
+    padding-left: 15px;
+}
+.nav {
+    color: #FDB927;
+    text-decoration: none;
+    margin-left: 15px;
+    font-family: 'Exo 2', sans-serif;
+}
+.nav:hover {
+    font-size: 26px;
+}
+input[type="text"], input[type="search"] {
+    display: inline-block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    cursor: pointer;
+    padding: 10px 20px;
+    border: 1px solid #FDB927;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+    color: rgba(253,185,39,1);
+    -o-text-overflow: clip;
+    text-overflow: clip;
+    letter-spacing: 1px;
+    word-spacing: 29px;
+    background: rgba(6,25,31,1);
 }
 
 #container2 {
     display: flex;
+    justify-content: space-between;
     font-family:  'Exo 2', sans-serif;
+    height: 100%;
+    /* border: 5px solid; */
+    /* border-style: outset;  */
+    background-color: #FAC346;
+    
+}
+
+#container2-box {
+    display: flex;
+    justify-content: space-between;
+    width: auto;
+    
+}
+
+#bets {
+    flex-direction: column;
+    border: 10px solid;
+    padding: 20px;
+    border-radius: 20px;
+    flex: 2;
+    background-color: magenta;
+    border-color:#592185;
+    margin: 10px;
 }
 
 #gamesToday {
     flex: 1;
     background-color: lightseagreen;
-}
-
-#bets {
-    flex: 2;
-    background-color: magenta;  
+    padding: 20px;
+    border-radius: 20px;  
+    border: 10px solid;
+    margin: 10px;
 }
 
 #upcoming {
     flex: 1;
     background-color: mediumturquoise; 
+    padding: 20px;
+    border-radius: 20px;
+    border: 10px solid;
+    margin: 10px;
+    justify-content: ;
 }
