@@ -7,7 +7,7 @@ const isUserExisting = async (userId) => {
 }
 
 const isUsernameExisting = async (username) => {
-    let user = await db.any("SELECT * FROM users WHERE username=$1", username);
+    let user = await db.any("SELECT * FROM users WHERE upper(username)=$1", username.toUpperCase());
     if(user.length) return true;
     else return false;
 }
