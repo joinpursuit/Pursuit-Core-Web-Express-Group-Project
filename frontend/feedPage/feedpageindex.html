@@ -27,7 +27,18 @@
         />
         <input type="button" value="Profile" />
       </div>
-      <div class="newPost"></div>
+      <div class="newPost">
+        <form class="createPost" id="createPost">
+          <input id="incomingFile" accept="image/*" type="file" />
+          <img id="imgPreview" src="" alt="" />
+          <input
+            id="postInput"
+            type="text"
+            placeholder="What are you craving?!"
+          />
+          <input type="submit" value="Post" />
+        </form>
+      </div>
     </div>
   </body>
 </html>

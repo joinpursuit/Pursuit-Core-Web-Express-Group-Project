@@ -33,11 +33,10 @@ const getpost = async (req, res, next) => {
 
 const newpost = async (req, res, next) => {
   try {
-    let newpost = await dataBase.any(
-      `INSERT INTO posts (type,body,url,album_id,user_id) VALUES ('${req.body.type}','${req.body.body}','${req.body.url}',${req.body.album_id},${req.body.user_id} RETURNING *)`
+    await dataBase.none(
+      `INSERT INTO posts (type,body,url_img,album_id,user_id) VALUES ('${req.body.type}','${req.body.body}','${req.body.url_img}',${req.body.album_id},${req.body.user_id} )`
     );
     res.status(200).json({
-      newpost,
       status: "success",
       message: "post created "
     });

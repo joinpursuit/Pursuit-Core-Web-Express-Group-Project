@@ -22,7 +22,7 @@
 }
 
 .feed {
-  background-color: rosybrown;
+  justify-content: center;
   grid-area: feed;
 }
 
@@ -32,4 +32,13 @@
 
 .newPost {
   grid-area: newPost;
+}
+
+.postImg {
+  height: 400px;
+  width: 500px;
+}
+
+.postDiv {
+  margin-left: 15%;
 }

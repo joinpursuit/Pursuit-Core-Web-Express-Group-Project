@@ -2,6 +2,11 @@ document.addEventListener("DOMContentLoaded", () => {
   let currentUser = sessionStorage.currentUser;
   let currentUserName = sessionStorage.currentUserName;
   let feed = document.querySelector(".feed");
+  let previewImage = document.querySelector("#imgPreview");
+  let incomingFile = document.querySelector("#incomingFile");
+  let createPostForm = document.querySelector(".createPost");
+  let postInput = document.querySelector("#postInput");
+  let imgsrc = "";
 
   const displayLikes = async id => {
     let res = await axios.get(`http://localhost:3000/likes/posts/${id}`);
@@ -39,6 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const displayComments = async id => {
     let commentUl = document.querySelector(`#commentsUl${id}`);
     commentUl.innerHTML = "";
+
     let res = await axios.get(`http://localhost:3000/comments/posts/${id}`);
     let comments = res.data.comments;
 
@@ -70,7 +76,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const editComment = async e => {
     let id = e.target.value;
 
-    // let button = document.querySelector('editButton${id}`");
     let li = document.querySelector(`#li${id}`);
     let form = document.createElement("form");
     form.onsubmit = commentEditSubmit;
@@ -88,8 +93,6 @@ document.addEventListener("DOMContentLoaded", () => {
     submitEdit.value = id;
     submitEdit.id = e.target.id;
 
-    // submitEdit.onclick = commentEditSubmit;
-
     form.appendChild(input);
     form.appendChild(submitEdit);
     li.appendChild(form);
@@ -100,7 +103,6 @@ document.addEventListener("DOMContentLoaded", () => {
     let post_id = e.currentTarget.elements[1].id;
     let body = e.currentTarget.elements[0].value;
 
-    // debugger;
     await axios.patch(`http://localhost:3000/comments/${id}`, { body: body }); // new comment gets pushed to the End.
     displayComments(post_id);
   };
@@ -123,15 +125,27 @@ document.addEventListener("DOMContentLoaded", () => {
     displayComments(id);
   };
 
+  const deletePost = async e => {
+    let id = e.target.value;
+    let postId = e.target.id;
+    debugger;
+    await axios.delete(`http://localhost:3000/posts/${postId}`);
+
+    displayComments(postId);
+  };
+
   const populateFeed = async () => {
     try {
+      feed.innerHTML = "";
       let res = await axios.get("http://localhost:3000/posts");
       let posts = res.data.posts;
 
       posts.forEach(async post => {
         let postDiv = document.createElement("div");
+        postDiv.className = "postDiv";
         if (post.type === "img") {
           let img = document.createElement("img");
+          img.className = "postImg";
           img.src = post.url_img;
           let id = post.id;
           let userName = document.createElement("h1");
@@ -171,7 +185,48 @@ document.addEventListener("DOMContentLoaded", () => {
           postDiv.appendChild(likes);
           postDiv.appendChild(likeButton);
           postDiv.appendChild(commentUl);
-          //   debugger;
+
+          feed.appendChild(postDiv);
+          displayComments(id);
+          postDiv.appendChild(commentForm);
+        } else {
+          let id = post.id;
+          let userName = document.createElement("h1");
+          userName.innerText = post.user_name;
+          let caption = document.createElement("p");
+          caption.innerText = post.body;
+          let likes = document.createElement("p");
+          likes.id = `p${id}`;
+          likes.innerText = `${await displayLikes(id)} Likes`;
+          let likeButton = document.createElement("button");
+          likeButton.innerHTML = "Like";
+          likeButton.value = id;
+          likeButton.id = `likeButton${id}`;
+          likeButton.class = "likeButton";
+          likeButton.onclick = likePost;
+          let commentForm = document.createElement("form");
+
+          let commentButton = document.createElement("button");
+          commentButton.innerHTML = "comment";
+          commentButton.value = id;
+          commentButton.id = `commentButton${id}`;
+          commentButton.class = "commentButton";
+          commentButton.onclick = commentOnPost;
+          let commentBody = document.createElement("input");
+
+          commentBody.class = "comments";
+          commentBody.type = "text";
+          commentBody.placeholder = "Write a comment...";
+          commentBody.id = `comment${id}`;
+          commentForm.appendChild(commentBody);
+          commentForm.appendChild(commentButton);
+          let commentUl = document.createElement("ul");
+          commentUl.id = `commentsUl${id}`;
+          postDiv.appendChild(userName);
+          postDiv.appendChild(caption);
+          postDiv.appendChild(likes);
+          postDiv.appendChild(likeButton);
+          postDiv.appendChild(commentUl);
 
           feed.appendChild(postDiv);
           displayComments(id);
@@ -183,4 +238,49 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
   populateFeed();
+
+  incomingFile.addEventListener("change", function() {
+    const file = this.files[0];
+    console.log(this.files);
+    if (file) {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.addEventListener("load", function() {
+        previewImage.setAttribute("src", this.result);
+        imgsrc = this.result;
+        console.log(imgsrc);
+      });
+    }
+  });
+
+  const postFunction = async () => {
+    let file = incomingFile.value;
+    let albumId = null;
+    let postType;
+    if (file !== "") {
+      postType = "img";
+      albumId = 1;
+    } else {
+      postType = "text";
+    }
+    try {
+      let res = await axios.post("http://localhost:3000/posts", {
+        type: postType,
+        body: postInput.value,
+        album_id: albumId,
+        user_id: currentUser,
+        url_img: imgsrc
+      });
+    } catch (err) {
+      console.log(err);
+    }
+
+    debugger;
+  };
+  createPostForm.addEventListener("submit", async e => {
+    postFunction(); // POST NOT IN PROPPER PLACEMENT UNTIL REFRESHED A FEW TIMES
+    imgsrc = "";
+    previewImage.innerHTML = "";
+    populateFeed();
+  });
 });
