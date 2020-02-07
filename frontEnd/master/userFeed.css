@@ -18,7 +18,8 @@ body {
   border: solid black;
   border-width: 1.5px;
   top: 0;
-  z-index: 3;
+  z-index: 1;
+  ;
 }
 
 a:link {
@@ -44,9 +45,8 @@ a:hover {
 #userSearchForm {
   position: absolute;
   margin-top: 1vh;
-  padding-right: 75vw;
+  left: -12vw;
   width: 50vw;
-  z-index: 10;
 }
 
 #userSearchForm b {
@@ -58,22 +58,21 @@ a:hover {
 
 .mainHeader {
   position: absolute;
-  padding-left: 70vw;
+  right: 14vw;
   margin-top: 1vh;
-  z-index: 4;
 }
 
 .albums {
   position: absolute;
   margin-top: 1vh;
-  padding-left: 80vw;
+  right: 8.5vw;
   z-index: 3;
 }
 
 .photos {
   position: absolute;
   margin-top: 1vh;
-  padding-left: 90vw;
+  right: 3vw;
 }
 
 .feedHeader {
@@ -88,7 +87,6 @@ a:hover {
   display: flex;
   position: fixed;
   background-color: #030303;
-  /* border: solid white; */
   width: 20vw;
   height: 100vh;
   margin: auto;
@@ -113,19 +111,15 @@ a:hover {
   position: relative;
   float: right;
   background-color: #e9ebee;
-  /* border: solid white; */
   width: 80vw;
   height: 13vh;
-  z-index: 1;
   margin-top: 10vh;
 }
 .contentHeader {
-  /* display: flex;
-  flex-direction: row; */
   position: absolute;
   background-color: #e9ebee;
   width: 60vw;
-  height: 10vh;
+  height: 5vh;
   margin-left: 10vw;
   text-align: center;
   justify-content: center;
@@ -195,17 +189,8 @@ h1 {
   color: gold;
   text-align: left;
   width: 70%;
+  font-size: 15px;
 }
-
-/* .albumCover img{
-   display: block;
-   position: sticky;
-   z-index: 4;
-   width: 200px;
-   height: 200px;
-   justify-content: center;
-   text-align: center;
-} */
 
 .albumCover img {
   max-width: 500px;
@@ -235,4 +220,10 @@ h2 {
   top: 0;
   justify-content: center;
   text-align: center;
+}
+
+
+#createPostBtn {
+  color: black;
+  size: 40%;
 }
