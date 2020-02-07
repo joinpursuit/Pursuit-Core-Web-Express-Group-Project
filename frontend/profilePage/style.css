@@ -1,65 +1,120 @@
-body {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-}
-#heading{
-    /* display: flex; */
-    /* justify-content: space-around; */
-    /* position: fixed; */
-    left: 0;
-    top: 0;
-    padding-top: 0;
-    /* margin-bottom: 50%; */
-    width: 100%;
-    height: 100px;
-    text-align: left;
+ @import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
+ #heading{
+  left: 0;
+  top: 0;
+  padding-top: 0;
+  /* margin-bottom: 50%; */
+  width: 100%;
+  height: 100px;
+  text-align: left;
 }
 img{
-    height: 100px;
-    width: 100px;
-    left: 0;
+  height: 100px;
+  width: 100px;
+  left: 0;
+} 
+
+#edit{
+  height: 25px;
 }
-footer {
-    display: flex;
-    justify-content: space-around;
-    position: relative;
-    left: 0;
-    bottom: 0;
-    padding-top: 0;
-    width: 100%;
-    text-align: center;
-  }
-footer ul :hover {
-    text-decoration: underline;
-  }
- footer ul li {
-     color: lightgray;
-     display: inline-block;
-     cursor: pointer;
-     padding: 0 10px;
- }
- #profile_pic{
-    border-style: solid;
-    border-color: red;
- }
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  font-family: 'Josefin Sans', sans-serif;
+}
 
- #albums{
-    border-style: solid;
-    border-color: green;
- }
+body{
+   background-color: #f3f3f3;
+   /* min-height: 100%; */
+}
 
- #users_info{
-    border-style: solid;
-    border-color: blue;
- }
+.wrapper{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  height: 100%;
+  width: 100%;
+  /* height: auto; */
+  display: flex;
+  box-shadow: 0 1px 20px 0 rgba(69,90,100,.08);
+}
 
- #users_post{
-    border-style: solid;
-    border-color: yellow;
- }
- p{
-    text-indent: 30px;
-    margin: 0;
-    padding: 0;
- }
+.wrapper .left{
+  width: 35%;
+  background: linear-gradient(to right,#01a9ac,#01dbdf);
+  padding: 30px 25px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  text-align: center;
+  color: #fff;
+}
+
+.wrapper .left img{
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.wrapper .left h4{
+  margin-bottom: 10px;
+}
+
+.wrapper .left p{
+  font-size: 12px;
+}
+
+.wrapper .right{
+  width: 65%;
+  background: #fff;
+  padding: 30px 25px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.wrapper .right .info,
+.wrapper .right .projects{
+  margin-bottom: 25px;
+}
+
+.wrapper .right .info h3,
+.wrapper .right .projects h3{
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #e0e0e0;
+    color: #353c4e;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+}
+
+.wrapper .right .info_data,
+.wrapper .right .projects_data{
+  display: flex;
+  justify-content: space-between;
+}
+
+.wrapper .right .info_data .data,
+.wrapper .right .projects_data .data{
+  width: 45%;
+}
+
+.wrapper .right .info_data .data h4,
+.wrapper .right .projects_data .data h4{
+    color: #353c4e;
+    margin-bottom: 5px;
+}
+
+.wrapper .right .info_data .data p,
+.wrapper .right .projects_data .data p{
+  font-size: 13px;
+  margin-bottom: 10px;
+  color: #919aa3;
+}
+#addPost{
+  margin-left: 350px;
+  background: #fff;
+  /* padding: 30px 25px; */
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
