@@ -31,6 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
             debugger
             sessionStorage.setItem("currentUser", user.id);
             sessionStorage.setItem("currentUsername", user.username);
+            sessionStorage.setItem("currentPassword", user.password);
             window.location.href = "../feedPage/feedPage.html";
 
         } catch (err) {

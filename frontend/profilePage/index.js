@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", () =>{
+    let currentUser = sessionStorage.currentUser;
+    let currentUsername = sessionStorage.currentUsername;
+    let currentPassword = sessionStorage.currentPassword;
 
     let divProfilePic = document.querySelector("#profile_pic")
     let  divAlbums = document.querySelector("#albums")
@@ -19,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () =>{
 
     const profilePic = async () =>{
         try{
-          let res = await axios.get("http://localhost:3000/albums/5");
+          let res = await axios.get("http://localhost:3000/albums/"+currentUser);
         // debugger
         let ppic = res.data.album[0].picture_url
 
@@ -35,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () =>{
 
       const userInfo = async () =>{
         try{
-          let res = await axios.post("http://localhost:3000/users/claw45",{username: "claw45", password: "1234"});
+          let res = await axios.post("http://localhost:3000/users/claw45",{username: currentUsername, password: currentPassword});
           let userKeys = Object.keys(res.data.user)
           let usersi = Object.values(res.data.user)
           user_id = res.data.user.id
@@ -119,7 +122,7 @@ document.addEventListener("DOMContentLoaded", () =>{
       }
       const userPost = async () =>{
         try{
-          let res = await axios.get("http://localhost:3000/posts/5");
+          let res = await axios.get("http://localhost:3000/posts/"+currentUser);
         // debugger
         let usersi = res.data.userPosts[0].body
         
