@@ -21,30 +21,13 @@ document.addEventListener("DOMContentLoaded", () => {
     let drinkYes = document.getElementById("yes3")
     let smokeYes = document.getElementById("yes4")
     let longTermYes = document.getElementById("yes5")
- 
-    //
-
-    // const checkButtonHaveKids = () => {
-    //     let whichButton = document.getElementsByName("haveKids")
-    //     let length = whichButton.length 
-        
-    //     for (let i = 0; i < length, i++) {
-    //         if (whichButton[i].checked) {
-
-    //         }
-    //     }
-    // }
 
     form.addEventListener("submit", async (e) => {
         e.preventDefault()
-        debugger
         try {
             let res = await axios.post("http://localhost:3000/users", {firstName: firstName.value, lastName: lastName.value, userName: userName.value, password: passWord.value, email: email.value, dob: dob.value, gender: gender.options[gender.options["selectedIndex"]].value, orientation: orientation.options[orientation.options["selectedIndex"]].value})
-            debugger
-            let res2 = await axios.post(`http://localhost:3000/preferences/${res.data.user_id.id}`, {users_id:res.data.user_id.id, do_have_child: haveKidsYes.checked, want_child: wantKidsYes.checked, drink: drinkYes.checked, smoke_weed: smokeYes.checked, long_term: longTermYes.checked})
 
-            debugger
-            
+            let res2 = await axios.post(`http://localhost:3000/preferences/${res.data.user_id.id}`, {users_id:res.data.user_id.id, do_have_child: haveKidsYes.checked, want_child: wantKidsYes.checked, drink: drinkYes.checked, smoke_weed: smokeYes.checked, long_term: longTermYes.checked})
         } catch (error) {
             console.log(error)
         }
