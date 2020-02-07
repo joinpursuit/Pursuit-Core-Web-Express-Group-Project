@@ -6,6 +6,12 @@ const isUserExisting = async (userId) => {
     return false;
 }
 
+const isUsernameExisting = async (username) => {
+    let user = await db.any("SELECT * FROM users WHERE username=$1", username);
+    if(username.length) return true;
+    else return false;
+}
+
 const getUsers = async (req, res, next) => {
     try {
         let users = await db.any("SELECT * FROM users");
