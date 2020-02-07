@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>HotBox</title>
-    <script src="./index.js"></script>
+    <script src="./../userProfile/src/userProfile.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Exo+2|Poppins&display=swap" rel="stylesheet">
 
@@ -22,13 +22,13 @@
                 </section>
                 <section class="projectName">
                     <img id="projName" src="../../assets/projName.png" alt=""">
-                          </section>
+                     </section>
                         </section>
                         <section class=" navBar">
                     <nav>
-                        <a href="/">Home</a>
-                        <a href="/" class="leftBorder">Bets</a>
-                        <a href="/" class="leftBorder">Profile</a>
+                        <a href="./../../index.html">Home</a>
+                        <a href="./../bets/bets.html" class="leftBorder">Bets</a>
+                        <a href="./userProfile.html" class="leftBorder">Profile</a>
                         <input type="text" name="search" id="search" placeholder="Search">
                     </nav>
                 </section>
@@ -53,15 +53,19 @@
                     <section class="UserInfo">
                         <section class="Name">
                             <h1>Name</h1>
+                            <h1 id="displayName"></h1>
                         </section>
                         <section class="hotboxRecord">
                             <h1>Hotbox-Record</h1>
+                            <h1 id="displayRecord"></h1>
                         </section>
                         <section class="Followers">
                             <h1>Followers</h1>
+                            <h1 id="displayFollowers"></h1>
                         </section>
                         <section class="Followed">
                             <h1>Followed</h1>
+                            <h1 id="displayFollowed"></h1>
                         </section>
                     </section>
                 </section>

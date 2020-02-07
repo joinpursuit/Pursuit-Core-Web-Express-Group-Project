@@ -5,6 +5,104 @@ body{
     background-image: linear-gradient(#592185, #FAC346);  
 }
 
+<<<<<<< HEAD
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#goBackLogin, #goToSignUp {
+    width: fit-content;
+}
+
+#moveLogo {
+    display: flex;
+    margin-left: 8%;
+}
+
+#signIn {
+    display: flex;
+    position: relative;
+    bottom: 10%;
+}
+
+#login {
+    display: flex;
+    position: relative;
+    bottom: 8%;
+}
+
+input[type="text"], input[type="password"] {
+    display: inline-block;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  cursor: pointer;
+  padding: 10px 20px;
+  border: 1px solid #FDB927;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  font-family: 'Poppins', sans-serif;
+  color: rgba(253,185,39,1);
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  letter-spacing: 1px;
+  word-spacing: 29px;
+  background: rgba(6,25,31,1);
+  width: 175%;
+   }
+
+
+
+left {
+    
+    display: flex;
+    margin: auto;
+    width: 5%;  
+   
+}
+
+right {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    width: 30%; 
+    margin: auto;
+    margin-left: 30%;
+}
+
+#signUpForm {
+    width: 30%;
+    margin-top: 40%;
+    margin-bottom: auto;
+    
+}
+
+#logInForm {
+    width: 30%;
+    margin-top: 60%;
+    margin-bottom: auto;
+}
+
+
+#buttons {
+    display: flex;
+    width: 50%;
+    justify-content: space-evenly;
+    justify-items: center;
+    margin-top: 50%;
+    height: 50%;
+    vertical-align: middle;
+    align-items: center; 
+  }
+
+h1 {
+    font-family: 'Exo 2', sans-serif;
+    width: max-content;
+  }
+
+=======
 input[type="text"], input[type="password"], input[type="date"] {
     display: inline-block;
     -webkit-box-sizing: border-box;
@@ -25,6 +123,7 @@ input[type="text"], input[type="password"], input[type="date"] {
     width: 175%;
 }
 
+>>>>>>> 014935080076615dff3546194ca38201a22229c6
 button {
     margin-top: 10px;
     display: flex;
@@ -97,8 +196,13 @@ select:disabled {
     pointer-events: none;
 }
 
+<<<<<<< HEAD
+#signUp {
+    margin-top: 25%;
+=======
 label {
     font-family: 'Poppins', sans-serif;
+>>>>>>> 014935080076615dff3546194ca38201a22229c6
 }
 
 main{ 
@@ -151,6 +255,10 @@ form {
     width: 40%;
 }
 
+<<<<<<< HEAD
+input:focus {
+    outline: none;
+=======
 #goToLogin {
     width: 100%;
 }
@@ -213,4 +321,5 @@ form {
         justify-content: center;
         align-items: center;
     }
+>>>>>>> 014935080076615dff3546194ca38201a22229c6
 }

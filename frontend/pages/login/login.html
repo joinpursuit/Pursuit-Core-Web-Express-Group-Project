@@ -16,6 +16,70 @@
 <body>
     
     <main>
+<<<<<<< HEAD
+        <left>
+        <div id="logo">
+            <div id="moveLogo">
+                <img src="./assets/hotboxLogo.png" alt="">
+            </div>
+        </div>
+         </left>
+
+        <right>
+        <section id="buttons">
+            <div id="buttonDiv">
+                <button id="logInButton" class="myButton" onClick="showLogin()">Login</button>
+                <button id="signUpButton" class="myButton" onClick="showSignUp()">Sign Up</button>  
+            </div>
+            
+        </section>
+        
+        <section id="login" style="display: none">
+            <form id="logInForm" autocomplete="off">
+                <h1 id="loginH1"></h1>
+                <label for="loginUser">Username: </label>
+                <input type="text" name="username" id="loginUser">
+    
+                <label for="password">Password: </label>
+                <input type="password" name="password" id="loginPass">
+                <button type="submit" id="loginButton2" class="myButton">Log In</button>
+
+            </form>
+            <button id="goToSignUp" class="myButton" onclick="showSignUp()">Go to Sign Up</button>
+            
+        </section>
+    
+        <section id="signUp" style="display: none">
+            <form id="signUpForm" autocomplete="off">
+                <h1 id="signUpH1"></h1>
+
+                <label for="firstName">First Name</label>
+                <input type="text" name="firstName" id="signUpFirst">
+    
+                <label for="lastName">Last Name</label>
+                <input type="text" name="lastName" id="signUpLast">
+    
+                <label for="dateOfBirth">Date Of Birth</label>
+                <input type="text" name="dateOfBirth" id="signUpBirth">
+    
+                <label for="city">City</label>
+                <input type="text" name="city" id="signUpCity">
+    
+                <label for="state">State</label>
+                <input type="text" name="state" id="signUpState">
+
+                <label for="username">Username</label>
+                <input type="text" name="username" id="signUpUser">
+
+                <label for="password">Password</label>
+                <input type="password" name="password" id="signUpPass">
+                
+                <button type="submit" id="submitButton" class="myButton">Submit</button>
+
+            </form>
+            <button id="goBackLogin" class="myButton" onclick="showLogin()">Go Back to Login</button>
+        
+=======
         <section id="logoSection">
             <img src="./assets/hotboxLogo.png" alt="" id="logo">
         </section>
@@ -131,6 +195,7 @@
                 <button id="goToLogin" onclick="showLogin()">Show Login</button>
             
             </section>
+>>>>>>> 014935080076615dff3546194ca38201a22229c6
         </section>
         
 </main>
