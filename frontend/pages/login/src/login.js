@@ -1,3 +1,5 @@
+let states = JSON.parse(states);
+debugger;
 let login = document.querySelector("#login");
 let signUp = document.querySelector("#signUp");
 let logInForm = document.querySelector("#logInForm");
@@ -98,3 +100,19 @@ const fetchData = async (url, callback) => {
         else console.log(err);
     }
 } // End of fetchData() function
+
+
+const loadJSON = (path, success, error) => {
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = () => {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                if (success) success(JSON.parse(xhr.responseText));
+            } else {
+                if (error) error(xhr);
+            }
+        }
+    };
+    xhr.open("GET", path, true);
+    xhr.send();
+} // End of loadJSON() function
