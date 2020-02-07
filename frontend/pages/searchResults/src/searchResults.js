@@ -14,11 +14,11 @@ const fetchData = async (url, cb) => {
     }
 } // End of fetchData() function
 
-const findUserId = (e) => {
-    let userId = e.target.id;
-    sessionStorage.setItem("foreignUser", JSON.stringify(userId));
+const findForeignId = (e) => {
+    let foreignId = e.target.id;
+    sessionStorage.setItem("foreignUser", JSON.stringify(foreignId));
     window.location.href = "./../userProfile/userProfile.html";
-} // End of findUserId() function
+} // End of findForeignId() function
 
 const findUser = (data) => {
     searchResponse.innerHTML = "";
