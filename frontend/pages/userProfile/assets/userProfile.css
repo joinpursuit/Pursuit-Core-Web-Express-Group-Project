@@ -113,8 +113,9 @@ button {
     grid-area: usersPosts; 
     font-family: 'Exo 2', sans-serif;
     border-radius: 15px;
-    background-color: whiteSmoke;
     margin-top: 10px;
+    background-image: url('https://impressionsmagazine.com/wp-content/uploads/2017/07/GreatDane-SportsBallsFire-1-Oct-2012PRODUCTARTICLE-2.gif');
+    background-size: 10%;
   
   
   }
@@ -140,8 +141,10 @@ button {
   
   .hotboxRecord { 
     grid-area: hotboxRecord; 
-    background-image: url('https://impressionsmagazine.com/wp-content/uploads/2017/07/GreatDane-SportsBallsFire-1-Oct-2012PRODUCTARTICLE-2.gif');
-    background-size: 70%;
+    background-image: url('./Fire.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 600px;
     box-shadow: 5px 5px grey;
     border-radius: 15px; 
     margin-left: 5px;
@@ -149,13 +152,21 @@ button {
     margin-bottom: 5px;
     color: white;
     font-weight: bold;
+    position: static;
+  }
+
+  #displayName, #displayRecord {
+      font-size: 20px;
+      display: grid; 
+      justify-content: center;
   }
   
   .Followers { 
     grid-area: Followers; 
     background-image: url('https://media.gettyimages.com/videos/sports-fans-video-id472820817?s=640x640');
-    /* background-color: #592185; */
-    background-size: 30%;
+    background-position: bottom;
+    /* background-repeat: no-repeat; */
+    background-size: 70%;
     box-shadow: 5px 5px grey;
     border-radius: 15px; 
     margin-left: 5px;
@@ -167,7 +178,8 @@ button {
   .Followed { 
     grid-area: Followed; 
     background-image: url('https://media.gettyimages.com/videos/sports-fans-video-id472820817?s=640x640');
-    background-size: 30%;
+    background-size: 70%;
+    background-position: bottom;
     box-shadow: 5px 5px grey;
     border-radius: 15px; 
     margin-left: 5px;

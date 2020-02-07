@@ -5,7 +5,7 @@ const userPostsRouter = require("./userPosts/userPosts");
 const {getUsers, getUser, createUser, deleteUser, updateUser} = require("./../../queries/users/users");
 
 users.use("/:userId/followings", userFollowingsRouter);
-users.use("/:userId/logins", userLoginsRouter);
+users.use("/logins", userLoginsRouter);
 users.use("/:userId/posts", userPostsRouter);
 
 users.get("/", getUsers);

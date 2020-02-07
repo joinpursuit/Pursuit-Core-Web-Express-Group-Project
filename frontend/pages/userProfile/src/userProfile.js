@@ -3,10 +3,10 @@ document.addEventListener("DOMContentLoaded", () => {
     let postForm = document.querySelector("#postForm");
     let postInput= document.querySelector("#postInput")
     let postFeed = document.querySelector(".usersPost");
-    let sectName = document.querySelector(".name");
-    let sectRecord = document.querySelector(".hotboxRecord");
-    let sectFollowers = document.querySelector(".followers");
-    let secFollowed = document.querySelector(".followed");
+    let sectName = document.querySelector("#displayName");
+    let sectRecord = document.querySelector("#displayRecord");
+    let sectFollowers = document.querySelector("#displayFollowers");
+    let sectFollowed = document.querySelector("#displayFollowed");
     // const userId = sessionStorage.getItem("userId"); 
     const userId = 1
 
@@ -14,12 +14,9 @@ document.addEventListener("DOMContentLoaded", () => {
         try {
             await axios.get(`http://localhost:3000/users/${userId}`).then(res => {
                 let userInfo = res.data.user
-                let showName = document.createElement("p");
-                let showRecord = document.createElement("p");
-                showName.innerText = userInfo["full_name"];
-                showRecord.innerText = userInfo["bet_history"];
+                sectName.innerText = userInfo["full_name"];
+                sectRecord.innerText = userInfo["bet_history"];
                 debugger
-                sectName.appendChild(showName)
                 
             })
         } catch(err){
@@ -49,8 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
             await axios.get(`http://localhost:3000/users/${userId}/followings/followerCount`).then(res => {
                 debugger
                 let userFollowers = res.data.follower[0]["userfollowercount"]
-                let showFollowers = document.createElement("p");
-                showFollowers.innerText = `${userFollowers}`
+                sectFollowers.innerText = `${userFollowers}`
                 debugger
             })
         } catch(err){
@@ -64,8 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
             await axios.get(`http://localhost:3000/users/${userId}/followings/followingCount`).then(res => {
                 debugger
                 let userFollowed = res.data.following[0]["userfollowingcount"];
-                let showFollowed = document.createElement("p");
-                showFollowed.innerText = `${userFollowed}`;
+                sectFollowed.innerText = `${userFollowed}`;
                 debugger
             })
         } catch(err){
@@ -78,6 +73,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 getUserFollowed()
 getUserFollowers()
-showUserPosts()
-showeUserInfo()
+// showUserPosts()
+showUserInfo()
 })
