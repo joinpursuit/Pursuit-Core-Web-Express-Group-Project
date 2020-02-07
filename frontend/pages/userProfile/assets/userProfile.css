@@ -129,7 +129,7 @@ button {
   
   .Name { 
     grid-area: Name;
-    background-color: whitesmoke;
+    background-image: url('https://pluspng.com/img-png/basketball-court-png-hd-basketball-court-background-related-keywords-suggestions-2085.png');
     box-shadow: 5px 5px grey;
     border-radius: 15px; 
     margin-left: 5px;
@@ -140,27 +140,34 @@ button {
   
   .hotboxRecord { 
     grid-area: hotboxRecord; 
-    background-color: whitesmoke;
+    background-image: url('https://impressionsmagazine.com/wp-content/uploads/2017/07/GreatDane-SportsBallsFire-1-Oct-2012PRODUCTARTICLE-2.gif');
+    background-size: 70%;
     box-shadow: 5px 5px grey;
     border-radius: 15px; 
     margin-left: 5px;
     margin-right: 5px;
     margin-bottom: 5px;
+    color: white;
+    font-weight: bold;
   }
   
   .Followers { 
     grid-area: Followers; 
-    background-color: whitesmoke;
+    background-image: url('https://media.gettyimages.com/videos/sports-fans-video-id472820817?s=640x640');
+    /* background-color: #592185; */
+    background-size: 30%;
     box-shadow: 5px 5px grey;
     border-radius: 15px; 
     margin-left: 5px;
     margin-right: 5px;
     margin-bottom: 5px;
+
   }
   
   .Followed { 
     grid-area: Followed; 
-    background-color: whitesmoke;
+    background-image: url('https://media.gettyimages.com/videos/sports-fans-video-id472820817?s=640x640');
+    background-size: 30%;
     box-shadow: 5px 5px grey;
     border-radius: 15px; 
     margin-left: 5px;

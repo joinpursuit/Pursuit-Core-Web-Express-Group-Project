@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
     let postForm = document.querySelector("#postForm");
     let postInput= document.querySelector("#postInput")
-    let postFeed = document.querySelector("#usersPost");
+    let postFeed = document.querySelector(".usersPost");
     let sectName = document.querySelector(".name");
     let sectRecord = document.querySelector(".hotboxRecord");
     let sectFollowers = document.querySelector(".followers");
@@ -19,7 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 showName.innerText = userInfo["full_name"];
                 showRecord.innerText = userInfo["bet_history"];
                 debugger
-                // showFollowers = userInfo[""]
                 sectName.appendChild(showName)
                 
             })
@@ -28,6 +27,24 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    const showUserPosts = async () => {
+            try {
+                await axios.get(`http://localhost:3000/users/${userId}/posts`).then(res => {
+                    let userPosts = res.data.post
+                    userPosts.forEach(post => {
+                        let showPosts = document.createElement("p");
+                        showPosts.innerText = userPosts[post]
+                        debugger
+                    })
 
+                })
 
+            }catch(err){
+                console.log(err)
+            }
+    }
+
+    
+showUserPosts()
+showUserInfo()
 })
