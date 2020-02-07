@@ -61,6 +61,7 @@ signUpForm.addEventListener("submit", async (e) => {
                 password: signUpPass 
             }
             let res = await axios.post(`http://localhost:3000/users`, user);
+            sessionStorage.setItem("userId", JSON.stringify(res.data.user.id));
             window.location.href = "./../../index.html";
         } catch(err) {
 
