@@ -62,7 +62,7 @@ CREATE TABLE likes(
 INSERT INTO users (username, password, bio, proPicURL)
     VALUES ('kwong', 'admin123', 'NYC ABC. DM for beats.I have always had a passion for creative and innovative technology that can change the way our society lives. Being part of Pursuit might give me a chance to finally be part of that. https://soundcloud.com/kj_wongg', 'https://scontent-lga3-1.xx.fbcdn.net/v/t1.0-9/35428358_10155525285981088_195203712392626176_n.jpg?_nc_cat=108&_nc_ohc=hFrvRM-lxQ0AX-loDFi&_nc_ht=scontent-lga3-1.xx&oh=fd27939bb7eab472adb49de8e39fde50&oe=5EBDF5B5'),
           ('kong', 'admin123', 'Love Avicii(R.I.P), BIG Pokemon fans', 'https://static1.squarespace.com/static/5b50ebb7e749401857e16f2f/t/5d7bbf0ef00cb05d84180599/1568390933661/CONGSONG%2C+YANG+-+Cong+Song+Yang.png'),
-          ('trilltown', 'admin123', 'My name is Phil Awich. In joining Pursuit I hope to gain employment in the field of software development and be able to provide more for myself and my family. A fun fact about me is that I’m a huge kdrama addict. Currently watching Rookie Historian on Netflix', 'https://scontent-lga3-1.xx.fbcdn.net/v/t31.0-8/p960x960/16487227_10208650262357468_7123361593220404403_o.jpg?_nc_cat=103&_nc_ohc=8S_bOuCzgPgAX_AGWds&_nc_ht=scontent-lga3-1.xx&_nc_tp=6&oh=4faa0a3e33f9744878f10f1242375afb&oe=5EB9BE36'),
+          ('trilltown', 'admin123', 'My name is Phil Awich. In joining Pursuit I hope to gain employment in the field of software development and be able to provide more for myself and my family. A fun fact about me is that I’m a huge kdrama addict. Currently watching Rookie Historian on Netflix', 'https://scontent-lga3-1.xx.fbcdn.net/v/t1.0-9/20729629_10210191211400231_367345868643134708_n.jpg?_nc_cat=104&_nc_ohc=f2MRKWSPHOMAX8nvOsg&_nc_ht=scontent-lga3-1.xx&oh=0a47f7f3bff7e6eb30f4f2f1b44143c6&oe=5EDA0007'),
           ('darsuabasi', 'admin123', 'Hi, I’m Uduakabasi. I actually joined Pursuit through an alum. I had the pleasure of being a part of Enza Academy’s HackFest. It was such an amazing experience and a lot of people were just so eager to help and that’s what I loved about it.', 'https://scontent-lga3-1.xx.fbcdn.net/v/t1.0-9/38013965_10204917767580174_3881332877056540672_o.jpg?_nc_cat=107&_nc_ohc=gcE0O2vTZzEAX-l2BYA&_nc_ht=scontent-lga3-1.xx&oh=4976b4496286307144e4654e8cc9545c&oe=5ED39057');
 
 
@@ -108,8 +108,9 @@ VALUES
     (1, '2020 Album', '2020-01-15', 'https://maxcdn.icons8.com/app/uploads/2019/06/digital-illustration-brian-edward-miller-8.jpg' ),
     (2, 'Animals', '2020-01-10', 'https://live.staticflickr.com/3791/11052824583_21e83c65bc_b.jpg'),
     (2, 'Cities', '2020-01-12', 'https://thumbor.forbes.com/thumbor/960x0/https%3A%2F%2Fblogs-images.forbes.com%2Fannabel%2Ffiles%2F2018%2F02%2FLouisville_Skyline-1200x801.jpg'),
-    (3, 'Travel', '2019-09-20' , 'https://i.pinimg.com/736x/cc/f4/05/ccf40549a4b257cb6e97e75c80cfef2c.jpg'),
-    (4, 'Adventures 2019', '2019-12-09', 'https://i.pinimg.com/originals/2f/33/58/2f3358414ca30f8012f2a542b6888878.jpg');
+    (3, 'Seoul', '2019-09-20' , 'https://scontent-lga3-1.xx.fbcdn.net/v/t31.0-8/12646721_10205960491474877_4749584846511951195_o.jpg?_nc_cat=106&_nc_ohc=BgRIcuDeKkQAX9-DqW7&_nc_ht=scontent-lga3-1.xx&oh=32b7e0f573c4708ec418f91aa36b1198&oe=5ECD09F6'),
+    (4, 'Adventures 2019', '2019-12-09', 'https://i.pinimg.com/originals/2f/33/58/2f3358414ca30f8012f2a542b6888878.jpg'),
+    (3, 'Hong Kong', '2019-10-25' , 'https://scontent-lga3-1.xx.fbcdn.net/v/t31.0-8/17017075_10208877142989342_2934106857544019572_o.jpg?_nc_cat=102&_nc_ohc=gOk2cmF-nikAX98Abvq&_nc_ht=scontent-lga3-1.xx&oh=4444fbc092917425861300c337203001&oe=5EC66CE1');
 
 
 INSERT INTO pictures (post_id, pictureURL) SELECT id, imgURL FROM posts;

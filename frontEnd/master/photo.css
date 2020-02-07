@@ -117,7 +117,7 @@ a:hover {
 }
 .contentHeader {
     display: flex;
-    position: absolute;
+    position: relative;
     background-color: #E9EBEE;
     width: 60vw;
     height: 10vh;
@@ -125,7 +125,7 @@ a:hover {
     text-align: center;
     justify-content: center;
     color: black;
-
+    z-index: 1;
 }
 
 h1 {
@@ -191,6 +191,7 @@ h1 {
     color: gold;
     text-align: left;
     width: 70%;
+    font-size: 15px;
 }
 
 .content img {
