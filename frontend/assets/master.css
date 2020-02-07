@@ -1,6 +1,6 @@
 body { margin: 0; }
 
-header {
+#logoSection {
     display: flex;
     flex-direction: row;
     background-image: linear-gradient(#592185, #FAC346);
@@ -12,13 +12,57 @@ header {
 }
 
 #logo {
-    width: 60%;
+    width: 40%;
 }
 
 #headerName {
-    width: 40%;
-    margin-right: 27%;
+    width: 22%;
+    margin-right: 39%;
 }
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: rgb(6,25,34);
+    font-size: 24px;
+    padding: 10px;
+}
+
+.leftBorder {
+    border-left: 1px solid #FDB927;
+    padding-left: 15px;
+}
+
+.nav {
+    color: #FDB927;
+    text-decoration: none;
+    margin-left: 15px;
+    font-family: 'Exo 2', sans-serif;
+}
+
+.nav:hover {
+    font-size: 26px;
+}
+
+input[type="text"], input[type="search"] {
+    display: inline-block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    cursor: pointer;
+    padding: 10px 20px;
+    border: 1px solid #FDB927;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+    color: rgba(253,185,39,1);
+    -o-text-overflow: clip;
+    text-overflow: clip;
+    letter-spacing: 1px;
+    word-spacing: 29px;
+    background: rgba(6,25,31,1);
+  }
 
 .posts { 
  border-left: 1px solid black;
