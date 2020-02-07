@@ -23,4 +23,18 @@ const getFollowers = async () => {
         console.log(error)
     }
 }
-getFollowers()
+// getFollowers()
+
+const getPosts = async (postId) => {
+    try {
+        let res = await axios.get(`http://localhost:3000/users/${userId}/posts`) 
+        let posts = res.data.post;
+        posts.filter(post => {
+            console.log(post.body)
+        })
+    } catch(error) {
+        console.log(error)
+    }
+}
+getPosts()
+
