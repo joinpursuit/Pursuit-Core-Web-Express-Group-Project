@@ -1,5 +1,4 @@
 const db = require("./../../../db/db");
-const {isUserExisting} = require("./../users");
 
 const getUserLogin = async (req, res, next) => {
     try {
