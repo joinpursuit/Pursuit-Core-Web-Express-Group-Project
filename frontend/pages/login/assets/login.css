@@ -12,6 +12,16 @@ main{
     justify-content: space-evenly; 
 }
 
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#goBackLogin, #goToSignUp {
+    width: fit-content;
+}
+
 #moveLogo {
     display: flex;
     margin-left: 8%;
@@ -29,7 +39,7 @@ main{
     bottom: 8%;
 }
 
-input[type="text"] {
+input[type="text"], input[type="password"] {
     display: inline-block;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -46,6 +56,7 @@ input[type="text"] {
   letter-spacing: 1px;
   word-spacing: 29px;
   background: rgba(6,25,31,1);
+  width: 175%;
    }
 
 
@@ -54,7 +65,6 @@ left {
     
     display: flex;
     margin: auto;
-    /* background-color: lightblue; */
     width: 5%;  
    
 }
@@ -63,15 +73,12 @@ right {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    /* background-color: lightcoral; */
     width: 30%; 
     margin: auto;
     margin-left: 30%;
 }
 
-#signInForm {
-    display: flex;
-    flex-direction: column;
+#signUpForm {
     width: 30%;
     margin-top: 40%;
     margin-bottom: auto;
@@ -79,8 +86,6 @@ right {
 }
 
 #logInForm {
-    display: flex;
-    flex-direction: column;
     width: 30%;
     margin-top: 60%;
     margin-bottom: auto;
@@ -94,20 +99,19 @@ right {
     justify-items: center;
     margin-top: 50%;
     height: 50%;
-    /* background-color: lawngreen; */
     vertical-align: middle;
     align-items: center; 
   }
 
-.h1 {
+h1 {
     font-family: 'Exo 2', sans-serif;
     width: max-content;
   }
 
-.myButton {
+button {
+    margin-top: 10px;
     display: flex;
     justify-content: center;
-    /* margin-top: 25%; */
 	box-shadow: 0px 1px 0px 0px #fff6af;
 	background:linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
 	background-color:#ffec64;
@@ -125,11 +129,16 @@ right {
     text-shadow:0px 0px 0px #ffee66;
     min-width: 80%;
 }
-.myButton:hover {
+
+button:focus {
+    outline: none;
+}
+
+button:hover {
 	background:linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
 	background-color:#ffab23;
 }
-.myButton:active {
+button:active {
 	position:relative;
 	top:1px;
 }
@@ -155,8 +164,6 @@ label {
 
 #signUp {
     margin-top: 25%;
-    /* margin-bottom: auto; */
-    /* align-self: middle */
 }
 
 #buttonDiv {
@@ -174,6 +181,6 @@ label {
     margin-bottom: 8%;
 }
 
-
-
-
+input:focus {
+    outline: none;
+}
