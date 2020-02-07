@@ -25,13 +25,13 @@ const showSignUp = () => {
 
 logInForm.addEventListener("submit", async (e) => {
     e.preventDefault();
-    let loginEmail = document.querySelector("#loginEmail");
+    let loginUser = document.querySelector("#loginUser");
     let loginPass = document.querySelector("#loginPass");
-    if(!loginEmail.value || !loginPass.value) {
+    if(!loginUser.value || !loginPass.value) {
         loginH1.innerText = "Please fill out all the information";
         loginH1.style.color = "#940E06";
     } else {
-        fetchData(`http://localhost:3000/users/logins?email=${loginEmail.value}&password=${loginPass.value}`, checkLogin);
+        fetchData(`http://localhost:3000/users/logins?email=${loginUser.value}&password=${loginPass.value}`, checkLogin);
     }
 })
 
@@ -42,9 +42,9 @@ signUpForm.addEventListener("submit", async (e) => {
     let signUpBirth = document.querySelector("#signUpBirth").value;
     let signUpCity = document.querySelector("#signUpCity").value;
     let signUpState = document.querySelector("#signUpState").value;
-    let signUpEmail = document.querySelector("#signUpEmail").value;
+    let signUpUser = document.querySelector("#signUpUser").value;
     let signUpPass = document.querySelector("#signUpPass").value;
-    if(!signUpFirst || !signUpLast || !signUpBirth || !signUpEmail || !signUpCity || !signUpState || !signUpPass) {
+    if(!signUpFirst || !signUpLast || !signUpBirth || !signUpUser || !signUpCity || !signUpState || !signUpPass) {
         signUpH1.innerText = "Please fill out all the information";
         loginH1.style.color = "#940E06";
     } else {
@@ -54,7 +54,7 @@ signUpForm.addEventListener("submit", async (e) => {
                 birth_date: signUpBirth,
                 city: signUpCity,
                 state: signUpState,
-                email: signUpEmail,
+                username: signUpUser,
                 password: signUpPass 
             }
             let res = await axios.post(`http://localhost:3000/users`, user);

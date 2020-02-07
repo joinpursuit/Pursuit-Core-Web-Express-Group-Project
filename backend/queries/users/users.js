@@ -40,12 +40,17 @@ const getUser = async (req, res, next) => {
 
 const createUser = async (req, res, next) => {
     try {
-        let user = await db.one("INSERT INTO users (full_name, birth_date, city, state, email, password) VALUES (${full_name}, ${birth_date}, ${city}, ${state}, ${email}, ${password}) RETURNING *", req.body);
-        res.status(200).json({
-            user,
-            status: "Success",
-            message: "Created New User"
-        })
+        if(await isUsernameExisting(req.body.username)) {
+            throw {status: 409, error: "A user with that username exists already."};
+        } else {
+            let user = await db.one("INSERT INTO users (full_name, birth_date, city, state, username, password) VALUES (${full_name}, ${birth_date}, ${city}, ${state}, ${username}, ${password}) RETURNING *", req.body);
+            res.status(200).json({
+                user,
+                status: "Success",
+                message: "Created New User"
+            })
+        }
+        
     } catch(err){
         next(err)
     }
