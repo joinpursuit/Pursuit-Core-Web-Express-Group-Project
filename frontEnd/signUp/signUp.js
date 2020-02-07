@@ -6,23 +6,28 @@ let propicURL = document.querySelector("#propicURL");
 let signUpDiv = document.querySelector("#signUpDiv");
 let signUpForm = document.querySelector("#signUpForm");
 signUpForm.addEventListener("submit", async e => {
+  let signUpMessage = document.querySelector("#signUpMessage");
   e.preventDefault();
-  signUpDiv.innerHTML = "";
+  signUpMessage.innerHTML = "";
   if (
     !usernameInput.value ||
     !passwordInput.value ||
     !bioInput.value ||
     !propicURL.value
   ) {
-    let h2 = document.createElement("h2");
-    h2.innerText = "Please enter all required inputs!";
-    signUpDiv.appendChild(h2);
+    signUpMessage.innerText = "Please enter all required inputs!";
+    signUpDiv.appendChild(signUpMessage);
+
   } else {
-    createNewUser();
+    createNewUser(signUpDiv, signUpMessage);
+    usernameInput.value = "";
+    passwordInput.value = "";
+    bioInput.value = "";
+    propicURL.value = "";
   }
 });
 
-const createNewUser = async () => {
+const createNewUser = async (div, statusMessage) => {
   let res = await axios.post("http://localhost:3000/users", {
     username: usernameInput.value,
     password: passwordInput.value,
@@ -31,16 +36,10 @@ const createNewUser = async () => {
   });
   let { status, message } = res.data;
   if (status === "Error") {
-    let h2 = document.createElement("h2");
-    h2.innerText = message;
-    signUpDiv.appendChild(h2);
+    statusMessage.innerText = message;
+    div.appendChild(statusMessage);
   } else {
-    let h2 = document.createElement("h2");
-    h2.innerText = "User successfully created!";
-    signUpDiv.appendChild(h2);
-    usernameInput.value = "";
-    passwordInput.value = "";
-    bioInput.value = "";
-    propicURL.value = "";
+    statusMessage.innerText = message;
+    div.appendChild(statusMessage);
   }
 };
