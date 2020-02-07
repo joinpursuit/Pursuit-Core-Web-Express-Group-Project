@@ -25,9 +25,9 @@ const showSignUp = () => {
 
 logInForm.addEventListener("submit", async (e) => {
     e.preventDefault();
-    let loginUser = document.querySelector("#loginUser");
-    let loginPass = document.querySelector("#loginPass");
-    if(!loginUser.value || !loginPass.value) {
+    let loginUser = document.querySelector("#loginUser").value;
+    let loginPass = document.querySelector("#loginPass").value;
+    if(!loginUser || !loginPass) {
         loginH1.innerText = "Please fill out all the information";
         loginH1.style.color = "#940E06";
     } else {
@@ -44,9 +44,12 @@ signUpForm.addEventListener("submit", async (e) => {
     let signUpState = document.querySelector("#signUpState").value;
     let signUpUser = document.querySelector("#signUpUser").value;
     let signUpPass = document.querySelector("#signUpPass").value;
-    if(!signUpFirst || !signUpLast || !signUpBirth || !signUpUser || !signUpCity || !signUpState || !signUpPass) {
+    if(!signUpFirst || !signUpLast || !signUpBirth || !signUpUser || !signUpCity || signUpState === "disabled" || !signUpPass) {
         signUpH1.innerText = "Please fill out all the information";
-        loginH1.style.color = "#940E06";
+        signUpH1.style.color = "#940E06";
+    } else if(isUserUnder18(signUpBirth)){
+        signUpH1.innerText = "Sorry, you're too young to sign up.";
+        signUpH1.style.color = "#940E06";
     } else {
         try {
             let user = {
@@ -63,12 +66,18 @@ signUpForm.addEventListener("submit", async (e) => {
 
         }
     }
-})
+}) // End of DOMContentLoaded
+
+const isUserUnder18 = (date) => {
+    let currentDate = new Date();
+    let userBirth = new Date(date);
+    return (currentDate.getTime() - userBirth.getTime()) < 568025136000;
+} // End of isUserUnder18() function
 
 const checkLogin = (data) => {
     sessionStorage.setItem("userId", JSON.stringify(data.user[0].id));
     window.location.href = "./../../index.html";
-}
+} // End of checkLogin() function
 
 const errorHandling = (err) => {
     if(login.style.display !== "none") {
@@ -78,7 +87,7 @@ const errorHandling = (err) => {
         signInh1.innerText = err.error;
         signInh1.style.color = "#940E06"
     }
-}
+} // End of errorHandling() function
 
 const fetchData = async (url, callback) => {
     try {
@@ -88,4 +97,4 @@ const fetchData = async (url, callback) => {
         if(err.response) errorHandling(err.response.data)
         else console.log(err);
     }
-}
+} // End of fetchData() function
