@@ -1,5 +1,5 @@
 body {
-    background-color: #C2DCF8;
+    background-color: #6D85CC;
     margin: 0px;
 }
 
@@ -73,7 +73,7 @@ main {
     background-color: #552583;
     padding-top: 25px;
     padding-left: 30px;
-    box-shadow: 5px 5px white;
+    box-shadow: 5px 5px rgb(6,25,34);
     border-radius: 10px;
 }
 
