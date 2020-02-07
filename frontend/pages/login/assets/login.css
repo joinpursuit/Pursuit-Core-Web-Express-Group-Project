@@ -184,3 +184,36 @@ label {
 input:focus {
     outline: none;
 }
+
+select {
+    font-family: 'Poppins', sans-serif;
+    display: inline-block;
+    min-width: 80%;
+    width: 175%;
+    cursor: pointer;
+    padding: 10px 15px;
+    outline: 0;
+    border: 1px solid #FDB927;
+    border-radius: 0px;
+    background: #06191f;
+    color: #FDB927;
+    appearance: none;
+    border-radius: 10px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+select::-ms-expand {
+    display: none;
+}
+
+select:hover, select:focus {
+    border-color: #06191f;
+    color: #06191f;
+    background: #FDB927;
+}
+
+select:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
