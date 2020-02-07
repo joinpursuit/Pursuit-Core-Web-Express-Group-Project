@@ -15,7 +15,7 @@ const isUsernameExisting = async (username) => {
 const findUsers = async (req, res, next) => {
     try {
         let {search} = req.query;
-        let users = await db.any("SELECT * FROM users WHERE full_name LIKE '%" + search + "%'");
+        let users = await db.any("SELECT * FROM users WHERE upper(full_name) LIKE '%" + search.toUpperCase() + "%'");
         if(users.length) {
             res.status(200).json({
                 users,
