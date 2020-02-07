@@ -1,4 +1,5 @@
-let userQuery = "i";
+let userQuery = sessionStorage.getItem("userQuery")
+if(!userQuery) userQuery = "";
 let search = document.querySelector("#search");
 let searchForm = document.querySelector("#searchForm");
 let searchResponse = document.querySelector("#searchResponse");
