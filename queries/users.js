@@ -19,11 +19,11 @@ const getUser = async (req, res, next) => {
     try{
         let user = await db.one("SELECT * FROM users WHERE username = $1", req.body.username);
         if (!user) {
-            res.json({
+            res.status(404).json({
                 message: "User doesn't exist!"
             })
         } else if (user.password !== req.body.password) {
-            res.json({
+            res.status(401).json({
                 message: "Password is incorrect!"
             })
         } else {
