@@ -18,7 +18,7 @@ body{
     border: solid black; 
     border-width: 1.5px;
     top: 0;
-    z-index: 3;
+    z-index: 1;
 }
 
 a:link {
@@ -42,6 +42,13 @@ a:hover {
     overflow-y: hidden;
 }
 
+#userSearchForm {
+    position: absolute;
+    margin-top: 1vh;
+    left: -12vw;
+    width: 50vw;
+  }  
+
 #searchUser{
     position: absolute;
     margin-top: 1vh;
@@ -51,22 +58,21 @@ a:hover {
 
 .mainHeader {
     position: absolute;
-    padding-left: 70vw;
+    right: 14vw;
     margin-top: 1vh;
-    z-index: 4;
 }
 
 .albums {
     position: absolute;
     margin-top: 1vh;
-    padding-left: 80vw;
+    right: 8.5vw;
     z-index: 3;
 }
 
 .photos {
     position: absolute;
     margin-top: 1vh;
-    padding-left: 90vw;       
+    right: 3vw;       
 }
 
 .feedHeader{
@@ -106,7 +112,6 @@ a:hover {
     background-color: #E9EBEE;
     width: 80vw;
     height: 13vh;
-    z-index: 1;
 }
 .contentHeader {
     display: flex;
@@ -182,8 +187,8 @@ h1 {
     padding-top: 37vh;
     padding-left: 3vw;
     color: gold;
-    text-align: justify;
-    width: 50px;
+    text-align: left;
+    width: 70%;
 }
 .albumCover img {
     max-width: 50%;
