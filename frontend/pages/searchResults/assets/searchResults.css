@@ -50,14 +50,14 @@ nav {
     padding-left: 15px;
 }
 
-a {
+.nav {
     color: #FDB927;
     text-decoration: none;
     margin-left: 15px;
     font-family: 'Exo 2', sans-serif;
 }
 
-a:hover {
+.nav:hover {
     font-size: 26px;
 }
 
@@ -156,4 +156,19 @@ input[type="submit"] {
     color: red;
     font-family: 'Poppins', sans-serif;
     font-size: 32px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.users {
+    text-decoration: none;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+}
+
+.users:hover {
+    font-size: 22px;
 }

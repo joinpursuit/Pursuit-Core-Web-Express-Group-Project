@@ -1,4 +1,4 @@
-let userQuery = "v";
+let userQuery = "i";
 let search = document.querySelector("#search");
 let searchForm = document.querySelector("#searchForm");
 let searchResponse = document.querySelector("#searchResponse");
@@ -20,7 +20,18 @@ const findUser = (data) => {
         error.innerText = data.error;
         error.id = "error";
         searchResponse.appendChild(error);
+    } else {
+        let userList = document.createElement("ul");
+        let users = data.users;
+        users.forEach(user => {
+            let li = document.createElement("li");
+            li.innerHTML = `<a class="users" id=${user.id} href="./../userProfile/userProfile.html">${user.full_name}</a>`
+            userList.appendChild(li);
+        })
+        searchResponse.appendChild(userList);
     }
 } // End of findUser() function
+
+
 
 fetchData(`http://localhost:3000/users?search=${userQuery}`, findUser);
