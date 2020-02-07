@@ -1,12 +1,16 @@
 document.addEventListener("DOMContentLoaded", () => {
   let currentUser = sessionStorage.currentUser;
   let currentUserName = sessionStorage.currentUserName;
+  let profileButton = document.querySelector(".profileButton");
   let feed = document.querySelector(".feed");
+  let user = document.querySelector("#user");
   let previewImage = document.querySelector("#imgPreview");
   let incomingFile = document.querySelector("#incomingFile");
   let createPostForm = document.querySelector(".createPost");
   let postInput = document.querySelector("#postInput");
   let imgsrc = "";
+
+  user.innerText = currentUserName;
 
   const displayLikes = async id => {
     let res = await axios.get(`http://localhost:3000/likes/posts/${id}`);
@@ -294,13 +298,16 @@ document.addEventListener("DOMContentLoaded", () => {
     } catch (err) {
       console.log(err);
     }
-
-    debugger;
   };
+
   createPostForm.addEventListener("submit", async e => {
     postFunction(); // POST NOT IN PROPPER PLACEMENT UNTIL REFRESHED A FEW TIMES
     imgsrc = "";
     previewImage.innerHTML = "";
     populateFeed();
+  });
+
+  profileButton.addEventListener("click", () => {
+    window.location.href = "../profilePage/profilepageindex.html";
   });
 });

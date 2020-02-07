@@ -1,0 +1,48 @@
+.gridContainer {
+  display: grid;
+  height: 100vh;
+  width: 100vw;
+  grid-template-columns: 25% 50% 25%;
+  grid-template-rows: 15% 85%;
+  grid-template-areas: "banner banner banner" "profile feed newPost";
+}
+
+.banner {
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  grid-template-rows: 15%;
+  grid-area: banner;
+  background-color: #c0252a;
+}
+#logo {
+  display: flex;
+  justify-content: center;
+  grid-column-start: 3;
+  margin-top: -14%;
+}
+
+.feed {
+  justify-content: center;
+  grid-area: feed;
+}
+
+.profile {
+  grid-area: profile;
+}
+
+.newPost {
+  grid-area: newPost;
+}
+
+.postImg {
+  height: 400px;
+  width: 500px;
+}
+
+.postDiv {
+  /* margin-left: 15%; */
+}
+
+.commentsSection {
+  background-color: lightgrey;
+}

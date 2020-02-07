@@ -18,9 +18,10 @@ const getposts = async (req, res, next) => {
 
 const getpost = async (req, res, next) => {
   try {
-    let post = await dataBase.one("SELECT * FROM posts WHERE id=$1", [
-      req.params.id
-    ]);
+    let post = await dataBase.any(
+      "SELECT posts.id, posts.type,posts.url_img, posts.body, posts.album_id, posts.user_id, posts.post_time, users.user_name FROM posts LEFT JOIN users ON posts.user_id = users.id WHERE user_id=$1",
+      [req.params.userId]
+    );
     res.status(200).json({
       post,
       status: "success",

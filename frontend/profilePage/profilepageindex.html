@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="profilepageindex.js"></script>
+    <link rel="stylesheet" href="../reset.css" />
+    <link rel="stylesheet" href="profilepagemaster.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="gridContainer">
+      <div class="banner">
+        <img
+          id="logo"
+          src="../Logo/be569104-f462-4f2d-a628-ec8eeec36e21_200x200.png"
+          alt="logo"
+        />
+      </div>
+      <div class="feed"></div>
+      <div class="profile">
+        <img
+          src="https://i2.wp.com/molddrsusa.com/wp-content/uploads/2015/11/profile-empty.png.250x250_q85_crop.jpg?ssl=1"
+          alt=""
+        />
+        <p id="user"></p>
+        <input id="backToFeed" type="button" value="Back to Feed Page" />
+      </div>
+      <div class="albumsSection">
+        <form class="createAlbum" id="createAlbum">
+          <!-- <img id="imgPreview" src="" alt="" /> -->
+          <input type="submit" value="Create New Album" />
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
