@@ -44,7 +44,7 @@ signUpForm.addEventListener("submit", async (e) => {
     let signUpState = document.querySelector("#signUpState").value;
     let signUpUser = document.querySelector("#signUpUser").value;
     let signUpPass = document.querySelector("#signUpPass").value;
-    if(!signUpFirst || !signUpLast || !signUpBirth || !signUpUser || !signUpCity || !signUpState || !signUpPass) {
+    if(!signUpFirst || !signUpLast || !signUpBirth || !signUpUser || !signUpCity || signUpState === "disabled" || !signUpPass) {
         signUpH1.innerText = "Please fill out all the information";
         signUpH1.style.color = "#940E06";
     } else if(isUserUnder18(signUpBirth)){
