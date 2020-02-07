@@ -3,7 +3,7 @@ const { getUser, getUsers, createUser,deleteUser } = require("../../queries/user
 
 users.get("/:id", getUser);
 
- users.get("/", getUsers);
+users.get("/", getUsers);
 
 users.post("/", createUser);
 

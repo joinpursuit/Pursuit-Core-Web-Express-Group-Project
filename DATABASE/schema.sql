@@ -19,7 +19,8 @@ CREATE TABLE users
     firstname TEXT,
     lastname TEXT,
     age INT,
-    profile_pic TEXT 
+    profile_pic TEXT
+
 );
 
 CREATE TABLE albums
@@ -74,7 +75,9 @@ INSERT INTO albums
 (creator_id,title)
 VALUES
 (1,'Movies'),
-(2, 'Memories');
+(2, 'Memories'),
+(3, 'Superbowl 2020');
+
 
 INSERT INTO pictures
 (album_id, photo_url)
@@ -83,13 +86,18 @@ VALUES
 (1,'../../pictures/photos-in-the-wooden-box-5841.jpg'),
 (2,'../../pictures/greayscale-photo-of-baby-feet-with-father-and-mother-hands-in-733881.jpg'),
 (2,'../../pictures/people-silhouette-during-sunset-853168.jpg'),
-(2,'../../pictures/cottages-in-the-middle-of-beach-753626.jpg');
+(2,'../../pictures/cottages-in-the-middle-of-beach-753626.jpg'),
+(3,'https://specials-images.forbesimg.com/imageserve/5e378fb0a854780006b049a0/960x0.jpg?fit=scale'),
+(3,'https://ca-times.brightspotcdn.com/dims4/default/537da86/2147483647/strip/true/crop/4174x2782+0+0/resize/840x560!/quality/90/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F4a%2Fe6%2F9a32968d4c93a3e33c7a571318ed%2F49ers-chiefs-super-bowl-football-90882.jpg');
+
 
 INSERT INTO posts
 (poster_id,album_id,body)
 VALUES
 (1,1,'This is the begining of a great day.' ),
-(2,2, 'Momentos Ive kept throughout the years');
+ fix_Schema
+(2,2, 'Momentos Ive kept throughout the years'),
+(1,3, 'Best time of my life. Go Chiefs!!!');
 
 
 INSERT INTO comments
@@ -109,7 +117,3 @@ VALUES
 (3,2),
 (4,2),
 (1,1);
-
-
-
-

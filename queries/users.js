@@ -29,12 +29,12 @@ const getUser = async(req, res, next) => {
     }
 }
 
-const createUser = async (req,res, next) => {
+const createUser = async (request,res, next) => {
     try{
-        await db.one('INSERT INTO users (username, password,firstname, lastname, age, profile_pic) VALUES (${username}, ${password}, ${firstname}, ${lastname}, ${age}, ${profile_pic}) RETURNING *', req.body)  
+        await db.one('INSERT INTO users (username, password,firstname, lastname, age) VALUES (${request.body.username}, ${request.body.password}, ${request.body.firstName}, ${request.body.lastName}, ${request.body.age}) RETURNING *')  
         res.status(200).json({
             status:'success',
-            message:username + 'was created'
+            message: request.body.username + 'was created'
         })
     }catch(err){
         next(err)
