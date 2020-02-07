@@ -3,7 +3,7 @@ const db = require('../db/index');
 
 const getPosts = async (req, res, next) => {
     try {
-        let posts = await db.any("SELECT posts.*, ARRAY_AGG(comments.body)AS comments FROM posts JOIN comments ON comments.post_id = posts.id GROUP BY posts.id ORDER BY users_id");
+        let posts = await db.any("SELECT *,(SELECT ARRAY_AGG(comments.body)AS comments FROM comments WHERE comments.post_id = posts.id),(SELECT ARRAY_AGG(users.firstname) AS poster FROM users WHERE users.id = users_id),(SELECT ARRAY_AGG(likes.liker_id) AS who_liked FROM likes WHERE posts.id = post_id),(SELECT ARRAY_AGG(albums.id) AS albums FROM albums WHERE albums.id = posts.users_id),(SELECT ARRAY_AGG(pictures.picture_url) AS profile_pic FROM pictures WHERE albums_id = posts.users_id) FROM posts");
         res.status(200).json({
             posts,
             status: "Success!",
