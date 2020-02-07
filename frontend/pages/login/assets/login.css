@@ -39,7 +39,7 @@ form {
     bottom: 8%;
 }
 
-input[type="text"], input[type="password"] {
+input[type="text"], input[type="password"], input[type="date"] {
     display: inline-block;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;

@@ -49,6 +49,7 @@ signUpForm.addEventListener("submit", async (e) => {
         loginH1.style.color = "#940E06";
     } else {
         try {
+            debugger;
             let user = {
                 full_name: signUpFirst + " " + signUpLast, 
                 birth_date: signUpBirth,

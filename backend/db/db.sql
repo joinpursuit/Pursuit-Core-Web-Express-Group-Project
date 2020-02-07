@@ -69,10 +69,10 @@ CREATE TABLE bets (
 
 
 INSERT INTO users (full_name, birth_date, city, state, username, password, bet_history)
-VALUES ('Isaiah Collazo', '10/01/1999', 'Brooklyn', 'NY', 'theycallme_zay', 'expo', '4-0'),
-('Brandon Floyd-Mayweather Brown', '02/06/1996', 'Brooklyn', 'NY', 'brandonbrown@pursuit.org', 'secret', '50-0'),
-('Crystal Cardona', '02/09/1992', 'New York', 'NY', 'crystalcardona@pursuit.org', 'yerrrr', '5-0' ),
-('Wil Santos', '04/14/1986', 'Brooklyn', 'NY', 'wilghensantos@gmail.com', 'deLoMio','12-1');
+VALUES ('Isaiah Collazo', '1999-10-01', 'Brooklyn', 'NY', 'theycallme_zay', 'expo', '4-0'),
+('Brandon Floyd-Mayweather Brown', '1996-02-06', 'Brooklyn', 'NY', 'brandonbrown@pursuit.org', 'secret', '50-0'),
+('Crystal Cardona', '1992-02-09', 'New York', 'NY', 'crystalcardona@pursuit.org', 'yerrrr', '5-0' ),
+('Wil Santos', '1986-04-14', 'Brooklyn', 'NY', 'wilghensantos@gmail.com', 'deLoMio','12-1');
 
 INSERT INTO posts (poster_id, body)
 VALUES (1, 'Whats crackin'),
