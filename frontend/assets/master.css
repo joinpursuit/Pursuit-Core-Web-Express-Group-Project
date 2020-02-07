@@ -1,4 +1,4 @@
-body { margin: 0; background:#6D85CC; }
+body { margin: 0; background:#D1CDC2; }
 
 #logoSection {
     display: flex;
@@ -94,7 +94,7 @@ input[type="submit"]:active {
     width: 70%;
 }
 
-input[type="text"]:focus {
+input[type="text"]:focus, input[type="search"]:focus {
     outline: none;
 } 
 
@@ -112,6 +112,8 @@ input[type="text"]:focus {
     flex: 1;
     margin: 10px;
     text-align: center;
+    box-shadow: 5px 5px rgba(6,25,31,1);
+    border-radius: 10px;
 }
 
 #posts {
@@ -123,6 +125,8 @@ input[type="text"]:focus {
     margin: 10px;
     text-align: center;
     padding-top: 15px;
+    box-shadow: 5px 5px rgba(6,25,31,1);
+    border-radius: 10px;
 }
 
 main {
