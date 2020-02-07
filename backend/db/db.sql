@@ -68,7 +68,6 @@ CREATE TABLE bets (
     taker_id INT REFERENCES users(id) ON DELETE CASCADE
 );
 
-
 INSERT INTO users (full_name, birth_date, city, state, username, password, bet_wins, bet_losses)
 VALUES ('Isaiah Collazo', '1999-10-01', 'Brooklyn', 'NY', 'theycallme_zay', 'expo', 4, 0),
 ('Brandon Floyd-Mayweather Brown', '1996-02-06', 'Brooklyn', 'NY', 'brandonbrown@pursuit.org', 'secret', 50, 0),
