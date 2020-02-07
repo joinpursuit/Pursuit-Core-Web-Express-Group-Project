@@ -1,25 +1,26 @@
 // import axios from "axios"
 let userId = 1
-const getUserID = async () => {
-    let userId = 1
-    try {
-        let res = await axios.get(`http://localhost:3000/users/${userId}`) 
-        console.log(res)
 
+const getFollowing = async () => {
+    try {
+        let res = await axios.get(`http://localhost:3000/users/${userId}/followings/followingCount`) 
+        let following = res.data.following[0]
+        return following.userfollowingcount;
+         
     } catch(error) {
-        console.log("error")
+        console.log(error)
     }
 }
-// getUserID()
+// getFollowing()
 
-const getFollowing = async (userId) => {
+const getFollowers = async () => {
     try {
-        let res = await axios.get(`http://localhost:3000/users/${userId}`) 
-        debugger
-        console.log(res)
-
+        let res = await axios.get(`http://localhost:3000/users/${userId}/followings/followerCount`) 
+        // debugger
+        let followers = res.data.follower[0];
+        return followers.userfollowercount; 
     } catch(error) {
-        console.log("error")
+        console.log(error)
     }
 }
-getFollowing()
+getFollowers()

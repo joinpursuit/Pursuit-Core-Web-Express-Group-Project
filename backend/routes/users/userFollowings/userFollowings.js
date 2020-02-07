@@ -6,4 +6,6 @@ userFollowings.post("/", createUserFollowing);
 userFollowings.get("/followerCount", getUserFollowerCount);
 userFollowings.get("/followingCount", getUserFollowingCount);
 
+
+
 module.exports = userFollowings;
