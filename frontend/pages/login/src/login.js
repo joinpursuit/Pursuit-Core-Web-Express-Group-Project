@@ -35,6 +35,11 @@ logInForm.addEventListener("submit", async (e) => {
     }
 })
 
+formSignIn.addEventListener("submit", (e) => {
+    e.preventDefault();
+    let 
+})
+
 const checkLogin = (data) => {
     sessionStorage.setItem("userId", JSON.stringify(data.user[0].id));
     window.location.href = "./../../index.html";
