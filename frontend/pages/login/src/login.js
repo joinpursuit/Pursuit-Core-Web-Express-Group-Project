@@ -1,7 +1,7 @@
 let login = document.querySelector("#login");
 let signUp = document.querySelector("#signUp");
 let logInForm = document.querySelector("#logInForm");
-let formSignIn = document.querySelector("#signInForm");
+let signUpForm = document.querySelector("#signUpForm");
 let logo = document.querySelector("#logo");
 let loginH1 = document.querySelector("#loginH1")
 let signInh1 = document.querySelector("#signInh1")
@@ -35,7 +35,7 @@ logInForm.addEventListener("submit", async (e) => {
     }
 })
 
-formSignIn.addEventListener("submit", (e) => {
+signUpForm.addEventListener("submit", (e) => {
     e.preventDefault();
     let signUpFirst = document.querySelector("#signUpFirst").value;
     let signUpLast = document.querySelector("#signUpLast").value;
