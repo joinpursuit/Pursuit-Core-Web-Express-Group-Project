@@ -5,20 +5,20 @@ const getFollowing = async () => {
     try {
         let res = await axios.get(`http://localhost:3000/users/${userId}/followings/followingCount`) 
         let following = res.data.following[0]
-        console.log(following.userfollowingcount);
+        return following.userfollowingcount;
          
     } catch(error) {
         console.log(error)
     }
 }
-getFollowing()
+// getFollowing()
 
 const getFollowers = async () => {
     try {
-        let res = await axios.get(`http://localhost:3000/users/${userId}/followings/followingCount`) 
-        let following = res.data.following[0].userfollowingcount
-        console.log(following.userfollowingcount);
-         
+        let res = await axios.get(`http://localhost:3000/users/${userId}/followings/followerCount`) 
+        // debugger
+        let followers = res.data.follower[0];
+        return followers.userfollowercount; 
     } catch(error) {
         console.log(error)
     }
