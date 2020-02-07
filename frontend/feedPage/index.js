@@ -15,21 +15,54 @@ document.addEventListener("DOMContentLoaded", ()=>{
             debugger
             let postData = res.data.posts
             postClass.innerHTML = ""
+            
             postData.forEach(el => {
+               
+                let cardContainer =document.createElement("div")
+                cardContainer.class ="card-container"
+                //All divs belong to card-container
+                    let upperContainer =document.createElement("div")
+                    upperContainer.className ="upper-container"
+                        let imageContainer = document.createElement("div")
+                        imageContainer.className = "image-container"
+
+                    let lowerContainer =document.createElement("div")
+                    lowerContainer.className ="lower-container"
+                        let NameContainer =document.createElement("div")
+                        let postContainer =document.createElement("div")
+                        let btnContainer =document.createElement("div")
+                        btnContainer.className = "btn"
+                // debugger
+        
                 let userPostID = document.createElement("h1")
                 // userPostID.id = userPostIDer
                 userPostID.innerText = el.users_id + " - "
                 userPostID.value= el.users_id
                 let posterText = document.createElement("h2")
+                let poss = document.createElement("p")
+                poss.innerText = el.body
                 posterText.innerText = el.body + "  "
                 posterText.value = el.body
                 let postComments = document.createElement("h3")
                 // postComments.setAttribute("id", "postComments")
                 postComments.innerText = el.comments
                 postComments.value = el.comments
-                postClass.appendChild(userPostID)
-                postClass.appendChild(posterText)
-                postClass.appendChild(postComments)
+
+                NameContainer.appendChild(userPostID)
+                postContainer.appendChild(poss)
+                lowerContainer.appendChild(NameContainer)
+                lowerContainer.appendChild(postContainer)
+                lowerContainer.appendChild(btnContainer)
+
+                upperContainer.appendChild(imageContainer)
+                cardContainer.appendChild(upperContainer)
+                cardContainer.appendChild(lowerContainer)
+                
+                // postClass.appendChild(userPostID)
+                // postClass.appendChild(posterText)
+                // postClass.appendChild(postComments)
+                postClass.appendChild(cardContainer)
+                
 
                 let likeButton = document.createElement("button")
                 likeButton.id = "likeButton"
@@ -39,6 +72,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
                 // commentButton.innerHTML = "&#128221;"
                 // addCommentButton.innerHTML = commentIcon
                 posterText.appendChild(likeButton)
+                btnContainer.appendChild(likeButton)
                 // posterText.appendChild(commentButton)
                 // posterText.appendChild(addCommentButton)
                 let commentBox = document.createElement("input")
@@ -46,6 +80,10 @@ document.addEventListener("DOMContentLoaded", ()=>{
                 submit.innerText = "submit comment"
                 posterText.appendChild(commentBox)
                 posterText.appendChild(submit)
+                btnContainer.appendChild(commentBox)
+                btnContainer.appendChild(submit)
+
+
     
                 // addCommentButton.addEventListener("click", ()=>{
                 //     let commentBox = document.createElement("input")
@@ -81,6 +119,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
                     }
                 })
             })
+            
     
         } catch (error) {
             console.log(error);
