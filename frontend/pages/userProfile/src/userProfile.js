@@ -59,9 +59,24 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
+    const getUserFollowed = async () => {
+        try {
+            await axios.get(`http://localhost:3000/users/${userId}/followings/followingCount`).then(res => {
+                debugger
+                let userFollowed = res.data.following[0]["userfollowingcount"];
+                let showFollowed = document.createElement("p");
+                showFollowed.innerText = `${userFollowed}`;
+                debugger
+            })
+        } catch(err){
+            console.log(err)
+        }
+    }
 
 
 
+
+getUserFollowed()
 getUserFollowers()
 showUserPosts()
 showeUserInfo()
