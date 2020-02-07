@@ -1,10 +1,9 @@
 const db = require("./../../../db/db");
-const {isUserExisting} = require("./../users");
 
 const getUserLogin = async (req, res, next) => {
     try {
         let {username, password} = req.query;
-        let user = await db.any("SELECT * FROM users WHERE username=$1 AND password=$2", [username, password]);
+        let user = await db.any("SELECT * FROM users WHERE upper(username)=$1 AND password=$2", [username.toUpperCase(), password]);
         if(user.length) {
             res.json({
                 user,
