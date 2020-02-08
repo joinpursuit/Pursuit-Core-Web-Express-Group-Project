@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", ()=>{
+    let currentUser = sessionStorage.currentUser;
+    let currentUsername = sessionStorage.currentUsername;
+    let currentPassword = sessionStorage.currentPassword;
     let logout = document.querySelector("#logout")
     let form = document.querySelector("form")
     let postText = document.querySelector("#postText")
