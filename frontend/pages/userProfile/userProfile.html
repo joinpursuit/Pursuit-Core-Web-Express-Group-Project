@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HotBox</title>
+    <script src="./../userProfile/src/userProfile.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Exo+2|Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/userProfile.css">
+</head>
+
+<body>
+    
+        <header>
+                <section id="logoSection">
+                    <section class="logoNav">
+                        <img src="./../bets/assets/hotboxLogo.png" alt="" id="logo"> 
+                    </section>
+                    <img src="./../bets/assets/Hotbox.png" alt="" id="headerName">
+                </section>
+
+                <section id="navBar">
+                    <nav>
+                        <a class="nav" href="./../../index.html">Home</a>
+                        <a class="nav leftBorder" href="./../bets/bets.html">Bets</a>
+                        <a class="nav leftBorder" href="./../userProfile/userProfile.html">Profile</a>
+                        <form id="searchForm"><input type="search" name="search" id="search" placeholder="Search"></form>
+                    </nav>
+                </section>
+            </header>
+
+            <main>
+                <section id="flex-container">
+                    <section id="leftSide">
+                        <section class="profilePic">
+                            <h1>Profile Pic</h1>
+                        </section>
+                    </section>
+                    <section id="userInfo">
+                            <section class="profileInfo">
+                                <h1>User Info</h1>
+                            </section>
+                        </section>
+
+                <section id="posts">
+                    <section class="makePost">
+                        <form action="" id="postForm">
+                            <input type="text" placeholder="Say Something Hot!" id="userInput">
+                            <input type="submit" value="Post">
+                        </form>
+                        <h1>Post Feed</h1>
+                    </section>
+                
+                    <section class="postFeed">
+                    </section>
+                </section> 
+            </section>
+
+        </main>
+
+</html>    

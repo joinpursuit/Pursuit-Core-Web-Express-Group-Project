@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hot Box</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./src/index.js" async ></script>
+    <link href="https://fonts.googleapis.com/css?family=Exo+2|Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/master.css">
+</head>
+
+<body>
+    <header>
+        <section id="logoSection">
+            <section class="logoNav">
+                <img src="./assets/hotboxLogo.png" alt="" id="logo"> 
+            </section>
+            <img src="./assets/hotbox.png" alt="" id="headerName">
+        </section>
+        
+        <section id="navBar">
+            <nav>
+                <a class="nav" href="./../../index.html">Home</a>
+                <a class="nav leftBorder" href="./pages/bets/bets.html">Bets</a>
+                <a class="nav leftBorder" href="./../userProfile/userProfile.html">Profile</a>
+                <form id="searchForm"><input type="search" name="search" id="search" placeholder="Search"></form>
+            </nav>
+        </section>
+    </header>
+
+    <main>
+        <section id="flex-container">
+            <section id="leftSide">
+                    <section class="gamesToday">
+                        <h1>Games Today</h1>
+                    </section>
+            </section>
+            
+            <section id="posts">
+                <section class="makePost">
+                    <form action="" id="postForm">
+                        <input type="text" placeholder="Say Something Hot!" id="makePost">
+                        <input type="submit" value="Post">
+                    </form>
+                </section>
+                
+                <section class="newsFeed">
+                    <h1>News Feed</h1>
+                </section>
+            </section>
+        </section>
+    </main>
+</body>
+
+</html>

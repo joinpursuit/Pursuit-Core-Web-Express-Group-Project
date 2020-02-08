@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./src/bets.js" async></script>
+    
+    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Exo+2|Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Russo+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/bets.css">
+    <title>HotBox Sports</title>
+</head>
+
+<body>
+    <header>
+        <section id="logoSection">
+            <section class="logoNav">
+                <img src="./assets/hotboxLogo.png" alt="" id="logo"> 
+            </section>
+            <img src="./assets/hotbox.png" alt="" id="headerName">
+        </section>
+        <section id="navBar">
+            <nav>
+                <a class="nav" href="./../../index.html">Home</a>
+                <a class="nav leftBorder" href="./../bets/bets.html">Bets</a>
+                <a class="nav leftBorder" href="./../userProfile/userProfile.html">Profile</a>
+                <form id="searchForm"><input type="search" name="search" id="search" placeholder="Search"></form>
+            </nav>
+        </section>
+    </header>
+    
+    <main>
+        <section id="flex-container">
+            <section id="leftSide">
+                    <section class="upcomingGames">
+                        <h1>Upcoming Games</h1>
+                    </section>
+            </section>
+            
+            <section id="bets">
+                    <h1>Bets</h1>
+                    <form action="" id="betForm">
+                        <select name="" id="betGame">
+                            <option value="disabled" selected disabled>Select a Game</option>
+                        </select>
+                        <select name="" id="betTeam">
+                            <option value="disabled" selected disabled>Select a Team</option>
+                        </select>
+                        <input type="number" name="amount" id="betAmount">
+                        <button type="submit">Bet</button>
+                    </form>
+                    <section id="betFormResponse"></section>
+                
+                <section id="betsFeed">
+                </section>
+            </section>
+        </section>
+   </main>
+    
+</body>
+
+</html>
