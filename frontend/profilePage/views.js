@@ -38,11 +38,12 @@ document.addEventListener("DOMContentLoaded", () =>{
         try{
           let res = await axios.get("http://localhost:3000/users/" + viewUser);
           debugger
-          let userKeys = Object.keys(res.data.user)
-          let usersi = Object.values(res.data.user)
-          user_id = res.data.user.id
+          let userKeys = Object.keys(res.data.users[0])
+          let usersi = Object.values(res.data.users[0])
+
+          user_id = res.data.users[0].id
           userPref(user_id)
-          // debugger
+          debugger
           
         let ul = document.querySelector("#info")
 

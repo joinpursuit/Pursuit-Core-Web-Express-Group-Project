@@ -39,6 +39,14 @@ document.addEventListener("DOMContentLoaded", ()=>{
                 
                 let profilePic = document.createElement("img")
                 profilePic.src = el.profile_pic[0]
+
+                profilePic.addEventListener("click", (e)=>{
+                    e.preventDefault()
+                    debugger
+                    sessionStorage.setItem("viewUser", el.users_id);
+                    window.location.href = "../profilePage/viewProfile.html";
+                })
+
                 let userPostID = document.createElement("h1")
                 userPostID.innerText = el.poster[0] + " - "
                 userPostID.value= el.poster[0]

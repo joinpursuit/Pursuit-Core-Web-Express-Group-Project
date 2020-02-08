@@ -17,7 +17,7 @@ const getUsers = async (req, res, next) => {
 
 const getSUser = async (req, res, next) => {
     try{
-        let users = await  db.any("SELECT * FROM users WHERE username = $1", req.params.id)
+        let users = await  db.any("SELECT * FROM users WHERE id = "+ req.params.id)
         res.status(200).json({
             users, 
             staus: "success",
