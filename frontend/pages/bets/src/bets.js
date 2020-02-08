@@ -42,8 +42,12 @@ const getUpcomingGames = (data) => {
 const takeBet = async (e) => {
     let betId = e.target.parentNode.id;
     try {
-        let res = await axios.patch("http://localhost:3000/bets/" + betId, {taker_id: userId});
-        debugger;
+        let res = await axios.patch(`http://localhost:3000/bets/${betId}`, {taker_id: userId});
+        betFormResposne.innerHTML = "";
+        let h1 = document.createElement("h1");
+        h1.innerText = "Took the bet!";
+        betFormResposne.appendChild(h1);
+        await fetchData("http://localhost:3000/bets", populateBetsFeed);
     } catch(err) {
         console.log(err);
     }
@@ -51,6 +55,7 @@ const takeBet = async (e) => {
 
 const populateBetsFeed = (data) => {
     let bets = data.bets;
+    betFeed.innerHTML = "";
     for(let i = 0; i < bets.length; i++) {
         let bet = bets[i];
         if(userId === bet.better_id) continue;

@@ -52,9 +52,8 @@ const getBetsById = async (req,res,next) => {
 
 const getBetsNoTaker = async (req,res,next) => {
     try {
-        let bets = await db.any("SELECT * FROM bets INNER JOIN users ON bets.better_id=users.id WHERE taker_id IS NULL");
+        let bets = await db.any("SELECT * FROM users JOIN bets ON users.id=bets.better_id WHERE taker_id IS NULL");
         if(bets.length) {
-            console.log(bets);
             res.status(200).json({
                 bets, 
                 status: "sucess",
