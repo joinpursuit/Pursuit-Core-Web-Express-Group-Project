@@ -94,11 +94,11 @@ INSERT INTO albums (users_id)
             (4),
             (5);
 INSERT INTO pictures (albums_id, picture_url)
-    VALUES (1, 'https://i.ytimg.com/vi/cYGrlEtqaVw/maxresdefault.jpg'), 
-            (2,'https://i.ytimg.com/vi/cYGrlEtqaVw/maxresdefault.jpg'), 
-            (3,'https://i.ytimg.com/vi/cYGrlEtqaVw/maxresdefault.jpg'),
-            (4,'https://i.ytimg.com/vi/cYGrlEtqaVw/maxresdefault.jpg'),
-            (5,'https://i.ytimg.com/vi/cYGrlEtqaVw/maxresdefault.jpg');
+    VALUES (1, 'https://i.imgur.com/cMy8V5j.png'), 
+            (2,'https://image.shutterstock.com/image-photo/portrait-smiling-red-haired-millennial-260nw-1194497251.jpg'), 
+            (3,'https://pbs.twimg.com/media/D6tUG4QWsAAvdEu.jpg'),
+            (4,'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSoGD7biWDJeibLLUe4OcwgErgzaAdL3d9gqSWgBZAVTjk1LjQp'),
+            (5,'https://image.shutterstock.com/image-photo/headshot-successful-smiling-cheerful-african-260nw-567772042.jpg');
 INSERT INTO preferences (users_id, do_have_child, want_child, drink, smoke_weed, long_term)
     VALUES (1,'y','y','y','y','y'), 
             (2,'y','y','y','y','y'),

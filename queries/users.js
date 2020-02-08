@@ -15,6 +15,20 @@ const getUsers = async (req, res, next) => {
     }
 }
 
+const getSUser = async (req, res, next) => {
+    try{
+        let users = await  db.any("SELECT * FROM users WHERE username = $1", req.params.id)
+        res.status(200).json({
+            users, 
+            staus: "success",
+            message: "All users"
+        })
+
+    } catch (err){
+        next(err)
+    }
+}
+
 const getUser = async (req, res, next) => {
     try{
         let user = await db.one("SELECT * FROM users WHERE username = $1", req.body.username);
@@ -65,4 +79,4 @@ const deleteUser = async (req, res, next) => {
     }
 }
 
-module.exports = { getUsers, getUser, createUser, deleteUser }
+module.exports = { getUsers, getSUser, getUser, createUser, deleteUser }
