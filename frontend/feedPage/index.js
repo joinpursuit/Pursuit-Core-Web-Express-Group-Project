@@ -55,8 +55,11 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
 
 
-                comment.addEventListener("click", ()=>{
-                    window.location.href = "http://localhost:3000/users/" + el.commenter_id[0];
+                comment.addEventListener("click", (e)=>{
+                    e.preventDefault()
+                    debugger
+                    sessionStorage.setItem("viewUser", el.commenter_id[0]);
+                    window.location.href = "../profilePage/viewProfile.html";
                 })
                 imageContainer.appendChild(profilePic)
                 NameContainer.appendChild(userPostID)
