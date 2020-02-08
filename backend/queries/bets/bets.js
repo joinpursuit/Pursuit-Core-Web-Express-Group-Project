@@ -35,7 +35,7 @@ const getBetsById = async (req,res,next) => {
     let {betId} = req.params
     try{ 
         if(await isBetExisting(betId)) {
-            let bet = await db.any("SELECT from bets WHERE id=$1 INNER JOIN users ON bets.better_id=users.id", betId);
+            let bet = await db.one("SELECT * FROM bets INNER JOIN users ON bets.better_id=users.id WHERE bets.id=$1", betId);
             res.status(200).json({
                 bet,
                 status: "sucess",
@@ -52,7 +52,7 @@ const getBetsById = async (req,res,next) => {
 
 const getBetsNoTaker = async (req,res,next) => {
     try {
-        let bets = await db.any("SELECT * FROM bets INNER JOIN users ON bets.better_id=users.id WHERE taker_id IS NULL");
+        let bets = await db.any("SELECT * FROM users JOIN bets ON users.id=bets.better_id WHERE taker_id IS NULL");
         if(bets.length) {
             res.status(200).json({
                 bets, 

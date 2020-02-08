@@ -7,7 +7,7 @@ DROP TABLE IF EXISTS comments;
 DROP TABLE IF EXISTS likes;
 DROP TABLE IF EXISTS post;
 DROP TABLE IF EXISTS followings; 
-DROP TABLE IF EXISTS pictures;
+DROP TABLE IF EXISTS events;
 DROP TABLE IF EXISTS users;
 
 CREATE TABLE users
@@ -20,7 +20,8 @@ CREATE TABLE users
     username VARCHAR, 
     password VARCHAR,
     bet_wins INT,
-    bet_losses INT
+    bet_losses INT,
+    profile_pic VARCHAR
 );
 
 
@@ -46,7 +47,7 @@ CREATE TABLE comments (
     creation_date VARCHAR
 );
 
-CREATE TABLE pictures (
+CREATE TABLE events (
     id SERIAL PRIMARY KEY,
     owners_id INT REFERENCES users(id) ON DELETE CASCADE,
     picture VARCHAR 
