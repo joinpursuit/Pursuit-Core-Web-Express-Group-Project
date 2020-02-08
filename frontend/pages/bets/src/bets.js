@@ -1,7 +1,11 @@
+let userId = sessionStorage.getItem("userId");
+if(!userId) userId = 1;
 let upcomingGames = document.querySelector(".upcomingGames");
 let gameSelect = document.querySelector("#betGame");
 let teamSelect = document.querySelector("#betTeam");
+let betAmount = document.querySelector("#betAmount");
 let betForm = document.querySelector("#betForm");
+let betFormResposne = document.querySelector("#betFormResponse");
 let games = {};
 
 const fetchData = async (url, cb) => {
@@ -47,3 +51,25 @@ gameSelect.addEventListener("change", (e) => {
     })
 })
 
+betForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    if(gameSelect.value === "disabled" || teamSelect.value === "disabled" || betAmount.value <= 0 || !betAmount.value) {
+        betFormResposne.innerHTML = "";
+        let h1 = document.createElement("h1");
+        h1.style.color = "Red";
+        h1.innerText = "Please fill out all information";
+        betFormResposne.appendChild(h1);
+    } else {
+        try {
+            let res = await axios.post("http://localhost:3000/bets", {game_id: gameSelect.value, team_id: teamSelect.value, better_id: userId, bet_amount: betAmount.value});
+            betFormResposne.innerHTML = "";
+            let h1 = document.createElement("h1");
+            h1.innerText = "Created bet!";
+            betFormResposne.appendChild(h1);
+        } catch(err) {
+            console.log(err);
+        }
+    }
+
+
+})
