@@ -17,61 +17,48 @@
 </head>
 
 <body>
-    <main>
-        <!-- <section id="top">
-            <section id="logo">
-                <img src="./assets/hotboxLogo.png" alt="">
+    <header>
+        <section id="logoSection">
+            <section class="logoNav">
+                <img src="./assets/hotboxLogo.png" alt="" id="logo"> 
             </section>
-                <img id="banner" src="./assets/Hotbox.png" alt="">
-
-            </section>  
-                    <section id="navBar">
-                        <nav>
-                            <a href="/">Home</a>
-                            <a href="/" class="leftBorder">Bets</a>
-                            <a href="/" class="leftBorder">Profile</a>
-                            <form id="search"><input type="text" name="search" id="search" placeholder="Search"></form>
-                        </nav>
-                </section>                       -->
-
-                <header>
-                    <section id="logoSection">
-                        <section class="logoNav">
-                            <img src="./assets/hotboxLogo.png" alt="" id="logo"> 
-                        </section>
-                        <img src="./assets/hotbox.png" alt="" id="headerName">
+            <img src="./assets/hotbox.png" alt="" id="headerName">
+        </section>
+        <section id="navBar">
+            <nav>
+                <a class="nav" href="./../../index.html">Home</a>
+                <a class="nav leftBorder" href="./../bets/bets.html">Bets</a>
+                <a class="nav leftBorder" href="./../userProfile/userProfile.html">Profile</a>
+                <form id="searchForm"><input type="search" name="search" id="search" placeholder="Search"></form>
+            </nav>
+        </section>
+    </header>
+    
+    <main>
+        <section id="flex-container">
+            <section id="leftSide">
+                    <section class="upcomingGames">
+                        <h1>Upcoming Games</h1>
                     </section>
-                    <section id="navBar">
-                        <nav>
-                            <a class="nav" href="./../../index.html">Home</a>
-                            <a class="nav leftBorder" href="./../bets/bets.html">Bets</a>
-                            <a class="nav leftBorder" href="./../userProfile/userProfile.html">Profile</a>
-                            <form id="searchForm"><input type="search" name="search" id="search" placeholder="Search"></form>
-                        </nav>
-                    </section>
-                </header>
-
-            <section id="container2">
-                <section id="container2-box">
-                    <section id="gamesToday">
-                        <h1>games today</h1>
-                    </section>
-        
-                    <section id="bets">
-                        <h1>Bets</h1>
-                        <select name="" id="games">Games Available</select>
-                        <select name="" id="team">Your Team</select>
-                        <input type="number" name="amount" id="">
+            </section>
+            
+            <section id="bets">
+                    <h1>Bets</h1>
+                    <form action="" id="betForm">
+                        <select name="" id="betGame">
+                            <option value="disabled" selected disabled>Select a Game</option>
+                        </select>
+                        <select name="" id="betTeam">
+                            <option value="disabled" selected disabled>Select a Team</option>
+                        </select>
+                        <input type="number" name="amount" id="betAmount">
                         <button type="submit">Bet</button>
-                    </section>
-        
-                    <section id="upcoming">
-                        <h1>upcoming games</h1>
-                    </section>
+                    </form>
+                
+                <section class="betsFeed">
                 </section>
             </section>
-            
-            
+        </section>
    </main>
     
 </body>
