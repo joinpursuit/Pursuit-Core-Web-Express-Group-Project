@@ -42,7 +42,7 @@ const getUpcomingGames = (data) => {
 const takeBet = async (e) => {
     let betId = e.target.parentNode.id;
     try {
-        let res = await axios.get("http://localhost:3000/bets/" + betId);
+        let res = await axios.patch("http://localhost:3000/bets/" + betId, {taker_id: userId});
         debugger;
     } catch(err) {
         console.log(err);
