@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let createPostForm = document.querySelector(".createPost");
   let postInput = document.querySelector("#postInput");
   let searchUserForm = document.querySelector("#searchUserForm");
+  let signOut = document.querySelector(".signOut");
   let imgsrc = "";
 
   user.innerText = currentUserName;
@@ -107,7 +108,6 @@ document.addEventListener("DOMContentLoaded", () => {
     let id = e.currentTarget.elements[1].value;
     let post_id = e.currentTarget.elements[1].id;
     let body = e.currentTarget.elements[0].value;
-
     await axios.patch(`http://localhost:3000/comments/${id}`, { body: body }); // new comment gets pushed to the End.
     displayComments(post_id);
   };
@@ -144,7 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
       let res = await axios.get("http://localhost:3000/posts");
       let posts = res.data.posts;
 
-      posts.forEach(async post => {
+      posts.reverse().forEach(async post => {
         let postDiv = document.createElement("div");
         postDiv.className = "postDiv";
         if (post.type === "img") {
@@ -342,5 +342,10 @@ document.addEventListener("DOMContentLoaded", () => {
         userSearchRes.appendChild(li);
       });
     } catch (error) {}
+  });
+
+  signOut.addEventListener("click", () => {
+    sessionStorage.clear();
+    window.location.href = "../mainPage/mainpageindex.html";
   });
 });

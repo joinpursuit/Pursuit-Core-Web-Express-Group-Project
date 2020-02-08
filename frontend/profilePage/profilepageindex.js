@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let feed = document.querySelector(".feed");
   let user = document.querySelector("#user");
   let backToFeed = document.querySelector("#backToFeed");
+  let signOut = document.querySelector(".signOut");
 
   user.innerText = currentUserName;
 
@@ -135,10 +136,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const populateFeed = async () => {
     try {
       feed.innerHTML = "";
-      let res = await axios.get(`http://localhost:3000/posts/1`);
+      let res = await axios.get(`http://localhost:3000/posts/${currentUser}`);
       let posts = res.data.post;
 
-      posts.forEach(async post => {
+      posts.reverse().forEach(async post => {
         let postDiv = document.createElement("div");
         postDiv.className = "postDiv";
         if (post.type === "img") {
@@ -260,5 +261,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   backToFeed.addEventListener("click", () => {
     window.location.href = "../FEEDPAGE/feedpageindex.html";
+  });
+
+  signOut.addEventListener("click", () => {
+    sessionStorage.clear();
+    window.location.href = "../mainPage/mainpageindex.html";
   });
 });
