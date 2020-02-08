@@ -8,3 +8,17 @@ const fetchData = async (url, cb) => {
         console.log(err)
     }
 } // End of fetchData() function
+
+const createUpcomingElement = (event) => {
+
+} // End of createUpcomingElement() function
+
+const getUpcomingGames = (data) => {
+    let events = data.data.events;
+    events.forEach(event => {
+        createUpcomingElement(event);
+    })
+
+} // End of getUpcomingGames() function
+
+fetchData("http://localhost:3000/sports/4/events", getUpcomingGames);

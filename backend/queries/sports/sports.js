@@ -30,7 +30,7 @@ const getSportEvents = async (req, res, next) => {
     res.json({
         status: "success",
         message: "Retrieved all events for your sport",
-        data: response.events
+        data: response
     })
 } // End of getSportEvents() function
 
