@@ -31,7 +31,6 @@ const getPosts = async (postId) => {
         posts.filter(post => {
             console.log(post);
             debugger
-            
             postsArr.push({posterId: post.id, body: post.body, timestamp: post.creation_date})
         })
     } catch(error) {
@@ -53,13 +52,15 @@ const populateNewsFeed = async () => {
     let p1 = document.createElement("p1")
     let p2 = document.createElement("p2")
 
-    p1.innerText = await getFollowers() //gets Users Followers and appends 
-    followers.appendChild(p1)
-    // debugger
-    // let p = document.createElement("p")
-    p2.innerText = await getFollowing();
-    following.appendChild(p2)
-
+    // p1.innerText = await getFollowers() //gets Users Followers and appends 
+    // followers.appendChild(p1)
+    // // debugger
+    // // let p = document.createElement("p")
+    // p2.innerText = await getFollowing();
+    // following.appendChild(p2)
+    console.log(postsArr);
+    debugger
+    
     postsArr.forEach(post => {
         // let newsFeed = document.querySelector(".newsFeed")
         let p3 = document.createElement("p1")
