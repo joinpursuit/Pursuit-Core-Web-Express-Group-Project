@@ -1,58 +1,45 @@
 document.addEventListener("DOMContentLoaded", () => {
   let currentUser = sessionStorage.currentUser;
   let currentUserName = sessionStorage.currentUserName;
-  let profileButton = document.querySelector(".profileButton");
+  let searchedUserId = sessionStorage.searchedUserId;
+  let searchedUserName = sessionStorage.searchedUserName;
   let feed = document.querySelector(".feed");
   let user = document.querySelector("#user");
-  let previewImage = document.querySelector("#imgPreview");
-  let incomingFile = document.querySelector("#incomingFile");
-  let createPostForm = document.querySelector(".createPost");
-  let postInput = document.querySelector("#postInput");
-  let searchUserForm = document.querySelector("#searchUserForm");
-  let imgsrc = "";
+  let backToFeed = document.querySelector("#backToFeed");
 
-  user.innerText = currentUserName;
-
+  user.innerText = searchedUserName;
   const displayLikes = async id => {
     let res = await axios.get(`http://localhost:3000/likes/posts/${id}`);
     let likes = res.data.numberOfLikes.count;
-
     return likes;
   };
-
   const likePost = async e => {
     let id = e.target.value;
     let res = await axios.post(`http://localhost:3000/likes/posts/${id}`, {
       user_id: currentUser
     });
-
     let p = document.querySelector(`#p${id}`);
     p.innerText = `${await displayLikes(id)} Likes`;
     let button = document.querySelector(`#likeButton${id}`);
     button.innerHTML = "dislike";
     button.onclick = dislikefun;
   };
-
   const dislikefun = async e => {
     let id = e.target.value;
     let res = await axios.delete(
       `http://localhost:3000/likes/${id}/${currentUser}`
     );
-
     let p = document.querySelector(`#p${id}`);
     p.innerText = `${await displayLikes(id)} Likes`;
     let button = document.querySelector(`#likeButton${id}`);
     button.innerHTML = "Like";
     button.onclick = likePost;
   };
-
   const displayComments = async id => {
     let commentUl = document.querySelector(`#commentsUl${id}`);
     commentUl.innerHTML = "";
-
     let res = await axios.get(`http://localhost:3000/comments/posts/${id}`);
     let comments = res.data.comments;
-
     comments.reverse().forEach(comment => {
       let li = document.createElement("li");
       li.id = `li${comment.id}`;
@@ -64,7 +51,6 @@ document.addEventListener("DOMContentLoaded", () => {
         editButton.id = id;
         editButton.class = "editButton";
         editButton.onclick = editComment;
-
         let deleteButton = document.createElement("button");
         deleteButton.innerHTML = "delete";
         deleteButton.value = comment.id;
@@ -77,10 +63,8 @@ document.addEventListener("DOMContentLoaded", () => {
       commentUl.appendChild(li);
     });
   };
-
   const editComment = async e => {
     let id = e.target.value;
-
     let li = document.querySelector(`#li${id}`);
     let form = document.createElement("form");
     form.onsubmit = commentEditSubmit;
@@ -88,16 +72,13 @@ document.addEventListener("DOMContentLoaded", () => {
     li.innerHTML;
     let start = li.innerText.indexOf(" ") + 1;
     let end = li.innerText.indexOf(":");
-
     text = li.innerText.slice(start, end);
-
     input.value = text;
     li.innerHTML = "";
     let submitEdit = document.createElement("button");
     submitEdit.innerText = " edit now";
     submitEdit.value = id;
     submitEdit.id = e.target.id;
-
     form.appendChild(input);
     form.appendChild(submitEdit);
     li.appendChild(form);
@@ -107,19 +88,15 @@ document.addEventListener("DOMContentLoaded", () => {
     let id = e.currentTarget.elements[1].value;
     let post_id = e.currentTarget.elements[1].id;
     let body = e.currentTarget.elements[0].value;
-
     await axios.patch(`http://localhost:3000/comments/${id}`, { body: body }); // new comment gets pushed to the End.
     displayComments(post_id);
   };
-
   const deleteComment = async e => {
     let id = e.target.value;
     let postId = e.target.id;
     await axios.delete(`http://localhost:3000/comments/${id}`);
-
     displayComments(postId);
   };
-
   const commentOnPost = async e => {
     e.preventDefault();
     let id = e.target.value;
@@ -130,20 +107,13 @@ document.addEventListener("DOMContentLoaded", () => {
     );
     displayComments(id);
   };
-
-  const deletePost = async e => {
-    let id = e.target.value;
-    let postId = e.target.id;
-    await axios.delete(`http://localhost:3000/posts/${id}`);
-    populateFeed();
-  };
-
   const populateFeed = async () => {
     try {
       feed.innerHTML = "";
-      let res = await axios.get("http://localhost:3000/posts");
-      let posts = res.data.posts;
-
+      let res = await axios.get(
+        `http://localhost:3000/posts/${searchedUserId}`
+      );
+      let posts = res.data.post;
       posts.forEach(async post => {
         let postDiv = document.createElement("div");
         postDiv.className = "postDiv";
@@ -166,7 +136,6 @@ document.addEventListener("DOMContentLoaded", () => {
           likeButton.class = "likeButton";
           likeButton.onclick = likePost;
           let commentForm = document.createElement("form");
-
           let commentButton = document.createElement("button");
           commentButton.innerHTML = "comment";
           commentButton.value = id;
@@ -174,7 +143,6 @@ document.addEventListener("DOMContentLoaded", () => {
           commentButton.class = "commentButton";
           commentButton.onclick = commentOnPost;
           let commentBody = document.createElement("input");
-
           commentBody.class = "comments";
           commentBody.type = "text";
           commentBody.placeholder = "Write a comment...";
@@ -183,23 +151,12 @@ document.addEventListener("DOMContentLoaded", () => {
           commentForm.appendChild(commentButton);
           let commentUl = document.createElement("ul");
           commentUl.id = `commentsUl${id}`;
-
           postDiv.appendChild(userName);
           postDiv.appendChild(img);
           postDiv.appendChild(caption);
-          if (post.user_name === currentUserName) {
-            let deleteButton = document.createElement("button");
-            deleteButton.innerHTML = "Delete Post";
-            deleteButton.value = post.id;
-            deleteButton.id = `${id}`;
-            deleteButton.class = "deleteButton";
-            deleteButton.onclick = deletePost;
-            postDiv.appendChild(deleteButton);
-          }
           postDiv.appendChild(likes);
           postDiv.appendChild(likeButton);
           postDiv.appendChild(commentUl);
-
           feed.appendChild(postDiv);
           displayComments(id);
           postDiv.appendChild(commentForm);
@@ -219,7 +176,6 @@ document.addEventListener("DOMContentLoaded", () => {
           likeButton.class = "likeButton";
           likeButton.onclick = likePost;
           let commentForm = document.createElement("form");
-
           let commentButton = document.createElement("button");
           commentButton.innerHTML = "comment";
           commentButton.value = id;
@@ -227,7 +183,6 @@ document.addEventListener("DOMContentLoaded", () => {
           commentButton.class = "commentButton";
           commentButton.onclick = commentOnPost;
           let commentBody = document.createElement("input");
-
           commentBody.class = "comments";
           commentBody.type = "text";
           commentBody.placeholder = "Write a comment...";
@@ -238,21 +193,9 @@ document.addEventListener("DOMContentLoaded", () => {
           commentUl.id = `commentsUl${id}`;
           postDiv.appendChild(userName);
           postDiv.appendChild(caption);
-
-          if (post.user_name === currentUserName) {
-            let deleteButton = document.createElement("button");
-            deleteButton.innerHTML = "Delete Post";
-            deleteButton.value = post.id;
-            deleteButton.id = `${id}`;
-            deleteButton.class = "deleteButton";
-            deleteButton.onclick = deletePost;
-            postDiv.appendChild(deleteButton);
-          }
-
           postDiv.appendChild(likes);
           postDiv.appendChild(likeButton);
           postDiv.appendChild(commentUl);
-
           feed.appendChild(postDiv);
           displayComments(id);
           postDiv.appendChild(commentForm);
@@ -263,84 +206,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
   populateFeed();
-
-  incomingFile.addEventListener("change", function() {
-    const file = this.files[0];
-    console.log(this.files);
-    if (file) {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.addEventListener("load", function() {
-        previewImage.setAttribute("src", this.result);
-        imgsrc = this.result;
-        console.log(imgsrc);
-      });
-    }
-  });
-
-  const postFunction = async () => {
-    let file = incomingFile.value;
-    let albumId = null;
-    let postType;
-    if (file !== "") {
-      postType = "img";
-      albumId = 1;
-    } else {
-      postType = "text";
-    }
-    try {
-      let res = await axios.post("http://localhost:3000/posts", {
-        type: postType,
-        body: postInput.value,
-        album_id: albumId,
-        user_id: currentUser,
-        url_img: imgsrc
-      });
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  createPostForm.addEventListener("submit", async e => {
-    postFunction(); // POST NOT IN PROPPER PLACEMENT UNTIL REFRESHED A FEW TIMES
-    imgsrc = "";
-    previewImage.innerHTML = "";
-    populateFeed();
-  });
-
-  profileButton.addEventListener("click", () => {
-    window.location.href = "../profilePage/profilepageindex.html";
-  });
-
-  const searchedUser = (id, name) => {
-    sessionStorage.setItem("searchedUserId", id);
-    sessionStorage.setItem("searchedUserName", name);
-  };
-
-  searchUserForm.addEventListener("keyup", async e => {
-    e.preventDefault();
-
-    let user_name = e.currentTarget.elements[0].value;
-    try {
-      let res = await axios.get(
-        `http://localhost:3000/users/search/${user_name}`
-      );
-      let users = res.data.user;
-      let userSearchRes = document.querySelector("#userSearchRes");
-      userSearchRes.innerHTML = "";
-      users.forEach(user => {
-        console.log(user);
-
-        let li = document.createElement("li");
-        let a = document.createElement("a");
-        a.title = user.user_name;
-        a.innerText = user.user_name;
-        a.value = user.id;
-        a.onclick = searchedUser(user.id, user.user_name);
-        a.href = `../searchedUserPage/searchedUser.html`;
-        li.appendChild(a);
-        userSearchRes.appendChild(li);
-      });
-    } catch (error) {}
+  backToFeed.addEventListener("click", () => {
+    window.location.href = "../feedPage/feedpageindex.html";
   });
 });

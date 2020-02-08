@@ -40,9 +40,9 @@
 }
 
 .postDiv {
-  /* margin-left: 15%; */
-}
-
-.commentsSection {
-  background-color: lightgrey;
+  border-style: solid;
+  border-width: medium;
+  border-color: #c0252a;
+  border-radius: 8px;
+  margin: 10px;
 }

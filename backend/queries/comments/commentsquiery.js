@@ -16,7 +16,6 @@ const getCommentsPost = async (req, res, next) => {
 };
 
 const addComment = async (req, res, next) => {
-  console.log(req.body.body);
   try {
     await db.none(
       `INSERT INTO comments (body, user_id, post_id) VALUES ('${req.body.body}', ${req.params.user_id}, ${req.params.post_id})`,
