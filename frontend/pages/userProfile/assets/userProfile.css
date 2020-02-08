@@ -1,198 +1,51 @@
+body { margin: 0; background:#D1CDC2; }
 
-.grid-container {
-    display: grid;
-    grid-template-columns: 1fr 0fr;
-    grid-template-rows: 0.5fr 0.3fr 2.5fr;
-    grid-template-areas: "header ." "navBar ." "container .";
-  }
-  
-  .header {
-    display: grid;
-    grid-template-columns: 1fr 6fr;
-    grid-template-rows: 1fr 1fr;
-    grid-template-areas: "logo projectName" "logo projectName";
-    grid-area: header;
+#logoSection {
+    display: flex;
+    flex-direction: row;
     background-image: linear-gradient(#592185, #FAC346);
-  }
-  
-  .logo { 
-    grid-area: logo; 
-  }
-  
-  #logoHead{
-      height: 100px;
-  }
-  .projectName {
-    display: grid;
-    /* justify-content: center; */
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
-    grid-template-areas: ".";
-    grid-area: projectName;
-    margin-left: 350px;
-    
-  }
-  
-  .navBar { 
-    grid-area: navBar; 
-  }
-  
-  .container {
-    display: grid;
-    grid-template-columns: 0.8fr 1.2fr 1fr;
-    grid-template-rows: 0.5fr 1.1fr;
-    grid-template-areas: "profilePic UserInfo UserInfo" "userPost userPost userPost";
-    grid-area: container;
-  }
-  
-  .profilePic { 
-    grid-area: profilePic; 
-    background-color: #592185;
-    box-shadow: 5px 5px grey;
-    border-radius: 15px;
-    margin-top: 5px;
-    
-  }
-  
-  .userPost {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 0.2fr 1.5fr;
-    grid-template-areas: "createBanner createBanner createBanner" "userInput userInput userInput";
-    grid-area: userPost;
-  }
-  
-  .createBanner { 
-    grid-area: createBanner; 
-    background-color: rgba(253,185,39,1);
-    border-radius: 15px;
-    color:white;
-    margin-bottom: 20px;
-    margin-top: 10px;
-    font-family: 'Exo 2', sans-serif;
-  }
-  
-  .userInput {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 0.5fr 1.5fr;
-    grid-template-areas: ". . ." "usersPosts usersPosts usersPosts";
-    grid-area: userInput;
-    
-  }
-  
-  #postIn {
-      display: inline-block;
-      -webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      box-sizing: border-box;
-      cursor: pointer;
-      padding: 10px 20px;
-      border: 1px solid #FDB927;
-      -webkit-border-radius: 10px;
-      border-radius: 10px;
-      font-family: 'Poppins', sans-serif;
-      color: rgba(253,185,39,1);
-      -o-text-overflow: clip;
-      text-overflow: clip;
-      letter-spacing: 1px;
-      word-spacing: 10px;
-      background: rgba(6,25,31,1);
-      width: 200%;
-  }
-  
-button {
-    width: 200%;
+    color: rgb(85,37,130);
+    text-align: center;
+    align-items: center;
+    border-bottom: 1px solid black;
+    justify-content: space-between;
 }
-  
-  h1 {
-    font-family: 'Exo 2', sans-serif; 
-  }
-  
-  .usersPosts { 
-    grid-area: usersPosts; 
+
+#logo {
+    width: 40%;
+}
+
+#headerName {
+    width: 22%;
+    margin-right: 39%;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: rgb(6,25,34);
+    font-size: 24px;
+    padding: 10px;
+}
+
+.leftBorder {
+    border-left: 1px solid #FDB927;
+    padding-left: 15px;
+}
+
+.nav {
+    color: #FDB927;
+    text-decoration: none;
+    margin-left: 15px;
     font-family: 'Exo 2', sans-serif;
-    border-radius: 15px;
-    margin-top: 10px;
-    background-image: url('https://impressionsmagazine.com/wp-content/uploads/2017/07/GreatDane-SportsBallsFire-1-Oct-2012PRODUCTARTICLE-2.gif');
-    background-size: 10%;
-  
-  
-  }
-  
-  .UserInfo {
-    display: grid;
-    grid-template-columns: 1fr 1fr 0fr;
-    grid-template-rows: 1fr 1fr;
-    grid-template-areas: "Name Followers ." "hotboxRecord Followed .";
-    grid-area: UserInfo;
-  }
-  
-  .Name { 
-    grid-area: Name;
-    background-image: url('https://pluspng.com/img-png/basketball-court-png-hd-basketball-court-background-related-keywords-suggestions-2085.png');
-    box-shadow: 5px 5px grey;
-    border-radius: 15px; 
-    margin-left: 5px;
-    margin-right: 5px;
-    margin-bottom: 5px;
-    margin-top: 5px;
-  }
-  
-  .hotboxRecord { 
-    grid-area: hotboxRecord; 
-    background-image: url('./Fire.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 600px;
-    box-shadow: 5px 5px grey;
-    border-radius: 15px; 
-    margin-left: 5px;
-    margin-right: 5px;
-    margin-bottom: 5px;
-    color: white;
-    font-weight: bold;
-    position: static;
-  }
+}
 
-  #displayName, #displayRecord {
-      font-size: 20px;
-      display: grid; 
-      justify-content: center;
-  }
-  
-  .Followers { 
-    grid-area: Followers; 
-    background-image: url('https://media.gettyimages.com/videos/sports-fans-video-id472820817?s=640x640');
-    background-position: bottom;
-    /* background-repeat: no-repeat; */
-    background-size: 70%;
-    box-shadow: 5px 5px grey;
-    border-radius: 15px; 
-    margin-left: 5px;
-    margin-right: 5px;
-    margin-bottom: 5px;
+.nav:hover {
+    font-size: 26px;
+}
 
-  }
-  
-  .Followed { 
-    grid-area: Followed; 
-    background-image: url('https://media.gettyimages.com/videos/sports-fans-video-id472820817?s=640x640');
-    background-size: 70%;
-    background-position: bottom;
-    box-shadow: 5px 5px grey;
-    border-radius: 15px; 
-    margin-left: 5px;
-    margin-right: 5px;
-    margin-bottom: 5px;
-  }
-  
-  #projName {
-    height: 100px;
-  }
-  
-  
-  #search {
+input[type="text"], input[type="search"] {
     display: inline-block;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -207,33 +60,99 @@ button {
     -o-text-overflow: clip;
     text-overflow: clip;
     letter-spacing: 1px;
-    word-spacing: 29px;
     background: rgba(6,25,31,1);
-  }
-  
-  nav {
+}
+
+input[type="submit"] {
+	box-shadow: 0px 1px 0px 0px #fff6af;
+	background:linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
+	background-color:#ffec64;
+	border-radius:6px;
+	border:5px solid #ffaa22;
+	display:inline-block;
+	cursor:pointer;
+	color:#333333;
+	font-family:Verdana;
+	font-size:17px;
+	font-weight:bold;
+	font-style:italic;
+	padding:5px 24px;
+	text-decoration:none;
+	text-shadow:0px 0px 0px #ffee66;
+}
+
+input[type="submit"]:hover{
+	background:linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
+	background-color:#ffab23;
+}
+input[type="submit"]:active {
+	position:relative;
+	top:1px;
+}
+
+#postForm > input[type="text"] {
+    width: 70%;
+}
+
+input[type="text"]:focus, input[type="search"]:focus {
+    outline: none;
+} 
+
+#flex-container {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    background-color: rgb(6,25,34);
-    font-size: 24px;
-    padding: 10px;
-  }
-  .leftBorder {
-    border-left: 1px solid #FDB927;
-    padding-left: 15px;
-  }
-  a {
-    color: #FDB927;
-    text-decoration: none;
-    margin-left: 15px;
+    justify-content: space-evenly;
+}
+
+#leftSide {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    background: #552583;
+    flex: 1;
+    margin: 10px;
+    text-align: center;
+    box-shadow: 5px 5px rgba(6,25,31,1);
+    border-radius: 10px;
+}
+
+#userInfo {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    background: #552583;
+    flex: 1;
+    margin: 10px;
+    text-align: center;
+    box-shadow: 5px 5px rgba(6,25,31,1);
+    border-radius: 10px;
+}
+
+#posts {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    background: #552583;
+    flex: 2;
+    margin: 10px;
+    text-align: center;
+    padding-top: 15px;
+    box-shadow: 5px 5px rgba(6,25,31,1);
+    border-radius: 10px;
+}
+
+main {
+    color: #FDB927; 
+}
+
+h1, h2 {
     font-family: 'Exo 2', sans-serif;
-  }
-  a:hover {
-    font-size: 26px;
-  }
-  
-  input[type="text"]:focus {
-    outline: none;
-  }
-  
+}
+
+h1 {
+    font-size: 24px;
+}
+
+p {
+    font-family: 'Poppins', sans-serif;
+}    

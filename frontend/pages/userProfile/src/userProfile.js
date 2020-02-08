@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         showPosts.innerText = userPosts[post]
                         debugger
                     })
-
+                    
                 })
 
             }catch(err){
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
             })
         } catch(err){
             console.log(err)
-        }
+        }w
     }
 
 
@@ -68,11 +68,18 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-
+    postForm.addEventListener('submit', (e) => {
+        e.preventDefault
+        try {
+            await.post(``)
+        }catch(err){
+            console.log(err)
+        }
+    })
 
 
 getUserFollowed()
 getUserFollowers()
-// showUserPosts()
+showUserPosts()
 showUserInfo()
 })
