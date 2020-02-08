@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let incomingFile = document.querySelector("#incomingFile");
   let createPostForm = document.querySelector(".createPost");
   let postInput = document.querySelector("#postInput");
+  let searchUserForm = document.querySelector("#searchUserForm");
   let imgsrc = "";
 
   user.innerText = currentUserName;
@@ -309,5 +310,37 @@ document.addEventListener("DOMContentLoaded", () => {
 
   profileButton.addEventListener("click", () => {
     window.location.href = "../profilePage/profilepageindex.html";
+  });
+
+  const searchedUser = (id, name) => {
+    sessionStorage.setItem("searchedUserId", id);
+    sessionStorage.setItem("searchedUserName", name);
+  };
+
+  searchUserForm.addEventListener("keyup", async e => {
+    e.preventDefault();
+
+    let user_name = e.currentTarget.elements[0].value;
+    try {
+      let res = await axios.get(
+        `http://localhost:3000/users/search/${user_name}`
+      );
+      let users = res.data.user;
+      let userSearchRes = document.querySelector("#userSearchRes");
+      userSearchRes.innerHTML = "";
+      users.forEach(user => {
+        console.log(user);
+        // debugger;
+        let li = document.createElement("li");
+        let a = document.createElement("a");
+        a.title = user.user_name;
+        a.innerText = user.user_name;
+        a.value = user.id;
+        a.onclick = searchedUser(user.id, user.user_name);
+        a.href = `../userPage/userPage.html`;
+        li.appendChild(a);
+        userSearchRes.appendChild(li);
+      });
+    } catch (error) {}
   });
 });

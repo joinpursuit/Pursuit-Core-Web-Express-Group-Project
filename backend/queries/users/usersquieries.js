@@ -67,4 +67,20 @@ const deleteUser = async (req, res, next) => {
   }
 };
 
-module.exports = { getAllUsers, getUserByid, logInUser, addUser, deleteUser };
+const getUserByUsername = async (req, res, next) => {
+  try {
+    
+    let user = await dataBase.any(
+      `SELECT * FROM users WHERE user_name LIKE '${req.params.user_name}%'`
+    );
+    res.status(200).json({
+      user,
+      status: "ok",
+      message: `success`
+    });
+  } catch (err) {
+    next(err);
+  }
+};
+
+module.exports = { getAllUsers, getUserByid, getUserByUsername, logInUser, addUser, deleteUser };
