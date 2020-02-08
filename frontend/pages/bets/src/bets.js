@@ -1,5 +1,5 @@
 let userId = sessionStorage.getItem("userId");
-if(!userId) userId = 1;
+if(!userId) userId = 2;
 let upcomingGames = document.querySelector(".upcomingGames");
 let gameSelect = document.querySelector("#betGame");
 let teamSelect = document.querySelector("#betTeam");
@@ -25,7 +25,7 @@ const createUpcomingElement = (event) => {
     option.innerText = `${event.teams[0].name} VS. ${event.teams[1].name}`;
     option.value = event.event_id;
     let h3 = document.createElement("h3");
-    h3.innerText = `${event.teams[0].name} VS. ${event.teams[1].name}`;
+    h3.innerHTML = `${event.teams[0].name} <span style="color:#FDB927">VS.</span> ${event.teams[1].name}`;
     section.appendChild(h3);
     upcomingGames.appendChild(section);
     games[event.event_id] = event.teams;
@@ -33,28 +33,41 @@ const createUpcomingElement = (event) => {
 } // End of createUpcomingElement() function
 
 const getUpcomingGames = (data) => {
-    let events = data.data.events;
-    events.forEach(event => {
+    data.forEach(event => {
         createUpcomingElement(event);
     })
 
 } // End of getUpcomingGames() function
 
+const takeBet = (e) => {
+    debugger;
+} // End of takeBet() function
+
 const populateBetsFeed = (data) => {
     let bets = data.bets;
-    bets.forEach(bet => {
-        let team = games[bet.game_id][0].team_id === bet.team_id ? games[bet.game_id][0] : games[bet.game_id][1];
-        let betSection = document.createElement("section");
-        betSection.className = "betSection";
-    
-        let betInfo = document.createElement("p");
-        betInfo.className = "bets";
-    
-        betInfo.innerHTML = `<b>User</b>: ${bet.username} <b>Game</b>: ${games[bet.game_id][0].name} VS. ${games[bet.game_id][1].name} <b>Team</b>: ${team.name} <b>Amount</b>: ${bet.bet_amount}`;
-        betSection.appendChild(betInfo);
+    for(let i = 0; i < bets.length; i++) {
+        let bet = bets[i];
+        if(userId === bet.better_id) continue;
+        else {
+            let game = games[bet.game_id];
+            let team = game[0].team_id === bet.team_id ? game[0] : game[1];
+            let betSection = document.createElement("section");
+            betSection.className = "betSection";
+            betSection.id = bet.id;
+        
+            let betInfo = document.createElement("p");
+            betInfo.className = "bets";
+            betInfo.innerHTML = `<span style="color:#FDB927">User:</span> ${bet.username} <span style="color:#FDB927">Game:</span> ${game[0].name} VS. ${game[1].name} <span style="color:#FDB927">Team:</span> ${team.name} <span style="color:#FDB927">Amount:</span> ${bet.bet_amount}`;
+            
+            let takerButton = document.createElement("button");
+            takerButton.innerText = "Take Bet";
+            takerButton.onclick = takeBet;
 
-        betFeed.appendChild(betSection);
-    })
+            betSection.appendChild(betInfo);
+            betSection.appendChild(takerButton);
+            betFeed.appendChild(betSection);
+        }
+    }
     
 } // End of populateBetsFeed() function
 
