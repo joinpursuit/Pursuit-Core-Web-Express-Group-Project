@@ -20,6 +20,12 @@ body { margin: 0; background:#D1CDC2; }
     margin-right: 39%;
 }
 
+.upcomingSection, .betSection {
+    background: rgb(6,25,34);
+    color: #D1CDC2;
+    padding: 20px;
+}
+
 nav {
     display: flex;
     flex-direction: row;

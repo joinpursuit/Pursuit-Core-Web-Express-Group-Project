@@ -6,6 +6,7 @@ let teamSelect = document.querySelector("#betTeam");
 let betAmount = document.querySelector("#betAmount");
 let betForm = document.querySelector("#betForm");
 let betFormResposne = document.querySelector("#betFormResponse");
+let betFeed = document.querySelector("#betsFeed");
 let games = {};
 
 const fetchData = async (url, cb) => {
@@ -20,6 +21,7 @@ const fetchData = async (url, cb) => {
 const createUpcomingElement = (event) => {
     let option = document.createElement("option");
     let section = document.createElement("section");
+    section.className = "upcomingSection";
     option.innerText = `${event.teams[0].name} VS. ${event.teams[1].name}`;
     option.value = event.event_id;
     let h3 = document.createElement("h3");
@@ -38,7 +40,28 @@ const getUpcomingGames = (data) => {
 
 } // End of getUpcomingGames() function
 
-fetchData("http://localhost:3000/sports/4/events", getUpcomingGames);
+const populateBetsFeed = (data) => {
+    let bets = data.bets;
+    bets.forEach(bet => {
+        let team = games[bet.game_id][0].team_id === bet.team_id ? games[bet.game_id][0] : games[bet.game_id][1];
+        let betSection = document.createElement("section");
+        betSection.className = "betSection";
+    
+        let betInfo = document.createElement("p");
+        betInfo.className = "bets";
+    
+        betInfo.innerHTML = `<b>User</b>: ${bet.username} <b>Game</b>: ${games[bet.game_id][0].name} VS. ${games[bet.game_id][1].name} <b>Team</b>: ${team.name} <b>Amount</b>: ${bet.bet_amount}`;
+        betSection.appendChild(betInfo);
+
+        betFeed.appendChild(betSection);
+    })
+    
+} // End of populateBetsFeed() function
+
+let getData = async () => {
+    await fetchData("http://localhost:3000/events", getUpcomingGames);
+    await fetchData("http://localhost:3000/bets", populateBetsFeed);
+} // End of getData() function
 
 gameSelect.addEventListener("change", (e) => {
     teamSelect.innerHTML = "<option value='disabled' selected disabled>Select a Team</option>"
@@ -70,6 +93,6 @@ betForm.addEventListener("submit", async (e) => {
             console.log(err);
         }
     }
-
-
 })
+
+getData();
