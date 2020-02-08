@@ -20,7 +20,7 @@ app.use("/sports", sportsRouter);
 app.use("/users", usersRouter);
 
 app.get("/events", (req,res) => {
-    res.json({
+    res.json([{
         "event_id": "2c0a565cbda38791e8b42e5fb7a53d21",
         "sport_id": 4,
         "event_date": "2020-02-08T03:35:00Z",
@@ -288,7 +288,7 @@ app.get("/events", (req,res) => {
                 "is_home": true
             }
         ]
-    })
+    }])
 })
 
 app.use((err, req, res, next) => {

@@ -20,6 +20,14 @@ body { margin: 0; background:#D1CDC2; }
     margin-right: 39%;
 }
 
+.upcomingSection, .betSection {
+    background: rgb(6,25,34);
+    color: #D1CDC2;
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 10px;
+}
+
 nav {
     display: flex;
     flex-direction: row;
@@ -140,6 +148,7 @@ h1 {
     font-family: 'Exo 2', sans-serif;
     color: #FDB927;
     font-size: 24px;
+    text-shadow: 2px 2px rgba(6,25,31,1);
 }
 
 select {
@@ -169,4 +178,8 @@ select:hover, select:focus {
 select:disabled {
     opacity: 0.5;
     pointer-events: none;
+}
+
+p {
+    font-family: 'Poppins', sans-serif;
 }
