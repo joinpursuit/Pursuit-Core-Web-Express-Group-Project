@@ -1,6 +1,23 @@
-body {
-    background-color: #6D85CC;
-    margin: 0px;
+body { margin: 0; background:#D1CDC2; }
+
+#logoSection {
+    display: flex;
+    flex-direction: row;
+    background-image: linear-gradient(#592185, #FAC346);
+    color: rgb(85,37,130);
+    text-align: center;
+    align-items: center;
+    border-bottom: 1px solid black;
+    justify-content: space-between;
+}
+
+#logo {
+    width: 40%;
+}
+
+#headerName {
+    width: 22%;
+    margin-right: 39%;
 }
 
 nav {
