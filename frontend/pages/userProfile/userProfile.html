@@ -9,69 +9,56 @@
     <script src="./../userProfile/src/userProfile.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Exo+2|Poppins&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="./assets/userProfile.css">
 </head>
 
 <body>
-    <main>
-        <section class="grid-container">
-            <section class="header">
-                <section class="logo">
-                    <img id="logoHead" src="../../assets/hotboxLogo.png" alt="">
+    
+        <header>
+                <section id="logoSection">
+                    <section class="logoNav">
+                        <img src="./../bets/assets/hotboxLogo.png" alt="" id="logo"> 
+                    </section>
+                    <img src="./../bets/assets/Hotbox.png" alt="" id="headerName">
                 </section>
-                <section class="projectName">
-                    <img id="projName" src="../../assets/projName.png" alt=""">
-                     </section>
-                        </section>
-                        <section class=" navBar">
+
+                <section id="navBar">
                     <nav>
-                        <a href="./../../index.html">Home</a>
-                        <a href="./../bets/bets.html" class="leftBorder">Bets</a>
-                        <a href="./userProfile.html" class="leftBorder">Profile</a>
-                        <input type="text" name="search" id="search" placeholder="Search">
+                        <a class="nav" href="./../../index.html">Home</a>
+                        <a class="nav leftBorder" href="./../bets/bets.html">Bets</a>
+                        <a class="nav leftBorder" href="./../userProfile/userProfile.html">Profile</a>
+                        <form id="searchForm"><input type="search" name="search" id="search" placeholder="Search"></form>
                     </nav>
                 </section>
-                <section class="container">
-                    <section class="profilePic">
-                        <h1>Pic</h1>
-                    </section>
-                    <section class="userPost">
-                        <section class="createBanner">
-                            <h1>Create A Post</h1>
+            </header>
+
+            <main>
+                <section id="flex-container">
+                    <section id="leftSide">
+                        <section class="profilePic">
+                            <h1>Profile Pic</h1>
                         </section>
-                        <section class="userInput">
-                            <form id="postForm">
-                                <input id="postIn" type="text" placeholder="Say Something Hot!">
-                                <button>Submit</button>
-                            </form>
-                            <section class="usersPosts">
-                                <h1>Posts</h1>
+                    </section>
+                    <section id="userInfo">
+                            <section class="profileInfo">
+                                <h1>User Info</h1>
                             </section>
                         </section>
+
+                <section id="posts">
+                    <section class="makePost">
+                        <form action="" id="postForm">
+                            <input type="text" placeholder="Say Something Hot!" id="userInput">
+                            <input type="submit" value="Post">
+                        </form>
+                        <h1>Post Feed</h1>
                     </section>
-                    <section class="UserInfo">
-                        <section class="Name">
-                            <h1>Name</h1>
-                            <h1 id="displayName"></h1>
-                        </section>
-                        <section class="hotboxRecord">
-                            <h1>Hotbox-Record</h1>
-                            <h1 id="displayRecord"></h1>
-                        </section>
-                        <section class="Followers">
-                            <h1>Followers</h1>
-                            <h1 id="displayFollowers"></h1>
-                        </section>
-                        <section class="Followed">
-                            <h1>Followed</h1>
-                            <h1 id="displayFollowed"></h1>
-                        </section>
+                
+                    <section class="postFeed">
                     </section>
-                </section>
+                </section> 
             </section>
-    </main>
 
-</body>
+        </main>
 
-</html>
+</html>    
