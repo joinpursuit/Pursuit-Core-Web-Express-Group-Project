@@ -82,7 +82,9 @@ const populateNewsFeed = async () => {
     form.addEventListener("submit", (e) => {
         e.preventDefault()
         let addComment = e.target.children[0].value
-
+        let p = document.createElement("p")
+        p.innerText = addComment
+        
         
         debugger
     })
