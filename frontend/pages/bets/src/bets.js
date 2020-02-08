@@ -39,8 +39,14 @@ const getUpcomingGames = (data) => {
 
 } // End of getUpcomingGames() function
 
-const takeBet = (e) => {
-    debugger;
+const takeBet = async (e) => {
+    let betId = e.target.parentNode.id;
+    try {
+        let res = await axios.get("http://localhost:3000/bets/" + betId);
+        debugger;
+    } catch(err) {
+        console.log(err);
+    }
 } // End of takeBet() function
 
 const populateBetsFeed = (data) => {
