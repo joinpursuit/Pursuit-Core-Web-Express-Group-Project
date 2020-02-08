@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // sessionStorage.clear()
+    sessionStorage.clear();
     let signUpbtn = document.querySelector("#signUp");
     let logInBtn = document.querySelector("#alreadyUser");
     let logIn = document.querySelector('#formlogin');
@@ -28,7 +28,6 @@ document.addEventListener("DOMContentLoaded", () => {
             
             let res = await axios.post("http://localhost:3000/users/" + username, {username, password });
             let user = res.data.user;
-            debugger
             sessionStorage.setItem("currentUser", user.id);
             sessionStorage.setItem("currentUsername", user.username);
             sessionStorage.setItem("currentPassword", user.password);
